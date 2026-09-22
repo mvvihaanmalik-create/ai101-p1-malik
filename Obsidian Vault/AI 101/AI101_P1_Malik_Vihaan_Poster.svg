@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Poster: nine pinned sheets on a wall, each framing an iterating crescent motif">
+
+  <!--
+    AI 101 / Project 1 - Student AI-Art Pin-Up
+    Concept: "The Crit Wall"
+
+    Nine sheets pinned to a wall, each tilted off-axis. Every sheet frames a
+    circular aperture (device borrowed from the Open Cosmos poster series).
+    Inside each aperture sits the crescent-and-dot mark from the Sereth
+    Design / Atlas Therapy glyph system.
+
+    Read left to right, top to bottom, the crescent iterates: loose fragments,
+    a blocky approximation, an over-corrected pass, then a resolved mark.
+    The ninth sheet turns vermilion - the result that got kept.
+
+    Three colors, taken from the context-kit palette board:
+      forest    #384640   wall, apertures
+      butter    #FFE8A1   sheets, glyphs
+      vermilion #F56543   pins, final result
+  -->
+
+  <!-- ============ WALL ============ -->
+  <rect x="0" y="0" width="1200" height="1200" fill="#384640"/>
+
+  <!-- ============ ROW 1 ============ -->
+
+  <!-- sheet 1 - scattered fragments, no read yet -->
+  <g transform="rotate(-1.8 240 240)">
+    <rect x="90" y="85" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="240" cy="250" r="100" fill="#384640"/>
+    <rect x="194" y="210" width="36" height="36" fill="#FFE8A1"/>
+    <rect x="244" y="244" width="28" height="28" fill="#FFE8A1"/>
+    <rect x="222" y="280" width="20" height="20" fill="#FFE8A1"/>
+    <circle cx="240" cy="113" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- sheet 2 - fragments gathering along an arc -->
+  <g transform="rotate(1.2 600 240)">
+    <rect x="450" y="85" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="600" cy="250" r="100" fill="#384640"/>
+    <rect x="559" y="274" width="22" height="22" fill="#FFE8A1"/>
+    <rect x="544" y="247" width="22" height="22" fill="#FFE8A1"/>
+    <rect x="549" y="216" width="22" height="22" fill="#FFE8A1"/>
+    <rect x="573" y="196" width="22" height="22" fill="#FFE8A1"/>
+    <circle cx="600" cy="113" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- sheet 3 - coarse faceted crescent -->
+  <g transform="rotate(-0.7 960 240)">
+    <rect x="810" y="85" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="960" cy="250" r="100" fill="#384640"/>
+    <polygon points="941,197 909,226 907,269 936,301 964,281 946,262 947,236 966,218" fill="#FFE8A1"/>
+    <circle cx="960" cy="113" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- ============ ROW 2 ============ -->
+
+  <!-- sheet 4 - crescent too heavy, dot missing -->
+  <g transform="rotate(2.1 240 605)">
+    <rect x="90" y="450" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="240" cy="615" r="100" fill="#384640"/>
+    <circle cx="240" cy="615" r="56" fill="#FFE8A1"/>
+    <circle cx="266" cy="609" r="40" fill="#384640"/>
+    <circle cx="240" cy="478" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- sheet 5 - crescent thinning, dot in the wrong place -->
+  <g transform="rotate(-1.4 600 605)">
+    <rect x="450" y="450" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="600" cy="615" r="100" fill="#384640"/>
+    <circle cx="600" cy="615" r="56" fill="#FFE8A1"/>
+    <circle cx="622" cy="607" r="46" fill="#384640"/>
+    <circle cx="640" cy="649" r="13" fill="#FFE8A1"/>
+    <circle cx="600" cy="478" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- sheet 6 - dot over-corrected, now too large -->
+  <g transform="rotate(0.9 960 605)">
+    <rect x="810" y="450" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="960" cy="615" r="100" fill="#384640"/>
+    <circle cx="960" cy="615" r="54" fill="#FFE8A1"/>
+    <circle cx="980" cy="605" r="44" fill="#384640"/>
+    <circle cx="994" cy="589" r="24" fill="#FFE8A1"/>
+    <circle cx="960" cy="478" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- ============ ROW 3 ============ -->
+
+  <!-- sheet 7 - close, dot slightly small -->
+  <g transform="rotate(1.6 240 970)">
+    <rect x="90" y="815" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="240" cy="980" r="100" fill="#384640"/>
+    <circle cx="240" cy="980" r="54" fill="#FFE8A1"/>
+    <circle cx="260" cy="968" r="44" fill="#384640"/>
+    <circle cx="270" cy="946" r="10" fill="#FFE8A1"/>
+    <circle cx="240" cy="843" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- sheet 8 - near final -->
+  <g transform="rotate(-2.2 600 970)">
+    <rect x="450" y="815" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="600" cy="980" r="100" fill="#384640"/>
+    <circle cx="600" cy="980" r="54" fill="#FFE8A1"/>
+    <circle cx="619" cy="967" r="44" fill="#384640"/>
+    <circle cx="626" cy="948" r="14" fill="#FFE8A1"/>
+    <circle cx="600" cy="843" r="9" fill="#F56543"/>
+  </g>
+
+  <!-- sheet 9 - the one that got kept -->
+  <g transform="rotate(0.4 960 970)">
+    <rect x="810" y="815" width="300" height="310" fill="#FFE8A1"/>
+    <circle cx="960" cy="980" r="100" fill="#F56543"/>
+    <circle cx="960" cy="980" r="54" fill="#FFE8A1"/>
+    <circle cx="978" cy="966" r="44" fill="#F56543"/>
+    <circle cx="988" cy="947" r="15" fill="#FFE8A1"/>
+    <circle cx="960" cy="843" r="9" fill="#F56543"/>
+  </g>
+
+</svg>

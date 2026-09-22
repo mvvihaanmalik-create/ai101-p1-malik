@@ -1,0 +1,8 @@
+# Keep vault content public, but never commit local agent sessions or machine state.
+Obsidian Vault/.claudian/
+Obsidian Vault/.claudian-plus/
+Obsidian Vault/.obsidian/workspace.json
+Obsidian Vault/.obsidian/plugins/
+*.env
+*.pem
+*.key

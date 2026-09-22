@@ -1,0 +1,1 @@
+Claude and Codex generated and revised poster concepts from my prompts, while I assembled the context kit, set the constraints and art direction, made the keep/reject decisions, and posterised the selected image to its exact final three-colour palette.
