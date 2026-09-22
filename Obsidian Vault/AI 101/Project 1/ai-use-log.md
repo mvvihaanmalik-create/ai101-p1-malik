@@ -318,6 +318,11 @@ from Round 7 on, re-running the same brief for comparison.
 - **Decision:** **Keep the prepared copy; do not publish local session state**
   - this respects the explicit public-upload request without turning app
   telemetry and machine-specific state into public project artifacts.
+- **Upload result:** Pushed the prepared vault copy to the repository's `main`
+  branch and verified that the remote branch points to commit
+  `1801db01fb5223de830f8f6d0dbe5d8343b00091`. The repository is public.
+  This upload does not verify that the instructor has been invited or that
+  externally sourced reference images are cleared for public redistribution.
 
 ### Notes carried forward
 
