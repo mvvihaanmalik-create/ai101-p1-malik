@@ -344,7 +344,9 @@ from Round 7 on, re-running the same brief for comparison.
 - **Decision:** **Keep** - the task is registered and tested, while guarded
   sync logic preserves the public/private boundary. It depends on this PC
   being available and GitHub authentication/network access continuing to work;
-  a missed run is configured to start when the computer becomes available.
+  it is configured to wake a sleeping PC and to start when available after a
+  missed run. A second manually started task pushed this setup entry and
+  verified remote commit `26acc98ccca87e931fc3a8d5aa07a7011310efb0`.
 
 ### Notes carried forward
 
