@@ -324,6 +324,28 @@ from Round 7 on, re-running the same brief for comparison.
   This upload does not verify that the instructor has been invited or that
   externally sourced reference images are cleared for public redistribution.
 
+### 2026-09-22, Class 3 - recurring repository sync setup (Codex)
+
+- **Context:** I asked for repository updates after every Tuesday and Thursday
+  class at 5:00 p.m. The source is this Obsidian vault; the destination is the
+  public `mvvihaanmalik-create/ai101-p1-malik` GitHub repository.
+- **Instruction and direction:** Set up a twice-weekly unattended sync at
+  5:00 p.m. Eastern time. Keep the same public-content boundary used for the
+  first upload: sync notes, art, context-kit files, and safe Obsidian settings,
+  but exclude local Claudian sessions, device identifiers, plugins, and
+  workspace state. Fail rather than push if the source looks incomplete, a
+  potential credential appears, or a large unexpected deletion occurs.
+- **Came back:** A persistent local Git clone and PowerShell sync script were
+  created outside the vault, and a Windows task named `AI101 Vault GitHub
+  Sync` was scheduled weekly on Tuesday and Thursday at 5:00 p.m. The next
+  scheduled run is Thursday, 2026-09-24 at 5:00 p.m. A dry run and a manually
+  started task both returned success; there were no vault changes in those
+  tests. Each run writes a timestamped result to the local sync log.
+- **Decision:** **Keep** - the task is registered and tested, while guarded
+  sync logic preserves the public/private boundary. It depends on this PC
+  being available and GitHub authentication/network access continuing to work;
+  a missed run is configured to start when the computer becomes available.
+
 ### Notes carried forward
 
 - Round 7 is a tool comparison, not a new direction. The thing worth recording
