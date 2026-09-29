@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="Abstract flat-shape poster in three colors">
+
+  <!-- Palette: exactly three colors
+       paper     #F2E8DC
+       ink       #16233A
+       vermilion #E2483D -->
+
+  <!-- ground -->
+  <rect x="0" y="0" width="1000" height="1000" fill="#F2E8DC"/>
+
+  <!-- base band -->
+  <rect x="0" y="880" width="1000" height="120" fill="#16233A"/>
+
+  <!-- vertical mast (partly eclipsed by the disc below) -->
+  <rect x="130" y="80" width="72" height="560" fill="#16233A"/>
+
+  <!-- dominant disc, rising out of the band -->
+  <circle cx="380" cy="640" r="280" fill="#16233A"/>
+
+  <!-- half-disc, flat edge up, overlapping the disc -->
+  <path d="M495,400 A215,215 0 0 0 925,400 Z" fill="#E2483D"/>
+
+  <!-- counterweight dot, capping the mast -->
+  <circle cx="166" cy="140" r="54" fill="#E2483D"/>
+
+  <!-- notch interrupting the base band -->
+  <rect x="740" y="880" width="180" height="120" fill="#E2483D"/>
+
+</svg>

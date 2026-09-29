@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Poster: a hand-drawn eye with a spiral iris over a gradient field, surrounded by sketched glyphs, titled Student AI-Art Pin-Up">
+
+  <!--
+    AI 101 / Project 1 - Student AI-Art Pin-Up
+    Concept: "The Machine Eye"
+
+    A sketchbook page at poster scale. Hand-drawn ink over a deep gradient
+    field: a large eye whose iris is a spiral (the generative gaze), ringed by
+    bespoke sketched glyphs for student making - stylus, push-pin, sprout,
+    spark, mountains, waves. Loose hand line against precise grotesque type.
+
+    Palette rooted in the context-kit board:
+      forest    #384640  (field, deepened to #121A17 for gradient depth)
+      butter    #FFE8A1  (ink, type)
+      vermilion #F56543  (glow, iris, accent)
+  -->
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0"    stop-color="#121A17"/>
+      <stop offset="0.45" stop-color="#2C3B34"/>
+      <stop offset="0.78" stop-color="#384640"/>
+      <stop offset="1"    stop-color="#17211D"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"    stop-color="#F56543" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#F56543" stop-opacity="0.22"/>
+      <stop offset="1"    stop-color="#F56543" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="iris" cx="0.38" cy="0.32" r="0.75">
+      <stop offset="0"    stop-color="#FFE8A1"/>
+      <stop offset="0.52" stop-color="#FAA96B"/>
+      <stop offset="1"    stop-color="#F56543"/>
+    </radialGradient>
+
+    <linearGradient id="typeGrad" x1="0" y1="0" x2="1" y2="0.6">
+      <stop offset="0"    stop-color="#FFE8A1"/>
+      <stop offset="0.55" stop-color="#FFD98A"/>
+      <stop offset="1"    stop-color="#F56543"/>
+    </linearGradient>
+
+    <linearGradient id="ruleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#FFE8A1" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFE8A1" stop-opacity="0.85"/>
+      <stop offset="1"   stop-color="#FFE8A1" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+
+    <!-- ===== bespoke sketch glyphs, drawn loose around origin ===== -->
+    <g id="g-crescent" fill="none" stroke="#FFE8A1" stroke-width="3.4" stroke-linecap="round">
+      <path d="M7,-25 C-16,-19 -24,3 -9,21"/>
+      <path d="M7,-25 C-5,-14 -8,5 -9,21"/>
+      <circle cx="19" cy="-13" r="3.6" fill="#FFE8A1" stroke="none"/>
+    </g>
+
+    <g id="g-spiral" fill="none" stroke="#FFE8A1" stroke-width="3.2" stroke-linecap="round">
+      <path d="M1,1 C5,-4 11,-1 10,5 C9,13 1,16 -6,11 C-15,5 -16,-6 -8,-13 C2,-22 17,-19 22,-9"/>
+    </g>
+
+    <g id="g-waves" fill="none" stroke="#FFE8A1" stroke-width="3.2" stroke-linecap="round">
+      <path d="M-26,-9 C-18,-18 -9,1 -1,-8 C7,-17 15,1 25,-9"/>
+      <path d="M-25,2 C-16,-7 -8,11 0,2 C8,-6 16,11 26,1"/>
+      <path d="M-26,13 C-17,4 -9,21 -1,12 C7,4 15,21 25,12"/>
+    </g>
+
+    <g id="g-sun" fill="none" stroke="#FFE8A1" stroke-width="3.2" stroke-linecap="round">
+      <circle cx="0" cy="0" r="8.5"/>
+      <path d="M0,-14 L1,-25"/><path d="M10,-10 L18,-19"/>
+      <path d="M14,0 L26,-1"/><path d="M10,10 L19,17"/>
+      <path d="M0,14 L-1,24"/><path d="M-10,10 L-18,18"/>
+      <path d="M-14,0 L-25,1"/><path d="M-10,-10 L-17,-18"/>
+    </g>
+
+    <g id="g-mountain" fill="none" stroke="#FFE8A1" stroke-width="3.4" stroke-linecap="round">
+      <path d="M-29,15 C-20,2 -13,-9 -9,-15 C-5,-8 -1,0 2,5 C6,-2 10,-8 13,-9 C19,0 25,9 29,15"/>
+      <circle cx="16" cy="-21" r="4" fill="#FFE8A1" stroke="none"/>
+    </g>
+
+    <g id="g-sprout" fill="none" stroke="#FFE8A1" stroke-width="3.2" stroke-linecap="round">
+      <path d="M0,23 C1,9 2,-4 0,-19"/>
+      <path d="M0,3 C-11,1 -17,-7 -16,-16 C-7,-16 -1,-9 0,1"/>
+      <path d="M1,-7 C10,-10 15,-17 14,-25 C6,-24 1,-17 1,-8"/>
+    </g>
+
+    <g id="g-flower" fill="none" stroke="#FFE8A1" stroke-width="3" stroke-linecap="round">
+      <path d="M0,-6 C-9,-19 9,-19 0,-6"/>
+      <path d="M0,-6 C-9,-19 9,-19 0,-6" transform="rotate(72)"/>
+      <path d="M0,-6 C-9,-19 9,-19 0,-6" transform="rotate(144)"/>
+      <path d="M0,-6 C-9,-19 9,-19 0,-6" transform="rotate(216)"/>
+      <path d="M0,-6 C-9,-19 9,-19 0,-6" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="3.4" fill="#FFE8A1" stroke="none"/>
+    </g>
+
+    <g id="g-rings" fill="none" stroke="#FFE8A1" stroke-width="3.1" stroke-linecap="round">
+      <path d="M-8,-22 C10,-25 24,-11 22,6 C20,21 6,27 -8,23 C-23,19 -28,3 -22,-9 C-19,-16 -14,-20 -9,-22"/>
+      <path d="M-4,-13 C8,-15 16,-6 15,3 C14,12 5,17 -3,14 C-13,11 -16,1 -12,-7"/>
+      <circle cx="1" cy="1" r="4.2" fill="#FFE8A1" stroke="none"/>
+    </g>
+
+    <g id="g-spark" fill="none" stroke="#FFE8A1" stroke-width="3.3" stroke-linecap="round">
+      <path d="M-3,-25 C1,-14 4,-8 7,-5 C2,-4 -2,-3 -5,-1 C-1,7 2,15 5,24"/>
+      <path d="M-18,-12 L-24,-17"/><path d="M18,-10 L25,-15"/>
+      <path d="M-17,12 L-24,16"/>
+    </g>
+
+    <g id="g-eye-small" fill="none" stroke="#FFE8A1" stroke-width="3.2" stroke-linecap="round">
+      <path d="M-21,1 C-11,-13 11,-14 21,0"/>
+      <path d="M-21,1 C-11,12 11,12 21,0"/>
+      <circle cx="0" cy="-1" r="5" fill="#FFE8A1" stroke="none"/>
+      <path d="M-14,-11 L-17,-18"/><path d="M0,-15 L0,-23"/><path d="M14,-11 L18,-18"/>
+    </g>
+
+    <g id="g-stylus" fill="none" stroke="#FFE8A1" stroke-width="3.4" stroke-linecap="round">
+      <path d="M-13,19 L9,-14"/>
+      <path d="M-13,19 L-18,25 L-9,23 Z" fill="#FFE8A1" stroke="none"/>
+      <path d="M2,-4 L-6,-9"/>
+      <path d="M9,-14 C12,-19 15,-22 18,-24"/>
+      <path d="M14,8 L22,6"/><path d="M12,16 L19,17"/>
+    </g>
+
+    <g id="g-pin" fill="none" stroke="#FFE8A1" stroke-width="3.2" stroke-linecap="round">
+      <circle cx="0" cy="-11" r="8" fill="#FFE8A1" stroke="none"/>
+      <path d="M0,-3 C1,4 1,12 0,22"/>
+      <path d="M-9,-16 C-13,-20 -13,-25 -9,-27"/>
+    </g>
+  </defs>
+
+  <!-- ===================== FIELD ===================== -->
+  <rect x="0" y="0" width="1200" height="1200" fill="url(#sky)"/>
+  <ellipse cx="600" cy="405" rx="470" ry="410" fill="url(#glow)"/>
+
+  <!-- compass guide arcs, the sketchbook underdrawing -->
+  <g fill="none" stroke="#FFE8A1" stroke-opacity="0.09" stroke-width="2">
+    <circle cx="600" cy="405" r="298" stroke-dasharray="10 14"/>
+    <circle cx="600" cy="405" r="362"/>
+    <circle cx="600" cy="405" r="418" stroke-dasharray="3 20"/>
+  </g>
+
+  <!-- ===================== GLYPH CONSTELLATION ===================== -->
+  <g stroke-opacity="0.9">
+    <use href="#g-crescent"  transform="translate(168 196) rotate(-9) scale(1.15)"/>
+    <use href="#g-spiral"    transform="translate(362 126) rotate(6) scale(1)"/>
+    <use href="#g-waves"     transform="translate(600 116) scale(0.95)" stroke-opacity="0.75"/>
+    <use href="#g-sun"       transform="translate(842 140) rotate(4) scale(1.05)"/>
+    <use href="#g-mountain"  transform="translate(1040 214) rotate(-5) scale(1.05)"/>
+    <use href="#g-rings"     transform="translate(118 404) rotate(8) scale(1.1)"/>
+    <use href="#g-flower"    transform="translate(1084 418) rotate(-12) scale(1.15)"/>
+    <use href="#g-sprout"    transform="translate(176 606) rotate(-6) scale(1.1)"/>
+    <use href="#g-spark"     transform="translate(1024 612) rotate(7) scale(1.05)"/>
+    <use href="#g-eye-small" transform="translate(330 692) rotate(-4) scale(0.92)" stroke-opacity="0.8"/>
+    <use href="#g-stylus"    transform="translate(872 690) rotate(5) scale(1.05)"/>
+    <use href="#g-pin"       transform="translate(600 690) rotate(-3) scale(0.95)" stroke-opacity="0.8"/>
+  </g>
+
+  <!-- ===================== THE MACHINE EYE ===================== -->
+  <g transform="translate(600 405)">
+
+    <!-- warm bloom behind the iris -->
+    <circle cx="0" cy="0" r="104" fill="#F56543" opacity="0.5" filter="url(#soft)"/>
+
+    <!-- lashes / rays, hand-struck -->
+    <g fill="none" stroke="#FFE8A1" stroke-width="4" stroke-linecap="round" stroke-opacity="0.85">
+      <path d="M-196,-62 C-206,-74 -214,-84 -224,-92"/>
+      <path d="M-141,-96 C-149,-110 -155,-122 -161,-134"/>
+      <path d="M-74,-118 C-79,-134 -82,-148 -85,-162"/>
+      <path d="M0,-126 C0,-143 1,-158 2,-173"/>
+      <path d="M74,-118 C79,-134 83,-147 87,-161"/>
+      <path d="M141,-96 C150,-109 157,-121 164,-132"/>
+      <path d="M196,-62 C207,-72 216,-82 226,-90"/>
+      <path d="M-186,68 C-197,79 -206,88 -216,95"/>
+      <path d="M0,124 C0,140 -1,153 -2,167"/>
+      <path d="M186,68 C197,78 207,87 217,94"/>
+    </g>
+
+    <!-- upper lid, doubled for a drawn feel -->
+    <path d="M-232,6 C-176,-104 -74,-146 4,-146 C86,-146 180,-100 232,4"
+          fill="none" stroke="#FFE8A1" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M-214,-4 C-160,-96 -68,-134 4,-135 C80,-136 168,-94 216,-8"
+          fill="none" stroke="#FFE8A1" stroke-width="2.6" stroke-opacity="0.5" stroke-linecap="round"/>
+
+    <!-- lower lid -->
+    <path d="M-232,6 C-178,102 -80,142 2,142 C88,142 182,98 232,4"
+          fill="none" stroke="#FFE8A1" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M-206,18 C-156,92 -74,126 2,127 C82,128 164,90 208,14"
+          fill="none" stroke="#FFE8A1" stroke-width="2.4" stroke-opacity="0.42" stroke-linecap="round"/>
+
+    <!-- iris -->
+    <circle cx="0" cy="-2" r="92" fill="url(#iris)"/>
+    <circle cx="0" cy="-2" r="92" fill="none" stroke="#FFE8A1" stroke-width="4.5" stroke-opacity="0.95"/>
+
+    <!-- the spiral pupil: the generative gaze -->
+    <path d="M6,-6 C22,-10 34,4 30,22 C25,44 2,53 -19,44 C-45,33 -52,2 -37,-21 C-19,-48 19,-54 42,-36 C58,-24 65,-8 64,8"
+          fill="none" stroke="#121A17" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="6" cy="-6" r="7" fill="#121A17"/>
+
+    <!-- catchlight -->
+    <circle cx="-44" cy="-44" r="13" fill="#FFE8A1" opacity="0.9"/>
+    <circle cx="-26" cy="-58" r="5" fill="#FFE8A1" opacity="0.6"/>
+  </g>
+
+  <!-- ===================== TYPOGRAPHY ===================== -->
+
+  <!-- corner micro-labels, Open Cosmos cadence -->
+  <text x="78" y="82" font-family="'Courier New',Courier,monospace" font-size="21"
+        letter-spacing="4.2" fill="#FFE8A1" fill-opacity="0.72">AI 101 &#183; PROJECT 01</text>
+  <text x="1122" y="82" text-anchor="end" font-family="'Courier New',Courier,monospace" font-size="21"
+        letter-spacing="4.2" fill="#FFE8A1" fill-opacity="0.72">UX DESIGN &#183; JUNIOR</text>
+
+  <!-- kicker -->
+  <text x="600" y="806" text-anchor="middle" font-family="'Courier New',Courier,monospace"
+        font-size="27" letter-spacing="15" fill="#FFE8A1" fill-opacity="0.9">STUDENT</text>
+
+  <!-- display -->
+  <text x="600" y="946" text-anchor="middle"
+        font-family="'Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-weight="900" font-size="176" letter-spacing="-5" fill="url(#typeGrad)">AI-ART</text>
+  <text x="600" y="1078" text-anchor="middle"
+        font-family="'Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-weight="900" font-size="176" letter-spacing="-5" fill="#FFE8A1">PIN-UP</text>
+
+  <!-- hairline rule -->
+  <rect x="300" y="1112" width="600" height="1.6" fill="url(#ruleGrad)"/>
+
+  <!-- footer -->
+  <text x="600" y="1152" text-anchor="middle" font-family="'Courier New',Courier,monospace"
+        font-size="20" letter-spacing="5.5" fill="#FFE8A1" fill-opacity="0.78">MAKE, THEN COMPARE</text>
+
+  <!-- ===================== GRAIN ===================== -->
+  <rect x="0" y="0" width="1200" height="1200" filter="url(#grain)" opacity="0.15"
+        style="mix-blend-mode:overlay" pointer-events="none"/>
+
+</svg>

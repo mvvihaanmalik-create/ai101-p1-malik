@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Poster: a gallery wall elevation with three hung canvases above three plinth-mounted sculptures, rendered in three flat colours">
+
+  <!--
+    AI 101 / Project 1 - Student AI-Art Pin-Up
+    Concept: "Elevation" - an exhibit rendered as flat shapes
+
+    No eye, no glyph vocabulary. The subject is now the exhibit itself: a wall
+    elevation with three canvases hung above three plinth-mounted objects.
+
+    THREE COLOURS, assigned by role exactly as briefed:
+      wall    #FFE8A1   the single ground plane
+      object  #F56543   every lit surface - canvases, plinths, sculptures
+      shadow  #000000   every shadow, without exception
+
+    No gradients, no opacity, no filters. Volume comes only from black:
+    cast shadows behind the canvases, a dark interior in the cylinder, a
+    terminator crescent on the sphere, contact ellipses under each plinth.
+
+    Drawn from the new references:
+      - Pole / Timofey: a rhythm of three, each object grounded by a hard
+        elliptical shadow; depth from one flat plane.
+      - Russian Contemporary Art Week: volume built from flat shapes with
+        black carrying the shadow - dark vessel interiors, terminator sides.
+      - TijanaT / DJ Seinfeld: full-bleed colour field, hard edges only.
+
+    Grid: three columns on centres 300 / 600 / 900.
+  -->
+
+  <defs>
+    <clipPath id="c1"><rect x="180" y="190" width="240" height="300"/></clipPath>
+    <clipPath id="c2"><rect x="480" y="190" width="240" height="300"/></clipPath>
+    <clipPath id="c3"><rect x="780" y="190" width="240" height="300"/></clipPath>
+  </defs>
+
+  <!-- ===================== WALL ===================== -->
+  <rect x="0" y="0" width="1200" height="1200" fill="#FFE8A1"/>
+
+  <!-- ===================== HANGING PINS ===================== -->
+  <circle cx="300" cy="160" r="10" fill="#F56543"/>
+  <circle cx="600" cy="160" r="10" fill="#F56543"/>
+  <circle cx="900" cy="160" r="10" fill="#F56543"/>
+
+  <!-- ===================== CANVAS 1 - cropped arc ===================== -->
+  <rect x="198" y="208" width="240" height="300" fill="#000000"/>
+  <rect x="180" y="190" width="240" height="300" fill="#F56543"/>
+  <g clip-path="url(#c1)">
+    <circle cx="300" cy="470" r="135" fill="#000000"/>
+  </g>
+
+  <!-- ===================== CANVAS 2 - wedge and disc ===================== -->
+  <rect x="498" y="208" width="240" height="300" fill="#000000"/>
+  <rect x="480" y="190" width="240" height="300" fill="#F56543"/>
+  <g clip-path="url(#c2)">
+    <polygon points="480,490 720,270 720,490" fill="#000000"/>
+    <circle cx="545" cy="255" r="36" fill="#000000"/>
+  </g>
+
+  <!-- ===================== CANVAS 3 - stacked bars ===================== -->
+  <rect x="798" y="208" width="240" height="300" fill="#000000"/>
+  <rect x="780" y="190" width="240" height="300" fill="#F56543"/>
+  <g clip-path="url(#c3)">
+    <rect x="780" y="260" width="240" height="30" fill="#000000"/>
+    <rect x="780" y="330" width="240" height="58" fill="#000000"/>
+    <rect x="780" y="428" width="240" height="22" fill="#000000"/>
+  </g>
+
+  <!-- ===================== PLINTHS ===================== -->
+  <!-- contact shadows first, so the plinths sit on top of them -->
+  <ellipse cx="300" cy="1044" rx="112" ry="15" fill="#000000"/>
+  <ellipse cx="600" cy="1044" rx="112" ry="15" fill="#000000"/>
+  <ellipse cx="900" cy="1044" rx="112" ry="15" fill="#000000"/>
+
+  <rect x="215" y="922" width="170" height="118" fill="#F56543"/>
+  <rect x="359" y="922" width="26"  height="118" fill="#000000"/>
+
+  <rect x="515" y="922" width="170" height="118" fill="#F56543"/>
+  <rect x="659" y="922" width="26"  height="118" fill="#000000"/>
+
+  <rect x="815" y="922" width="170" height="118" fill="#F56543"/>
+  <rect x="959" y="922" width="26"  height="118" fill="#000000"/>
+
+  <!-- ===================== OBJECT 1 - open cylinder ===================== -->
+  <!-- body, shadow side, then the dark interior read as an ellipse -->
+  <rect x="235" y="740" width="130" height="182" fill="#F56543"/>
+  <rect x="339" y="740" width="26"  height="182" fill="#000000"/>
+  <ellipse cx="300" cy="740" rx="65" ry="21" fill="#000000"/>
+
+  <!-- ===================== OBJECT 2 - sphere ===================== -->
+  <!-- black disc beneath, lit disc offset up-left, leaving a terminator -->
+  <circle cx="600" cy="832" r="90" fill="#000000"/>
+  <circle cx="590" cy="822" r="80" fill="#F56543"/>
+
+  <!-- ===================== OBJECT 3 - dome ===================== -->
+  <path d="M805,922 A95,95 0 0 1 995,922 Z" fill="#F56543"/>
+  <ellipse cx="900" cy="926" rx="92" ry="12" fill="#000000"/>
+
+</svg>
