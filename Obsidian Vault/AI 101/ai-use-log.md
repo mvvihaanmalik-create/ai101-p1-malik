@@ -449,3 +449,19 @@ September 29.
 - **Decision/status:** **Fix** — the table recommends narrowing the wording to
   code-reading skills helping non-technical people use code LLMs more
   effectively, rather than making a broader claim about coding knowledge.
+
+## 2026-10-01 — Project 2 research brief
+
+- **Tool/context:** I used the already verified Source 1 entry in
+  [[AI 101/Project 2/source-verification-log.md.md]] and the Project 2 intent
+  note to replace the research-brief template placeholders.
+- **Instruction and direction:** I was asked to update the brief; the template
+  requires a research question, short answer, evidence-based claim, corrected
+  claim, workflow impact, and a concrete rule/check.
+- **Came back:** [[AI 101/Project 2/research-brief.md.md]] now focuses on the
+  verified code-literacy finding from Feldman and Anderson. It distinguishes
+  the study's claim from my workflow inference and names `workflow-checklist.md`
+  as the planned step file for a pre-expansion explanation-and-test checkpoint.
+- **Decision/status:** **Use as a working brief** — it answers the feasibility
+  concern without presenting the proposed workflow safeguard as a finding the
+  study directly tested.
