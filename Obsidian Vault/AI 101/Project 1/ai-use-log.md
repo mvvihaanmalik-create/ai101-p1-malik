@@ -437,3 +437,15 @@ September 29.
   summaries are grounded in the accessible paper PDFs rather than inferred
   from the older copied excerpts. The other candidate links in the Project 2
   intent note were not part of this two-paragraph verification.
+
+### Project 2 claim check
+
+- **Instruction and direction:** I was asked to add and complete a claim-check
+  table in [[AI 101/Project 2/source-verification-log.md.md]], quoting the
+  source sentence and assigning a status and keep/fix/drop decision.
+- **Came back:** I added a check of the claim that coding knowledge could help
+  non-technical people, using a sentence from the Feldman and Anderson paper
+  about how inability to read code or errors limits prompt improvement.
+- **Decision/status:** **Fix** — the table recommends narrowing the wording to
+  code-reading skills helping non-technical people use code LLMs more
+  effectively, rather than making a broader claim about coding knowledge.
