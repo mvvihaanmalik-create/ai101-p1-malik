@@ -348,6 +348,60 @@ from Round 7 on, re-running the same brief for comparison.
   missed run. A second manually started task pushed this setup entry and
   verified remote commit `26acc98ccca87e931fc3a8d5aa07a7011310efb0`.
 
+## 2026-09-29, Class 5 — Project 2 framing (backfilled 2026-10-01)
+
+This entry was reconstructed from vault file timestamps, the current notes,
+and Git history on October 1. It records what those sources establish; I do
+not have a record of every classroom conversation or every AI prompt used on
+September 29.
+
+### Project 1 folder cleanup
+
+- **Tool/context:** Obsidian vault organization; no AI generation is evidenced
+  by the files. Around 5:04 p.m., existing Project 1 poster iterations,
+  supporting notes, and the copied assignment brief were consolidated under
+  [[AI 101/Project 1]]. The AI use log's links to those files changed from
+  vault-prefixed paths to shorter links after the reorganization.
+- **Input/direction:** Existing Project 1 materials were being gathered in one
+  project folder rather than left loose in the `AI 101` folder.
+- **Output:** The poster variants and supporting files are now together under
+  [[AI 101/Project 1]]; the two AI use log copies were modified at 5:04 p.m.
+- **Decision/status:** **Keep as current organization** — it makes the Project 1
+  record easier to find. The files do not record a separate verbal decision
+  from class, so this is the present status rather than a quoted class critique.
+
+### Project 2 question and candidate sources
+
+- **Tool/context:** The notes themselves do not identify an AI tool or preserve
+  a prompt/response for this step. A new [[AI 101/Project 2]] folder appeared
+  around 5:05 p.m., and [[AI 101/Project 2/intent.md.md]] was created at
+  6:00 p.m. and edited through 6:27 p.m.
+- **Input/direction:** I described a recurring problem in AI-assisted coding:
+  starting with an exciting idea, trusting an early LLM-approved prototype,
+  then discovering too late that the toolchain, operating system, time, or
+  token budget makes the intended result impractical. I asked how LLMs can
+  help non-technical people code without misleading them about feasibility,
+  alternatives, and workarounds.
+- **Output:** The intent note records that five-step failure pattern, two
+  research questions, and nine candidate source links across ACM, IGI Global,
+  Taylor & Francis, IEEE, arXiv, Zenodo, and PM World Journal. Listing a link
+  is not evidence that the source was read or verified that day.
+- **Decision/status:** **Develop further** — a focused research direction was
+  established, but no feasibility framework or source assessment was recorded
+  in this note on September 29.
+
+### Research brief placeholder and repository sync
+
+- **Tool/context:** [[AI 101/Project 2/research-brief.md.md]] was created at
+  6:37 p.m. and remained empty. The scheduled Git task ran at 5:00 p.m. and
+  pushed commit `e88ce8a23f93c16e73f0dafb017832a6daecb18b`.
+- **Output:** A placeholder for a research brief existed, but it contained no
+  brief text. Because the scheduled push happened before the Project 2 notes
+  were created, that Tuesday push did **not** include the new Class 5 work;
+  the notes first appeared in the later October 1 sync.
+- **Decision/status:** **Pending** — the research brief still needed content,
+  and the 5:00 p.m. sync was too early to capture work done later in class.
+
 ### Notes carried forward
 
 - Round 7 is a tool comparison, not a new direction. The thing worth recording
