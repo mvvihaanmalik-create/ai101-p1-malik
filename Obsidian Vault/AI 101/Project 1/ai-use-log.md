@@ -467,3 +467,18 @@ September 29.
   study directly tested.
 - **Repository sync:** The Class 6 updates were pushed to the course repository
   in commit `58b2b0e`.
+
+### Project 2 workflow map
+
+- **Instruction and direction:** I was asked to make a three-to-five-step
+  process map, create one empty step file per Canvas node, connect the nodes in
+  order, and color the human-check step differently.
+- **Came back:** Created [[AI 101/Project 2/process-map.canvas]] with five
+  ordered file nodes and four arrow connectors: define the goal; check
+  feasibility; build a small prototype; human check; iterate or stop. Created
+  five matching zero-byte step files, numbered `01` through `05`; the human
+  check node is highlighted red.
+- **Decision/status:** **Use as the workflow plan** — the feasibility and
+  human-review gates precede larger iteration. An empty `process-map.canvas.md`
+  placeholder was already present; it was left untouched, and the requested
+  proper `.canvas` file was created alongside it.

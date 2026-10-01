@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "width": 320,
+      "x": 80,
+      "id": "4ed6167f24bd4fe3",
+      "file": "AI 101/Project 2/01-define-the-goal.md",
+      "y": 300,
+      "type": "file",
+      "height": 120
+    },
+    {
+      "width": 320,
+      "x": 470,
+      "id": "91660eb4a2fb4ab2",
+      "file": "AI 101/Project 2/02-check-feasibility.md",
+      "y": 300,
+      "type": "file",
+      "height": 120
+    },
+    {
+      "width": 320,
+      "x": 860,
+      "id": "58d6f2292866425d",
+      "file": "AI 101/Project 2/03-build-a-small-prototype.md",
+      "y": 300,
+      "type": "file",
+      "height": 120
+    },
+    {
+      "type": "file",
+      "id": "c352ebf29f784768",
+      "x": 1250,
+      "y": 300,
+      "height": 120,
+      "width": 320,
+      "color": "1",
+      "file": "AI 101/Project 2/04-human-check.md"
+    },
+    {
+      "width": 320,
+      "x": 1640,
+      "id": "ac874a945e1d4e29",
+      "file": "AI 101/Project 2/05-iterate-or-stop.md",
+      "y": 300,
+      "type": "file",
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "fromSide": "right",
+      "id": "448a949a5b764fe6",
+      "toEnd": "",
+      "toSide": "left",
+      "endArrowhead": "arrow",
+      "fromNode": "4ed6167f24bd4fe3",
+      "toNode": "91660eb4a2fb4ab2"
+    },
+    {
+      "fromSide": "right",
+      "id": "42445d30332b43d1",
+      "toEnd": "",
+      "toSide": "left",
+      "endArrowhead": "arrow",
+      "fromNode": "91660eb4a2fb4ab2",
+      "toNode": "58d6f2292866425d"
+    },
+    {
+      "fromSide": "right",
+      "id": "955d31a413744227",
+      "toEnd": "",
+      "toSide": "left",
+      "endArrowhead": "arrow",
+      "fromNode": "58d6f2292866425d",
+      "toNode": "c352ebf29f784768"
+    },
+    {
+      "fromSide": "right",
+      "id": "eb4a30162c0d4942",
+      "toEnd": "",
+      "toSide": "left",
+      "endArrowhead": "arrow",
+      "fromNode": "c352ebf29f784768",
+      "toNode": "ac874a945e1d4e29"
+    }
+  ]
+}
