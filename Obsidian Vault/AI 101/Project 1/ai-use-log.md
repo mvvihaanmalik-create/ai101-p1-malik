@@ -484,3 +484,19 @@ September 29.
   absent, and the exact cause of its removal was not recorded.
 - **Repository sync:** The map, empty step files, and log update were pushed in
   commit `4fbca9d`; follow-up commit `d015e29` records the placeholder's removal.
+
+### Project 2 Step 7 — workflow directions
+
+- **Instruction and direction:** I was asked to write a `00-start-here.md`
+  guide with Goal, Order, Rules, and My decisions, then fill every numbered
+  step file with Starts from, Does, Good looks like, and Check.
+- **Came back:** Created the requested start guide and completed all five step
+  files. The instructions establish a sequence from goal-setting through
+  feasibility, smallest prototype, human review, and a bounded iterate-or-stop
+  decision. Each step defines its input, actions, success criteria, and gate
+  before proceeding.
+- **Decision/status:** **Ready to use as workflow directions** — I retain
+  decisions about scope, route, risk, approval, and stopping; the model must
+  state uncertainty, support current technical claims, and not report unrun
+  tests as passed. A pre-existing empty `00-start-here.md.md` stub remains
+  alongside the correctly named `00-start-here.md` file.
