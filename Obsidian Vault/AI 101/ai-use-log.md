@@ -16,7 +16,7 @@
 
 ## 2026-09-17, Class 2
 
-Artifact: [[AI 101/AI101_P1_Malik_Vihaan_Poster.svg]]. Three tools this day —
+Artifact: [[AI101_P1_Malik_Vihaan_Poster.svg]]. Three tools this day —
 ChatGPT for setup, Claude (Claudian, in Obsidian) for Rounds 1-6, then Codex
 from Round 7 on, re-running the same brief for comparison.
 
@@ -36,7 +36,7 @@ from Round 7 on, re-running the same brief for comparison.
   AI-art pin-up, bold flat shapes, exactly three colors, no text." Claude
   asked whether I wanted a generated image, a logged prompt, or a built file;
   I said build it.
-- **Came back:** [[AI 101/poster-flat-three-color.svg]] — a 1000×1000 SVG of
+- **Came back:** [[poster-flat-three-color.svg]] — a 1000×1000 SVG of
   abstract Bauhaus-style geometry (large disc, half-disc, vertical mast, base
   band) in `#F2E8DC`, `#16233A`, `#E2483D`. Hit all four stated constraints.
 - **Decision:** **Reject** — it satisfied the constraints but not the subject;
@@ -48,7 +48,7 @@ from Round 7 on, re-running the same brief for comparison.
   from the context-kit items, and make an actual poster for a student AI-art
   pin-up rather than abstract shapes. Same four constraints. This round it
   actually read the kit first instead of inventing a palette.
-- **Came back:** [[AI 101/AI101_P1_Malik_Vihaan_Poster.svg]] — "The Crit Wall."
+- **Came back:** [[AI101_P1_Malik_Vihaan_Poster.svg]] — "The Crit Wall."
   Nine sheets pinned to a wall, each tilted under 2.2°, each with a vermilion
   pin and a circular aperture (Open Cosmos device) framing the Sereth
   crescent-and-dot mark. The crescent iterates across the grid from fragments
@@ -64,7 +64,7 @@ from Round 7 on, re-running the same brief for comparison.
   original constraints: bespoke iconography in a hand-made sketch style
   instead of simple shapes, gradients allowed, and typography used properly.
   Square format stayed.
-- **Came back:** [[AI 101/AI101_P1_Malik_Vihaan_Poster_v2.svg]] - "The Machine
+- **Came back:** [[AI101_P1_Malik_Vihaan_Poster_v2.svg]] - "The Machine
   Eye." A large hand-drawn eye with a spiral iris over a four-stop gradient
   field, ringed by twelve bespoke sketch glyphs (stylus, push-pin, sprout,
   spark, mountains, waves, crescent, rings). Doubled lid strokes for a drawn
@@ -82,7 +82,7 @@ from Round 7 on, re-running the same brief for comparison.
 - **Changed:** "no text!" - reversed the Round 3 instruction to use typography
   and went back to the original no-text constraint. Sketch style and gradients
   stayed.
-- **Came back:** [[AI 101/AI101_P1_Malik_Vihaan_Poster_v3.svg]]. Not a strip of
+- **Came back:** [[AI101_P1_Malik_Vihaan_Poster_v3.svg]]. Not a strip of
   the text layer: deleting six type elements would have hollowed out the bottom
   third, so the composition was rebuilt. The eye moved from y=405 to optical
   centre y=585 and scaled 1.26x to carry the square alone, the twelve glyphs
@@ -97,7 +97,7 @@ from Round 7 on, re-running the same brief for comparison.
 - **Changed:** Ruled the colour question: three colours only, keep it editorial
   quality, and take layout cues from the context-kit references. No text still
   standing from Round 4.
-- **Came back:** [[AI 101/AI101_P1_Malik_Vihaan_Poster_v4.svg]]. Gradients,
+- **Came back:** [[AI101_P1_Malik_Vihaan_Poster_v4.svg]]. Gradients,
   partial opacity and the grain filter all removed - each one generates
   intermediate values and would have broken the count. Lightness is now carried
   by line weight and dash density instead of transparency. Layout rebuilt from
@@ -116,7 +116,7 @@ from Round 7 on, re-running the same brief for comparison.
   the glyph vocabulary entirely, then build the effect of art pieces in an
   exhibit using shapes and colour alone - black for shadows, one colour for
   the wall, one for the objects.
-- **Came back:** [[AI 101/AI101_P1_Malik_Vihaan_Poster_v5.svg]] - "Elevation."
+- **Came back:** [[AI101_P1_Malik_Vihaan_Poster_v5.svg]] - "Elevation."
   A gallery wall: three canvases hung on pins above three plinth-mounted
   objects, on a three-column grid at 300 / 600 / 900. Colour is assigned by
   role - butter wall, vermilion for every lit surface, black for every shadow.
@@ -140,7 +140,7 @@ from Round 7 on, re-running the same brief for comparison.
   Codex used its built-in ImageGen tool. It generated one version, then ran a
   second colour-correction pass asking for only ultramarine `#2145D9`, coral
   `#FF5A4F`, and cream `#FFF1D0`, with all gradients and shading removed.
-- **Came back:** [[AI 101/student-ai-art-poster.png]] - a 1254x1254 raster
+- **Came back:** [[student-ai-art-poster.png]] - a 1254x1254 raster
   poster of a fully clothed art student holding a stylus and tablet, surrounded
   by geometric artwork and studio objects. Codex displayed the result in chat
   and then copied the selected version into the AI 101 folder. It has no text,
@@ -160,7 +160,7 @@ from Round 7 on, re-running the same brief for comparison.
   the context-kit examples and used the Pole poster, Russian Contemporary Art
   Week poster, and TijanaT poster as layout references for repeated forms,
   large silhouettes, hard colour fields, and gallery-poster clarity.
-- **Came back:** [[AI 101/student-ai-art-poster-v2.png]] - a 1254x1254 raster
+- **Came back:** [[student-ai-art-poster-v2.png]] - a 1254x1254 raster
   with one student on the left actively pinning a work and exactly three
   evenly spaced exhibition panels on the right. The panels show an evolving
   curve, node lattice, and morphing ribbon form. Plants, desk, tablet, tools,
@@ -182,7 +182,7 @@ from Round 7 on, re-running the same brief for comparison.
   Codex radically reduced the human figure to a cropped silhouette and built
   one dominant work around the concept “the work looks back”: the same profile
   mutates through contour lines, a node structure, and a resolved solid form.
-- **Came back:** [[AI 101/student-ai-art-poster-v3.png]] - a 1254x1254 square
+- **Came back:** [[student-ai-art-poster-v3.png]] - a 1254x1254 square
   dominated by one coral exhibition sheet. A small ultramarine student at the
   far-left edge pins it up, while three linked states of one face-like form
   move across the artwork. The gallery room, floor, furniture, tools, and
@@ -220,7 +220,7 @@ from Round 7 on, re-running the same brief for comparison.
   extreme low angle, a Dutch tilt, severe foreshortening, and one monumental
   canvas where a recursive painted figure appears to reach back toward the
   artist.
-- **Came back:** [[AI 101/student-ai-art-poster-v4.png]] - a 1254x1254 poster
+- **Came back:** [[student-ai-art-poster-v4.png]] - a 1254x1254 poster
   seen from below, with the artist compressed into the lower-left and a tilted
   canvas consuming the frame. Repeating profiles collapse into a vortex around
   an impossible painted hand meeting the real brush. The palette was changed
@@ -245,7 +245,7 @@ from Round 7 on, re-running the same brief for comparison.
   painting back; a smaller echo appears inside the painted figure's hollow
   head. Asked for oppressive black, sparse hatching, a dramatic near-contact
   between brushes, and no gore or random horror props.
-- **Came back:** [[AI 101/student-ai-art-poster-v5.png]] - a 1254x1254 poster
+- **Came back:** [[student-ai-art-poster-v5.png]] - a 1254x1254 poster
   with the real artist compressed into the lower-left, an immense painted
   double looming from a tilted canvas, and a nested painting visible inside
   its head. The two brushes nearly meet. I converted the generated raster to
