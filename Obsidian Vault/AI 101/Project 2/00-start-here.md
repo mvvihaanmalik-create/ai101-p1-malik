@@ -1,6 +1,7 @@
 ## Goal
 
-Use this workflow to turn a non-technical person's coding idea into a small, tested result without letting an LLM's confidence hide technical limits, platform constraints, or cheaper alternatives. The workflow is meant to expose uncertainty before substantial time or tokens are spent.
+Use this workflow to turn a non-technical designer's build idea into a small, tested result without letting an LLM's confidence hide technical limits, platform constraints, or cheaper alternatives. The workflow is meant to expose uncertainty before substantial time or tokens are spent. It can only research and which platform and route to use
+
 
 ## Order
 
@@ -21,4 +22,4 @@ Use this workflow to turn a non-technical person's coding idea into a small, tes
 
 ## My decisions
 
-I decide the goal and priorities, what counts as good enough, which platform and route to use, how much time or money to spend, whether to accept a risk or workaround, and whether to continue, change scope, or stop. I review and approve code before relying on it, choose what to test on my own device, and make the final decision about release or deployment. The model can explain and recommend; it does not make these decisions for me.
+I decide the goal and priorities, especially the creative direction and what counts as good enough, how much time or money to spend, whether to accept a risk or workaround, and whether to continue, change scope, or stop. I review and approve code before relying on it, choose what to test on my own device, and make the final decision about release or deployment. The model can explain and recommend; it does not make these decisions for me. 

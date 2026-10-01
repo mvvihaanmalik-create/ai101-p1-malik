@@ -491,12 +491,18 @@ September 29.
   guide with Goal, Order, Rules, and My decisions, then fill every numbered
   step file with Starts from, Does, Good looks like, and Check.
 - **Came back:** Created the requested start guide and completed all five step
-  files. The instructions establish a sequence from goal-setting through
-  feasibility, smallest prototype, human review, and a bounded iterate-or-stop
-  decision. Each step defines its input, actions, success criteria, and gate
-  before proceeding.
+  files: [[AI 101/Project 2/01-define-the-goal.md]],
+  [[AI 101/Project 2/02-check-feasibility.md]],
+  [[AI 101/Project 2/03-build-a-small-prototype.md]],
+  [[AI 101/Project 2/04-human-check.md]], and
+  [[AI 101/Project 2/05-iterate-or-stop.md]]. The instructions establish a
+  sequence from goal-setting through feasibility, smallest prototype, human
+  review, and a bounded iterate-or-stop decision. Each step defines its input,
+  actions, success criteria, and gate before proceeding.
 - **Decision/status:** **Ready to use as workflow directions** — I retain
   decisions about scope, route, risk, approval, and stopping; the model must
   state uncertainty, support current technical claims, and not report unrun
   tests as passed. A pre-existing empty `00-start-here.md.md` stub remains
   alongside the correctly named `00-start-here.md` file.
+- **Repository sync:** The start guide, step directions, and updated log were
+  pushed to the course repository in commit `d46d603`.
