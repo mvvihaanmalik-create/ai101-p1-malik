@@ -533,7 +533,21 @@ September 29.
   Obsidian/Markdown route is feasible as a planning method, but no
   project-specific feasibility claim can be made without an actual coding
   idea, target OS/device, and time/token budget.
-- **Decision/status:** **Stopped after Step 2** — the workflow route and a
-  smallest test are proposed, but await approval and project details. Step 3
-  has not started; the Step 2 output is not yet copied into `outputs/` pending
-  agreement.
+- **Decision/status:** **Route approved** — the user said “proceed.” Saved the
+  approved assessment to [[AI 101/Project 2/outputs/02-check-feasibility.md]].
+  Project-specific feasibility remains unknown because no specific idea or
+  target environment was supplied.
+
+### Step 3 run — build a small prototype
+
+- **Instruction and direction:** With the document-based workflow approved, I
+  tested its smallest behavior without inventing an application idea.
+- **Came back:** Added a preflight-intake dry run to
+  [[AI 101/Project 2/03-build-a-small-prototype.md]]. The test used the broad
+  scenario from the intent note and the missing details in the “proceed” reply;
+  it checked whether the workflow would flag missing requirements and stop
+  rather than claim project feasibility.
+- **Decision/status:** **Dry-run pass, limited scope** — it passed the
+  missing-input gate, but no code or project-specific toolchain was tested.
+  Stopped before Step 4 for human review; the Step 3 draft is not yet saved to
+  `outputs/` pending agreement.

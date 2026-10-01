@@ -22,7 +22,7 @@ I check that the documented platform and resource assumptions match my setup, re
 
 **Feasible route for this workflow:** Keep it as an Obsidian/Markdown process with a Canvas map. The requested map and direction files already exist in the vault; this route needs no application code or extra runtime to use as a planning aid. The authoring environment here is Windows with Obsidian, but the target environment for any future coding project is still unknown.
 
-**Alternative routes:** A one-shot prompt would be simpler but has no explicit feasibility or human-review gates. A custom app or Obsidian plugin could automate parts of the process, but it adds build and maintenance work without evidence that automation is needed. The current document-based route is the lowest-complexity route for testing the workflow idea.
+**Alternative routes:** A one-shot prompt would be simpler but has no explicit feasibility or human-review gates. A custom app or plugin could automate parts of the process, but it adds build and maintenance work without evidence that automation is needed. The current document-based route is the lowest-complexity route for testing the workflow idea.
 
 **Constraints and unknowns:** No concrete application idea, target OS/device, technical requirements, or time/token budget for a real build has been provided. Therefore, I have not checked project-specific dependencies, current technical documentation, or whether any particular coding idea is feasible. Whether these steps actually prevent wasted effort is also untested.
 
@@ -30,4 +30,4 @@ I check that the documented platform and resource assumptions match my setup, re
 
 **Effort estimate:** The workflow artifact itself is already assembled and requires no code to use. The effort for a project-specific feasibility test cannot be estimated responsibly until the idea and target environment are known.
 
-**Provisional decision:** The document-based workflow is feasible as a planning method; feasibility of a future coding project remains unassessed. **Stop here:** I need to approve this route and provide a concrete idea plus its target OS/device before Step 3.
+**Decision:** I approved the document-based route by saying “proceed.” It is feasible as a planning method; feasibility of a future coding project remains unassessed. The approved Step 2 output is saved in [[AI 101/Project 2/outputs/02-check-feasibility.md]].

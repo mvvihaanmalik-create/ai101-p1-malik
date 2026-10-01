@@ -17,3 +17,17 @@ The prototype is small, directly tied to an approved success criterion, and has 
 ## Check
 
 Run the minimal test and compare its observed result with the chosen success criterion. If it fails, record the exact error and return to feasibility or revise the prototype; if it passes, send it to the human review in [[AI 101/Project 2/04-human-check.md]].
+
+## Current workflow dry run — draft for human review
+
+**Prototype slice:** A preflight intake gate for the workflow, asking for the concrete idea and desired behavior, success criteria, target OS/device, available tools or permissions, time/token budget, and the riskiest technical assumption. The model should stop and label missing inputs instead of claiming project feasibility.
+
+**Test input:** The broad problem in the intent note (ideas and added features are prototyped before tool, OS, resource, and time constraints are known), followed by “proceed” without a concrete coding idea or target-environment details.
+
+**Expected behavior:** The workflow should recognize that the document-based planning method can proceed, but must not claim that an unspecified coding project is feasible; it should surface the missing details before implementation.
+
+**Observed result:** The feasibility check identified the missing concrete project, target OS/device, and budget; it distinguished workflow-document feasibility from project-specific feasibility. No code was generated or tested.
+
+**Test result and limits:** Pass for the narrow intake/gating behavior in this conversational dry run. This is not a code prototype and does not verify any real project's toolchain, OS compatibility, schedule, or technical feasibility; those require a specific project and environment.
+
+**Status:** Step 3's smallest workflow slice is drafted and its dry-run result recorded here. Stop for human review before Step 4. Do not copy this draft to `outputs/` until I approve it.
