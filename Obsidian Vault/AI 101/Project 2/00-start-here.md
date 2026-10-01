@@ -1,6 +1,6 @@
 ## Goal
 
-Use this workflow to turn a non-technical designer's build idea into a small, tested result without letting an LLM's confidence hide technical limits, platform constraints, or cheaper alternatives. The workflow is meant to expose uncertainty before substantial time or tokens are spent. It can only research and which platform and route to use
+Use this workflow to turn a non-technical designer's build idea into a small, tested result without letting an LLM's confidence hide technical limits, platform constraints, or cheaper alternatives. The workflow is meant to expose uncertainty before substantial time or tokens are spent. It must research and help me decide which platform and route to use for the project I'm building.
 
 
 ## Order

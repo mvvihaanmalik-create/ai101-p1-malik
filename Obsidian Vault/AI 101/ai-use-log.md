@@ -502,7 +502,9 @@ September 29.
 - **Decision/status:** **Ready to use as workflow directions** — I retain
   decisions about scope, route, risk, approval, and stopping; the model must
   state uncertainty, support current technical claims, and not report unrun
-  tests as passed. A pre-existing empty `00-start-here.md.md` stub remains
-  alongside the correctly named `00-start-here.md` file.
+  tests as passed. The pre-existing empty `00-start-here.md.md` stub is now
+  absent; the exact cause of its removal is not recorded, and the correctly
+  named `00-start-here.md` file remains.
 - **Repository sync:** The start guide, step directions, and updated log were
-  pushed to the course repository in commit `d46d603`.
+  pushed in commit `d46d603`; follow-up commit `e866448` records removal of the
+  empty duplicate-name stub.
