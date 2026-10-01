@@ -421,7 +421,7 @@ September 29.
   image generation did not preserve the exact three-colour constraint at the
   pixel level even after a correction pass.
 
-## 2026-10-01 — Project 2 source verification
+## 2026-10-01, Class 6 — Project 2 source verification and research brief
 
 - **Tool/context:** I reviewed the two source paragraphs already recorded in
   [[AI 101/Project 2/source-verification-log.md.md]] and opened the authors'
@@ -450,7 +450,7 @@ September 29.
   code-reading skills helping non-technical people use code LLMs more
   effectively, rather than making a broader claim about coding knowledge.
 
-## 2026-10-01 — Project 2 research brief
+### Research brief
 
 - **Tool/context:** I used the already verified Source 1 entry in
   [[AI 101/Project 2/source-verification-log.md.md]] and the Project 2 intent
@@ -465,3 +465,5 @@ September 29.
 - **Decision/status:** **Use as a working brief** — it answers the feasibility
   concern without presenting the proposed workflow safeguard as a finding the
   study directly tested.
+- **Repository sync:** The Class 6 updates were pushed to the course repository
+  in commit `58b2b0e`.
