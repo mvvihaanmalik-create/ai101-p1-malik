@@ -420,3 +420,20 @@ September 29.
   review possible. That is an advantage over the unrendered SVG rounds, but
   image generation did not preserve the exact three-colour constraint at the
   pixel level even after a correction pass.
+
+## 2026-10-01 — Project 2 source verification
+
+- **Tool/context:** I reviewed the two source paragraphs already recorded in
+  [[AI 101/Project 2/source-verification-log.md.md]] and opened the authors'
+  PDFs for the cited CHIWORK and NordiCHI papers.
+- **Instruction and direction:** I was asked to fill the source-verification
+  template for both paragraphs, including authors, title, date, link, type,
+  access date, a one-sentence account of each source, and how each was checked.
+- **Came back:** The source log now has two structured records. For Feldman and
+  Anderson, I read the abstract and conclusion; for Kalving, Colley, and
+  Häkkilä, I read the abstract and section 5.2 on AI as a collaborative
+  partner. I verified citation details against the papers' title pages.
+- **Decision/status:** **Verified for these two entries** — their metadata and
+  summaries are grounded in the accessible paper PDFs rather than inferred
+  from the older copied excerpts. The other candidate links in the Project 2
+  intent note were not part of this two-paragraph verification.

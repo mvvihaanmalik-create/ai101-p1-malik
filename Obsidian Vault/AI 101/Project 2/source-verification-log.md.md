@@ -1,12 +1,21 @@
-"a vision for how to train non-expert pro-grammers to effectively leverage Code LLM models, emphasizingthe following key skills:
-- Ability to communicate technical concepts clearly to a range of audiences, including Code LLMs
-- Ability to read code and evaluate its quality, predict its be-havior, and assess its task relevance 
-- Ability to modify code from a variety of sources to accom-plish new tasks
-- Ability to assess when the use of Code LLMs is appropriate
-Source: Feldman & Anderson, "Non-Expert Programmers in the Generative AI Future", CHIWORK ’24, June 25–27, 2024, Newcastle upon Tyne, United Kingdom
+# Source verification log
 
-AI as a Collaborative Partner
-"The discussions in the conducted research indicated a preferencefor a “human in the loop” approach to AI integration. In focus groupscenarios, participants expressed a desire for human influence, suchas emergency stop buttons on autonomous vehicles, highlightingthe importance of maintaining human control over AI systems.Furthermore, AI was increasingly seen either as a soundboard tobounce ideas at, as well as a collaborative partner in the designprocess. The participants in the interviews mentioned that AI couldmake the designer’s job easier, with the designer playing a facilitat-ing role. This perception of AI could significantly change designers’roles, as they would act as facilitators, curators, and integratorsof AI-generated content, focusing on a comprehensive narrative.However, it was noted that integrating AI into design did not meandiminishing the designer’s identity but rather expanding it. De-signers’ inherent skills, such as understanding users and empathy,were seen to play a crucial role in integrating AI into the designprocess and in the ethical AI use in design. Indeed, in Zhu et al .’sSpectrum of Initiative, the most advanced level positions the AI as acollaborator, actively participating in the design process alongsidehuman designers".
+## Source 1
+Author or organization: Molly Q. Feldman and Carolyn Jane Anderson
+Title: *Non-Expert Programmers in the Generative AI Future*
+Date: June 25, 2024 (CHIWORK '24 proceedings)
+Link: https://doi.org/10.1145/3663384.3663393
+Type: article (conference paper)
+Accessed: 2026-10-01
+What it says: A controlled study of 67 non-programmers identifies communication and other barriers to using code LLMs and proposes skills and educational approaches to support non-expert programmers.
+How I checked it: I opened the authors' version of the paper and read the abstract and conclusion. I confirmed the authors, title, and CHIWORK '24 citation on the paper's title page and ACM reference format.
 
-
-
+## Source 2
+Author or organization: Matilda Kalving, Ashley Colley, and Jonna Häkkilä
+Title: *Where AI and Design Meet: Designers’ Perceptions of AI Tools*
+Date: October 13, 2024 (NordiCHI '24)
+Link: https://doi.org/10.1145/3679318.3685388
+Type: article (conference paper)
+Accessed: 2026-10-01
+What it says: Survey, focus-group, and interview findings describe designers' interest in AI as a collaborator alongside concerns, and emphasize human oversight, ethical practice, and designers' continued creative role.
+How I checked it: I opened the authors' paper PDF and read section 5.2, “AI as a Collaborative Partner,” and the abstract. I confirmed the authors, title, and publication date from the paper's title page and citation details.
