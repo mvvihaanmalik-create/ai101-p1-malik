@@ -2,13 +2,13 @@
 
 ## Feasible route for this workflow
 
-Keep the workflow as an Obsidian/Markdown process with a Canvas map. The map and direction files already exist in the vault; this route needs no application code or extra runtime to use as a planning aid. The current authoring environment is Windows with Obsidian, but the target environment for any future coding project is still unknown.
+Keep the workflow a /Markdown process with a Canvas map. The map and direction files already exist in the vault; this route needs no application code or extra runtime to use as a planning aid. The current authoring environment is Windows with Obsidian, but the target environment for any future coding project is still unknown, and could be anything.
 
 ## Alternatives
 
 - **One-shot prompt:** Simpler, but it has no explicit feasibility or human-review gates.
 - **Custom app or Obsidian plugin:** Could automate parts of the process, but adds build and maintenance work without evidence that automation is needed.
-- **Document-based workflow (recommended):** Lowest-complexity route for testing the workflow idea.
+- **Document-based workflow :** Lowest-complexity route for testing the workflow idea.
 
 ## Constraints and unknowns
 

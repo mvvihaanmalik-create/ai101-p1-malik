@@ -549,5 +549,19 @@ September 29.
   rather than claim project feasibility.
 - **Decision/status:** **Dry-run pass, limited scope** — it passed the
   missing-input gate, but no code or project-specific toolchain was tested.
-  Stopped before Step 4 for human review; the Step 3 draft is not yet saved to
-  `outputs/` pending agreement.
+  The user accepted this result with “ok,” so I saved it to
+  [[AI 101/Project 2/outputs/03-build-a-small-prototype.md]] and proceeded to
+  Step 4 only.
+
+### Step 4 run — human check
+
+- **Instruction and direction:** Review the Step 3 dry run, distinguish what
+  the user has actually approved from what remains untested, and stop for
+  confirmation before Step 5.
+- **Came back:** Added a provisional review to
+  [[AI 101/Project 2/04-human-check.md]]. The conversation demonstrated only
+  the missing-input gate; no real coding project, code, or target-device test
+  was supplied.
+- **Decision/status:** **Awaiting human confirmation** — the user's “ok”
+  accepted Step 3's limited dry run, not yet the Step 4 review or a claim that
+  any coding project is feasible. Step 5 has not started.
