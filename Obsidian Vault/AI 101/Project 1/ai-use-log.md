@@ -517,5 +517,23 @@ September 29.
   [[AI 101/Project 2/01-define-the-goal.md]]: workflow goal, intended user,
   inputs, must-haves, nice-to-have, out-of-scope items, observable success
   criteria, and open details for a later real-project test.
-- **Decision/status:** **Awaiting my confirmation** — the draft explicitly
-  pauses before Step 2; no feasibility analysis has started.
+- **Decision/status:** **Approved** — the draft explicitly paused before Step
+  2 until the user agreed; the follow-up approval is recorded below.
+- **Follow-up:** I agreed with the Step 1 draft. Its approved output was saved
+  to [[AI 101/Project 2/outputs/01-define-the-goal.md]], then I proceeded to
+  Step 2 only.
+
+### Step 2 run — check workflow feasibility
+
+- **Instruction and direction:** Continuing one step at a time, I assessed
+  whether the proposed workflow itself is feasible and identified its simplest
+  test route, alternatives, constraints, and unknowns.
+- **Came back:** Added a provisional check to
+  [[AI 101/Project 2/02-check-feasibility.md]]. The document-based
+  Obsidian/Markdown route is feasible as a planning method, but no
+  project-specific feasibility claim can be made without an actual coding
+  idea, target OS/device, and time/token budget.
+- **Decision/status:** **Stopped after Step 2** — the workflow route and a
+  smallest test are proposed, but await approval and project details. Step 3
+  has not started; the Step 2 output is not yet copied into `outputs/` pending
+  agreement.
