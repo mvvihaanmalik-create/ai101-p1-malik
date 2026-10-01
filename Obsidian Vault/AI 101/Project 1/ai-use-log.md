@@ -561,7 +561,24 @@ September 29.
 - **Came back:** Added a provisional review to
   [[AI 101/Project 2/04-human-check.md]]. The conversation demonstrated only
   the missing-input gate; no real coding project, code, or target-device test
-  was supplied.
-- **Decision/status:** **Awaiting human confirmation** — the user's “ok”
-  accepted Step 3's limited dry run, not yet the Step 4 review or a claim that
-  any coding project is feasible. Step 5 has not started.
+  was supplied. The user then edited the check to add speed/lag,
+  cross-platform responsiveness where applicable, and a fuller build-status
+  audit; I preserved those checks and noted that they were not testable in this
+  no-code dry run.
+- **Decision/status:** **Accepted for the workflow dry run only** — the user
+  said they had made the fixes and directed continuation. Saved the Step 4
+  review to [[AI 101/Project 2/outputs/04-human-check.md]]. This does not verify
+  an actual project's code or technical feasibility.
+
+### Step 5 run — iterate or stop
+
+- **Instruction and direction:** Summarize validated and unresolved points,
+  then recommend one bounded next move without assuming an application idea.
+- **Came back:** Added a proposed decision to
+  [[AI 101/Project 2/05-iterate-or-stop.md]]: stop revising the generic
+  workflow and apply it next to one concrete coding idea, starting at Step 1
+  with the target environment and budget.
+- **Decision/status:** **Awaiting the user's choice** — this is a proposed stop
+  to workflow-building, not abandonment of the workflow or a coding project.
+  Step 5 is the final stage; no further step has started, and its output is not
+  saved under `outputs/` pending agreement.
