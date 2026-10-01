@@ -480,7 +480,7 @@ September 29.
   check node is highlighted red.
 - **Decision/status:** **Use as the workflow plan** — the feasibility and
   human-review gates precede larger iteration. An empty `process-map.canvas.md`
-  placeholder was already present; it was left untouched, and the requested
-  proper `.canvas` file was created alongside it.
-- **Repository sync:** The map, empty step files, and log update were pushed to
-  the course repository in commit `4fbca9d`.
+  placeholder was present when the proper `.canvas` file was created; it is now
+  absent, and the exact cause of its removal was not recorded.
+- **Repository sync:** The map, empty step files, and log update were pushed in
+  commit `4fbca9d`; follow-up commit `d015e29` records the placeholder's removal.
