@@ -508,3 +508,14 @@ September 29.
 - **Repository sync:** The start guide, step directions, and updated log were
   pushed in commit `d46d603`; follow-up commit `e866448` records removal of the
   empty duplicate-name stub.
+
+### Step 1 run — define the goal
+
+- **Instruction and direction:** I was asked to follow `00-start-here.md` one
+  step at a time and stop after each step.
+- **Came back:** Added a project-specific draft to
+  [[AI 101/Project 2/01-define-the-goal.md]]: workflow goal, intended user,
+  inputs, must-haves, nice-to-have, out-of-scope items, observable success
+  criteria, and open details for a later real-project test.
+- **Decision/status:** **Awaiting my confirmation** — the draft explicitly
+  pauses before Step 2; no feasibility analysis has started.
