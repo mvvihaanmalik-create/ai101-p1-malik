@@ -582,3 +582,16 @@ September 29.
   to workflow-building, not abandonment of the workflow or a coding project.
   Step 5 is the final stage; no further step has started, and its output is not
   saved under `outputs/` pending agreement.
+
+## 2026-10-08 — Project 2 Step 5 accepted
+
+- **Instruction and direction:** The user accepted the bounded next move
+  proposed in Step 5.
+- **Came back:** Marked [[AI 101/Project 2/05-iterate-or-stop.md]] complete
+  and saved the accepted decision to
+  [[AI 101/Project 2/outputs/05-iterate-or-stop.md]]. The decision is to pause
+  generic workflow edits until it can be applied to one concrete coding idea,
+  with its target OS/device and budget recorded.
+- **Decision/status:** **Stop this workflow-building pass** — the current dry
+  run only validated the missing-input gate; no particular coding project was
+  tested or declared feasible.

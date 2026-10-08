@@ -18,7 +18,7 @@ There is a clear, justified next decision rather than endless polishing. Any new
 
 I choose whether to accept the next move. After a change, repeat the prototype test and human check; if requirements changed, revisit Step 1 or 2. If stopping, record what works, what does not, and any limitation I am accepting.
 
-## Current decision — proposed, awaiting my choice
+## Current decision — accepted
 
 **What passed:** The workflow artifacts are in place, and the conversational dry run showed that the intake gate identifies missing project/environment/budget details instead of claiming feasibility.
 
@@ -28,4 +28,6 @@ I choose whether to accept the next move. After a change, repeat the prototype t
 
 **Reason:** More generic workflow changes have little value until the steps are tried against a real project; inventing a sample project would add assumptions the workflow is supposed to expose.
 
-**Status:** This is a proposed stop on workflow-building, not a decision to abandon the workflow or a software project. Stop after Step 5 and wait for me to accept, revise, or reject this next move. Do not save this proposed output to `outputs/` until I agree.
+**Decision:** The user accepted this next move. Stop iterating on the generic workflow and use it on one concrete coding idea when one is selected; restart at Step 1 with the actual goal, target OS/device, and budget. At Step 2, verify the riskiest project-specific requirement before building. The current dry run is not evidence that a future coding project is feasible.
+
+**Status:** Step 5 is complete. This stops the current workflow-building pass; it does not abandon the workflow or any future software project.
