@@ -938,3 +938,27 @@ September 29.
 - **Decision/status:** **Awaiting the user's goal/scope check.** No filter
   algorithms were represented as exact copies, no plugin was built or tested,
   and nothing was saved to `outputs/` for this new run.
+
+## 2026-10-08 — obsidian-gaze Step 1 accepted; Step 2 feasibility draft
+
+- **Instruction and direction:** The user approved implementing the supplied
+  filter recipes, delegated the modal sizing choice, and said mobile support
+  is not needed. They again selected the previous Canvas Step 5 node; the
+  standing workflow still requires a new project to progress in order.
+- **Came back:** Recorded those decisions in
+  [[AI 101/Project 2/01-define-the-goal.md]] and saved the accepted goal to
+  [[AI 101/Project 2/outputs/obsidian-gaze/01-define-the-goal.md]]. Chose the
+  specified large centered 900px/90vh modal. Checked official Obsidian
+  build, manifest, CSS, mobile, and sample-template documentation; checked
+  MDN for FileReader, Canvas export, and Web Audio; confirmed local Node,
+  npm, Git, and Obsidian versions. Drafted a route comparison, manifest
+  corrections, risk/effort estimate, and a smallest in-app test in
+  [[AI 101/Project 2/02-check-feasibility.md]].
+- **Difference noticed:** The initial manifest says `id: obsidian-gaze`,
+  `name: gaze.`, and `isDesktopOnly: false`; current Obsidian publication
+  rules disallow `obsidian` in IDs and a period in names, while the user's
+  desktop-only scope does not call for mobile support. I recommended
+  `gaze`/`Gaze`/`true` for user approval, keeping `obsidian-gaze` as the
+  project name. Also noted `directors.ts` is required by the proposed import.
+- **Decision/status:** **Step 2 route check pending.** No plugin code or test
+  has been run; no Step 2 result saved to `outputs/`; no release decision.

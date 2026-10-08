@@ -64,7 +64,7 @@ After accepting the first prototype for now, the user selected the iterate-or-st
 
 **Goal:** Build a minimal, offline Obsidian plugin called `obsidian-gaze` that lets a person open a single image, apply one of exactly four cinematic color grades in a modal, compare with the original using a button, and download the graded result as a PNG. One image in, one graded image out.
 
-**Audience and environment:** An Obsidian user working with images on their own device. The build environment is the user's Windows computer. The proposed manifest says `isDesktopOnly: false`, suggesting mobile support, but mobile testing/requirements have not been confirmed.
+**Audience and environment:** An Obsidian desktop user working with images on their own device. The build environment is the user's Windows computer. Mobile support is not required for version 1.
 
 **Input and output:** Input is one local image chosen by file picker or dropped onto the modal. Output is an immediate Canvas-rendered preview and a downloaded PNG. No image upload or external service is intended. File-type and size limits have not yet been decided.
 
@@ -74,6 +74,6 @@ After accepting the first prototype for now, the user selected the iterate-or-st
 
 **Observable success:** In an enabled Obsidian vault, invoking `Gaze: Open` or the ribbon icon opens the modal; choosing or dropping a browser-decodable image shows it; selecting each of the four presets changes the preview without network access; Show original visibly toggles; Download produces a PNG matching the selected grade. The UI remains usable at the supported viewport sizes, and invalid/unsupported files fail visibly rather than showing a stale image.
 
-**Important unresolved decisions:** (1) The request says to copy filter helpers “exactly from the original,” but supplies numerical recipes rather than the original source file, so exact copying cannot yet be promised. (2) “Full-screen modal” and the specified 900px-wide, 90vh-tall centered design describe different layouts. (3) Confirm whether mobile Obsidian is required now or is merely allowed by the manifest. The listed file tree also omits `directors.ts` even though `GazeModal.ts` imports it; Step 2/3 should resolve that without expanding the feature set.
+**Decisions and remaining implementation details:** The user approved implementing the supplied filter recipes rather than copying unavailable original code, and delegated the modal sizing choice. Choose a large centered modal, capped around 900px/90vh as specified, with a single-column fallback for narrow desktop windows. Mobile support is excluded for version 1. The proposed manifest's `isDesktopOnly: false` must be reconciled with this choice during Step 2. The listed tree also omits `directors.ts` even though `GazeModal.ts` imports it; Step 2/3 should resolve that without expanding the feature set.
 
-**Status:** Step 1 draft awaiting user check. No plugin code, accepted `outputs/` copy, installation, or release yet. The selected Canvas node is Step 5, but a new project starts at Step 1 under [[AI 101/Project 2/00-start-here.md]].
+**Status:** Step 1 approved on 2026-10-08 and saved in [[AI 101/Project 2/outputs/obsidian-gaze/01-define-the-goal.md]]. No plugin code, installation, or release yet. The selected Canvas node is Step 5, but a new project starts at Step 1 under [[AI 101/Project 2/00-start-here.md]].
