@@ -42,16 +42,16 @@ I confirm that the restated goal, priorities, and success criteria match what I 
 
 **Goal:** Make a small web app where I choose one image, see a short palette of its main colors, and try those colors on a simple website preview before committing to a design direction.
 
-**Audience:** Me as a non-technical designer testing color directions; other users or public sharing are not yet requirements.
+**Audience:** Me as a non-technical designer testing color directions, plus anyone I send the app link to. A shareable online app is required; accounts and saved/shareable palette links are not assumed.
 
-**Inputs and outputs:** Input is one image selected from my device. Output is a few visible color swatches plus a simple page preview whose colors I can change. The number of swatches and exactly how I assign them are still decisions to make.
+**Inputs and outputs:** Input is one image selected from a device. Output is a few visible color swatches and a simple website preview. After image selection, the app automatically assigns extracted colors to the preview's design roles; manual assignment is not required. The exact swatch count and mapping rule can be chosen during the feasibility/design steps.
 
-**Must-have for the first version:** Select an image; extract and display its main colors; apply those colors to at least the preview's background, text, and accent/button roles; visibly update the preview when a choice changes. Keep the prototype small enough to test before adding more features.
+**Must-have for the first version:** Select an image; extract and display its main colors; automatically apply those colors to at least the preview's background, text, and accent/button roles; visibly update the preview after a new image is selected; make the app accessible to others through a link. Keep the prototype small enough to test before adding more features.
 
-**Possible later features, not assumed for the first version:** Copy color codes, save/export palettes, accessibility or contrast guidance, more page layouts, accounts, or sharing.
+**Possible later features, not assumed for the first version:** Manual color-role adjustments, copy color codes, save/export palettes, accessibility or contrast guidance, more page layouts, accounts, or sharing a particular palette/preview state.
 
-**Observable success:** With a test image, the app displays a compact palette that I recognize as representing important colors in that image. I can try those colors on the preview and see the background, text, and accent/button areas change. Unsupported inputs or failures should be visible rather than silently producing a misleading palette.
+**Observable success:** With a test image, the app displays a compact palette that I recognize as representing important colors in that image and automatically updates the preview's background, text, and accent/button areas. Another person can open the app using its link and run the same upload-to-preview flow. Unsupported inputs or failures should be visible rather than silently producing a misleading palette.
 
-**Open decisions:** (1) Should colors be placed on the preview automatically, chosen manually for each role, or both? (2) Is this only for use in my own browser, or should it be shareable online? (3) What device/OS/browser must it run on, and what time or cost limit should guide the “easiest way” choice? No image format, extraction method, programming framework, or hosting platform is chosen yet.
+**Open decisions:** (1) Which device/OS/browser will I build and test on, and must the shared app work on phones as well as desktop? (2) I have no fixed time or cost limit yet; the next step should compare effort and costs before I set one. (3) Does “shareable” mean an app others can open through a link (as drafted here), or must they also be able to share a particular palette/preview? No image format, extraction method, programming framework, or hosting platform is chosen yet.
 
-**Status:** Draft for my review. Stop after Step 1; do not compare tools or start building until I confirm or correct this scope.
+**Status:** Revised Step 1 draft incorporating my answers: automatic color placement, a shareable online app, and no fixed budget yet. Awaiting my scope check; do not compare tools or start building until I confirm or correct this scope.

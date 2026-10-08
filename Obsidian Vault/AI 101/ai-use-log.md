@@ -633,3 +633,19 @@ September 29.
   method, framework, OS target, or hosting route has been selected or claimed
   feasible. The new app-run output will be saved in `outputs/` only after the
   user agrees to the Step 1 draft.
+
+## 2026-10-08 — Project 2 app scope clarification, Step 1
+
+- **Instruction and direction:** In response to the three Step 1 scope
+  questions, the user chose automatic color application and an app that can
+  be shared online; they were unsure about a time or cost limit.
+- **Came back:** Revised the image-palette app draft in
+  [[AI 101/Project 2/01-define-the-goal.md]] so image selection automatically
+  updates the website preview and others can open the app by link. Marked
+  manual color assignment and sharing a particular palette as unconfirmed
+  extras, and left budget and build/test device details open.
+- **Decision/status:** **Still at Step 1, awaiting the user's scope check** —
+  no framework, extraction method, deployment route, feasibility claim, or
+  prototype was produced. The next step may estimate effort and cost only
+  after the Step 1 scope is confirmed. No new app-run output was saved to
+  `outputs/` yet.
