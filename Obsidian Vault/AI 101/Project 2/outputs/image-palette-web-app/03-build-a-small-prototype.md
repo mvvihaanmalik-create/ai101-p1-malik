@@ -1,0 +1,15 @@
+# Step 3 — Build a small prototype: image-palette website preview
+
+**Narrow core-flow result:** Passed on 2026-10-08, with unverified areas listed below. This is a feasibility prototype, **not** a finished or visually approved app.
+
+**Starting point:** [[AI 101/Project 2/outputs/image-palette-web-app/01-define-the-goal.md]] and [[AI 101/Project 2/outputs/image-palette-web-app/02-check-feasibility.md]]. The chosen route is a browser-only HTML/CSS/JavaScript page, separately hosted as a public GitHub Pages test.
+
+**Files and purpose:** [[AI 101/Project 2/image-palette-prototype/index.html]] holds the upload control, swatches, and website preview; [[AI 101/Project 2/image-palette-prototype/styles.css]] lays them out for desktop and small screens; [[AI 101/Project 2/image-palette-prototype/app.js]] decodes the chosen image, samples Canvas pixels, picks distinct swatches, automatically assigns preview colors, applies a black/white contrast fallback, and displays errors; [[AI 101/Project 2/image-palette-prototype/test.js]] runs simulated-pixel logic checks; [[AI 101/Project 2/image-palette-prototype/README.md]] gives local commands and limitations. No packages were installed.
+
+**Repeatable local commands:** From the prototype folder in PowerShell, run `node .\test.js` and `py -m http.server 8765 --bind 127.0.0.1`, then open `http://127.0.0.1:8765` on Windows. The public phone-test page is [Image Palette Studio](https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/), sourced from a [separate app-only public repository](https://github.com/mvvihaanmalik-create/ai101-image-palette-studio).
+
+**Observed results:** Node syntax checks returned no errors. Simulated-pixel tests passed for four distinct source colors, a monotone image with contrast-safe text, and transparent pixels yielding no false palette. The local server delivered HTML/CSS/JavaScript with HTTP 200. GitHub Pages reached `built`; its page and assets returned HTTP 200. In the user's desktop screenshot, `Test 7.png` produced a ready message, five swatches, and a recolored preview. The user then reported that selecting an image also updates the swatches and preview on their phone. Together, these support a **narrow pass for the upload-to-preview flow on Windows and a phone**. The phone result is user-reported, not independently observed here.
+
+**What did not pass review or has not been checked:** The user said the interface is very basic and not polished. The screenshot's palette emphasizes blue-grays and appears to miss a vivid cyan accent. The screenshot displays `5.1:1` text contrast and a black/white fallback, but the calculation has not been independently checked in a real browser. Invalid-file behavior, other image formats, network privacy, speed/lag, accessibility, and phone/browser-specific layout quality remain unverified. No claim is made that the app is release-ready.
+
+**Check result and stop point:** Accept only the small functional feasibility finding. Carry the design-quality objection and untested behaviors into Step 4 human review before any larger build or release. Stop here until the user directs Step 4.

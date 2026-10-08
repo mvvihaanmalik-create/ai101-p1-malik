@@ -769,3 +769,19 @@ September 29.
   The screenshot does not verify phone behavior, error handling, network
   privacy, speed, or the correctness of the contrast calculation. No design
   change, Step 4 review, or new app-run `outputs/` file was made.
+
+## 2026-10-08 — Project 2 phone functionality confirmed
+
+- **Instruction and direction:** After I asked whether image selection also
+  updates the swatches and preview on the live phone page, the user confirmed
+  that it works.
+- **Came back:** Recorded the user's phone result alongside the desktop
+  screenshot and local tests in
+  [[AI 101/Project 2/03-build-a-small-prototype.md]]. Saved the narrow
+  functional Step 3 result to
+  [[AI 101/Project 2/outputs/image-palette-web-app/03-build-a-small-prototype.md]].
+- **Decision/status:** **Core upload-to-preview feasibility passed on Windows
+  and a phone, with the phone result user-reported.** This does not resolve
+  the user's visual-polish objection or verify invalid files, privacy,
+  performance, accessibility, or every image/phone format. Stop before Step 4
+  human review; no further code change was made.
