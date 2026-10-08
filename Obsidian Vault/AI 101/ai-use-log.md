@@ -862,3 +862,16 @@ September 29.
   from this crop whether the original vivid cyan was extracted or whether
   the phone has lag/clipping. No further code, `outputs/` save, or release
   decision was made.
+
+## 2026-10-08 — Project 2 revised phone check
+
+- **Instruction and direction:** The user reported that the revised site
+  “works fine on phone.”
+- **Came back:** Added the positive user-reported phone check to
+  [[AI 101/Project 2/05-iterate-or-stop.md]]. The statement supports the
+  phone experience for the device they tried, without supplying device,
+  browser, timing, or layout screenshots.
+- **Decision/status:** **Step 5 visual/stop decision still pending.** The user
+  has not explicitly accepted the editorial visual direction or identified
+  whether the cropped screenshot used the original `Test 7.png`. No code
+  change, app-run `outputs/` save, or final release decision was made.
