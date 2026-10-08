@@ -649,3 +649,15 @@ September 29.
   prototype was produced. The next step may estimate effort and cost only
   after the Step 1 scope is confirmed. No new app-run output was saved to
   `outputs/` yet.
+
+## 2026-10-08 — Project 2 image-palette app, Step 1 accepted
+
+- **Instruction and direction:** The user confirmed they will build and test
+  on a Windows computer and share the app with people using phones, accepting
+  the refined Step 1 scope.
+- **Came back:** Updated [[AI 101/Project 2/01-define-the-goal.md]] to require
+  a phone-usable online app and saved the approved scope to
+  [[AI 101/Project 2/outputs/image-palette-web-app/01-define-the-goal.md]].
+  Automatic palette application and the still-unknown budget remain explicit.
+- **Decision/status:** **Step 1 approved; stop before Step 2** — no tool or
+  hosting route has been recommended, researched, built, or declared feasible.
