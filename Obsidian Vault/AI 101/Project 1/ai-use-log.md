@@ -1058,3 +1058,17 @@ September 29.
   plugin settings, load a personal image, or make a new grade in this run.
 - **Decision/status:** **Awaiting the user's visual check.** This re-launch is
   not Step 3 acceptance and does not add a feature or release the plugin.
+
+## 2026-10-08 — obsidian-gaze copied into the current vault
+
+- **Instruction and direction:** The user asked to put the plugin in this AI 101
+  Obsidian vault rather than keep it only in the disposable test vault.
+- **Came back:** Copied the tested `main.js`, `manifest.json`, and `styles.css`
+  into this vault's `.obsidian/plugins/gaze/`. Each installed file matched the
+  isolated build by SHA-256. Updated [[AI 101/Project 2/03-build-a-small-prototype.md]]
+  and [[AI 101/Project 2/obsidian-gaze-prototype/README.md]] with the new
+  installation location and status.
+- **Decision/status:** **Installed here, not enabled yet.** I left the current
+  vault's Community plugins setting unchanged; the user must enable Gaze in
+  Obsidian to run it here. The disposable test vault remains available. No
+  Step 3 acceptance or public release is implied.
