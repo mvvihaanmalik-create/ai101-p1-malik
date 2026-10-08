@@ -680,3 +680,18 @@ September 29.
   and an estimate, not a working prototype or a feasibility guarantee. No
   new app-run Step 2 file was saved to `outputs/`, no app was built or
   published, and no Step 3 work began.
+
+## 2026-10-08 — Project 2 image-palette app, Step 2 route accepted
+
+- **Instruction and direction:** The user accepted a public app-code
+  repository. JPEG/PNG support is sufficient as a baseline, and other image
+  formats are welcome where the browser can decode them.
+- **Came back:** Updated [[AI 101/Project 2/02-check-feasibility.md]] to record
+  Route A and a nonexclusive JPEG/PNG baseline. Saved the approved route,
+  evidence, alternatives, risks, estimates, and bounded unrun test in
+  [[AI 101/Project 2/outputs/image-palette-web-app/02-check-feasibility.md]].
+- **Decision/status:** **Step 2 plan approved; stop before Step 3.** Browser
+  support for every phone image format and the quality/privacy of automatic
+  extraction remain unverified. No app code, repository, or live site was
+  created; the feasibility test still needs to be run and reviewed before a
+  larger build.
