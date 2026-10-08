@@ -270,6 +270,41 @@ function updateClock() {
   $('clock').textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
+// Tiny ASCII sprite: the cat blinks, flicks its tail, and winks on hover.
+const catFrame = $('catFrame');
+const catRest = catFrame.textContent;
+const catBlink = catRest.replace('o.o', '-.-');
+const catWink = catRest.replace('o.o', '^.o');
+const catTail = catRest.replace('> ^ <', '> ^ ~');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let catTimeouts = [];
+function setCatPose(pose, frame) {
+  catFrame.dataset.pose = pose;
+  catFrame.textContent = frame;
+}
+function resetCat() {
+  for (const timer of catTimeouts) clearTimeout(timer);
+  catTimeouts = [];
+  setCatPose('idle', catRest);
+}
+function catBeat() {
+  if (reducedMotion.matches || document.hidden || catFrame.getClientRects().length === 0) return;
+  resetCat();
+  setCatPose('blink', catBlink);
+  catTimeouts.push(setTimeout(() => { setCatPose('idle', catRest); }, 170));
+  catTimeouts.push(setTimeout(() => { setCatPose('tail', catTail); }, 650));
+  catTimeouts.push(setTimeout(resetCat, 900));
+}
+document.querySelector('.mascot').addEventListener('pointerenter', () => {
+  if (reducedMotion.matches || document.hidden) return;
+  resetCat();
+  setCatPose('wink', catWink);
+  catTimeouts.push(setTimeout(resetCat, 550));
+});
+document.addEventListener('visibilitychange', () => { if (document.hidden) resetCat(); });
+reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) resetCat(); });
+setInterval(catBeat, 4700);
+
 $('newProjectButton').addEventListener('click', () => $('newProjectDialog').showModal());
 document.querySelectorAll('[data-close]').forEach((button) => button.addEventListener('click', () => $(button.dataset.close).close()));
 document.querySelectorAll('dialog').forEach((dialog) => dialog.addEventListener('click', (event) => {

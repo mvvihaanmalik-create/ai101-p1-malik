@@ -1204,3 +1204,21 @@ September 29.
 - **Decision/status:** The motion pass is published for the user's visual
   review, not accepted as a workflow gate. idea.quest remains at 0/5
   approved. The local test servers were stopped after verification.
+
+## 2026-10-08 — idea.quest ASCII cat animation
+
+- **Instruction and direction:** The user asked to animate the cat mascot.
+- **Came back:** Kept its three-line ASCII drawing and added a brief blink,
+  tail flick, and hover wink rather than replacing it with a generic graphic.
+  The cat now stays visible in the compact layout; hidden tabs and the system
+  reduced-motion preference suppress the animation. Updated the local
+  editable site, hosted read-only source, quest record, and README.
+- **Actual checks:** JavaScript syntax and 3/3 API tests passed. Timed Edge
+  DOM captures showed the blink and tail poses; reduced-motion emulation
+  kept the resting pose. A 500px-wide screenshot showed the cat fitting above
+  the project tabs. The hosted-mode preview showed the tail pose and repo
+  mirror state. The owner-private Site deployment returned **succeeded** at
+  [idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site). The
+  actual pointer-hover response has not been hand-tested.
+- **Decision/status:** This is a bounded aesthetic iteration awaiting the
+  user's check. No idea.quest workflow gate was marked approved.

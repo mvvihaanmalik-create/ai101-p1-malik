@@ -34,6 +34,8 @@ The board begins with idea.quest, obsidian-gaze, Image Palette Studio, and the c
 
 **Motion language:** The live indicator breathes, the tiny rocket floats, stars twinkle, and icons answer hover, focus, or press. A new idea gets a brief arrival flash; an explicitly approved gate gets one checkpoint pop and XP flash. The board does not animate every card at once. The system reduced-motion preference turns these animations and transitions off.
 
+The ASCII quest cat now blinks and flicks its tail, then returns to the same resting pose; hovering makes it wink. It stays visible in the compact layout too. It does not animate in a hidden tab or when reduced motion is preferred.
+
 ## Live source of truth
 
 projects.json is the site registry. Future AI-assisted project work should update this file when an idea starts or its status genuinely changes, then run:

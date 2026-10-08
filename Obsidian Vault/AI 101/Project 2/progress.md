@@ -6,7 +6,7 @@
 
 **Now:** A cute retro ASCII quest board that makes our project decisions and progress visible.
 
-**Next decision:** Review the icon motion and checkpoint feedback; decide whether the pacing feels playful but calm.
+**Next decision:** Watch the quest cat blink, flick its tail, and wink on hover; decide if its personality feels right.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-08
 

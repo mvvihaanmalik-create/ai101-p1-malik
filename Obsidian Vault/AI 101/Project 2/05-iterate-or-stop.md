@@ -93,3 +93,11 @@ I choose whether to accept the next move. After a change, repeat the prototype t
 **Decision/status:** Await the user's aesthetic check on the existing hosted link. No idea.quest gate is approved by this implementation or test.
 
 **Publication check:** The updated Site source was pushed, packaged, and the owner-private production deployment returned **succeeded** at the same [idea.quest link](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site). The hosted view remains read-only; real hover, touch, and user preference checks on a personal device are still for the user's review.
+
+### Cat mascot follow-up — 2026-10-08
+
+The user specifically asked to animate the cat. I kept the ASCII art rather than replacing it with a generic sprite: its eyes briefly close, its tail flicks, and hovering produces a wink plus the existing small lift. The frames replace characters in a fixed-size three-line preformatted drawing, so the sidebar does not jump. The cat is now visible in the compact layout. Animation pauses in a hidden tab and stops under the system reduced-motion preference.
+
+**Checks:** JavaScript syntax and 3/3 API tests passed. Headless Edge DOM captures showed the blink pose at the timed interval, the tail pose shortly after, and an unchanged resting cat with reduced motion emulated. A 500px-wide screenshot showed the cat and speech label fitting above the horizontal project tabs. Actual pointer-hover on the published site remains for the user's check. **Status:** a bounded visual iteration for review, not a gate approval.
+
+**Publication:** The updated owner-private Site deployment returned **succeeded** at the existing [idea.quest link](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site); the hosted-mode local preview also showed the tail pose and active repo mirror. The user has not yet judged the motion.

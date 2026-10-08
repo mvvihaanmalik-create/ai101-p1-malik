@@ -12,9 +12,10 @@
       "createdAt": "2026-10-08",
       "updatedAt": "2026-10-08",
       "gates": ["active", "upcoming", "upcoming", "upcoming", "upcoming"],
-      "nextMove": "Review the icon motion and checkpoint feedback; decide whether the pacing feels playful but calm.",
+      "nextMove": "Watch the quest cat blink, flick its tail, and wink on hover; decide if its personality feels right.",
       "vaultLink": "AI 101/Project 2/progress-arcade/README.md",
       "updates": [
+        {"at": "2026-10-08", "text": "The ASCII cat now blinks, flicks its tail, and winks on hover; it also appears in the compact layout and respects reduced motion."},
         {"at": "2026-10-08", "text": "Added restrained icon motion, press/hover feedback, and approval-only checkpoint animation; reduced-motion preference disables them."},
         {"at": "2026-10-08", "text": "An owner-private read-only web mirror was deployed. It checks the public vault repo after sync; online edits are not enabled."},
         {"at": "2026-10-08", "text": "A working local prototype was built. No workflow gate is marked approved just because it runs."}
