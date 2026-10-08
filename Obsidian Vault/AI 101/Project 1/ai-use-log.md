@@ -920,3 +920,21 @@ September 29.
   check.** No visual or touch behavior was independently observed, no new
   utility-iteration output was saved to `outputs/`, and no further feature or
   final-release decision was made.
+
+## 2026-10-08 — Project 2 new run: obsidian-gaze goal draft
+
+- **Instruction and direction:** The user supplied a detailed specification
+  for `obsidian-gaze`, a minimal offline Obsidian image-grading plugin, while
+  the Canvas selection pointed to the prior run's Step 5 node. Their standing
+  instruction is to follow [[AI 101/Project 2/00-start-here.md]] one step at
+  a time and stop at each check.
+- **Came back:** Started a separate Step 1 draft in
+  [[AI 101/Project 2/01-define-the-goal.md]], recording the one-image-in,
+  one-graded-PNG-out scope, four required filters, UI/input requirements,
+  explicit exclusions, and testable success criteria. Flagged that the
+  original filter source was not supplied, the full-screen versus 900px modal
+  instructions conflict, mobile support needs confirmation, and the proposed
+  import requires a `directors.ts` file omitted from the tree.
+- **Decision/status:** **Awaiting the user's goal/scope check.** No filter
+  algorithms were represented as exact copies, no plugin was built or tested,
+  and nothing was saved to `outputs/` for this new run.

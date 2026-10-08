@@ -59,3 +59,21 @@ I confirm that the restated goal, priorities, and success criteria match what I 
 ### Later utility-scope delta — pending user check (2026-10-08)
 
 After accepting the first prototype for now, the user selected the iterate-or-stop Canvas node and asked to “imrpove functionality and utility.” I bounded that broad direction to **one optional manual accent override**: automatic color placement remains the default; tapping a displayed swatch changes only the preview accent and recalculates its button/caption text color; Reset restores the automatic accent. Success means this works with mouse, keyboard, and phone touch without changing the automatically selected background/main text. Copy/export, accounts, saved palettes, and full manual role editing remain outside this single iteration. This is a new proposed scope slice for user review, not a retroactive change to the original approved Step 1 output.
+
+## New run: obsidian-gaze — Step 1 draft (2026-10-08)
+
+**Goal:** Build a minimal, offline Obsidian plugin called `obsidian-gaze` that lets a person open a single image, apply one of exactly four cinematic color grades in a modal, compare with the original using a button, and download the graded result as a PNG. One image in, one graded image out.
+
+**Audience and environment:** An Obsidian user working with images on their own device. The build environment is the user's Windows computer. The proposed manifest says `isDesktopOnly: false`, suggesting mobile support, but mobile testing/requirements have not been confirmed.
+
+**Input and output:** Input is one local image chosen by file picker or dropped onto the modal. Output is an immediate Canvas-rendered preview and a downloaded PNG. No image upload or external service is intended. File-type and size limits have not yet been decided.
+
+**Must-have:** `Gaze: Open` command and camera ribbon entry; dark modal with image workspace and exactly four selectable presets (Wes Anderson, Wong Kar-wai, Greta Gerwig, David Lynch); click-to-choose and drag-and-drop image input; selected-filter preview; Show original button; PNG download; shutter and film-wind effects only; offline image processing. Preserve the supplied director names, taglines, accent colors, filter parameters, and tight feature scope unless a feasibility check finds a conflict.
+
+**Out of scope:** Onboarding, music, Polaroid animation, AI director studio, custom presets, clipboard export, stickers, and spacebar before/after toggle. Do not fold in features from the prior image-palette website project.
+
+**Observable success:** In an enabled Obsidian vault, invoking `Gaze: Open` or the ribbon icon opens the modal; choosing or dropping a browser-decodable image shows it; selecting each of the four presets changes the preview without network access; Show original visibly toggles; Download produces a PNG matching the selected grade. The UI remains usable at the supported viewport sizes, and invalid/unsupported files fail visibly rather than showing a stale image.
+
+**Important unresolved decisions:** (1) The request says to copy filter helpers “exactly from the original,” but supplies numerical recipes rather than the original source file, so exact copying cannot yet be promised. (2) “Full-screen modal” and the specified 900px-wide, 90vh-tall centered design describe different layouts. (3) Confirm whether mobile Obsidian is required now or is merely allowed by the manifest. The listed file tree also omits `directors.ts` even though `GazeModal.ts` imports it; Step 2/3 should resolve that without expanding the feature set.
+
+**Status:** Step 1 draft awaiting user check. No plugin code, accepted `outputs/` copy, installation, or release yet. The selected Canvas node is Step 5, but a new project starts at Step 1 under [[AI 101/Project 2/00-start-here.md]].
