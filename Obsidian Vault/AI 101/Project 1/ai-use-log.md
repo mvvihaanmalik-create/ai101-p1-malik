@@ -755,3 +755,17 @@ September 29.
   The user's concern that the design looks basic remains open. Real image
   decoding, palette quality, privacy, and phone responsiveness have not been
   checked; no Step 4 review or app-run Step 3 `outputs/` acceptance occurred.
+
+## 2026-10-08 — Project 2 desktop screenshot review
+
+- **Instruction and direction:** The user showed a screenshot of the running
+  prototype with an image selected.
+- **Came back:** Recorded in [[AI 101/Project 2/03-build-a-small-prototype.md]]
+  that the desktop screenshot shows a successful image-to-five-swatches-to-
+  recolored-preview flow, with a displayed contrast fallback. Noted the
+  palette's emphasis on blue-gray tones while the vivid cyan accent seems
+  underrepresented, and that the site preview is still visually basic.
+- **Decision/status:** **Partial real-browser evidence, not Step 3 sign-off.**
+  The screenshot does not verify phone behavior, error handling, network
+  privacy, speed, or the correctness of the contrast calculation. No design
+  change, Step 4 review, or new app-run `outputs/` file was made.
