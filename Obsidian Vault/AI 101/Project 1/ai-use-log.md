@@ -1047,3 +1047,14 @@ September 29.
   in-modal collapse, not Windows taskbar minimization; the vault remains
   blocked while the modal is open. No main-vault installation, `outputs/`
   acceptance copy, or public release was made.
+
+## 2026-10-08 — obsidian-gaze reopened for another user check
+
+- **Instruction and direction:** The user asked to run the current build again.
+- **Came back:** Reopened the disposable `obsidian-gaze-test-vault` and launched
+  Gaze from its ribbon. The updated centered modal is visible with the four
+  director cards and minimize/full-window controls; its image area is empty
+  and ready for the user's file. I did not change or open the main vault's
+  plugin settings, load a personal image, or make a new grade in this run.
+- **Decision/status:** **Awaiting the user's visual check.** This re-launch is
+  not Step 3 acceptance and does not add a feature or release the plugin.
