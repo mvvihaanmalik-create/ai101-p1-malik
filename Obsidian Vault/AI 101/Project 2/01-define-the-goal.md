@@ -1,3 +1,7 @@
+# 01 / 05 · Frame the idea
+
+**Output:** goal + success test · **Gate:** you approve the scope
+
 ## Starts from
 
 An idea or problem in my own words, including any examples or inspiration I already have. Unknowns are allowed; do not treat guesses as requirements.

@@ -1,3 +1,7 @@
+# 02 / 05 · Choose a route
+
+**Output:** evidence + route comparison · **Gate:** you approve the approach
+
 ## Starts from
 
 The goal and success criteria I approved in [[AI 101/Project 2/01-define-the-goal.md]], plus the actual operating system, device, tools, access, time, and budget available for this project.

@@ -1,3 +1,7 @@
+# 05 / 05 · Revise or stop
+
+**Output:** one bounded change or a stop decision · **Gate:** your final choice for this pass
+
 ## Starts from
 
 My review decision, test results, and unresolved issues from [[AI 101/Project 2/04-human-check.md]], compared with the original goal and constraints.

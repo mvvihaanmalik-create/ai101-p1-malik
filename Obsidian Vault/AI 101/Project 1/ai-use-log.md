@@ -1113,3 +1113,23 @@ September 29.
 - **Decision/status:** **Awaiting the user's aesthetic check.** Restarting
   Obsidian after saving open notes will load the updated main-vault code.
   This iteration is not yet accepted into `outputs/` or a final release.
+
+## 2026-10-08 — visual progress cues for Project 2 workflow
+
+- **Instruction and direction:** The user said new-project ideation and step
+  transitions were too text-heavy and asked for more visual cues, including
+  progress bars.
+- **Came back:** Added a five-gate progress strip and concise check-in format
+  to [[AI 101/Project 2/00-start-here.md]]. Created
+  [[AI 101/Project 2/progress.md]] as a live, project-specific status card;
+  placed it above the five step cards in [[AI 101/Project 2/process-map.canvas]]
+  with a short legend, compact cards, and the human-check card still red.
+  Added one-line output and approval-gate labels to each step file.
+- **Actual checks:** Parsed the Canvas JSON, verified seven nodes and four
+  sequential arrows, confirmed all six linked files exist, and confirmed the
+  human-check node retains its distinct color. This was a structural check,
+  not a user visual review of the Canvas.
+- **Decision/status:** The bar counts **approved gates**, not percent of work.
+  Gaze currently shows 2/5 approved with prototype review active; revisions
+  do not falsely fill a gate. The dashboard resets to 0/5 for a new project.
+  Awaiting the user's check on whether the compact visual format is helpful.

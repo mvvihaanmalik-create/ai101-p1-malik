@@ -1,3 +1,7 @@
+# 03 / 05 · Test a small slice
+
+**Output:** runnable prototype + actual result · **Gate:** you agree it is ready for review
+
 ## Starts from
 
 The approved route and passed feasibility check in [[AI 101/Project 2/02-check-feasibility.md]], along with the goal and success criteria from Step 1.

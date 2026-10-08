@@ -1,3 +1,7 @@
+# 04 / 05 · Your reality check
+
+**Output:** what works, fails, and remains unknown · **Gate:** your keep / revise / stop call
+
 ## Starts from
 
 A minimal prototype, its changed files, the test command, the observed test output, and any assumptions or limitations recorded in [[AI 101/Project 2/03-build-a-small-prototype.md]].
