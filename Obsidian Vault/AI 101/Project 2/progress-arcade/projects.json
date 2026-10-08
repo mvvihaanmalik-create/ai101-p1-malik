@@ -15,7 +15,7 @@
       "nextMove": "Open the hosted read-only mirror and review its visual direction; decide whether online editing is needed later.",
       "vaultLink": "AI 101/Project 2/progress-arcade/README.md",
       "updates": [
-        {"at": "2026-10-08", "text": "An owner-private read-only web mirror was deployed. It refreshes from the public vault repo after sync; online edits are not enabled."},
+        {"at": "2026-10-08", "text": "An owner-private read-only web mirror was deployed. It checks the public vault repo after sync; online edits are not enabled."},
         {"at": "2026-10-08", "text": "A working local prototype was built. No workflow gate is marked approved just because it runs."}
       ]
     },

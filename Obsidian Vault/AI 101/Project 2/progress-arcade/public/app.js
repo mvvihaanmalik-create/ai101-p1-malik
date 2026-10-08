@@ -1,7 +1,7 @@
 const steps = ['Goal', 'Route', 'Prototype', 'Human check', 'Decide'];
 const $ = (id) => document.getElementById(id);
 const HOSTED = document.documentElement.dataset.mode === 'hosted';
-const SOURCE_URL = 'https://raw.githubusercontent.com/mvvihaanmalik-create/ai101-p1-malik/main/Obsidian%20Vault/AI%20101/Project%202/progress-arcade/projects.json';
+const SOURCE_URL = 'https://api.github.com/repos/mvvihaanmalik-create/ai101-p1-malik/contents/Obsidian%20Vault/AI%20101/Project%202/progress-arcade/projects.json?ref=main';
 let state = null;
 let viewProjectId = null;
 let pendingAction = null;
@@ -42,9 +42,12 @@ async function request(url, method, body) {
 
 async function refresh(force = false) {
   try {
-    const response = await fetch(HOSTED ? `${SOURCE_URL}?at=${Date.now()}` : '/api/projects', { cache: 'no-store' });
+    const response = await fetch(HOSTED ? `${SOURCE_URL}&at=${Date.now()}` : '/api/projects', { cache: 'no-store' });
     if (!response.ok) throw new Error('The project record is unavailable.');
-    const next = await response.json();
+    const payload = await response.json();
+    const next = HOSTED
+      ? JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(payload.content.replace(/\s/g, '')), (letter) => letter.charCodeAt(0))))
+      : payload;
     const changed = force || !state || JSON.stringify(next) !== JSON.stringify(state);
     state = next;
     if (!viewProjectId || !state.projects.some((project) => project.id === viewProjectId)) viewProjectId = state.activeProjectId;
@@ -290,4 +293,4 @@ if (HOSTED) {
   document.querySelector('.live-pill').textContent = '● SYNCED FROM VAULT REPO';
 }
 refresh(true);
-setInterval(() => refresh(), HOSTED ? 30000 : 4000);
+setInterval(() => refresh(), HOSTED ? 120000 : 4000);

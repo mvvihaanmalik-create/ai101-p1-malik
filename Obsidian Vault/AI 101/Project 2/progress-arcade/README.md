@@ -6,7 +6,7 @@ Desktop preview: ![[AI 101/Project 2/progress-arcade/preview.png]]
 
 ## Hosted link
 
-**[Open idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site)** — an owner-private, **read-only** web mirror. It fetches projects.json from the public GitHub vault repository and checks for changes every 30 seconds while open; new vault edits appear there after the vault sync pushes to GitHub. If GitHub is temporarily unavailable on first load, the hosted copy falls back to its last packaged snapshot and labels it as such. The hosted site cannot approve gates or add ideas. Those actions remain in the local vault-backed version below.
+**[Open idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site)** — an owner-private, **read-only** web mirror. It fetches projects.json from the public GitHub vault repository and checks for changes every two minutes while open; new vault edits appear there after the vault sync pushes to GitHub and the next check succeeds. If GitHub is temporarily unavailable on first load, the hosted copy falls back to its last packaged snapshot and labels it as such. The hosted site cannot approve gates or add ideas. Those actions remain in the local vault-backed version below.
 
 The hosted Site project ID is appgprj_6ac817efa8c08191a5bd4042c61e210c. Its separate source checkout is under C:\Users\91982\AppData\Local\AI101Projects\idea-quest-site; no Site credential is stored in this vault. Keep this ID if revising the hosted site rather than creating a replacement.
 

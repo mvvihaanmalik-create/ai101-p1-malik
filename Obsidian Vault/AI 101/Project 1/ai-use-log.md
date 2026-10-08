@@ -1167,11 +1167,11 @@ September 29.
 - **Came back:** Published an owner-private, read-only mirror at
   [idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site). It
   fetches [[AI 101/Project 2/progress-arcade/projects.json]] from the
-  already-public vault GitHub repository and rechecks every 30 seconds while
+  already-public vault GitHub repository and rechecks every two minutes while
   open. The hosted view clearly hides new-idea and approval controls. The
   editable local site still writes the vault registry and progress card.
   Updated the source, instructions, and quest record accordingly.
-- **Actual checks:** The GitHub raw registry returned HTTP 200 with a
+- **Actual checks:** The GitHub registry API returned HTTP 200 with a
   cross-origin header; a local hosted-mode browser screenshot showed all four
   seeded projects and the read-only labels. The Site source was pushed and
   packaged, and the production deployment returned **succeeded** with the
