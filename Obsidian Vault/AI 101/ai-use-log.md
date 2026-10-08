@@ -1021,3 +1021,29 @@ September 29.
   accept that security prompt or claim the plugin ran. The main AI 101 vault
   remains open separately and does not have Gaze installed. No Step 3
   acceptance, `outputs/` save, or release follows from this attempt.
+
+## 2026-10-08 — obsidian-gaze in-app run and layout fixes
+
+- **Instruction and direction:** After enabling the plugin, the user asked me
+  to run it, then reported text leaking from boxes and requested minimize and
+  full-screen modes before another run.
+- **Came back:** In the disposable Obsidian test vault, I opened Gaze from its
+  ribbon, loaded a synthetic PNG, switched among all four director grades,
+  toggled the original preview, and downloaded a David Lynch PNG. The saved
+  file kept the 960×640 dimensions and a sampled pixel differed from the
+  source even while the original was displayed. I then revised
+  [[AI 101/Project 2/obsidian-gaze-prototype/GazeModal.ts]] and
+  [[AI 101/Project 2/obsidian-gaze-prototype/styles.css]] to keep director
+  text inside its cards, add compact minimize/restore and in-app full-window
+  controls, and leave only Obsidian's native close icon. Updated the isolated
+  build, disposable installation, and visible Project 2 prototype snapshot.
+- **Actual checks:** The final build passed TypeScript/esbuild and 4/4
+  automated tests. In Obsidian 1.14.4, the card text fit, minimize collapsed
+  the modal, restore reopened it, and full-window mode filled the app view.
+  The final version reopened with a single close icon. A user-selected JPEG
+  displayed a 1170×885 “PNG ready” result; I did not save or distribute that
+  personal image. Sound, file drag/drop, and a network trace remain untested.
+- **Decision/status:** **Step 3 remains for human review.** Minimize means an
+  in-modal collapse, not Windows taskbar minimization; the vault remains
+  blocked while the modal is open. No main-vault installation, `outputs/`
+  acceptance copy, or public release was made.

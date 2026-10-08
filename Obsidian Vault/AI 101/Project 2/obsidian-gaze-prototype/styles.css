@@ -1,14 +1,15 @@
-.gaze-modal {
+.gaze-modal,
+.modal:has(.gaze-modal) {
   --bg: #0d0b08;
   --surface: #161411;
   --border: rgba(255, 210, 140, 0.10);
   --text: #ebe5d9;
   --text-muted: #93846d;
   --accent: #c96c18;
-  width: min(900px, calc(100vw - 32px));
-  max-width: 900px;
-  height: min(90vh, 760px);
-  max-height: 90vh;
+  width: min(900px, calc(100vw - 32px)) !important;
+  max-width: 900px !important;
+  height: min(90vh, 760px) !important;
+  max-height: 90vh !important;
   padding: 0;
   border: 1px solid rgba(255, 210, 140, 0.13);
   border-radius: 24px;
@@ -18,8 +19,25 @@
   overflow: hidden;
 }
 
-.gaze-modal .modal-close-button { display: none; }
-.gaze-modal .modal-content { padding: 0; width: 100%; height: 100%; max-height: none; }
+.gaze-modal.gaze-is-fullscreen {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  border-radius: 0;
+}
+
+.gaze-modal.gaze-is-minimized {
+  width: min(360px, calc(100vw - 24px)) !important;
+  max-width: min(360px, calc(100vw - 24px)) !important;
+  height: 64px !important;
+  max-height: 64px !important;
+  border-radius: 16px;
+}
+.gaze-modal.gaze-is-minimized .gaze-body { display: none; }
+.gaze-modal.gaze-is-minimized .gaze-header { min-height: 64px; height: 64px; }
+
+.gaze-modal .modal-content { padding: 0; width: 100%; height: 100%; max-height: none; min-width: 0; min-height: 0; }
 .gaze-modal [hidden] { display: none !important; }
 .gaze-modal * { box-sizing: border-box; }
 
@@ -29,16 +47,19 @@
   align-items: center;
   justify-content: space-between;
   min-height: 76px;
-  padding: 0 34px;
+  padding: 0 60px 0 34px;
   border-bottom: 1px solid var(--border);
+  gap: 16px;
 }
 .gaze-logo { font-size: 18px; font-weight: 800; letter-spacing: -0.06em; color: #ebe5d9; }
-.gaze-close {
-  width: 32px; height: 32px; padding: 0; border: 1px solid var(--border);
+.gaze-window-controls { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.gaze-modal button.gaze-window-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: 0 0 32px; width: 32px; min-width: 32px; height: 32px; padding: 0; border: 1px solid var(--border);
   border-radius: 50%; background: var(--surface); color: var(--text-muted);
-  font: inherit; cursor: pointer;
+  font: 18px/1 sans-serif; box-shadow: none; cursor: pointer;
 }
-.gaze-close:hover, .gaze-close:focus-visible { color: var(--text); border-color: var(--accent); }
+.gaze-modal button.gaze-window-button:hover, .gaze-modal button.gaze-window-button:focus-visible { color: var(--text); border-color: var(--accent); background: #242019; }
 .gaze-body { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 0; flex: 1; min-height: 0; }
 .gaze-workspace { display: flex; flex-direction: column; min-width: 0; min-height: 0; padding: 28px 30px 24px 34px; }
 .gaze-dropzone {
@@ -56,35 +77,37 @@
 .gaze-empty-title { font-size: 18px; font-weight: 650; line-height: 1.35; }
 .gaze-empty-detail { color: var(--text-muted); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
 .gaze-preview { display: block; width: 100%; height: 100%; max-height: 100%; object-fit: contain; }
-.gaze-status { min-height: 32px; padding-top: 10px; color: var(--text-muted); font-size: 11px; letter-spacing: 0.04em; }
+.gaze-status { min-height: 32px; padding-top: 10px; color: var(--text-muted); font-size: 11px; letter-spacing: 0.04em; overflow-wrap: anywhere; }
 .gaze-status.is-error { color: #ffaaa1; }
 .gaze-actions { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; }
-.gaze-action { min-height: 40px; padding: 0 16px; border-radius: 9px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.gaze-modal button.gaze-action { min-width: 0; min-height: 40px; padding: 7px 16px; border-radius: 9px; font-size: 12px; line-height: 1.3; font-weight: 700; white-space: normal; overflow-wrap: anywhere; box-shadow: none; cursor: pointer; }
 .gaze-action:disabled { opacity: 0.45; cursor: wait; }
-.gaze-secondary { border: 1px solid rgba(255, 210, 140, 0.2); background: transparent; color: var(--text); }
-.gaze-secondary:hover { background: #242019; }
-.gaze-primary { margin-left: auto; border: 1px solid var(--accent); background: var(--accent); color: #0d0b08; }
-.gaze-primary:hover { background: #e48328; }
+.gaze-modal button.gaze-secondary { border: 1px solid rgba(255, 210, 140, 0.2); background: transparent; color: var(--text); }
+.gaze-modal button.gaze-secondary:hover { background: #242019; }
+.gaze-modal button.gaze-primary { margin-left: auto; border: 1px solid var(--accent); background: var(--accent); color: #0d0b08; }
+.gaze-modal button.gaze-primary:hover { background: #e48328; }
 
-.gaze-directors { min-height: 0; overflow-y: auto; padding: 30px 22px; border-left: 1px solid var(--border); background: #110f0c; }
+.gaze-directors { min-width: 0; min-height: 0; overflow-x: hidden; overflow-y: auto; padding: 30px 22px; border-left: 1px solid var(--border); background: #110f0c; }
 .gaze-eyebrow { color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 0.18em; }
 .gaze-directors h2 { margin: 9px 0 24px; color: var(--text); font-size: 24px; font-weight: 650; letter-spacing: -0.045em; }
-.gaze-dir-btn {
-  display: flex; align-items: flex-start; width: 100%; min-height: 92px; margin: 0 0 9px; padding: 16px 13px;
+.gaze-modal button.gaze-dir-btn {
+  display: flex; align-items: flex-start; width: 100%; min-width: 0; max-width: 100%; min-height: 92px; margin: 0 0 9px; padding: 16px 13px;
   border: 1px solid rgba(255, 210, 140, 0.07); border-left: 2px solid transparent; border-radius: 12px;
-  background: #1a1713; color: var(--text); text-align: left; cursor: pointer;
+  background: #1a1713; color: var(--text); text-align: left; white-space: normal; overflow: hidden; overflow-wrap: anywhere; box-shadow: none; cursor: pointer;
   transition: background 150ms, transform 150ms, border-color 150ms;
 }
-.gaze-dir-btn:hover { transform: translateY(-1px); background: #242019; }
-.gaze-dir-btn.is-active { background: #27211a; border-left-color: var(--director-accent); }
+.gaze-modal button.gaze-dir-btn:hover { transform: translateY(-1px); background: #242019; }
+.gaze-modal button.gaze-dir-btn.is-active { background: #27211a; border-left-color: var(--director-accent); }
 .gaze-dir-dot { flex: 0 0 auto; width: 8px; height: 8px; margin: 5px 12px 0 0; border-radius: 50%; background: var(--director-accent); box-shadow: 0 0 14px var(--director-accent); }
-.gaze-dir-copy { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.gaze-dir-name { color: var(--text); font-size: 13px; font-weight: 730; line-height: 1.2; }
-.gaze-dir-tagline { color: var(--text-muted); font-size: 11px; line-height: 1.4; }
+.gaze-dir-copy { display: flex; flex: 1 1 auto; flex-direction: column; gap: 6px; min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.gaze-dir-name { display: block; max-width: 100%; color: var(--text); font-size: 13px; font-weight: 730; line-height: 1.2; white-space: normal; overflow-wrap: anywhere; }
+.gaze-dir-tagline { display: block; max-width: 100%; color: var(--text-muted); font-size: 11px; line-height: 1.4; white-space: normal; overflow-wrap: anywhere; }
 
 @media (max-width: 640px) {
-  .gaze-modal { width: calc(100vw - 16px); max-height: 94vh; height: 94vh; border-radius: 18px; }
-  .gaze-header { min-height: 62px; padding: 0 20px; }
+  .gaze-modal, .modal:has(.gaze-modal) { width: calc(100vw - 16px) !important; max-width: none !important; max-height: 94vh !important; height: 94vh !important; border-radius: 18px; }
+  .gaze-modal.gaze-is-fullscreen { width: 100vw !important; max-width: 100vw !important; height: 100vh !important; max-height: 100vh !important; border-radius: 0; }
+  .gaze-modal.gaze-is-minimized { width: min(360px, calc(100vw - 24px)) !important; max-width: min(360px, calc(100vw - 24px)) !important; height: 64px !important; max-height: 64px !important; border-radius: 16px; }
+  .gaze-header { min-height: 62px; padding: 0 52px 0 20px; }
   .gaze-body { grid-template-columns: 1fr; overflow-y: auto; }
   .gaze-workspace { min-height: 330px; padding: 18px 20px 16px; }
   .gaze-dropzone { min-height: 240px; }

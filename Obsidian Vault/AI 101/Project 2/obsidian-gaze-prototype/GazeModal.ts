@@ -14,6 +14,8 @@ export class GazeModal extends Modal {
   private filteredUrl: string | null = null;
   private selectedFilter: DirectorId = 'wes-anderson';
   private isShowingOriginal = false;
+  private isMinimized = false;
+  private isFullscreen = false;
   private loadSequence = 0;
   private renderSequence = 0;
   private previewEl!: HTMLImageElement;
@@ -49,8 +51,35 @@ export class GazeModal extends Modal {
     const root = this.contentEl.createDiv({ cls: 'gaze-root' });
     const header = root.createDiv({ cls: 'gaze-header' });
     header.createSpan({ cls: 'gaze-logo', text: 'gaze.' });
-    const close = header.createEl('button', { cls: 'gaze-close', text: '✕', attr: { type: 'button', 'aria-label': 'Close Gaze' } });
-    close.addEventListener('click', () => this.close());
+    const windowControls = header.createDiv({ cls: 'gaze-window-controls' });
+    const minimize = windowControls.createEl('button', { cls: 'gaze-window-button gaze-minimize', text: '−', attr: { type: 'button', 'aria-label': 'Minimize Gaze', 'aria-expanded': 'true', title: 'Minimize' } });
+    const fullscreen = windowControls.createEl('button', { cls: 'gaze-window-button gaze-fullscreen', text: '⛶', attr: { type: 'button', 'aria-label': 'Enter full screen', 'aria-pressed': 'false', title: 'Full screen' } });
+    minimize.addEventListener('click', () => {
+      this.isMinimized = !this.isMinimized;
+      if (this.isMinimized) this.isFullscreen = false;
+      this.modalEl.toggleClass('gaze-is-minimized', this.isMinimized);
+      this.modalEl.toggleClass('gaze-is-fullscreen', this.isFullscreen);
+      minimize.setText(this.isMinimized ? '□' : '−');
+      minimize.setAttribute('aria-label', this.isMinimized ? 'Restore Gaze' : 'Minimize Gaze');
+      minimize.setAttribute('aria-expanded', String(!this.isMinimized));
+      minimize.title = this.isMinimized ? 'Restore' : 'Minimize';
+      fullscreen.setAttribute('aria-pressed', String(this.isFullscreen));
+      fullscreen.setAttribute('aria-label', 'Enter full screen');
+      fullscreen.title = 'Full screen';
+    });
+    fullscreen.addEventListener('click', () => {
+      this.isFullscreen = !this.isFullscreen;
+      this.isMinimized = false;
+      this.modalEl.toggleClass('gaze-is-fullscreen', this.isFullscreen);
+      this.modalEl.removeClass('gaze-is-minimized');
+      minimize.setText('−');
+      minimize.setAttribute('aria-label', 'Minimize Gaze');
+      minimize.setAttribute('aria-expanded', 'true');
+      minimize.title = 'Minimize';
+      fullscreen.setAttribute('aria-pressed', String(this.isFullscreen));
+      fullscreen.setAttribute('aria-label', this.isFullscreen ? 'Exit full screen' : 'Enter full screen');
+      fullscreen.title = this.isFullscreen ? 'Exit full screen' : 'Full screen';
+    });
 
     const body = root.createDiv({ cls: 'gaze-body' });
     const workspace = body.createDiv({ cls: 'gaze-workspace' });

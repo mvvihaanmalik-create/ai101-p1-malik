@@ -20,6 +20,8 @@ The build command type-checks the source and writes `main.js`. The plugin is ins
 
 Run **Gaze: Open** in the command palette or click its camera ribbon icon. Click the image area or drop a local raster image onto the modal; choose a director; optionally use **Show original**; click **Download →** for the selected graded PNG. Download always saves the grade, even if the original is currently displayed.
 
+The header's **−** button collapses the modal to a compact bar; **□** restores it. The expand button toggles between the centered and full-window layouts. Obsidian's small **×** at the top right closes it. Minimize is an in-modal collapse, not an operating-system window minimize; Obsidian remains behind the modal until it is closed.
+
 The app rejects SVG and non-images, files over 30 MB, images over 40 megapixels, and formats Obsidian cannot decode. It downsizes the longest edge to at most 1600 pixels before grading/export. For now the filter recipes are bounded interpretations of the supplied numeric instructions, not copies of an unavailable original implementation.
 
 ## Files
