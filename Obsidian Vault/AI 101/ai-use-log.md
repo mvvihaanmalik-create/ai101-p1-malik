@@ -740,3 +740,18 @@ September 29.
 - **Decision/status:** **Awaiting the user's authorization.** A device code
   being issued does not prove sign-in succeeded; no app repo or site was
   created in this step.
+
+## 2026-10-08 — Project 2 prototype published for phone test
+
+- **Instruction and direction:** The user completed the GitHub sign-in flow
+  after accepting a separate public app-code repository for the small test.
+- **Came back:** Verified GitHub CLI authentication as the user's account,
+  created a separate public repository containing only the five prototype
+  files, and enabled [the GitHub Pages test site](https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/).
+  Updated the prototype README and the Step 3 note with the live link.
+- **Actual checks:** GitHub reported the app repository PUBLIC and Pages
+  `built`; HTTP requests for the page, CSS, and JavaScript returned 200.
+- **Decision/status:** **Published for testing, not accepted as finished.**
+  The user's concern that the design looks basic remains open. Real image
+  decoding, palette quality, privacy, and phone responsiveness have not been
+  checked; no Step 4 review or app-run Step 3 `outputs/` acceptance occurred.
