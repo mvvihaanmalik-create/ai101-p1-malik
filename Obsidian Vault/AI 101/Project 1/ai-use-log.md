@@ -962,3 +962,29 @@ September 29.
   project name. Also noted `directors.ts` is required by the proposed import.
 - **Decision/status:** **Step 2 route check pending.** No plugin code or test
   has been run; no Step 2 result saved to `outputs/`; no release decision.
+
+## 2026-10-08 — obsidian-gaze route approved; working plugin build
+
+- **Instruction and direction:** The user approved the recommended Obsidian
+  plugin route, manifest changes, and separate test vault, then asked to build
+  the functional plugin. The Canvas selection still pointed to Step 5, but
+  the new project continued from its approved Step 2 into Step 3.
+- **Came back:** Saved the approved feasibility plan to
+  [[AI 101/Project 2/outputs/obsidian-gaze/02-check-feasibility.md]]. Built
+  source outside the synced vault at
+  `C:\Users\91982\AppData\Local\AI101Projects\obsidian-gaze\` with the four
+  director recipes, Canvas image flow, command/ribbon, Show original, PNG
+  download, generated SFX, CSS, build config, and tests. Installed only the
+  three build assets into a disposable test vault. Recorded the file list,
+  behavior, actual checks, limitations, and human test instructions in
+  [[AI 101/Project 2/03-build-a-small-prototype.md]].
+- **Actual checks:** `npm test` passed 4/4 synthetic pixel/Canvas-bridge
+  tests; TypeScript and esbuild production build passed; 1600×1000 synthetic
+  grades took about 343–488 ms each in Node; installed asset hashes matched;
+  main AI 101 vault has no `gaze` plugin installed. No Obsidian UI, sound,
+  real-image, or download test was performed. Full npm audit found two
+  moderate development-dependency advisories, while production-only audit
+  found none.
+- **Decision/status:** **Awaiting a real in-app human check.** Do not describe
+  this as fully verified, save Step 3 to `outputs/`, enable it in the main
+  vault, or release it until that check is complete.
