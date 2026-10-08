@@ -1,0 +1,9 @@
+{
+  "id": "gaze",
+  "name": "Gaze",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "See any photo through a director's eye.",
+  "author": "Vihaan Malik",
+  "isDesktopOnly": true
+}

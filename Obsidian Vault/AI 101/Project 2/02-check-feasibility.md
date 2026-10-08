@@ -78,6 +78,8 @@ Use the official Obsidian sample plugin's TypeScript/esbuild pattern as a small 
 
 **Local environment checked 2026-10-08:** Windows has Node v24.15.0, npm 11.12.1, Git 2.54.0, and Obsidian desktop 1.13.7 installed. This confirms build tools are present, not that the requested plugin runs. The installed version is newer than the proposed `minAppVersion: 1.4.0`; the actual earliest compatible version still needs testing or a more conservative manifest value.
 
+**Version observation correction (later same day):** The Obsidian executable's Windows file metadata reported 1.13.7, but the running Obsidian window title reported **1.14.4**. The former should not be treated as the active app version; neither observation proves compatibility with the new plugin.
+
 ### Manifest and specification corrections to approve
 
 - **Project folder versus plugin ID:** Keep the project/source name `obsidian-gaze`. For a potentially distributable plugin, recommend installed folder and manifest `id: "gaze"`, because Obsidian's manifest rules say IDs cannot contain `obsidian` and the installed folder should match the ID ([manifest reference](https://docs.obsidian.md/Reference/Manifest)). The supplied `obsidian-gaze` ID could be used for a local-only experiment, but it conflicts with those publication rules.

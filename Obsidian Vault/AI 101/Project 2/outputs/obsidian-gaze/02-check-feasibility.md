@@ -10,6 +10,8 @@ Approved 2026-10-08. This is a plan, not a verified plugin.
 
 **Local tools observed:** Windows Node v24.15.0, npm 11.12.1, Git 2.54.0, Obsidian desktop 1.13.7. Presence is not a functionality test.
 
+**Later correction:** 1.13.7 came from the executable's file metadata; the running Obsidian window title reports 1.14.4. Neither is an in-app Gaze test.
+
 **Alternative:** A local browser page is simpler but fails command/ribbon integration. CSS/canvas built-in color filters are easier but cannot reproduce the four requested pixel-level recipes.
 
 **Biggest risk and first test:** On a separate test vault, confirm command/ribbon → click/drop PNG/JPEG → Canvas grade → preview → PNG download, plus bad-file behavior and responsiveness on a large image. The supplied 1600px cap limits output dimensions, and the original source was not provided, so visual recipes are interpretations rather than exact copies. A naive multi-pass blur may be slow; use efficient passes and test. This test is not yet run.

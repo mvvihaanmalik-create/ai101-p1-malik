@@ -988,3 +988,23 @@ September 29.
 - **Decision/status:** **Awaiting a real in-app human check.** Do not describe
   this as fully verified, save Step 3 to `outputs/`, enable it in the main
   vault, or release it until that check is complete.
+
+## 2026-10-08 — obsidian-gaze prototype made visible in Project 2
+
+- **Instruction and direction:** The user again asked to build the prototype
+  while selecting the earlier Canvas Step 5 node. The plugin build already
+  existed outside the vault, but was not easy to find from Project 2.
+- **Came back:** Copied the source, tests, `main.js`, `manifest.json`, and
+  `styles.css`—excluding `node_modules`—to
+  [[AI 101/Project 2/obsidian-gaze-prototype/README.md]]. Added a warning
+  against installing npm dependencies inside the synced vault. Verified 14/14
+  copied code/build/test files matched the isolated working build by hash.
+  Inspected the running Obsidian window, which reported version 1.14.4 in its
+  title; corrected the earlier 1.13.7 executable-file-metadata observation
+  in the feasibility notes. The disposable test vault remains ready with the
+  three install assets; the main AI 101 vault still has no Gaze plugin
+  installed.
+- **Decision/status:** **Prototype accessible, in-app check pending.** The
+  plugin has not been opened or enabled in Obsidian, so no real-image,
+  sound, drop, or download result is claimed and Step 3 is not yet saved to
+  `outputs/` as accepted.

@@ -1,0 +1,17 @@
+{
+  "name": "obsidian-gaze",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline cinematic image grading inside Obsidian",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc --noEmit && node esbuild.config.mjs production",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "esbuild": "^0.25.5",
+    "obsidian": "^1.8.7",
+    "typescript": "^5.8.3"
+  }
+}
