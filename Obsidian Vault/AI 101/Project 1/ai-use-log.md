@@ -613,3 +613,23 @@ September 29.
   project-specific feasibility performance remains unverified. The accepted
   next move remains to apply it to one real coding idea; this log does not
   claim the cause has been experimentally established.
+
+## 2026-10-08 — Project 2 concrete app trial, Step 1
+
+- **Tool/context:** I followed [[AI 101/Project 2/00-start-here.md]] and the
+  first node of [[AI 101/Project 2/process-map.canvas]], using the existing
+  intent and research notes for context. No framework research or code build
+  was done at this stage.
+- **Instruction and direction:** The user proposed a small web app that takes
+  an image, extracts its main colors, and lets them try those colors on a
+  website preview; they asked for the easiest build route and for the workflow
+  to stop after each step.
+- **Came back:** Added a separate image-palette app draft to
+  [[AI 101/Project 2/01-define-the-goal.md]] without overwriting the earlier
+  workflow-design run. It states the intended user, image input, palette and
+  preview outputs, first-version requirements, observable success, and open
+  decisions about color assignment, browser/deployment target, and budget.
+- **Decision/status:** **Awaiting the user's Step 1 check** — no extraction
+  method, framework, OS target, or hosting route has been selected or claimed
+  feasible. The new app-run output will be saved in `outputs/` only after the
+  user agrees to the Step 1 draft.
