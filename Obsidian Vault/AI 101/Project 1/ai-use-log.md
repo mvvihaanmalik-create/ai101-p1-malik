@@ -848,3 +848,17 @@ September 29.
   polished, the phone has no lag/clipping, or runtime privacy is verified.
   No new Step 5 app-run output was saved to `outputs/`; no further iteration
   or final release decision was made.
+
+## 2026-10-08 — Project 2 revised-preview screenshot
+
+- **Instruction and direction:** The user showed a screenshot of the revised
+  website preview after the bounded Step 5 design-and-accent change.
+- **Came back:** Recorded in [[AI 101/Project 2/05-iterate-or-stop.md]] that
+  the desktop screenshot displays the editorial two-column composition,
+  selected-image feature panel, and pale cyan/blue accent against a blue
+  background. The view is more structured than the first flat preview, but
+  it crops out the source filename and swatches.
+- **Decision/status:** **Visual evidence, not Step 5 approval.** I cannot tell
+  from this crop whether the original vivid cyan was extracted or whether
+  the phone has lag/clipping. No further code, `outputs/` save, or release
+  decision was made.
