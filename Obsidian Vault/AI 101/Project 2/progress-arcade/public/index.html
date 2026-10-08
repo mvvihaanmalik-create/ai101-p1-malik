@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111524">
+  <meta name="description" content="A local, vault-backed quest board for ideas and approved project milestones.">
+  <title>idea.quest — the project arcade</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to project</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark" aria-hidden="true">[*]</div>
+        <div><p class="eyebrow">AI 101 // THE PROJECT ARCADE</p><h1>idea<span>.</span>quest<span>_</span></h1></div>
+      </div>
+      <div class="top-status"><span class="status-light" aria-hidden="true"></span><span id="connection">CONNECTING TO VAULT...</span><span class="top-clock" id="clock"></span></div>
+    </header>
+
+    <div class="dashboard">
+      <aside class="sidebar" aria-label="Project list">
+        <div class="sidebar-heading"><span>01 / QUEST SELECT</span><span id="projectCount">--</span></div>
+        <div class="mascot" aria-label="Pixel cat says: keep going, one gate at a time">
+          <pre aria-hidden="true"> /\_/\
+( o.o )  &lt; small steps!
+ &gt; ^ &lt;</pre>
+          <span class="mascot-speech">one gate at a time ★</span>
+        </div>
+        <div id="projectList" class="project-list" role="list"></div>
+        <button class="new-quest" id="newProjectButton" type="button"><span aria-hidden="true">＋</span> START A NEW IDEA <span aria-hidden="true">↗</span></button>
+        <div class="sidebar-foot">LOCAL SAVE FILE <span aria-hidden="true">◆</span> NO CLOUD REQUIRED<br><small>Changes in the vault appear here while this page is open.</small></div>
+      </aside>
+
+      <main id="main" class="main-pane">
+        <section class="hero" aria-label="Board overview">
+          <div><p class="eyebrow">✦ YOUR CREATIVE UNIVERSE / LIVE BOARD</p><h2>Make ideas<br><em>playable.</em></h2><p class="hero-copy">A cozy command center for everything we start, test, revisit, and decide together.</p></div>
+          <div class="hero-art" aria-hidden="true"><div class="star a">✦</div><div class="star b">✧</div><div class="pixel-orbit"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div><div class="rocket">▲<br>┃<br>▾</div><div class="hero-art-caption">IDEA → REAL THING</div></div>
+        </section>
+
+        <section class="stats" aria-label="Board statistics">
+          <div class="stat"><span class="stat-icon">⌘</span><span class="stat-number" id="totalProjects">0</span><span class="stat-label">PROJECTS STARTED</span></div>
+          <div class="stat"><span class="stat-icon">✳</span><span class="stat-number" id="totalGates">0</span><span class="stat-label">GATES YOU APPROVED</span></div>
+          <div class="stat"><span class="stat-icon">★</span><span class="stat-number" id="totalXp">0</span><span class="stat-label">QUEST XP <small>for approvals</small></span></div>
+        </section>
+
+        <section class="quest-panel" aria-labelledby="questTitle">
+          <div class="section-bar"><span>02 / CURRENT QUEST</span><span class="live-pill">● LIVE FROM VAULT</span></div>
+          <div class="quest-topline"><div><span id="questKicker" class="quest-kicker">LOADING...</span><h3 id="questTitle">Finding your quest...</h3><p id="questPitch"></p></div><div id="questBadge" class="quest-badge">···</div></div>
+          <div class="progress-heading"><span>QUEST PROGRESS <small>approved gates, not % of effort</small></span><strong id="progressCount">0 / 5</strong></div>
+          <div id="progressBar" class="progress-bar" role="progressbar" aria-label="Approved decision gates" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span></span><span></span><span></span><span></span><span></span></div>
+          <div id="stageMap" class="stage-map" aria-label="Five project steps"></div>
+          <div class="next-move"><div class="next-icon">➜</div><div><span>NEXT MOVE</span><p id="nextMove"></p></div></div>
+          <div class="action-row" id="actions"></div>
+          <div id="questFoot" class="quest-foot"></div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="journal-panel"><div class="section-bar"><span>03 / QUEST LOG</span><span>NEWEST FIRST</span></div><div id="journal" class="journal"></div></div>
+          <div class="rules-panel"><div class="section-bar"><span>THE GAME RULES</span><span>♡</span></div><div class="save-icon" aria-hidden="true">┌──────────┐<br>│&nbsp; SAVE! &nbsp;│<br>└────┬─────┘<br>&nbsp;&nbsp;&nbsp;&nbsp; ◉</div><p><strong>You hold the controller.</strong> A test or a build never fills a block. Only your explicit approval unlocks the next step.</p><p>Need another pass? That’s not a loss. It’s how good projects level up.</p></div>
+        </section>
+        <footer class="page-foot">idea.quest_ // built for real progress, not fake percentages <span>✦</span> <span id="lastSync">WAITING FOR SYNC</span></footer>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="newProjectDialog" class="arcade-dialog" aria-labelledby="newTitle"><form id="newProjectForm"><button class="dialog-close" type="button" data-close="newProjectDialog" aria-label="Close">✕</button><p class="eyebrow">NEW SAVE FILE</p><h2 id="newTitle">Start an idea ✦</h2><label for="ideaTitle">PROJECT NAME</label><input id="ideaTitle" name="title" maxlength="60" required placeholder="My next brilliant little thing"><label for="ideaPitch">THE IDEA IN ONE LINE</label><textarea id="ideaPitch" name="pitch" maxlength="180" required placeholder="What do you want to make?"></textarea><p class="dialog-hint">This starts at Step 1 with 0/5 gates approved.</p><button class="primary-button" type="submit">CREATE QUEST →</button></form></dialog>
+  <dialog id="actionDialog" class="arcade-dialog" aria-labelledby="actionTitle"><form id="actionForm"><button class="dialog-close" type="button" data-close="actionDialog" aria-label="Close">✕</button><p class="eyebrow" id="actionEyebrow">CHECKPOINT</p><h2 id="actionTitle">Your decision</h2><p id="actionDescription"></p><label id="actionNoteLabel" for="actionNote">YOUR NOTE</label><textarea id="actionNote" maxlength="220" placeholder="What should change or be remembered?"></textarea><button class="primary-button" id="actionSubmit" type="submit">SAVE →</button></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

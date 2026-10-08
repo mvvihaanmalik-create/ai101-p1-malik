@@ -22,7 +22,7 @@ Use **■ / ✅** only for a gate I approved, **▶** for the one currently bein
 
 Below the strip, use a compact three-part check-in: **Now** (one sentence), **Evidence or change** (up to two bullets, linking the detailed note), and **Your decision** (one clear question or action). Show a small visual comparison, screenshot, diagram, or example when it materially helps; avoid repeating the whole research and file history in chat. Keep the detailed reasoning in the step file. Stop at my decision gate before advancing.
 
-Update [[AI 101/Project 2/progress.md]] whenever a new project starts, the active project changes, or I approve/reject a gate. Mirror its strip in the chat check-in. The Canvas shows that live progress note above the five compact step cards; keep the human-check card visually distinct.
+Update the local [[AI 101/Project 2/progress-arcade/README.md|idea.quest registry]] whenever a new project starts, the active project changes, or I approve/reject a gate; its site controls save these decisions directly. If editing projects.json outside the site, run progress-arcade/sync-progress.mjs to regenerate [[AI 101/Project 2/progress.md]]. Mirror the active project's strip in the chat check-in. The Canvas shows that live progress note above the five compact step cards; keep the human-check card visually distinct. Never claim the local site is remotely shareable or automatically reads every note.
 
 ## Rules
 

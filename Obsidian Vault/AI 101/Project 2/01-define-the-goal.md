@@ -81,3 +81,17 @@ After accepting the first prototype for now, the user selected the iterate-or-st
 **Decisions and remaining implementation details:** The user approved implementing the supplied filter recipes rather than copying unavailable original code, and delegated the modal sizing choice. Choose a large centered modal, capped around 900px/90vh as specified, with a single-column fallback for narrow desktop windows. Mobile support is excluded for version 1. The proposed manifest's `isDesktopOnly: false` must be reconciled with this choice during Step 2. The listed tree also omits `directors.ts` even though `GazeModal.ts` imports it; Step 2/3 should resolve that without expanding the feature set.
 
 **Status:** Step 1 approved on 2026-10-08 and saved in [[AI 101/Project 2/outputs/obsidian-gaze/01-define-the-goal.md]]. No plugin code, installation, or release yet. The selected Canvas node is Step 5, but a new project starts at Step 1 under [[AI 101/Project 2/00-start-here.md]].
+
+## New run: idea.quest progress arcade — Step 1 draft (2026-10-08)
+
+**Goal:** Make a cute retro/ASCII gamified website that shows the live status of projects and new ideas we start together, with clear step progress and less text-heavy check-ins.
+
+**Audience and setting:** The user on this Windows computer, working in the AI 101 Obsidian vault. The requested live view should reflect decisions in vault-backed records. Remote/phone access was not specified for this new site; the first implementation is local-only to avoid exposing the vault.
+
+**Must-have:** Show multiple projects, honest approved-gate progress, the active/next step, and a concise dated quest log; let the user start an idea, approve a gate, request a revision, and add a note. The board must update when its vault registry changes. Keep actual human approval separate from code/test completion.
+
+**Success check:** Open the local board, see the current Project 1/2 ideas with their distinct states, start a new 0/5 idea, request a revision without filling a block, approve once and see exactly one gate fill and the next unlock, and confirm the selected project's Obsidian progress card updates. Check desktop and narrow layouts for clipped controls.
+
+**Out of scope for this pass:** Public hosting, accounts, multi-user editing, phone sync, scraping every unstructured vault note, or automatically interpreting prose as approval.
+
+**Status:** The user's full-site request prompted an early runnable prototype, but **no idea.quest gate is marked approved**. Its scope and aesthetic direction are waiting for human review.

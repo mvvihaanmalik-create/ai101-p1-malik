@@ -1133,3 +1133,29 @@ September 29.
   Gaze currently shows 2/5 approved with prototype review active; revisions
   do not falsely fill a gate. The dashboard resets to 0/5 for a new project.
   Awaiting the user's check on whether the compact visual format is helpful.
+
+## 2026-10-08 — idea.quest retro progress site
+
+- **Instruction and direction:** The user asked for an entire cute, retro
+  ASCII, gamified website showing live progress for ideas we vibe-code or
+  start together, rather than another text-heavy status note.
+- **Came back:** Built [[AI 101/Project 2/progress-arcade/README.md|idea.quest]]
+  as a local, vault-backed website with a pixel/ASCII visual system, project
+  selector, five-checkpoint map, approved-only progress bars and XP, quest
+  log, new-idea form, explicit approval, and revision/note controls. Seeded
+  Gaze, Image Palette Studio, the finished Project 1 poster as a non-workflow
+  bonus chapter, and idea.quest itself. The local server reads and saves
+  projects.json and updates [[AI 101/Project 2/progress.md]] after a site
+  decision; future project changes can sync the note from the registry.
+- **Actual checks:** Node syntax checks passed, 3/3 API tests passed, and the
+  running page and data endpoint returned HTTP 200. A 1440×1000 headless Edge
+  screenshot showed the populated desktop board and no obvious clipped text.
+  The test covered adding an idea, one-gate approval, revision without false
+  progress, invalid input, and cross-origin write rejection. A real phone,
+  hand-driven modal flow, and remote hosting were not verified.
+- **Decision/status:** The site is local-only on this Windows computer; it is
+  not a public/phone link and does not automatically infer decisions from
+  unstructured notes. idea.quest is a new project at **0/5 approved gates**
+  despite its runnable prototype. Its scope and visual direction await the
+  user's review; nothing was copied to accepted outputs. The local preview
+  server was stopped after testing.

@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "activeProjectId": "idea-quest",
+  "projects": [
+    {
+      "id": "idea-quest",
+      "title": "idea.quest",
+      "pitch": "A cute retro ASCII quest board that makes our project decisions and progress visible.",
+      "kind": "workflow",
+      "phase": "active",
+      "accent": "gold",
+      "createdAt": "2026-10-08",
+      "updatedAt": "2026-10-08",
+      "gates": ["active", "upcoming", "upcoming", "upcoming", "upcoming"],
+      "nextMove": "Review this local, vault-backed site and decide whether its scope and visual direction match your idea.",
+      "vaultLink": "AI 101/Project 2/progress-arcade/README.md",
+      "updates": [
+        {"at": "2026-10-08", "text": "A working local prototype was built. No workflow gate is marked approved just because it runs."}
+      ]
+    },
+    {
+      "id": "obsidian-gaze",
+      "title": "obsidian-gaze",
+      "pitch": "One image in. One cinematic grade out. An offline Obsidian plugin.",
+      "kind": "workflow",
+      "phase": "active",
+      "accent": "pink",
+      "createdAt": "2026-10-08",
+      "updatedAt": "2026-10-08",
+      "gates": ["approved", "approved", "active", "upcoming", "upcoming"],
+      "nextMove": "Review the film-frame UI in the main vault; keep, adjust, or reject it.",
+      "vaultLink": "AI 101/Project 2/obsidian-gaze-prototype/README.md",
+      "updates": [
+        {"at": "2026-10-08", "text": "Cinema-styled UI built and tested in a disposable vault. Main-vault visual review is still pending."}
+      ]
+    },
+    {
+      "id": "image-palette",
+      "title": "Image Palette Studio",
+      "pitch": "Upload an image, extract its colors, and try them on a website preview.",
+      "kind": "workflow",
+      "phase": "revisiting",
+      "accent": "mint",
+      "createdAt": "2026-10-08",
+      "updatedAt": "2026-10-08",
+      "gates": ["approved", "approved", "approved", "approved", "approved"],
+      "nextMove": "Side quest: test the new manual accent override before accepting that later iteration.",
+      "vaultLink": "AI 101/Project 2/image-palette-prototype/README.md",
+      "updates": [
+        {"at": "2026-10-08", "text": "Original five-gate run was accepted; the later accent-override change is published for review, not accepted."}
+      ]
+    },
+    {
+      "id": "ai-art-pin-up",
+      "title": "AI-art pin-up",
+      "pitch": "A three-color exhibition poster shaped through multiple creative steering rounds.",
+      "kind": "artifact",
+      "phase": "complete",
+      "accent": "gold",
+      "createdAt": "2026-10-08",
+      "updatedAt": "2026-10-08",
+      "gates": [],
+      "nextMove": "Final artifact submitted. This predates the five-gate coding workflow.",
+      "vaultLink": "AI 101/Project 1/README.md",
+      "updates": [
+        {"at": "2026-10-08", "text": "Final 1254×1254 three-color poster and documentation are in Project 1."}
+      ]
+    }
+  ]
+}
