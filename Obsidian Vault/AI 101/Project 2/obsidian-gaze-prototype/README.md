@@ -22,6 +22,8 @@ Run **Gaze: Open** in the command palette or click its camera ribbon icon. Click
 
 The header's **−** button collapses the modal to a compact bar; **□** restores it. The expand button toggles between the centered and full-window layouts. Obsidian's small **×** at the top right closes it. Minimize is an in-modal collapse, not an operating-system window minimize; Obsidian remains behind the modal until it is closed.
 
+The visual treatment uses a film-strip frame around the image, sprocket-hole edges, numbered director cards, and a frame counter that follows the selected look. These are interface cues only; they do not alter the export or add any new image-processing step. The updated files are installed in this vault, but an already-running Gaze instance may still show the earlier layout until Obsidian is restarted after saving any open notes.
+
 The app rejects SVG and non-images, files over 30 MB, images over 40 megapixels, and formats Obsidian cannot decode. It downsizes the longest edge to at most 1600 pixels before grading/export. For now the filter recipes are bounded interpretations of the supplied numeric instructions, not copies of an unavailable original implementation.
 
 ## Files

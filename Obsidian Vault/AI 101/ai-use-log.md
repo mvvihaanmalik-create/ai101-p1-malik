@@ -1088,3 +1088,28 @@ September 29.
   files. I did not enable Gaze or change Restricted mode. The user can now
   switch it on; only then will **Gaze: Open** and the ribbon icon appear in
   this vault. Main-vault use and Step 3 acceptance remain unverified.
+
+## 2026-10-08 — obsidian-gaze cinema UI iteration
+
+- **Instruction and direction:** The user asked to start improving the Gaze UI
+  with film and cinema elements. Gaze had since been enabled in the main
+  vault by the user.
+- **Came back:** Kept the existing image-first two-column workflow and added
+  a film-strip image surround with perforations, a subdued color-room label,
+  frame/local-grade metadata, a director-linked frame counter, and numbered
+  look cards. These are visual/wayfinding cues, not new filters or export
+  behavior. Updated the isolated source, disposable test installation,
+  [[AI 101/Project 2/obsidian-gaze-prototype/README.md|Project 2 snapshot]],
+  and the main vault's `.obsidian/plugins/gaze/` assets. Documented the
+  bounded iteration and its risks in [[AI 101/Project 2/05-iterate-or-stop.md]].
+- **Actual checks:** TypeScript/esbuild passed and automated tests passed
+  4/4. In the disposable Obsidian vault, a generated PNG rendered within the
+  film surround; Wong Kar-wai changed the grade and indicator to
+  `FRAME 02 / 04`. Card text stayed bounded, and compact/full-window states
+  worked with the image loaded. Installed main-vault assets matched the
+  source by SHA-256. The running main-vault plugin was not reloaded, and no
+  main-vault visual check, new download, narrow-window test, sound check, or
+  drag/drop check was claimed.
+- **Decision/status:** **Awaiting the user's aesthetic check.** Restarting
+  Obsidian after saving open notes will load the updated main-vault code.
+  This iteration is not yet accepted into `outputs/` or a final release.

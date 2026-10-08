@@ -22,6 +22,7 @@ export class GazeModal extends Modal {
   private emptyEl!: HTMLElement;
   private actionsEl!: HTMLElement;
   private statusEl!: HTMLElement;
+  private frameIndexEl!: HTMLElement;
   private originalButton!: HTMLButtonElement;
   private downloadButton!: HTMLButtonElement;
   private directorButtons: HTMLButtonElement[] = [];
@@ -50,7 +51,9 @@ export class GazeModal extends Modal {
 
     const root = this.contentEl.createDiv({ cls: 'gaze-root' });
     const header = root.createDiv({ cls: 'gaze-header' });
-    header.createSpan({ cls: 'gaze-logo', text: 'gaze.' });
+    const brand = header.createDiv({ cls: 'gaze-brand' });
+    brand.createSpan({ cls: 'gaze-logo', text: 'gaze.' });
+    brand.createSpan({ cls: 'gaze-brand-caption', text: 'THE COLOR ROOM' });
     const windowControls = header.createDiv({ cls: 'gaze-window-controls' });
     const minimize = windowControls.createEl('button', { cls: 'gaze-window-button gaze-minimize', text: '−', attr: { type: 'button', 'aria-label': 'Minimize Gaze', 'aria-expanded': 'true', title: 'Minimize' } });
     const fullscreen = windowControls.createEl('button', { cls: 'gaze-window-button gaze-fullscreen', text: '⛶', attr: { type: 'button', 'aria-label': 'Enter full screen', 'aria-pressed': 'false', title: 'Full screen' } });
@@ -83,7 +86,11 @@ export class GazeModal extends Modal {
 
     const body = root.createDiv({ cls: 'gaze-body' });
     const workspace = body.createDiv({ cls: 'gaze-workspace' });
-    const dropzone = workspace.createDiv({ cls: 'gaze-dropzone', attr: { role: 'button', tabindex: '0', 'aria-label': 'Choose or drop a photo' } });
+    const screenMeta = workspace.createDiv({ cls: 'gaze-screen-meta' });
+    this.frameIndexEl = screenMeta.createSpan({ cls: 'gaze-screen-index', text: 'FRAME 01 / 04' });
+    screenMeta.createSpan({ cls: 'gaze-screen-format', text: 'LOCAL COLOR GRADE' });
+    const filmStage = workspace.createDiv({ cls: 'gaze-film-stage' });
+    const dropzone = filmStage.createDiv({ cls: 'gaze-dropzone', attr: { role: 'button', tabindex: '0', 'aria-label': 'Choose or drop a photo' } });
     const fileInput = workspace.createEl('input', { cls: 'gaze-file-input', attr: { type: 'file', accept: 'image/*', 'aria-label': 'Choose an image file' } });
     fileInput.addEventListener('change', () => {
       const file = fileInput.files?.[0];
@@ -131,12 +138,12 @@ export class GazeModal extends Modal {
     this.downloadButton.addEventListener('click', () => this.download());
 
     const directors = body.createDiv({ cls: 'gaze-directors' });
-    directors.createDiv({ cls: 'gaze-eyebrow', text: 'THE DIRECTORS' });
+    directors.createDiv({ cls: 'gaze-eyebrow', text: 'FOUR FILM LOOKS' });
     directors.createEl('h2', { text: 'Choose a gaze.' });
-    this.directorButtons = DIRECTORS.map(director => {
+    this.directorButtons = DIRECTORS.map((director, index) => {
       const button = directors.createEl('button', { cls: 'gaze-dir-btn', attr: { type: 'button', 'aria-pressed': String(this.selectedFilter === director.id) } });
       button.style.setProperty('--director-accent', director.accent);
-      button.createSpan({ cls: 'gaze-dir-dot', attr: { 'aria-hidden': 'true' } });
+      button.createSpan({ cls: 'gaze-dir-index', text: String(index + 1).padStart(2, '0'), attr: { 'aria-hidden': 'true' } });
       const text = button.createSpan({ cls: 'gaze-dir-copy' });
       text.createSpan({ cls: 'gaze-dir-name', text: director.name });
       text.createSpan({ cls: 'gaze-dir-tagline', text: director.tagline });
@@ -151,6 +158,8 @@ export class GazeModal extends Modal {
   }
 
   private updateDirectorState(): void {
+    const selectedIndex = DIRECTORS.findIndex(director => director.id === this.selectedFilter);
+    this.frameIndexEl.setText(`FRAME ${String(selectedIndex + 1).padStart(2, '0')} / 04`);
     this.directorButtons.forEach((button, index) => {
       const active = DIRECTORS[index]?.id === this.selectedFilter;
       button.toggleClass('is-active', active);
