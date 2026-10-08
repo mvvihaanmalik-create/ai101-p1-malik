@@ -1,17 +1,17 @@
 {
-  "nodes": [
-    {"id":"819b9dd6ca0d4e40","file":"AI 101/Project 2/progress.md","type":"file","x":80,"y":20,"width":760,"height":230,"color":"5"},
-    {"id":"7d310dd87603422c","type":"text","text":"## How to read the path\n\n**■** approved gate   **▶** active   **○** ahead   **↺** revisit\n\nFollow arrows left → right. Only your approval fills a block; the bar is not a percentage of work done. The red card is your human check.","x":910,"y":20,"width":610,"height":230},
-    {"id":"4ed6167f24bd4fe3","file":"AI 101/Project 2/01-define-the-goal.md","type":"file","x":80,"y":350,"width":300,"height":300},
-    {"id":"91660eb4a2fb4ab2","file":"AI 101/Project 2/02-check-feasibility.md","type":"file","x":440,"y":350,"width":300,"height":300},
-    {"id":"58d6f2292866425d","file":"AI 101/Project 2/03-build-a-small-prototype.md","type":"file","x":800,"y":350,"width":300,"height":300},
-    {"id":"c352ebf29f784768","file":"AI 101/Project 2/04-human-check.md","type":"file","x":1160,"y":350,"width":300,"height":300,"color":"1"},
-    {"id":"ac874a945e1d4e29","file":"AI 101/Project 2/05-iterate-or-stop.md","type":"file","x":1520,"y":350,"width":300,"height":300}
-  ],
-  "edges": [
-    {"id":"448a949a5b764fe6","endArrowhead":"arrow","fromNode":"4ed6167f24bd4fe3","fromSide":"right","toNode":"91660eb4a2fb4ab2","toSide":"left"},
-    {"id":"42445d30332b43d1","endArrowhead":"arrow","fromNode":"91660eb4a2fb4ab2","fromSide":"right","toNode":"58d6f2292866425d","toSide":"left"},
-    {"id":"955d31a413744227","endArrowhead":"arrow","fromNode":"58d6f2292866425d","fromSide":"right","toNode":"c352ebf29f784768","toSide":"left"},
-    {"id":"eb4a30162c0d4942","endArrowhead":"arrow","fromNode":"c352ebf29f784768","fromSide":"right","toNode":"ac874a945e1d4e29","toSide":"left"}
-  ]
+	"nodes":[
+		{"id":"819b9dd6ca0d4e40","file":"AI 101/Project 2/progress.md","type":"file","x":80,"y":20,"width":760,"height":230,"color":"5"},
+		{"id":"7d310dd87603422c","type":"text","text":"## How to read the path\n\n**■** approved gate   **▶** active   **○** ahead   **↺** revisit\n\nFollow arrows left → right. Only your approval fills a block; the bar is not a percentage of work done. The red card is your human check.","x":910,"y":20,"width":610,"height":230},
+		{"id":"4ed6167f24bd4fe3","file":"AI 101/Project 2/01-define-the-goal.md","type":"file","x":80,"y":350,"width":300,"height":300},
+		{"id":"91660eb4a2fb4ab2","file":"AI 101/Project 2/02-check-feasibility.md","type":"file","x":440,"y":350,"width":300,"height":300},
+		{"id":"58d6f2292866425d","file":"AI 101/Project 2/03-build-a-small-prototype.md","type":"file","x":800,"y":350,"width":300,"height":300},
+		{"id":"c352ebf29f784768","file":"AI 101/Project 2/04-human-check.md","type":"file","x":1160,"y":350,"width":300,"height":300,"color":"1"},
+		{"id":"ac874a945e1d4e29","file":"AI 101/Project 2/05-iterate-or-stop.md","type":"file","x":1520,"y":350,"width":300,"height":300}
+	],
+	"edges":[
+		{"id":"448a949a5b764fe6","endArrowhead":"arrow","fromNode":"4ed6167f24bd4fe3","fromSide":"right","toNode":"91660eb4a2fb4ab2","toSide":"left"},
+		{"id":"42445d30332b43d1","endArrowhead":"arrow","fromNode":"91660eb4a2fb4ab2","fromSide":"right","toNode":"58d6f2292866425d","toSide":"left"},
+		{"id":"955d31a413744227","endArrowhead":"arrow","fromNode":"58d6f2292866425d","fromSide":"right","toNode":"c352ebf29f784768","toSide":"left"},
+		{"id":"eb4a30162c0d4942","endArrowhead":"arrow","fromNode":"c352ebf29f784768","fromSide":"right","toNode":"ac874a945e1d4e29","toSide":"left"}
+	]
 }

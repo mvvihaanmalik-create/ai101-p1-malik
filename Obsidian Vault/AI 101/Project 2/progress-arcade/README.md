@@ -32,6 +32,8 @@ Node.js 20 or newer is required; the local build uses no npm dependencies, exter
 
 The board begins with idea.quest, obsidian-gaze, Image Palette Studio, and the completed Project 1 poster. The poster is a **bonus artifact**, not falsely scored against the later five-step coding workflow. Image Palette Studio's 5/5 reflects its *original accepted run*; its later accent-override side quest is still under review. idea.quest itself is 0/5 approved until the user reviews its scope and design.
 
+**Motion language:** The live indicator breathes, the tiny rocket floats, stars twinkle, and icons answer hover, focus, or press. A new idea gets a brief arrival flash; an explicitly approved gate gets one checkpoint pop and XP flash. The board does not animate every card at once. The system reduced-motion preference turns these animations and transitions off.
+
 ## Live source of truth
 
 projects.json is the site registry. Future AI-assisted project work should update this file when an idea starts or its status genuinely changes, then run:

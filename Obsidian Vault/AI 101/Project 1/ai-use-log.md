@@ -1182,3 +1182,25 @@ September 29.
   intentionally disabled. Changes appear after the vault is synced to
   GitHub; the site does not read unsynced local files. No idea.quest workflow
   gate was marked approved.
+
+## 2026-10-08 — idea.quest icon motion and microinteractions
+
+- **Instruction and direction:** The user asked for animations and
+  microinteractions on the site's icons.
+- **Came back:** Added a restrained live-signal pulse, floating rocket,
+  twinkling stars, hover/focus/press feedback on arcade icons and controls,
+  a brief new-idea arrival flash, and a one-time checkpoint/XP pop only after
+  an explicit approval. The system reduced-motion preference disables all
+  movement. The information layout, project data model, and local-editable /
+  hosted-read-only split stayed intact. Updated the quest record and
+  [[AI 101/Project 2/progress-arcade/README.md]].
+- **Actual checks:** Node syntax and 3/3 API tests passed. Local and
+  hosted-mode desktop screenshots showed populated, unclipped boards. Two
+  timed headless Edge captures differed in the hero-icon region; with
+  reduced-motion emulation, that region was identical. The Site source was
+  pushed and its owner-private deployment returned **succeeded** at the same
+  [idea.quest link](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site).
+  Hand-driven hover/touch feedback was not independently checked.
+- **Decision/status:** The motion pass is published for the user's visual
+  review, not accepted as a workflow gate. idea.quest remains at 0/5
+  approved. The local test servers were stopped after verification.

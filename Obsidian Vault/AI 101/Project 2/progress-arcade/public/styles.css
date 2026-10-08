@@ -32,6 +32,37 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
 .bottom-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,1fr);gap:14px;margin-top:24px}.journal-panel,.rules-panel{padding:19px}.journal{padding-top:8px;max-height:290px;overflow:auto}.journal-entry{padding:13px 1px;border-bottom:1px dashed var(--line)}.journal-entry:last-child{border-bottom:0}.journal-entry time{display:block;color:var(--mint);font-size:10px;margin-bottom:5px}.journal-entry p{margin:0;font-size:11px;color:var(--paper)}.rules-panel{background:#282a42}.rules-panel .section-bar{color:var(--gold)}.save-icon{color:var(--pink);font-size:14px;line-height:1.1;text-align:center;margin:16px 0}.rules-panel p{color:#d3d9eb;font-size:11px}.rules-panel strong{color:var(--paper)}.page-foot{display:flex;justify-content:space-between;gap:10px;margin:22px 0 0;color:var(--muted);font-size:9px;letter-spacing:.05em}.page-foot span{color:var(--mint)}
 .arcade-dialog{width:min(440px,calc(100vw - 28px));max-height:90vh;overflow:auto;border:2px solid var(--mint);background:#20283b;color:var(--paper);box-shadow:8px 8px 0 #080b15;padding:26px}.arcade-dialog::backdrop{background:#070a14d9}.arcade-dialog form{display:grid;gap:12px}.arcade-dialog h2{font-size:28px;letter-spacing:-.06em;margin:0 0 5px}.arcade-dialog p{margin:0;font-size:12px;color:var(--muted)}.arcade-dialog label{font-size:10px;font-weight:900;color:var(--mint);letter-spacing:.1em;margin-top:10px}.arcade-dialog input,.arcade-dialog textarea{width:100%;padding:12px;background:#101727;color:var(--paper);border:1px solid #68758e;border-radius:0}.arcade-dialog textarea{resize:vertical;min-height:90px}.arcade-dialog .dialog-hint{color:var(--gold);font-size:10px}.arcade-dialog .primary-button{justify-self:start;margin-top:8px}.dialog-close{position:absolute;right:12px;top:12px;border:0;background:transparent;color:var(--paper);font-size:18px}
 .toast{position:fixed;bottom:20px;right:20px;z-index:50;max-width:min(360px,calc(100vw - 40px));padding:12px 18px;background:var(--mint);color:#101b18;font-size:12px;font-weight:900;box-shadow:5px 5px 0 #060a12;transform:translateY(120px);opacity:0;transition:transform .2s,opacity .2s;pointer-events:none}.toast.show{transform:none;opacity:1}.toast.error{background:var(--pink)}
+
+/* Arcade motion: the live signal and active quest breathe; input gets a quick response. */
+.status-light{animation:signal-pulse 3.2s ease-in-out infinite}
+.top-status.offline .status-light{animation:none;opacity:1}
+.brand-mark,.mascot pre,.stat-icon,.tab-top span:last-child,.next-icon,.save-icon,.new-quest span:first-child,.rocket{transform-origin:center;transition:transform .22s steps(3,end),filter .22s ease}
+.brand-wrap:hover .brand-mark{transform:translateY(-3px) rotate(-7deg);filter:drop-shadow(0 0 7px #a2f0c58a)}
+.mascot:hover pre{transform:translateY(-4px) rotate(-2deg)}
+.mascot:hover .mascot-speech{color:var(--pink)}
+.project-tab:hover .tab-top span:last-child,.project-tab:focus-visible .tab-top span:last-child{transform:rotate(18deg) scale(1.25)}
+.project-tab:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #0b1020}
+.new-quest:hover span:first-child,.new-quest:focus-visible span:first-child{transform:rotate(90deg)}
+.new-quest:active,.primary-button:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #8a653c}
+.secondary-button:active{transform:translate(1px,1px)}
+.stat:hover .stat-icon{transform:translateY(-4px) rotate(-10deg)}
+.hero-art .rocket{animation:rocket-float 3.6s ease-in-out infinite alternate}
+.hero-art .star{animation:star-twinkle 2.8s ease-in-out infinite alternate}
+.hero-art .star.b{animation-delay:1.4s}
+.stage.active .stage-number{animation:active-step 2.4s ease-in-out infinite}
+.next-move:hover .next-icon{transform:translateX(5px)}
+.rules-panel:hover .save-icon{transform:translateY(-3px) rotate(3deg)}
+.stage.just-cleared .stage-number,.stat-number.xp-pop,.quest-badge.xp-pop{animation:checkpoint-pop .65s steps(4,end) both}
+.progress-bar span.just-cleared{animation:checkpoint-flash .75s ease-out both}
+.quest-panel.quest-arrival{animation:quest-arrival .7s steps(5,end)}
+.project-tab.newly-created{animation:checkpoint-pop .65s steps(4,end) both}
+@keyframes signal-pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--mint)}50%{opacity:.55;box-shadow:0 0 2px var(--mint)}}
+@keyframes rocket-float{from{transform:translate(-50%,-50%)}to{transform:translate(-50%,calc(-50% - 7px))}}
+@keyframes star-twinkle{from{opacity:.45;transform:scale(.85)}to{opacity:1;transform:scale(1.13)}}
+@keyframes active-step{0%,100%{opacity:1}50%{opacity:.62}}
+@keyframes checkpoint-pop{0%{transform:scale(1)}35%{transform:scale(1.22) rotate(-5deg)}70%{transform:scale(.95)}100%{transform:scale(1)}}
+@keyframes checkpoint-flash{0%{filter:brightness(2.2)}100%{filter:brightness(1)}}
+@keyframes quest-arrival{0%{box-shadow:0 0 0 var(--mint)}45%{box-shadow:0 0 18px #a2f0c58c}100%{box-shadow:5px 5px 0 var(--shadow)}}
 @media(max-width:1000px){.dashboard{grid-template-columns:225px minmax(0,1fr)}.sidebar{padding:20px 14px}.main-pane{padding:23px}.hero{grid-template-columns:1fr 180px}.pixel-orbit{height:135px;width:135px}.stage-label{font-size:9px}}
 @media(max-width:740px){.topbar{padding:15px 18px}.top-clock{display:none}.dashboard{display:block}.sidebar{border-right:0;border-bottom:2px solid var(--line);padding:17px}.mascot,.sidebar-foot{display:none}.project-list{display:flex;overflow-x:auto;padding-bottom:7px}.project-tab{min-width:165px}.new-quest{width:auto;margin:10px 0 0;padding:10px 15px}.main-pane{padding:19px}.hero{grid-template-columns:1fr 125px;min-height:200px;padding:20px}.hero-art{min-height:135px}.pixel-orbit{height:108px;width:108px}.hero-art-caption{font-size:7px}.bottom-grid{grid-template-columns:1fr}.stage-map{gap:4px}.stage{padding:10px 3px}.stage:after{right:-8px}.stats{gap:7px}.stat{padding:11px 7px;grid-template-columns:24px auto;min-height:78px}.stat-icon{font-size:19px}.stat-number{font-size:21px}.stat-label{font-size:8px}}
 @media(max-width:490px){.topbar h1{font-size:21px}.brand-mark{width:38px;height:38px}.top-status{font-size:8px}.hero{grid-template-columns:1fr}.hero-art{display:none}.hero h2{font-size:40px}.hero-copy{font-size:11px}.quest-panel{padding:17px 13px}.quest-topline{padding:19px 0}.quest-badge{font-size:8px}.stage-number{font-size:15px}.stage-label{font-size:8px}.stage-state{font-size:7px}.progress-heading{font-size:9px}.stat-label small{display:none}}

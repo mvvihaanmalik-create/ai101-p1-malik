@@ -29,6 +29,30 @@ function toast(message, isError = false) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 3600);
 }
 
+function playCheckpointMoment(kind, project) {
+  if (kind === 'approve') {
+    const index = project.gates.lastIndexOf('approved');
+    const stage = $('stageMap').children[index];
+    const segment = $('progressBar').children[index];
+    for (const element of [stage, segment, $('totalXp'), $('questBadge')]) {
+      if (!element) continue;
+      const className = element === $('totalXp') || element === $('questBadge') ? 'xp-pop' : 'just-cleared';
+      element.classList.add(className);
+      setTimeout(() => element.classList.remove(className), 850);
+    }
+  }
+  if (kind === 'new') {
+    const panel = document.querySelector('.quest-panel');
+    const tab = document.querySelector('.project-tab.active');
+    for (const element of [panel, tab]) {
+      if (!element) continue;
+      const className = element === panel ? 'quest-arrival' : 'newly-created';
+      element.classList.add(className);
+      setTimeout(() => element.classList.remove(className), 850);
+    }
+  }
+}
+
 async function request(url, method, body) {
   const response = await fetch(url, {
     method,
@@ -265,6 +289,7 @@ $('newProjectForm').addEventListener('submit', async (event) => {
     $('newProjectDialog').close();
     $('newProjectForm').reset();
     render();
+    playCheckpointMoment('new', result.project);
     toast('NEW QUEST UNLOCKED! Step 1 is ready. ✦');
   } catch (error) { toast(error.message, true); }
   finally { button.disabled = false; }
@@ -281,6 +306,7 @@ $('actionForm').addEventListener('submit', async (event) => {
     state = result.state;
     $('actionDialog').close();
     render();
+    if (pendingAction === 'approve') playCheckpointMoment('approve', result.project);
     toast(pendingAction === 'approve' ? 'CHECKPOINT CLEARED! +25 XP ★' : 'QUEST LOG SAVED ✦');
   } catch (error) { toast(error.message, true); }
   finally { button.disabled = false; }
