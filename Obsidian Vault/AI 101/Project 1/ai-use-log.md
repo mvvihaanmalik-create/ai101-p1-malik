@@ -729,3 +729,14 @@ September 29.
 - **Decision/status:** **Step 3 remains under review.** No polish iteration,
   public app-only repository, phone test, or Step 4 review has been completed
   in response to this feedback.
+
+## 2026-10-08 — GitHub CLI sign-in initiated
+
+- **Instruction and direction:** The user asked for the one-time GitHub
+  device code needed to sign in.
+- **Came back:** Started the GitHub CLI web authentication flow and gave the
+  user its temporary device code and official verification page. The code is
+  deliberately not stored in this log.
+- **Decision/status:** **Awaiting the user's authorization.** A device code
+  being issued does not prove sign-in succeeded; no app repo or site was
+  created in this step.
