@@ -785,3 +785,22 @@ September 29.
   the user's visual-polish objection or verify invalid files, privacy,
   performance, accessibility, or every image/phone format. Stop before Step 4
   human review; no further code change was made.
+
+## 2026-10-08 — Project 2 Step 4 human-review draft
+
+- **Instruction and direction:** The user said “continue” after the narrow
+  Windows-and-phone Step 3 functional result, so I performed only the Step 4
+  audit and stopped for their check.
+- **Tool/context:** I reviewed the prototype source and published file list,
+  reran the simulated-pixel tests, independently calculated the screenshot's
+  displayed text contrast, benchmarked only the extraction logic on Windows,
+  and checked current MDN, W3C, and GitHub documentation for the privacy and
+  contrast caveats. No app code was changed.
+- **Came back:** Added a separate review draft to
+  [[AI 101/Project 2/04-human-check.md]]. It distinguishes the passed core
+  flow from untested JPG/error/privacy/performance/accessibility cases,
+  records the user's rejection of the generic visual design, and proposes a
+  bounded design-and-palette revision rather than extra features.
+- **Decision/status:** **Awaiting the user's Step 4 check.** No Step 4 app-run
+  output was saved to `outputs/`, no polish revision was begun, and Step 5 was
+  not started.
