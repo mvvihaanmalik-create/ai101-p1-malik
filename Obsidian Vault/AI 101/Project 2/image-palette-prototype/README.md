@@ -2,7 +2,9 @@
 
 This is a **Step 3 feasibility test**, not a finished or polished app. It reads a selected image in the browser, samples its colors, and automatically colors a simple website preview. It uses no framework, server-side image processing, account, or image API.
 
-**Current iteration:** A bounded Step 5 visual pass replaced the duplicate chooser with one labeled control, rebuilt the mock website as an editorial composition, and reserves a swatch for a small vivid accent when the image contains one. The user still needs to review this revision on Windows and phone.
+**Current visual treatment:** A bounded Step 5 pass replaced the duplicate chooser with one labeled control, rebuilt the mock website as an editorial composition, and reserves a swatch for a small vivid accent when the image contains one. The user accepted this visual version as good enough for now.
+
+**Utility update under review:** Automatic assignment remains the default. After choosing an image, tap any swatch to try it as the website accent; the button/caption text color adjusts for that accent. Use **Reset to automatic** to restore the original suggestion. This does not change the background or main text colors, and it does not save the choice after a new image is selected or the page is reloaded.
 
 **Live test page:** https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/
 
@@ -26,4 +28,4 @@ Then open `http://127.0.0.1:8765` on the **Windows computer**. Choose a colorful
 
 ## Limits
 
-JPEG and PNG are the baseline. Other raster images may decode in a given browser; SVG is intentionally excluded from this first test. The file must be 20 MB or smaller. The accent rule gives small vivid colors a better chance than before but may still pick noise or miss a desired focal color on complex images. Black or white is used for text when the extracted colors lack sufficient contrast. The earlier core flow worked on desktop and a phone by the user's report; **this revised version** still needs real-image, visual, phone, error-path, and network-privacy checks.
+JPEG and PNG are the baseline. Other raster images may decode in a given browser; SVG is intentionally excluded from this first test. The file must be 20 MB or smaller. The accent rule gives small vivid colors a better chance than before but may still pick noise or miss a desired focal color on complex images. Black or white is used for text when the extracted colors lack sufficient contrast. The earlier core flow worked on desktop and a phone by the user's report; **the new swatch interaction** still needs a real desktop/phone touch and keyboard check. Error paths, broader formats, and runtime network privacy are not yet verified.

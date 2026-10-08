@@ -898,3 +898,25 @@ September 29.
   sixth workflow step or reopening the prototype without a target.
 - **Decision/status:** **Awaiting direction.** No app code, accepted output,
   or live site was changed.
+
+## 2026-10-08 — Project 2 utility iteration: manual accent trial
+
+- **Instruction and direction:** The user selected the Step 5 Canvas node and
+  asked to improve the app's functionality and utility. I interpreted this
+  as a bounded new feature loop, not permission for an unlimited redesign.
+- **Came back:** Kept automatic colors as the default but made the extracted
+  swatches interactive: tapping one tries it as the website accent, with a
+  contrast-aware foreground and Reset to automatic. The page background and
+  main text remain auto-assigned. Recorded the scope/feasibility deltas in
+  [[AI 101/Project 2/01-define-the-goal.md]] and
+  [[AI 101/Project 2/02-check-feasibility.md]], and the iteration/check in
+  [[AI 101/Project 2/05-iterate-or-stop.md]]. Updated the five-file app-only
+  public repo and live prototype.
+- **Actual checks:** Node syntax checks and six simulated logic/DOM checks
+  passed, including swatch click, `aria-pressed`, and reset. Git whitespace
+  check passed. GitHub Pages reported `built`, and the live HTML/JS returned
+  HTTP 200 with the new controls.
+- **Decision/status:** **Awaiting the user's real desktop/phone interaction
+  check.** No visual or touch behavior was independently observed, no new
+  utility-iteration output was saved to `outputs/`, and no further feature or
+  final-release decision was made.

@@ -4,12 +4,26 @@ const sourceWrap = document.querySelector('#source-wrap');
 const sourcePreview = document.querySelector('#source-preview');
 const previewImage = document.querySelector('#preview-image');
 const paletteNode = document.querySelector('#palette');
+const accentControls = document.querySelector('#accent-controls');
+const resetAccentButton = document.querySelector('#reset-accent');
 const sitePreview = document.querySelector('#site-preview');
 const roleNote = document.querySelector('#role-note');
 
 const MAX_FILE_BYTES = 20 * 1024 * 1024;
 let displayedObjectUrl = null;
 let selectionNumber = 0;
+let currentPalette = [];
+let automaticRoles = null;
+let selectedAccent = null;
+let manualAccent = false;
+
+resetAccentButton.addEventListener('click', () => {
+  if (!automaticRoles) return;
+  selectedAccent = automaticRoles.accent;
+  manualAccent = false;
+  applyRoles();
+  setStatus('Automatic accent restored.');
+});
 
 input.addEventListener('change', async () => {
   const file = input.files?.[0];
@@ -50,13 +64,13 @@ input.addEventListener('change', async () => {
     previewImage.src = objectUrl;
     previewImage.hidden = false;
 
+    currentPalette = colors;
+    automaticRoles = chooseRoles(colors);
+    selectedAccent = automaticRoles.accent;
+    manualAccent = false;
     showSwatches(colors);
-    const roles = chooseRoles(colors);
-    sitePreview.style.setProperty('--page', toHex(roles.background));
-    sitePreview.style.setProperty('--ink', toHex(roles.text));
-    sitePreview.style.setProperty('--accent', toHex(roles.accent));
-    sitePreview.style.setProperty('--button-ink', toHex(roles.buttonText));
-    roleNote.textContent = `${colors.length} extracted color${colors.length === 1 ? '' : 's'} · Text contrast ${contrast(roles.background, roles.text).toFixed(1)}:1${roles.fallback ? ' · Black/white fallback used for readability' : ''}.`;
+    accentControls.hidden = false;
+    applyRoles();
     setStatus(`Palette ready from ${file.name}.`);
   } catch (error) {
     URL.revokeObjectURL(objectUrl);
@@ -67,6 +81,12 @@ input.addEventListener('change', async () => {
 });
 
 function clearPreviousResult() {
+  currentPalette = [];
+  automaticRoles = null;
+  selectedAccent = null;
+  manualAccent = false;
+  accentControls.hidden = true;
+  resetAccentButton.disabled = true;
   if (displayedObjectUrl) URL.revokeObjectURL(displayedObjectUrl);
   displayedObjectUrl = null;
   sourcePreview.removeAttribute('src');
@@ -80,6 +100,21 @@ function clearPreviousResult() {
   paletteNode.append(empty);
   for (const role of ['--page', '--ink', '--accent', '--button-ink']) sitePreview.style.removeProperty(role);
   roleNote.textContent = 'Waiting for an image.';
+}
+
+function applyRoles() {
+  if (!automaticRoles || !selectedAccent) return;
+  const roles = withAccent(automaticRoles, selectedAccent);
+  sitePreview.style.setProperty('--page', toHex(roles.background));
+  sitePreview.style.setProperty('--ink', toHex(roles.text));
+  sitePreview.style.setProperty('--accent', toHex(roles.accent));
+  sitePreview.style.setProperty('--button-ink', toHex(roles.buttonText));
+  resetAccentButton.disabled = !manualAccent;
+  for (const swatch of paletteNode.querySelectorAll('.swatch')) {
+    swatch.setAttribute('aria-pressed', String(swatch.dataset.color === toHex(roles.accent)));
+  }
+  const accentContrast = contrast(roles.background, roles.accent);
+  roleNote.textContent = `${currentPalette.length} extracted color${currentPalette.length === 1 ? '' : 's'} · Accent ${toHex(roles.accent).toUpperCase()} (${manualAccent ? 'manual' : 'automatic'}) · Text contrast ${contrast(roles.background, roles.text).toFixed(1)}:1${roles.fallback ? ' · Black/white text fallback' : ''}${accentContrast < 1.5 ? ' · Accent may blend with the background' : ''}.`;
 }
 
 function setStatus(message, isError = false) {
@@ -168,9 +203,18 @@ function toHex(color) {
 function showSwatches(colors) {
   paletteNode.replaceChildren();
   for (const color of colors) {
-    const item = document.createElement('div');
+    const item = document.createElement('button');
+    item.type = 'button';
     item.className = color.isAccent ? 'swatch accent' : 'swatch';
-    const square = document.createElement('div');
+    item.dataset.color = toHex(color);
+    item.setAttribute('aria-label', `Try ${toHex(color).toUpperCase()} as the website accent`);
+    item.addEventListener('click', () => {
+      selectedAccent = color;
+      manualAccent = true;
+      applyRoles();
+      setStatus(`Accent changed to ${toHex(color).toUpperCase()}.`);
+    });
+    const square = document.createElement('span');
     square.className = 'swatch-color';
     square.style.backgroundColor = toHex(color);
     const code = document.createElement('span');
@@ -180,7 +224,7 @@ function showSwatches(colors) {
     if (color.isAccent) {
       const accentLabel = document.createElement('span');
       accentLabel.className = 'swatch-accent-label';
-      accentLabel.textContent = 'ACCENT';
+      accentLabel.textContent = 'AUTO PICK';
       item.append(accentLabel);
     }
     paletteNode.append(item);
@@ -214,6 +258,12 @@ function chooseRoles(colors) {
     const score = color => (Math.max(color.r, color.g, color.b) - Math.min(color.r, color.g, color.b)) + distance(background, color) * .35;
     return score(b) - score(a);
   })[0] || background;
+  return withAccent({ background, text, fallback }, accent);
+}
+
+function withAccent(roles, accent) {
+  const white = { r: 255, g: 255, b: 255 };
+  const black = { r: 0, g: 0, b: 0 };
   const buttonText = contrast(accent, black) >= contrast(accent, white) ? black : white;
-  return { background, text, accent, buttonText, fallback };
+  return { ...roles, accent, buttonText };
 }
