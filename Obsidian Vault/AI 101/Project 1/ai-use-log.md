@@ -1159,3 +1159,26 @@ September 29.
   despite its runnable prototype. Its scope and visual direction await the
   user's review; nothing was copied to accepted outputs. The local preview
   server was stopped after testing.
+
+## 2026-10-08 — idea.quest hosted link
+
+- **Instruction and direction:** The user asked for the link when the site was
+  done; the previous localhost address was not a usable hosted link.
+- **Came back:** Published an owner-private, read-only mirror at
+  [idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site). It
+  fetches [[AI 101/Project 2/progress-arcade/projects.json]] from the
+  already-public vault GitHub repository and rechecks every 30 seconds while
+  open. The hosted view clearly hides new-idea and approval controls. The
+  editable local site still writes the vault registry and progress card.
+  Updated the source, instructions, and quest record accordingly.
+- **Actual checks:** The GitHub raw registry returned HTTP 200 with a
+  cross-origin header; a local hosted-mode browser screenshot showed all four
+  seeded projects and the read-only labels. The Site source was pushed and
+  packaged, and the production deployment returned **succeeded** with the
+  URL above. A real-phone check and authenticated hosted browsing were not
+  performed.
+- **Decision/status:** The link is available for the user's review, but the
+  site is **owner-private**, not publicly shareable, and online editing is
+  intentionally disabled. Changes appear after the vault is synced to
+  GitHub; the site does not read unsynced local files. No idea.quest workflow
+  gate was marked approved.

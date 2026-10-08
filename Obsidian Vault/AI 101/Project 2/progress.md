@@ -6,7 +6,7 @@
 
 **Now:** A cute retro ASCII quest board that makes our project decisions and progress visible.
 
-**Next decision:** Review this local, vault-backed site and decide whether its scope and visual direction match your idea.
+**Next decision:** Open the hosted read-only mirror and review its visual direction; decide whether online editing is needed later.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-08
 

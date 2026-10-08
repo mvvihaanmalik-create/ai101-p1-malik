@@ -1,6 +1,9 @@
 const steps = ['Goal', 'Route', 'Prototype', 'Human check', 'Decide'];
 const $ = (id) => document.getElementById(id);
+const HOSTED = document.documentElement.dataset.mode === 'hosted';
+const SOURCE_URL = 'https://raw.githubusercontent.com/mvvihaanmalik-create/ai101-p1-malik/main/Obsidian%20Vault/AI%20101/Project%202/progress-arcade/projects.json';
 let state = null;
+let viewProjectId = null;
 let pendingAction = null;
 let toastTimer;
 
@@ -39,19 +42,34 @@ async function request(url, method, body) {
 
 async function refresh(force = false) {
   try {
-    const response = await fetch('/api/projects', { cache: 'no-store' });
-    if (!response.ok) throw new Error('The local board is unavailable.');
+    const response = await fetch(HOSTED ? `${SOURCE_URL}?at=${Date.now()}` : '/api/projects', { cache: 'no-store' });
+    if (!response.ok) throw new Error('The project record is unavailable.');
     const next = await response.json();
     const changed = force || !state || JSON.stringify(next) !== JSON.stringify(state);
     state = next;
-    $('connection').textContent = 'VAULT LINK ACTIVE';
+    if (!viewProjectId || !state.projects.some((project) => project.id === viewProjectId)) viewProjectId = state.activeProjectId;
+    $('connection').textContent = HOSTED ? 'REPO MIRROR ACTIVE' : 'VAULT LINK ACTIVE';
     document.querySelector('.top-status').classList.remove('offline');
-    $('lastSync').textContent = 'SYNCED ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    $('lastSync').textContent = (HOSTED ? 'REPO CHECKED ' : 'SYNCED ') + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     if (changed) render();
   } catch {
-    $('connection').textContent = 'VAULT LINK LOST';
+    if (HOSTED && !state) {
+      try {
+        const backup = await fetch('projects.json', { cache: 'no-store' });
+        if (backup.ok) {
+          state = await backup.json();
+          viewProjectId = state.activeProjectId;
+          render();
+          $('connection').textContent = 'SAVED SNAPSHOT';
+          $('lastSync').textContent = 'LIVE REPO UNAVAILABLE';
+          document.querySelector('.top-status').classList.add('offline');
+          return;
+        }
+      } catch { /* Show unavailable state below. */ }
+    }
+    $('connection').textContent = HOSTED ? 'REPO LINK LOST' : 'VAULT LINK LOST';
     document.querySelector('.top-status').classList.add('offline');
-    $('lastSync').textContent = 'CHECK LOCAL SERVER';
+    $('lastSync').textContent = HOSTED ? 'SHOWING LAST LOADED DATA' : 'CHECK LOCAL SERVER';
   }
 }
 
@@ -72,9 +90,9 @@ function renderList() {
     item.setAttribute('role', 'listitem');
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'project-tab' + (project.id === state.activeProjectId ? ' active' : '');
+    button.className = 'project-tab' + (project.id === viewProjectId ? ' active' : '');
     button.dataset.accent = project.accent || 'mint';
-    button.setAttribute('aria-pressed', project.id === state.activeProjectId ? 'true' : 'false');
+    button.setAttribute('aria-pressed', project.id === viewProjectId ? 'true' : 'false');
     button.addEventListener('click', () => selectProject(project.id));
     const top = addText('span', 'tab-top', project.kind === 'artifact' ? 'BONUS CHAPTER' : project.phase.toUpperCase(), button);
     addText('span', '', project.kind === 'artifact' ? '★' : `☆ ${approvedCount(project)}/5`, top);
@@ -128,6 +146,10 @@ function actionButton(label, className, action, container) {
 function renderActions(project) {
   const actions = $('actions');
   actions.replaceChildren();
+  if (HOSTED) {
+    addText('span', 'hosted-hint', 'READ-ONLY MIRROR · Approvals and new ideas are saved in the local vault version.', actions);
+    return;
+  }
   const i = currentStep(project);
   if (project.kind === 'workflow' && i >= 0) {
     actionButton(`✓ APPROVE STEP ${i + 1} →`, 'primary-button', () => openAction('approve'), actions);
@@ -151,7 +173,7 @@ function renderJournal(project) {
 }
 
 function renderProject() {
-  const project = state.projects.find((entry) => entry.id === state.activeProjectId) || state.projects[0];
+  const project = state.projects.find((entry) => entry.id === viewProjectId) || state.projects[0];
   if (!project) {
     $('questTitle').textContent = 'No projects yet';
     $('questPitch').textContent = 'Start an idea to open the first quest.';
@@ -183,10 +205,16 @@ function render() {
 }
 
 async function selectProject(id) {
-  if (id === state.activeProjectId) return;
+  if (id === viewProjectId) return;
+  if (HOSTED) {
+    viewProjectId = id;
+    render();
+    return;
+  }
   try {
     const result = await request(`/api/projects/${encodeURIComponent(id)}`, 'PATCH', { action: 'select' });
     state = result.state;
+    viewProjectId = state.activeProjectId;
     render();
   } catch (error) { toast(error.message, true); }
 }
@@ -230,6 +258,7 @@ $('newProjectForm').addEventListener('submit', async (event) => {
       pitch: $('ideaPitch').value,
     });
     state = result.state;
+    viewProjectId = state.activeProjectId;
     $('newProjectDialog').close();
     $('newProjectForm').reset();
     render();
@@ -255,5 +284,10 @@ $('actionForm').addEventListener('submit', async (event) => {
 });
 updateClock();
 setInterval(updateClock, 30000);
+if (HOSTED) {
+  $('newProjectButton').hidden = true;
+  document.querySelector('.sidebar-foot').innerHTML = 'READ-ONLY WEB MIRROR<br><small>Refreshes from the public vault repository after each sync.</small>';
+  document.querySelector('.live-pill').textContent = '● SYNCED FROM VAULT REPO';
+}
 refresh(true);
-setInterval(() => refresh(), 4000);
+setInterval(() => refresh(), HOSTED ? 30000 : 4000);

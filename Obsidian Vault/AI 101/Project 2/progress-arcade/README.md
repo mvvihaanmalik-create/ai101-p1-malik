@@ -4,6 +4,12 @@ A retro ASCII-styled, gamified project dashboard for our AI 101 ideas. It is a *
 
 Desktop preview: ![[AI 101/Project 2/progress-arcade/preview.png]]
 
+## Hosted link
+
+**[Open idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site)** — an owner-private, **read-only** web mirror. It fetches projects.json from the public GitHub vault repository and checks for changes every 30 seconds while open; new vault edits appear there after the vault sync pushes to GitHub. If GitHub is temporarily unavailable on first load, the hosted copy falls back to its last packaged snapshot and labels it as such. The hosted site cannot approve gates or add ideas. Those actions remain in the local vault-backed version below.
+
+The hosted Site project ID is appgprj_6ac817efa8c08191a5bd4042c61e210c. Its separate source checkout is under C:\Users\91982\AppData\Local\AI101Projects\idea-quest-site; no Site credential is stored in this vault. Keep this ID if revising the hosted site rather than creating a replacement.
+
 ## Run on this Windows computer
 
 1. Open PowerShell.
@@ -14,7 +20,7 @@ Desktop preview: ![[AI 101/Project 2/progress-arcade/preview.png]]
 
 3. Open <http://127.0.0.1:4177/>. Leave PowerShell open while using the board. Press Ctrl+C to stop it.
 
-Node.js 20 or newer is required; this build uses no npm dependencies, external fonts, analytics, login, or internet service. The server binds only to 127.0.0.1, so the link works on this computer, **not** on a phone or another machine. Hosting or remote synchronization would be a separate privacy/architecture decision.
+Node.js 20 or newer is required; the local build uses no npm dependencies, external fonts, analytics, login, or internet service. The server binds only to 127.0.0.1, so that editable link works on this computer, **not** on a phone or another machine. The hosted mirror above is online but owner-private and read-only.
 
 ## What the controls do
 
@@ -36,4 +42,4 @@ That regenerates the current-project Obsidian card if the board is not running. 
 
 ## Checks and limits
 
-Run npm test from this folder. The tests cover seeded progress, new idea persistence, one-step approval, revision without false progress, invalid input, cross-origin write rejection, and static page delivery. Desktop layout was inspected in a headless browser. The interface is responsive by CSS, but no real-phone touch check has been claimed. There is no account, multi-user collaboration, hosted deployment, backup UI, or automatic parsing of every Vault note. The app tracks the project registry explicitly; it does not pretend to infer approvals from prose.
+Run npm test from this folder. The tests cover seeded progress, new idea persistence, one-step approval, revision without false progress, invalid input, cross-origin write rejection, and static page delivery. Local and hosted desktop layouts were inspected in a headless browser; the hosted deployment succeeded. The interface is responsive by CSS, but no real-phone touch check has been claimed. There is no multi-user editing, hosted write capability, backup UI, or automatic parsing of every Vault note. The app tracks the project registry explicitly; it does not pretend to infer approvals from prose.
