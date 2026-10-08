@@ -46,6 +46,15 @@ for (const [r, g, b] of [[194, 55, 48], [25, 80, 145], [236, 208, 154], [28, 32,
 }
 console.log('PASS colorful image: four source colors represented');
 
+const smallAccent = [];
+for (let i = 0; i < 9900; i++) smallAccent.push(90, 105, 120, 255);
+for (let i = 0; i < 100; i++) smallAccent.push(0, 214, 246, 255);
+pixels = Uint8ClampedArray.from(smallAccent);
+const accentPalette = extractPalette({ naturalWidth: 100, naturalHeight: 100 });
+assert.ok(accentPalette.some(color => color.isAccent && distance(color, { r: 0, g: 214, b: 246 }) < 5), 'small vivid cyan should be reserved as the accent');
+assert.ok(distance(chooseRoles(accentPalette).accent, { r: 0, g: 214, b: 246 }) < 5, 'preview accent should use the vivid swatch');
+console.log('PASS small vivid accent: retained and applied to preview');
+
 setPixels([[160, 160, 160, 255]]);
 const monotone = extractPalette(image);
 const roles = chooseRoles(monotone);

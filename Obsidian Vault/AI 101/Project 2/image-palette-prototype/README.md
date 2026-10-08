@@ -2,6 +2,8 @@
 
 This is a **Step 3 feasibility test**, not a finished or polished app. It reads a selected image in the browser, samples its colors, and automatically colors a simple website preview. It uses no framework, server-side image processing, account, or image API.
 
+**Current iteration:** A bounded Step 5 visual pass replaced the duplicate chooser with one labeled control, rebuilt the mock website as an editorial composition, and reserves a swatch for a small vivid accent when the image contains one. The user still needs to review this revision on Windows and phone.
+
 **Live test page:** https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/
 
 ## Files
@@ -24,4 +26,4 @@ Then open `http://127.0.0.1:8765` on the **Windows computer**. Choose a colorful
 
 ## Limits
 
-JPEG and PNG are the baseline. Other raster images may decode in a given browser; SVG is intentionally excluded from this first test. The file must be 20 MB or smaller. This simple color-bucket method can miss important small accents or produce less satisfying palettes on complex imagery. Black or white is used for text when the extracted colors lack sufficient contrast. The live page and assets return HTTP 200, but browser decoding, the visual result, network privacy, and real-phone responsiveness **have not yet been verified**.
+JPEG and PNG are the baseline. Other raster images may decode in a given browser; SVG is intentionally excluded from this first test. The file must be 20 MB or smaller. The accent rule gives small vivid colors a better chance than before but may still pick noise or miss a desired focal color on complex images. Black or white is used for text when the extracted colors lack sufficient contrast. The earlier core flow worked on desktop and a phone by the user's report; **this revised version** still needs real-image, visual, phone, error-path, and network-privacy checks.

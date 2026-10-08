@@ -815,3 +815,36 @@ September 29.
   instead of inventing a performance result or approval.
 - **Decision/status:** **Step 4 still pending clarification.** No code change,
   Step 4 `outputs/` acceptance, or Step 5 work occurred.
+
+## 2026-10-08 — Project 2 Step 4 accepted
+
+- **Instruction and direction:** The user clarified “i agree lets proceed,”
+  approving a bounded redesign after the Step 4 audit. This did not answer
+  whether the phone had lag, clipping, or unreadable text.
+- **Came back:** Saved the accepted human review in
+  [[AI 101/Project 2/outputs/image-palette-web-app/04-human-check.md]] and
+  updated [[AI 101/Project 2/04-human-check.md]] to record the decision and
+  unresolved performance/layout question.
+- **Decision/status:** Keep the working browser-only core, reject the current
+  generic visual treatment, and permit only the agreed upload-control,
+  editorial-preview, and accent-selection revision. This is not release
+  approval.
+
+## 2026-10-08 — Project 2 Step 5 bounded revision
+
+- **Instruction and direction:** Following the user's Step 4 approval, make
+  one bounded visual-and-palette pass, retest, and stop for review.
+- **Came back:** Revised the five-file app-only prototype with one labeled
+  image chooser, a more intentional editorial preview that uses the selected
+  image, larger swatches, and an accent-aware palette rule. Updated
+  [[AI 101/Project 2/05-iterate-or-stop.md]] with the expected benefit,
+  risks, checks, and requested repeat test. Published the revision to the
+  separate public app repo and existing GitHub Pages test link.
+- **Actual checks:** Node syntax checks and four simulated-pixel tests passed,
+  including a 1%-area vivid cyan accent. Git diff whitespace check passed.
+  GitHub Pages reported `built`, and revised HTML/CSS/JS returned HTTP 200.
+- **Decision/status:** **Awaiting visual and phone review.** These checks do
+  not prove that the user's actual cyan accent is captured, the design feels
+  polished, the phone has no lag/clipping, or runtime privacy is verified.
+  No new Step 5 app-run output was saved to `outputs/`; no further iteration
+  or final release decision was made.

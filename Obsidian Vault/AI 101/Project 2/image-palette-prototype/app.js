@@ -2,6 +2,7 @@ const input = document.querySelector('#image-input');
 const status = document.querySelector('#status');
 const sourceWrap = document.querySelector('#source-wrap');
 const sourcePreview = document.querySelector('#source-preview');
+const previewImage = document.querySelector('#preview-image');
 const paletteNode = document.querySelector('#palette');
 const sitePreview = document.querySelector('#site-preview');
 const roleNote = document.querySelector('#role-note');
@@ -46,6 +47,8 @@ input.addEventListener('change', async () => {
     sourcePreview.src = objectUrl;
     sourcePreview.alt = `Selected image: ${file.name}`;
     sourceWrap.hidden = false;
+    previewImage.src = objectUrl;
+    previewImage.hidden = false;
 
     showSwatches(colors);
     const roles = chooseRoles(colors);
@@ -67,11 +70,13 @@ function clearPreviousResult() {
   if (displayedObjectUrl) URL.revokeObjectURL(displayedObjectUrl);
   displayedObjectUrl = null;
   sourcePreview.removeAttribute('src');
+  previewImage.removeAttribute('src');
+  previewImage.hidden = true;
   sourceWrap.hidden = true;
   paletteNode.replaceChildren();
   const empty = document.createElement('p');
   empty.className = 'empty';
-  empty.textContent = 'Your color swatches will appear here.';
+  empty.textContent = 'The colors in your image will land here.';
   paletteNode.append(empty);
   for (const role of ['--page', '--ink', '--accent', '--button-ink']) sitePreview.style.removeProperty(role);
   roleNote.textContent = 'Waiting for an image.';
@@ -130,6 +135,18 @@ function extractPalette(image) {
     }));
 
   const chosen = [];
+  if (!candidates.length) return chosen;
+  const dominant = candidates[0];
+  chosen.push(dominant);
+  const visibleCount = candidates.reduce((sum, candidate) => sum + candidate.count, 0);
+  const minimumAccentPixels = Math.max(5, Math.ceil(visibleCount * .0005));
+  const accent = candidates
+    .filter(candidate => candidate !== dominant && candidate.count >= minimumAccentPixels && distance(dominant, candidate) >= 65)
+    .map(candidate => ({ candidate, chroma: Math.max(candidate.r, candidate.g, candidate.b) - Math.min(candidate.r, candidate.g, candidate.b) }))
+    .filter(item => item.chroma >= 55)
+    .sort((a, b) => (b.chroma * 1.3 + distance(dominant, b.candidate) * .25 + Math.log1p(b.candidate.count) * 3)
+      - (a.chroma * 1.3 + distance(dominant, a.candidate) * .25 + Math.log1p(a.candidate.count) * 3))[0]?.candidate;
+  if (accent) chosen.push({ ...accent, isAccent: true });
   for (const minimumDistance of [65, 35]) {
     for (const candidate of candidates) {
       if (chosen.length === 5) return chosen;
@@ -152,7 +169,7 @@ function showSwatches(colors) {
   paletteNode.replaceChildren();
   for (const color of colors) {
     const item = document.createElement('div');
-    item.className = 'swatch';
+    item.className = color.isAccent ? 'swatch accent' : 'swatch';
     const square = document.createElement('div');
     square.className = 'swatch-color';
     square.style.backgroundColor = toHex(color);
@@ -160,6 +177,12 @@ function showSwatches(colors) {
     code.className = 'swatch-code';
     code.textContent = toHex(color).toUpperCase();
     item.append(square, code);
+    if (color.isAccent) {
+      const accentLabel = document.createElement('span');
+      accentLabel.className = 'swatch-accent-label';
+      accentLabel.textContent = 'ACCENT';
+      item.append(accentLabel);
+    }
     paletteNode.append(item);
   }
 }
@@ -187,7 +210,7 @@ function chooseRoles(colors) {
   const text = fallback
     ? (contrast(background, black) >= contrast(background, white) ? black : white)
     : bestExtracted;
-  const accent = [...colors.slice(1)].sort((a, b) => {
+  const accent = colors.find(color => color.isAccent) || [...colors.slice(1)].sort((a, b) => {
     const score = color => (Math.max(color.r, color.g, color.b) - Math.min(color.r, color.g, color.b)) + distance(background, color) * .35;
     return score(b) - score(a);
   })[0] || background;

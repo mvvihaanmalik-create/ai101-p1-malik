@@ -11,24 +11,30 @@
   <body>
     <main class="shell">
       <header class="masthead">
-        <span class="eyebrow">Project 2 · feasibility test</span>
-        <h1>Image Palette Studio</h1>
-        <p>Choose a picture. See its main colors on a simple site preview.</p>
+        <div class="masthead-top">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="eyebrow">HUE / LAB <span class="masthead-divider">—</span> An image-to-interface experiment</span>
+          <span class="build-tag">Prototype / 01</span>
+        </div>
+        <div class="masthead-copy">
+          <h1>See an image<br><em>become a place.</em></h1>
+          <p>Pull a palette from a picture, then see how it feels across a real website composition.</p>
+        </div>
       </header>
 
       <div class="workspace">
         <section class="controls panel" aria-labelledby="source-title">
           <div class="section-heading">
-            <span class="step-number">01</span>
-            <h2 id="source-title">Choose an image</h2>
+            <span class="step-number">01 / INPUT</span>
+            <h2 id="source-title">Your image</h2>
           </div>
+          <input id="image-input" class="upload-input" type="file" accept="image/*" aria-describedby="file-hint">
           <label class="upload" for="image-input">
-            <span class="upload-symbol" aria-hidden="true">↗</span>
-            <span class="upload-title">Browse for a picture</span>
-            <span class="upload-detail">JPG and PNG first; other browser-readable images may work.</span>
+            <span class="upload-symbol" aria-hidden="true">+</span>
+            <span class="upload-title">Choose an image</span>
+            <span class="upload-detail">JPG or PNG recommended · Other browser-readable images may work</span>
           </label>
-          <input id="image-input" type="file" accept="image/*" aria-describedby="file-hint">
-          <p id="file-hint" class="hint">One image, up to 20 MB. Nothing is saved by this prototype.</p>
+          <p id="file-hint" class="hint">One image up to 20 MB. No account or image upload service.</p>
           <p id="status" class="status" role="status" aria-live="polite">Choose an image to start.</p>
 
           <div id="source-wrap" class="source-wrap" hidden>
@@ -36,38 +42,58 @@
           </div>
 
           <div class="section-heading palette-heading">
-            <span class="step-number">02</span>
-            <h2>Extracted colors</h2>
+            <span class="step-number">02 / PALETTE</span>
+            <h2>Color study</h2>
           </div>
           <div id="palette" class="palette" aria-live="polite">
-            <p class="empty">Your color swatches will appear here.</p>
+            <p class="empty">The colors in your image will land here.</p>
           </div>
+          <p class="palette-caption">Five sampled colors, including a distinctive accent when the image has one.</p>
         </section>
 
         <section class="result panel" aria-labelledby="result-title">
           <div class="section-heading">
-            <span class="step-number">03</span>
+            <span class="step-number">03 / APPLIED</span>
             <h2 id="result-title">Website preview</h2>
+            <span class="live-indicator">Live</span>
           </div>
-          <p class="hint">Colors are assigned automatically. Text may use black or white if the image has no readable color pair.</p>
+          <p class="hint result-hint">A simple editorial website, recolored automatically from your image.</p>
 
           <div id="site-preview" class="site-preview">
-            <div class="preview-nav">
-              <span class="preview-brand">FORM / FIELD</span>
-              <span class="preview-menu">Work&nbsp; &nbsp; About</span>
+            <div class="preview-chrome" aria-hidden="true">
+              <span class="chrome-dots"><i></i><i></i><i></i></span>
+              <span>website / preview</span>
+              <span>↗</span>
             </div>
-            <div class="preview-content">
-              <span class="preview-kicker">A collection of small ideas</span>
-              <h3>Design begins<br>with a feeling.</h3>
-              <p>Explore a visual direction before making the whole website.</p>
-              <button class="preview-button" type="button">Explore the collection <span aria-hidden="true">↗</span></button>
-            </div>
-            <div class="preview-footer">
-              <span>Issue No. 01</span>
-              <span>Made for the moment</span>
+            <div class="preview-site">
+              <div class="preview-nav">
+                <span class="preview-brand">MONO<span class="brand-period">.</span> STUDIO</span>
+                <span class="preview-menu">Selected work <span aria-hidden="true">↗</span></span>
+              </div>
+              <div class="preview-hero">
+                <div class="preview-content">
+                  <span class="preview-kicker"><span class="kicker-line"></span> Independent visual studio / 2026</span>
+                  <h3>Make room<br>for <em>wonder.</em></h3>
+                  <p>Art direction and visual ideas built to stay with you.</p>
+                  <span class="preview-button">Explore our work <span aria-hidden="true">↗</span></span>
+                </div>
+                <div class="preview-art" aria-label="Selected image in the website mockup">
+                  <img id="preview-image" alt="" hidden>
+                  <div class="preview-art-placeholder" aria-hidden="true"><span>01</span><span>VISUAL / STUDY</span></div>
+                  <span class="preview-art-caption">A NEW POINT OF VIEW <span>↗</span></span>
+                </div>
+              </div>
+              <div class="preview-bottom">
+                <span>Ideas shaped by color.</span>
+                <span class="preview-bottom-line" aria-hidden="true"></span>
+                <span>Scroll to explore ↓</span>
+              </div>
             </div>
           </div>
-          <p id="role-note" class="role-note">Waiting for an image.</p>
+          <div class="role-footer">
+            <span class="role-dot" aria-hidden="true"></span>
+            <p id="role-note" class="role-note">Waiting for an image.</p>
+          </div>
         </section>
       </div>
     </main>
