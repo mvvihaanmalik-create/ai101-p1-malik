@@ -1008,3 +1008,16 @@ September 29.
   plugin has not been opened or enabled in Obsidian, so no real-image,
   sound, drop, or download result is claimed and Step 3 is not yet saved to
   `outputs/` as accepted.
+
+## 2026-10-08 — obsidian-gaze launch stopped at vault trust prompt
+
+- **Instruction and direction:** The user asked to run the prototype.
+- **Came back:** Confirmed the Obsidian CLI is disabled. Opened the separate
+  `obsidian-gaze-test-vault` through Obsidian's vault manager; Obsidian 1.14.4
+  displayed its first-open **Do you trust the author of this vault?** prompt,
+  with a choice to enable the included plugin. Recorded the actual run
+  boundary in [[AI 101/Project 2/03-build-a-small-prototype.md]].
+- **Decision/status:** **Waiting for the user's trust decision.** I did not
+  accept that security prompt or claim the plugin ran. The main AI 101 vault
+  remains open separately and does not have Gaze installed. No Step 3
+  acceptance, `outputs/` save, or release follows from this attempt.
