@@ -889,3 +889,12 @@ September 29.
   The user accepted the current revised prototype for now. The pale accent
   observation and unverified format, error, privacy, speed, accessibility,
   and cross-browser cases remain documented. No further app code was changed.
+
+## 2026-10-08 — Direction requested after Project 2 workflow
+
+- **Instruction and direction:** After accepting the Step 5 stop decision,
+  the user said “proceed” without naming a new task or revision.
+- **Came back:** Asked which next action they want, rather than inventing a
+  sixth workflow step or reopening the prototype without a target.
+- **Decision/status:** **Awaiting direction.** No app code, accepted output,
+  or live site was changed.
