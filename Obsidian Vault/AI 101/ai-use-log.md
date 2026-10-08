@@ -804,3 +804,14 @@ September 29.
 - **Decision/status:** **Awaiting the user's Step 4 check.** No Step 4 app-run
   output was saved to `outputs/`, no polish revision was begun, and Step 5 was
   not started.
+
+## 2026-10-08 — Project 2 Step 4 clarification needed
+
+- **Instruction and direction:** The user replied “i do” to a Step 4 message
+  that asked both whether they agree with a bounded design revision and
+  whether they noticed phone lag, clipping, or unreadable text.
+- **Came back:** Recorded the ambiguity in
+  [[AI 101/Project 2/04-human-check.md]] and asked which meaning was intended
+  instead of inventing a performance result or approval.
+- **Decision/status:** **Step 4 still pending clarification.** No code change,
+  Step 4 `outputs/` acceptance, or Step 5 work occurred.
