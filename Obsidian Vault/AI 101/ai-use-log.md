@@ -716,3 +716,16 @@ September 29.
   signed in, so no separate public app repository or live link was created.
   The new app-run Step 3 output was not saved in `outputs/`; Step 4 and a
   larger build remain on hold.
+
+## 2026-10-08 — Project 2 prototype feedback and GitHub sign-in
+
+- **Instruction and direction:** After opening the local prototype, the user
+  said it looks very basic and not polished and asked for a GitHub sign-in
+  link.
+- **Came back:** Recorded the visual-quality gap in
+  [[AI 101/Project 2/03-build-a-small-prototype.md]] without treating the
+  prototype as approved. Checked GitHub's official CLI authentication
+  guidance and provided the GitHub sign-in path and CLI command.
+- **Decision/status:** **Step 3 remains under review.** No polish iteration,
+  public app-only repository, phone test, or Step 4 review has been completed
+  in response to this feedback.
