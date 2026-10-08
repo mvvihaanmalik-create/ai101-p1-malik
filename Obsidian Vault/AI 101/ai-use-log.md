@@ -374,7 +374,7 @@ September 29.
 
 - **Tool/context:** The notes themselves do not identify an AI tool or preserve
   a prompt/response for this step. A new [[AI 101/Project 2]] folder appeared
-  around 5:05 p.m., and [[AI 101/Project 2/intent.md.md]] was created at
+  around 5:05 p.m., and [[AI 101/Project 2/intent]] was created at
   6:00 p.m. and edited through 6:27 p.m.
 - **Input/direction:** I described a recurring problem in AI-assisted coding:
   starting with an exciting idea, trusting an early LLM-approved prototype,
@@ -392,7 +392,7 @@ September 29.
 
 ### Research brief placeholder and repository sync
 
-- **Tool/context:** [[AI 101/Project 2/research-brief.md.md]] was created at
+- **Tool/context:** [[research-brief]] was created at
   6:37 p.m. and remained empty. The scheduled Git task ran at 5:00 p.m. and
   pushed commit `e88ce8a23f93c16e73f0dafb017832a6daecb18b`.
 - **Output:** A placeholder for a research brief existed, but it contained no
@@ -424,7 +424,7 @@ September 29.
 ## 2026-10-01, Class 6 — Project 2 source verification and research brief
 
 - **Tool/context:** I reviewed the two source paragraphs already recorded in
-  [[AI 101/Project 2/source-verification-log.md.md]] and opened the authors'
+  [[source-verification-log]] and opened the authors'
   PDFs for the cited CHIWORK and NordiCHI papers.
 - **Instruction and direction:** I was asked to fill the source-verification
   template for both paragraphs, including authors, title, date, link, type,
@@ -441,7 +441,7 @@ September 29.
 ### Project 2 claim check
 
 - **Instruction and direction:** I was asked to add and complete a claim-check
-  table in [[AI 101/Project 2/source-verification-log.md.md]], quoting the
+  table in [[source-verification-log]], quoting the
   source sentence and assigning a status and keep/fix/drop decision.
 - **Came back:** I added a check of the claim that coding knowledge could help
   non-technical people, using a sentence from the Feldman and Anderson paper
@@ -453,12 +453,12 @@ September 29.
 ### Research brief
 
 - **Tool/context:** I used the already verified Source 1 entry in
-  [[AI 101/Project 2/source-verification-log.md.md]] and the Project 2 intent
+  [[source-verification-log]] and the Project 2 intent
   note to replace the research-brief template placeholders.
 - **Instruction and direction:** I was asked to update the brief; the template
   requires a research question, short answer, evidence-based claim, corrected
   claim, workflow impact, and a concrete rule/check.
-- **Came back:** [[AI 101/Project 2/research-brief.md.md]] now focuses on the
+- **Came back:** [[research-brief]] now focuses on the
   verified code-literacy finding from Feldman and Anderson. It distinguishes
   the study's claim from my workflow inference and names `workflow-checklist.md`
   as the planned step file for a pre-expansion explanation-and-test checkpoint.
@@ -578,10 +578,11 @@ September 29.
   [[AI 101/Project 2/05-iterate-or-stop.md]]: stop revising the generic
   workflow and apply it next to one concrete coding idea, starting at Step 1
   with the target environment and budget.
-- **Decision/status:** **Awaiting the user's choice** — this is a proposed stop
-  to workflow-building, not abandonment of the workflow or a coding project.
-  Step 5 is the final stage; no further step has started, and its output is not
-  saved under `outputs/` pending agreement.
+- **Decision/status:** **Accepted after initial review** — this was a proposed
+  stop to workflow-building, not abandonment of the workflow or a coding
+  project. The user accepted it on 2026-10-08; the final Step 5 output is saved in
+  [[AI 101/Project 2/outputs/05-iterate-or-stop.md]] (see the acceptance entry
+  below).
 
 ## 2026-10-08 — Project 2 Step 5 accepted
 
@@ -595,3 +596,20 @@ September 29.
 - **Decision/status:** **Stop this workflow-building pass** — the current dry
   run only validated the missing-input gate; no particular coding project was
   tested or declared feasible.
+
+## 2026-10-08 — Project 2 intent gap
+
+- **Tool/context:** I reviewed the user's new note
+  [[AI 101/Project 2/intent gap.md]] and the workflow materials.
+- **Instruction and direction:** I was asked to update the AI use log with the
+  intent-gap entry.
+- **Came back:** The user intended a workflow that checks tools, alternatives,
+  OS constraints, and feasibility before substantial time or tokens are spent.
+  The workflow documents were created, but no specific coding idea was tested.
+  The user identifies the untested real-project feasibility as the gap and
+  hypothesizes that Step 3 used the broad problem instead of a concrete project.
+- **Decision/status:** **Gap recorded; cause remains the user's hypothesis** —
+  no concrete project was available during the dry run, so the workflow's
+  project-specific feasibility performance remains unverified. The accepted
+  next move remains to apply it to one real coding idea; this log does not
+  claim the cause has been experimentally established.

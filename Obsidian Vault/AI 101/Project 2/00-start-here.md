@@ -7,8 +7,8 @@ Use this workflow to turn a non-technical designer's build idea into a small, te
 
 1. Read this file first.
 2. Review [[AI 101/Project 2/process-map.canvas]] for the whole sequence.
-3. Read [[AI 101/Project 2/intent.md.md]] for the project problem and [[AI 101/Project 2/research-brief.md.md]] for the checked research claim and its limits.
-4. Consult [[AI 101/Project 2/source-verification-log.md.md]] when relying on a research claim.
+3. Read [[AI 101/Project 2/intent]] for the project problem and [[research-brief]] for the checked research claim and its limits.
+4. Consult [[source-verification-log]] when relying on a research claim.
 5. Work through the step files in order: [[AI 101/Project 2/01-define-the-goal.md]], [[AI 101/Project 2/02-check-feasibility.md]], [[AI 101/Project 2/03-build-a-small-prototype.md]], [[AI 101/Project 2/04-human-check.md]], then [[AI 101/Project 2/05-iterate-or-stop.md]]. Do not skip a step's check before moving on.
 
 ## Rules
