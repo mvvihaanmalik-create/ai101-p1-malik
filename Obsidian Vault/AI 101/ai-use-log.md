@@ -695,3 +695,24 @@ September 29.
   extraction remain unverified. No app code, repository, or live site was
   created; the feasibility test still needs to be run and reviewed before a
   larger build.
+
+## 2026-10-08 — Project 2 image-palette app, Step 3 local spike
+
+- **Instruction and direction:** The user said “proceed” after approving the
+  public app-code route and JPEG/PNG baseline, so I attempted only the small
+  prototype/feasibility test, not a larger product build.
+- **Came back:** Created the dependency-free local app and its README/tests in
+  [[AI 101/Project 2/image-palette-prototype/README.md]]. The page chooses an
+  image, extracts color swatches from Canvas pixels, automatically updates a
+  website preview, applies a black/white text fallback when needed, and shows
+  input/decode errors. Recorded files, commands, observations, and limits in
+  [[AI 101/Project 2/03-build-a-small-prototype.md]].
+- **Actual checks:** Node syntax checks passed; simulated-pixel logic tests
+  passed for colorful, monotone, and transparent inputs. The local server
+  returned HTTP 200 for the HTML, CSS, and JavaScript files.
+- **Decision/status:** **Partial local test only; awaiting human/browser
+  check.** No browser was exposed to the computer-use tool, so real file
+  decoding, appearance, and phone behavior were not tested. GitHub CLI is not
+  signed in, so no separate public app repository or live link was created.
+  The new app-run Step 3 output was not saved in `outputs/`; Step 4 and a
+  larger build remain on hold.

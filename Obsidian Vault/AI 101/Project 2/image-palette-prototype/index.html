@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e9">
+    <title>Image Palette Studio — Feasibility Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <span class="eyebrow">Project 2 · feasibility test</span>
+        <h1>Image Palette Studio</h1>
+        <p>Choose a picture. See its main colors on a simple site preview.</p>
+      </header>
+
+      <div class="workspace">
+        <section class="controls panel" aria-labelledby="source-title">
+          <div class="section-heading">
+            <span class="step-number">01</span>
+            <h2 id="source-title">Choose an image</h2>
+          </div>
+          <label class="upload" for="image-input">
+            <span class="upload-symbol" aria-hidden="true">↗</span>
+            <span class="upload-title">Browse for a picture</span>
+            <span class="upload-detail">JPG and PNG first; other browser-readable images may work.</span>
+          </label>
+          <input id="image-input" type="file" accept="image/*" aria-describedby="file-hint">
+          <p id="file-hint" class="hint">One image, up to 20 MB. Nothing is saved by this prototype.</p>
+          <p id="status" class="status" role="status" aria-live="polite">Choose an image to start.</p>
+
+          <div id="source-wrap" class="source-wrap" hidden>
+            <img id="source-preview" alt="Selected image">
+          </div>
+
+          <div class="section-heading palette-heading">
+            <span class="step-number">02</span>
+            <h2>Extracted colors</h2>
+          </div>
+          <div id="palette" class="palette" aria-live="polite">
+            <p class="empty">Your color swatches will appear here.</p>
+          </div>
+        </section>
+
+        <section class="result panel" aria-labelledby="result-title">
+          <div class="section-heading">
+            <span class="step-number">03</span>
+            <h2 id="result-title">Website preview</h2>
+          </div>
+          <p class="hint">Colors are assigned automatically. Text may use black or white if the image has no readable color pair.</p>
+
+          <div id="site-preview" class="site-preview">
+            <div class="preview-nav">
+              <span class="preview-brand">FORM / FIELD</span>
+              <span class="preview-menu">Work&nbsp; &nbsp; About</span>
+            </div>
+            <div class="preview-content">
+              <span class="preview-kicker">A collection of small ideas</span>
+              <h3>Design begins<br>with a feeling.</h3>
+              <p>Explore a visual direction before making the whole website.</p>
+              <button class="preview-button" type="button">Explore the collection <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="preview-footer">
+              <span>Issue No. 01</span>
+              <span>Made for the moment</span>
+            </div>
+          </div>
+          <p id="role-note" class="role-note">Waiting for an image.</p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

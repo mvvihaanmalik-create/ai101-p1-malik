@@ -31,3 +31,17 @@ Run the minimal test and compare its observed result with the chosen success cri
 **Test result and limits:** Pass for the narrow intake/gating behavior in this conversational dry run. This is not a code prototype and does not verify any real project's toolchain, OS compatibility, schedule, or technical feasibility; those require a specific project and environment.
 
 **Status:** I accepted this limited dry run as Step 3's result (“ok”). Its output is saved in [[AI 101/Project 2/outputs/03-build-a-small-prototype.md]]. It is a workflow test, not a code prototype or a real-project feasibility result.
+
+## New run: image-palette website preview — Step 3 local prototype (2026-10-08)
+
+**Starts from:** The approved route and unrun bounded test in [[AI 101/Project 2/outputs/image-palette-web-app/02-check-feasibility.md]]. This is separate from the earlier no-code workflow dry run above.
+
+**Smallest end-to-end slice:** A local static page that accepts an image, draws a reduced copy on Canvas, groups pixel colors into distinct swatches, and automatically colors a simple website preview. It picks the most contrasting extracted text color when possible; otherwise it uses black or white. It rejects non-images, SVG, images over 20 MB, images the browser cannot decode, and images with no visible pixels, with a visible message.
+
+**Files changed:** [[AI 101/Project 2/image-palette-prototype/index.html]] (page), [[AI 101/Project 2/image-palette-prototype/styles.css]] (responsive layout), [[AI 101/Project 2/image-palette-prototype/app.js]] (browser behavior), [[AI 101/Project 2/image-palette-prototype/test.js]] (simulated-pixel checks), and [[AI 101/Project 2/image-palette-prototype/README.md]] (Windows run instructions). No dependency packages were installed.
+
+**Commands and actual results:** `node --check` returned without errors for `app.js` and `test.js`. `node test.js` printed passes for four distinct simulated source colors, a monotone image with one swatch and contrast-safe text, and fully transparent pixels producing no palette. A local Python static server returned HTTP 200 for `index.html`, `styles.css`, and `app.js`; the page is currently available on this computer at `http://127.0.0.1:8765`. These checks validate the JavaScript logic and file delivery only, not real image decoding or the actual visual/browser flow.
+
+**Check not completed:** The available computer-use browser inventory was empty and creating a Chrome tab failed, so I could not open the app in a browser, upload real JPG/PNG files, inspect visual quality, or test phone responsiveness. `gh auth status` reported no GitHub CLI login, so I did not create a separate public app repo or publish a Pages site. A phone cannot use the local `127.0.0.1` link. Network privacy has not been independently checked. There is no evidence yet that the complete Step 2 feasibility test passed.
+
+**User check needed before expansion:** On Windows, open `http://127.0.0.1:8765` and try a colorful JPG, a low-contrast PNG, and an invalid file. Compare palette quality and text legibility with the approved goal; report any error or mismatch. For the phone check, GitHub authentication and publication of a separate app-only repo are still needed. Do not save this new app-run Step 3 output to `outputs/` or advance to Step 4 until the user agrees with the result; do not call the prototype verified based only on simulated-pixel tests.
