@@ -2,7 +2,7 @@
 
 An offline, desktop-only Obsidian image-grading plugin. Four fixed grades, one image input, PNG output. No remote services or AI model calls at runtime.
 
-> [!important] Working prototype, not an accepted Step 3 output. This vault folder is a source/build snapshot for review. Do **not** run `npm install` here: it would place `node_modules` in the synced vault. The isolated working build is at `C:\Users\91982\AppData\Local\AI101Projects\obsidian-gaze\`, and the disposable test vault is at `C:\Users\91982\AppData\Local\AI101Projects\obsidian-gaze-test-vault\`. The three installation files (`main.js`, `manifest.json`, `styles.css`) are now also in this vault's `.obsidian/plugins/gaze/`. The plugin is **not enabled** in this vault yet; enable **Gaze** yourself in Obsidian's Community plugins settings when you are ready to run it here.
+> [!important] Working prototype, not an accepted Step 3 output. This vault folder is a source/build snapshot for review. Do **not** run `npm install` here: it would place `node_modules` in the synced vault. The isolated working build is at `C:\Users\91982\AppData\Local\AI101Projects\obsidian-gaze\`, and the disposable test vault is at `C:\Users\91982\AppData\Local\AI101Projects\obsidian-gaze-test-vault\`. The three installation files (`main.js`, `manifest.json`, `styles.css`) are now also in this vault's `.obsidian/plugins/gaze/`. If Gaze is missing from **Settings → Community plugins → Installed plugins**, click the small **Reload plugins** icon beside that heading. Obsidian then lists Gaze with its switch off; enable it yourself when ready. The command cannot appear in Ctrl+P until Gaze is enabled.
 
 ## Build
 

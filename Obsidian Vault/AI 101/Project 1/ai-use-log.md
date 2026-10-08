@@ -1072,3 +1072,19 @@ September 29.
   vault's Community plugins setting unchanged; the user must enable Gaze in
   Obsidian to run it here. The disposable test vault remains available. No
   Step 3 acceptance or public release is implied.
+
+## 2026-10-08 — obsidian-gaze plugin discovery fix
+
+- **Instruction and direction:** The user could not find Gaze in this vault's
+  plugin list or by searching Ctrl+P.
+- **Came back:** Verified that `main.js`, `manifest.json`, and `styles.css` in
+  this vault matched the working disposable-vault copies. Obsidian's Settings
+  window initially showed only two installed plugins. I navigated to
+  **Community plugins** and clicked its **Reload plugins** icon; the count
+  changed to three and **Gaze v1.0.0** appeared with its switch off. Updated
+  [[AI 101/Project 2/03-build-a-small-prototype.md]] and the prototype README
+  with this discovery step.
+- **Decision/status:** The missing entry was a stale plugin scan, not absent
+  files. I did not enable Gaze or change Restricted mode. The user can now
+  switch it on; only then will **Gaze: Open** and the ribbon icon appear in
+  this vault. Main-vault use and Step 3 acceptance remain unverified.
