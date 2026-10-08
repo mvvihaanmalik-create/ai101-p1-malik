@@ -661,3 +661,22 @@ September 29.
   Automatic palette application and the still-unknown budget remain explicit.
 - **Decision/status:** **Step 1 approved; stop before Step 2** — no tool or
   hosting route has been recommended, researched, built, or declared feasible.
+
+## 2026-10-08 — Project 2 image-palette app, Step 2 proposal
+
+- **Instruction and direction:** The user said “proceed” after approving the
+  image-palette app goal, so I ran only the feasibility-check step.
+- **Tool/context:** I checked the Windows tool PATH and current primary
+  documentation from MDN, GitHub, Cloudflare, and W3C on local image pixels,
+  browser file input, static hosting, repository visibility, and text contrast.
+- **Came back:** Added a separate Step 2 proposal to
+  [[AI 101/Project 2/02-check-feasibility.md]]. It recommends a small
+  browser-only HTML/CSS/JavaScript page in a separate public app repository
+  with GitHub Pages; compares a private-repo Cloudflare Pages route and a
+  framework/library route; flags palette quality, contrast, phone formats,
+  privacy, and hosting-account assumptions; and proposes a tiny falsifiable
+  Windows-plus-phone test with a rough effort estimate.
+- **Decision/status:** **Awaiting route and test approval.** This is research
+  and an estimate, not a working prototype or a feasibility guarantee. No
+  new app-run Step 2 file was saved to `outputs/`, no app was built or
+  published, and no Step 3 work began.
