@@ -12,9 +12,10 @@
       "createdAt": "2026-10-08",
       "updatedAt": "2026-10-11",
       "gates": ["approved", "approved", "active", "upcoming", "upcoming"],
-      "nextMove": "Open the local Three.js side prototype, compare real and labelled demo jar levels, and review its rough 3D interaction before Step 3 approval.",
+      "nextMove": "Three.js Step 3 review is paused while deciding whether idea.quest needs status-only, local chat, or owner-only remote Codex chat. No chat feature or gate is approved yet.",
       "vaultLink": "AI 101/Project 2/progress-arcade/README.md",
       "updates": [
+        {"at": "2026-10-11", "text": "Paused 3D Step 3 review to explore a Codex chat/status side feature. Feasibility note compares status-only, local chat, and owner-only remote bridge. Public site is unchanged; no new gate or chat route approved."},
         {"at": "2026-10-11", "text": "Built an isolated read-only Three.js feasibility slice. The real registry now yields 2/2/5; a clearly labelled in-memory demo shows 0/2/5. Local browser and automated checks passed; visual approval remains pending."},
         {"at": "2026-10-11", "text": "User chose and approved Route C, a Three.js 3D room, with the existing public ASCII site kept live. Step 3 begins as an isolated small test; no public redesign deployment."},
         {"at": "2026-10-11", "text": "User provisionally approved Step 1's Midnight Workshop goal and three-jar scope. Only the Goal gate advanced; route and build remain pending."},

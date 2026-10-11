@@ -6,7 +6,7 @@
 
 **Now:** A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.
 
-**Next decision:** Open the local Three.js side prototype, compare real and labelled demo jar levels, and review its rough 3D interaction before Step 3 approval.
+**Next decision:** Three.js Step 3 review is paused while deciding whether idea.quest needs status-only, local chat, or owner-only remote Codex chat. No chat feature or gate is approved yet.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-11
 

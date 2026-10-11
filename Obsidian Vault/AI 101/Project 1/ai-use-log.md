@@ -46,6 +46,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Decision:** **Keep Route C as the approved plan; Step 3 pending my review** — the rough procedural art tests 3D mechanics, not the final visual quality. Stop before larger modeling, public replacement, or Step 3 approval.
 - **Check:** Pinned Three.js/esbuild installed outside the vault; bundle and 2/2 Node tests passed, and the existing tracker passed 3/3 tests. Headless Chrome showed the WebGL scene, correct data levels, 3D jar click, details, Return/Escape, mobile-emulated touch, no 390px horizontal overflow, and no page errors. Demo view showed 0/2/5 with a “NOT LIVE” badge. Both existing public links returned HTTP 200; no real-phone GPU test or user visual acceptance yet. The in-app browser handoff was unavailable, so the local URL must be opened manually. A safety dry run passed and the updated vault/side source was synced to the public course repo at `1396047728ca4522500f7f74696f10549f9beb51`.
 
+### Pause 3D; explore owner chat and status · Codex + official documentation
+
+- **Ask:** Pause the potion-room build and explore whether the existing public idea.quest could show project status and let me prompt the Codex-connected Claudian agent in Obsidian.
+- **Result:** Checked the current public read-only mirror, local tracker, enabled Claudian plugin manifests, installed Codex CLI, Claudian's upstream documentation, and OpenAI's Codex app-server documentation. Recorded [[AI 101/Project 2/idea-quest-chat-feasibility.md|a status-only / local-chat / protected remote-bridge comparison]]. Updated idea.quest's next move but kept its **2/5** gates and all project records. No chat UI, backend, credentials, access change, or redeployment was made.
+- **Decision:** **Pending my scope choice** — a website can use a separate Codex-backed bridge, but cannot simply embed the desktop Obsidian plugin; sharing the exact current Claudian conversation is unverified. Keep the public site live and do not expose the vault or allow unauthenticated prompts.
+- **Check:** `codex-cli 0.154.0` lists `exec` and `app-server`; this is a capability check, not an end-to-end prompt or security test. The existing local site still binds to `127.0.0.1`; the public site remains read-only.
+
 ## 2026-10-10 — idea.quest deployment and public access
 
 ### Deploy the tracker; discuss a 3D makeover · Codex + Sites
