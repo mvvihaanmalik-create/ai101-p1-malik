@@ -53,6 +53,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Decision:** **Pending my scope choice** — a website can use a separate Codex-backed bridge, but cannot simply embed the desktop Obsidian plugin; sharing the exact current Claudian conversation is unverified. Keep the public site live and do not expose the vault or allow unauthenticated prompts.
 - **Check:** `codex-cli 0.154.0` lists `exec` and `app-server`; this is a capability check, not an end-to-end prompt or security test. The existing local site still binds to `127.0.0.1`; the public site remains read-only.
 
+### Context continuity clarified for website chat · Codex + official documentation
+
+- **Ask:** An exact shared Claudian session is optional; the website chat must understand this work and preferably connect to this conversation.
+- **Result:** Refined [[AI 101/Project 2/idea-quest-chat-feasibility.md|the feasibility note]] to propose a new Codex thread with an explicit, refreshed handoff from the active project registry, workflow, approved outputs, and recent AI-use-log entries. Defined a read-only local test: it must correctly report idea.quest's **2/5** approved gates and paused Step 3 without editing records. Verified locally that Codex CLI supports a chosen working root and app-server threads; no website agent was run.
+- **Decision:** **Same-session requirement dropped; local context-aware spike pending approval.** Prefer a small reviewed handoff over silently copying this entire chat or vault into a public website. Remote phone prompts and write actions remain separate decisions.
+- **Check:** No chat integration, direct Claudian-session sharing, authentication flow, or live context-recall test has been completed; public idea.quest remains read-only.
+
 ## 2026-10-10 — idea.quest deployment and public access
 
 ### Deploy the tracker; discuss a 3D makeover · Codex + Sites
