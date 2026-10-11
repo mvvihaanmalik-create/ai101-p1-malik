@@ -9,7 +9,7 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > [!info] Last recorded project status — October 11
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **idea.quest:** public, read-only hosted mirror available; potion-room Step 1 provisionally approved (1/5). Step 2 route proposal awaits review; no redesign build approved.
+> - **idea.quest:** current public ASCII mirror remains live; Goal and Three.js Route approved (2/5). The local 3D side prototype awaits Step 3 visual review and is not published.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -38,6 +38,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Result:** Saved [[AI 101/Project 2/outputs/idea-quest/01-define-the-goal.md|the accepted scope]] and advanced only idea.quest's Goal gate to 1/5. In [[AI 101/Project 2/02-check-feasibility.md|Step 2]], compared layered HTML/CSS/SVG on the existing tracker, a Canvas 2D scene, and a Three.js room. Recommended the smallest 2.5D route and a three-jar data/interaction test before art polish. Checked browser and GitHub documentation dated October 11; no redesign code or deployment was made.
 - **Decision:** **Step 1 provisionally approved; Step 2 pending** — “for now” accepts the bounded direction, not final visuals, technical route, prototype, or release. Await the user's choice of route and small test.
 - **Check:** Registry and generated [[AI 101/Project 2/progress.md|progress card]] show idea.quest 1/5, Gaze 2/5, Image Palette Studio 5/5 original run, and the unscored Project 1 artifact. The tracker test initially failed because its seed assertion still expected idea.quest 0/5; updated that assertion to the approved state and reran all three tests successfully. Vault sync passed its safety dry run and pushed the records to the public course repo at `577fdbee8f110803cd4065800275191b02955bca`. Current Node/npm tools were present; new jar interaction and phone behavior have not been tested.
+
+### Three.js route accepted; isolated 3D feasibility build · Codex + Three.js + esbuild
+
+- **Ask:** Choose Route C rather than the recommended 2.5D route; keep the existing public website shareable while the 3D version is built on the side.
+- **Result:** Saved [[AI 101/Project 2/outputs/idea-quest/02-check-feasibility.md|the chosen route]] and advanced only the Route gate to 2/5. Built [[AI 101/Project 2/idea-quest-three-spike/README.md|a separate local read-only 3D test]] with one table, original cat witch, candles, three real 3D jars, raycast selection, and live project details. The normal view reads the unchanged registry and now honestly shows **2/2/5** because idea.quest gained two approved gates. A visibly labelled demo view shows **0/2/5** using an in-memory empty-jar fixture, never a false live record. No current public site source, deployment, or project gate was overwritten by the side build.
+- **Decision:** **Keep Route C as the approved plan; Step 3 pending my review** — the rough procedural art tests 3D mechanics, not the final visual quality. Stop before larger modeling, public replacement, or Step 3 approval.
+- **Check:** Pinned Three.js/esbuild installed outside the vault; bundle and 2/2 Node tests passed. Headless Chrome showed the WebGL scene, correct data levels, 3D jar click, details, Return/Escape, mobile-emulated touch, no 390px horizontal overflow, and no page errors. Demo view showed 0/2/5 with a “NOT LIVE” badge. Both existing public links returned HTTP 200; no real-phone GPU test or user visual acceptance yet. The in-app browser handoff was unavailable, so the local URL must be opened manually.
 
 ## 2026-10-10 — idea.quest deployment and public access
 

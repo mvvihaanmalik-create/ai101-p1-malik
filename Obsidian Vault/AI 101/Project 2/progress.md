@@ -1,12 +1,12 @@
 # Active project · idea.quest
 
-## ■□□□□ · 1/5 gates approved
+## ■■□□□ · 2/5 gates approved
 
-**01 Goal ✅ → 02 Route ▶ → 03 Prototype ○ → 04 Human check ○ → 05 Decide ○**
+**01 Goal ✅ → 02 Route ✅ → 03 Prototype ▶ → 04 Human check ○ → 05 Decide ○**
 
 **Now:** A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.
 
-**Next decision:** Review Step 2's implementation routes and choose a small feasibility test before any larger build.
+**Next decision:** Open the local Three.js side prototype, compare real and labelled demo jar levels, and review its rough 3D interaction before Step 3 approval.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-11
 

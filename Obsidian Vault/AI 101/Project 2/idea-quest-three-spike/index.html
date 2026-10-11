@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#211521">
+  <title>idea.quest — potion room study</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="room" id="room">
+    <div id="scene" class="scene" aria-hidden="true"></div>
+    <div class="veil" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">AI 101 · potion room study</p>
+        <h1>idea<span>.</span>quest</h1>
+      </div>
+      <span class="live-mark" id="connection">READING VAULT</span>
+    </header>
+
+    <section class="intro" aria-label="About this project room">
+      <p class="eyebrow">THE MIDNIGHT WORKSHOP</p>
+      <p>Tap a jar to bring its story closer.</p>
+    </section>
+
+    <div class="jar-dock" id="jarDock" role="group" aria-label="Choose a project jar"></div>
+
+    <section class="details" id="details" aria-labelledby="detailTitle" hidden>
+      <div class="details-top">
+        <span class="eyebrow">PROJECT RECORD</span>
+        <button class="close" id="returnButton" type="button" aria-label="Return to table">×</button>
+      </div>
+      <div class="detail-seal" id="detailSeal" aria-hidden="true">✦</div>
+      <h2 id="detailTitle"></h2>
+      <p class="detail-pitch" id="detailPitch"></p>
+      <div class="count-line"><strong id="detailCount"></strong><span>approval gates</span></div>
+      <ol class="gate-list" id="gateList" aria-label="Workflow steps"></ol>
+      <div class="next-card"><span class="eyebrow">NEXT MOVE</span><p id="detailNext"></p></div>
+      <p class="latest" id="detailLatest"></p>
+      <button class="back" id="backButton" type="button">← Return to table</button>
+    </section>
+
+    <footer class="footnote">
+      <span>LOCAL 3D TEST · READ ONLY</span>
+      <span>Only the current public idea.quest remains shareable.</span>
+    </footer>
+    <p class="error" id="error" role="alert" hidden></p>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>
