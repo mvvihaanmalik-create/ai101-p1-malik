@@ -6,7 +6,11 @@ Desktop preview: ![[AI 101/Project 2/progress-arcade/preview.png]]
 
 ## Hosted link
 
-**[Open idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site)** — an owner-private, **read-only** web mirror. It fetches projects.json from the public GitHub vault repository and checks for changes every two minutes while open; new vault edits appear there after the vault sync pushes to GitHub and the next check succeeds. If GitHub is temporarily unavailable on first load, the hosted copy falls back to its last packaged snapshot and labels it as such. The hosted site cannot approve gates or add ideas. Those actions remain in the local vault-backed version below.
+Latest deployment check: **October 10, 2026**. Republished saved version **4** (including the ASCII cat animation); Sites returned **succeeded** at the existing link. The site is now **public** and remains read-only online. Local JavaScript, CSS, and project registry matched the saved hosted source; the hosted HTML's added `data-mode="hosted"` flag selects read-only mode. Public access changed on October 10. This was a deployment check, not a new phone or visual test.
+
+**[Open idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site)** — a **public, read-only** web mirror anyone with the link can visit. It fetches projects.json from the public GitHub vault repository and checks for changes every two minutes while open; new vault edits appear there after the vault sync pushes to GitHub and the next check succeeds. If GitHub is temporarily unavailable on first load, the hosted copy falls back to its last packaged snapshot and labels it as such. The hosted site cannot approve gates or add ideas. Those actions remain in the local vault-backed version below.
+
+**[Open the Vercel copy](https://idea-quest-ai101.vercel.app)** — also public and read-only. This is a snapshot deployment of the current hosted files, not a Git-connected deployment; changes will not appear here automatically and require another Vercel deployment. Vercel project-level SSO protection is disabled so the link can be shared.
 
 The hosted Site project ID is appgprj_6ac817efa8c08191a5bd4042c61e210c. Its separate source checkout is under C:\Users\91982\AppData\Local\AI101Projects\idea-quest-site; no Site credential is stored in this vault. Keep this ID if revising the hosted site rather than creating a replacement.
 
@@ -20,7 +24,7 @@ The hosted Site project ID is appgprj_6ac817efa8c08191a5bd4042c61e210c. Its sepa
 
 3. Open <http://127.0.0.1:4177/>. Leave PowerShell open while using the board. Press Ctrl+C to stop it.
 
-Node.js 20 or newer is required; the local build uses no npm dependencies, external fonts, analytics, login, or internet service. The server binds only to 127.0.0.1, so that editable link works on this computer, **not** on a phone or another machine. The hosted mirror above is online but owner-private and read-only.
+Node.js 20 or newer is required; the local build uses no npm dependencies, external fonts, analytics, login, or internet service. The server binds only to 127.0.0.1, so that editable link works on this computer, **not** on a phone or another machine. The hosted mirror above is public and read-only.
 
 ## What the controls do
 
@@ -30,7 +34,7 @@ Node.js 20 or newer is required; the local build uses no npm dependencies, exter
 - **Add quest note** saves a dated update without advancing.
 - Selecting a project changes the current quest and the Obsidian progress.md card.
 
-The board begins with idea.quest, obsidian-gaze, Image Palette Studio, and the completed Project 1 poster. The poster is a **bonus artifact**, not falsely scored against the later five-step coding workflow. Image Palette Studio's 5/5 reflects its *original accepted run*; its later accent-override side quest is still under review. idea.quest itself is 0/5 approved until the user reviews its scope and design.
+The board begins with idea.quest, obsidian-gaze, Image Palette Studio, and the completed Project 1 poster. The poster is a **bonus artifact**, not falsely scored against the later five-step coding workflow. Image Palette Studio's 5/5 reflects its *original accepted run*; its later accent-override side quest is still under review. idea.quest's potion-room [[AI 101/Project 2/outputs/idea-quest/01-define-the-goal.md|Step 1 scope]] was provisionally approved on October 11 (1/5); the [[AI 101/Project 2/02-check-feasibility.md|Step 2 route proposal]] and redesign build remain unapproved. The deployed UI is still the existing ASCII tracker, not the potion room.
 
 **Motion language:** The live indicator breathes, the tiny rocket floats, stars twinkle, and icons answer hover, focus, or press. A new idea gets a brief arrival flash; an explicitly approved gate gets one checkpoint pop and XP flash. The board does not animate every card at once. The system reduced-motion preference turns these animations and transitions off.
 

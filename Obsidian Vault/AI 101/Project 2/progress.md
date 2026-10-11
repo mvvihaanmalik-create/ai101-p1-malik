@@ -1,13 +1,13 @@
 # Active project · idea.quest
 
-## □□□□□ · 0/5 gates approved
+## ■□□□□ · 1/5 gates approved
 
-**01 Goal ▶ → 02 Route ○ → 03 Prototype ○ → 04 Human check ○ → 05 Decide ○**
+**01 Goal ✅ → 02 Route ▶ → 03 Prototype ○ → 04 Human check ○ → 05 Decide ○**
 
-**Now:** A cute retro ASCII quest board that makes our project decisions and progress visible.
+**Now:** A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.
 
-**Next decision:** Watch the quest cat blink, flick its tail, and wink on hover; decide if its personality feels right.
+**Next decision:** Review Step 2's implementation routes and choose a small feasibility test before any larger build.
 
-**Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-08
+**Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-11
 
 > [!note] The five blocks count your approved decision gates, not percent of work. A build or test never fills a gate by itself. The full bar on Image Palette Studio refers to its original accepted workflow run; its later accent-override side quest remains under review.
