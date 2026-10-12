@@ -1,0 +1,13 @@
+# Step 5 — Iterate or stop: image-palette website preview
+
+**Decision:** Stop iterating for now. The user said “fine for now lets proceed” on 2026-10-08, accepting the revised prototype as good enough for this Project 2 workflow run—not declaring it a fully verified or final release.
+
+**Starting point:** [[AI 101/Project 2/outputs/image-palette-web-app/04-human-check.md]] kept the browser-only functional core and rejected the original generic visual treatment. The bounded revision simplified the file chooser, rebuilt the website preview as an editorial composition with the selected image, and reserved a slot for a small vivid accent.
+
+**What passed:** The initial upload-to-swatches-to-preview flow was observed in a Windows screenshot and reported working on a phone. After the revision, the user showed the new preview rendering on desktop and reported that the revised site works fine on their phone. Four simulated-pixel tests pass, including a 1%-area cyan accent being retained and used. The separate public [app-only repository](https://github.com/mvvihaanmalik-create/ai101-image-palette-studio) contains the five prototype files, and the [live test page](https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/) and assets returned HTTP 200 after publication.
+
+**What was imperfect or remains unknown:** The revised screenshot's visible accent looked pale blue rather than a strong electric cyan; the crop did not show swatches or identify whether it used the original `Test 7.png`. The user chose to keep it for now rather than demand another accent pass. Real JPEG/invalid-file/other-format behavior, very small screens, keyboard and screen-reader use, user-perceived speed metrics, decoded-image memory limits, and runtime network privacy were not independently verified. The user's positive phone report is not a cross-browser compatibility guarantee. The shareable page is a prototype, not a representation that all product or accessibility criteria are met.
+
+**Why stop:** The working core and improved visual treatment are sufficient for the user's current purpose; another polish pass has uncertain benefit compared with its time cost. Keep the current version without adding accounts, export, or unrelated features. If a later image, phone, or accessibility check fails—or the user wants stronger accent selection—return to the bounded Step 3/4 test-and-review loop before expanding the app.
+
+**Current artifact:** [[AI 101/Project 2/image-palette-prototype/README.md]] and the [live test page](https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/). **No further change is authorized by this stop decision.**

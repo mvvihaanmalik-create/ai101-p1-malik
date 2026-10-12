@@ -4,7 +4,7 @@ Vihaan Malik · AI 101 · Project 1 + Project 2
 
 Each entry records the **ask, result, and decision with a reason**. Tools are named at the start of each section; checks appear only when they affect the decision. Statuses describe what was known at that point in the session.
 
-[[#2026-10-11 — idea.quest potion-room redesign|Latest project work]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
+[[#2026-10-12 — Project 2 submission folder|Submission folder]] · [[#2026-10-11 — idea.quest potion-room redesign|Latest project work]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
 
 > [!info] Last recorded project status — October 11
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
@@ -22,6 +22,15 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > - **Check:** Optional. What was actually checked, who checked it, and any material limit.
 >
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
+
+## 2026-10-12 — Project 2 submission folder
+
+### Assemble project-02/ for submission · Claude
+
+- **Ask:** Make sure GitHub has the `project-02/` folder from the submission tree. I said to skip Class 8, that the AI use log is shared across projects, and that Claude could label the `outputs/` subfolders.
+- **Result:** Found Project 2 on GitHub only inside the vault copy, with no `diagram.md`, `decision-note.md`, `disclosure.md`, `feedback.md`, or project-level `ai-use-log.md`. Built a root-level `project-02/` from my vault files (copies matched by checksum), labeled the `outputs/` folders as run 1, run 2, and extra partial runs, copied this shared log in, and drafted `diagram.md`, `decision-note.md`, `disclosure.md`, and a short `feedback.md` from my notes and this log.
+- **Decision:** **Pending my review** — Claude drafted those four files from my own records, so I need to read and edit them before treating them as mine.
+- **Check:** Step files were copied unchanged, so their Obsidian-style links may not open on GitHub. `feedback.md` records only that I missed Class 8.
 
 ## 2026-10-11 — idea.quest potion-room redesign
 
