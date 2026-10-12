@@ -2,7 +2,9 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { randomUUID } from 'node:crypto';
+import { randomUUID, randomBytes } from 'node:crypto';
+import { readContext } from '../idea-quest-chat-spike/context.mjs';
+import { makePrompt, runCodex } from '../idea-quest-chat-spike/server.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const defaultDataFile = path.join(here, 'projects.json');
@@ -74,7 +76,9 @@ function readBody(request) {
   });
 }
 
-export function createApp({ dataFile = defaultDataFile, progressFile = defaultProgressFile } = {}) {
+export function createApp({ dataFile = defaultDataFile, progressFile = defaultProgressFile, chatRunner = runCodex, vaultRoot = path.resolve(here, '../../..') } = {}) {
+  const chatToken = randomBytes(24).toString('hex');
+  let chatBusy = false;
   return http.createServer(async (request, response) => {
     try {
       const url = new URL(request.url, 'http://localhost');
@@ -86,6 +90,33 @@ export function createApp({ dataFile = defaultDataFile, progressFile = defaultPr
       }
       if (request.method === 'GET' && url.pathname === '/api/projects') {
         return sendJson(response, 200, readState(dataFile));
+      }
+      if (request.method === 'GET' && url.pathname === '/api/chat-token') {
+        if (request.headers.host !== `127.0.0.1:${request.socket.localPort}`) return sendJson(response, 403, { error: 'Local host only.' });
+        return sendJson(response, 200, { token: chatToken });
+      }
+      if (request.method === 'POST' && url.pathname === '/api/chat') {
+        const expected = `http://127.0.0.1:${request.socket.localPort}`;
+        if (request.headers.host !== `127.0.0.1:${request.socket.localPort}` || origin !== expected || request.headers['x-idea-csrf'] !== chatToken) {
+          return sendJson(response, 403, { error: 'Only this local board can ask.' });
+        }
+        if (chatBusy) return sendJson(response, 409, { error: 'A question is already running.' });
+        const body = await readBody(request);
+        const prompt = safeText(body.prompt, 1200);
+        if (prompt.length < 3) return sendJson(response, 400, { error: 'Ask a longer question.' });
+        let context;
+        try { context = readContext(vaultRoot, body.projectId); }
+        catch { return sendJson(response, 404, { error: 'Project not found.' }); }
+        const history = Array.isArray(body.history) ? body.history.slice(-6).map((turn) => ({
+          role: turn?.role === 'assistant' ? 'assistant' : 'user',
+          text: safeText(turn?.text, 1200),
+        })).filter((turn) => turn.text) : [];
+        chatBusy = true;
+        try {
+          const answer = await chatRunner(makePrompt(context, prompt, history), { vaultRoot });
+          return sendJson(response, 200, { answer, sources: context.sources, projectId: context.project.id });
+        } catch { return sendJson(response, 502, { error: 'Codex could not answer. Check its local login.' }); }
+        finally { chatBusy = false; }
       }
       if (request.method === 'POST' && url.pathname === '/api/projects') {
         const body = await readBody(request);

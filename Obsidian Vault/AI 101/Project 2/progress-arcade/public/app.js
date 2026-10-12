@@ -6,6 +6,9 @@ let state = null;
 let viewProjectId = null;
 let pendingAction = null;
 let toastTimer;
+let chatToken = null;
+let chatHistory = [];
+let chatProjectId = null;
 
 function approvedCount(project) {
   return project.gates.filter((gate) => gate === 'approved').length;
@@ -209,6 +212,15 @@ function renderProject() {
   $('questKicker').textContent = project.kind === 'artifact' ? 'BONUS CHAPTER · FINISHED ARTIFACT' : `CURRENT SAVE · ${project.phase.toUpperCase()}`;
   $('questTitle').textContent = project.title;
   $('questPitch').textContent = project.pitch;
+  $('chatProjectLabel').textContent = `// ${project.title.toUpperCase()}`;
+  if (chatProjectId !== project.id) {
+    chatProjectId = project.id;
+    chatHistory = [];
+    $('chatMessages').replaceChildren();
+    addText('p', 'chat-empty', `✧ Ask about ${project.title}. Your decision gates stay yours.`, $('chatMessages'));
+    $('chatSourceCount').textContent = '0';
+    $('chatSourceList').replaceChildren();
+  }
   $('questBadge').textContent = project.kind === 'artifact' ? 'COMPLETE ★' : approvedCount(project) === 5 ? 'SIDE QUEST ↺' : `LEVEL ${String(Math.max(1, currentStep(project) + 1)).padStart(2, '0')}`;
   $('nextMove').textContent = project.nextMove;
   renderStages(project);
@@ -268,6 +280,78 @@ function openAction(action) {
 
 function updateClock() {
   $('clock').textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function chatMessage(role, message) {
+  $('chatMessages').querySelector('.chat-empty')?.remove();
+  const item = document.createElement('div');
+  item.className = `chat-bubble ${role}`;
+  addText('span', 'chat-bubble-label', role === 'user' ? 'YOU >' : 'COMPANION ✦', item);
+  addText('p', '', message, item);
+  $('chatMessages').append(item);
+  $('chatMessages').scrollTop = $('chatMessages').scrollHeight;
+}
+
+function hostedStatusAnswer(project, prompt) {
+  const approved = project.gates.map((gate, index) => gate === 'approved' ? steps[index] : null).filter(Boolean);
+  const latest = project.updates?.[0]?.text || 'No recorded update.';
+  const provenance = '\n\nSource: public projects.json snapshot. This is a status guide, not the local AI companion.';
+  if (/test|built|untested|prototype/i.test(prompt)) {
+    return `Latest recorded note for ${project.title}: ${latest}\n\nThis public registry does not prove which tests passed. Open the cited Project 2 notes for detailed checks.${provenance}`;
+  }
+  if (/next|decision|should|do/i.test(prompt)) {
+    return `${project.title} · ${project.kind === 'artifact' ? 'bonus artifact' : `${approved.length}/5 approved: ${approved.join(', ') || 'none yet'}`}\n\nNext recorded move:\n${project.nextMove}\n\nOnly you can approve a gate. This public page cannot change the vault.${provenance}`;
+  }
+  if (!/status|approv|progress|goal|route|step|gate|where|project|quest/i.test(prompt)) {
+    return `I can only explain the recorded project status and next move from the public registry. For an open-ended AI answer, use the owner’s local Codex-connected board.${provenance}`;
+  }
+  return `${project.title}\n${project.pitch}\n\n${project.kind === 'artifact' ? 'Bonus artifact; not scored on the five-gate workflow.' : `${approved.length}/5 gates approved: ${approved.join(', ') || 'none yet'}. Current step: ${steps[currentStep(project)] || 'complete'}.`}\n\nNext: ${project.nextMove}${provenance}`;
+}
+
+async function askCompanion(prompt) {
+  const projectId = viewProjectId;
+  const button = $('chatSend');
+  button.disabled = true;
+  $('chatStatus').textContent = HOSTED ? '◌ READING RECORD' : '◌ READING VAULT';
+  chatMessage('user', prompt);
+  $('chatPrompt').value = '';
+  try {
+    if (HOSTED) {
+      const project = state.projects.find((entry) => entry.id === projectId);
+      chatMessage('assistant', hostedStatusAnswer(project, prompt));
+      $('chatStatus').textContent = '✓ RECORD READY';
+      $('chatLimit').textContent = 'PUBLIC RECORD ONLY · NO AI MODEL';
+      $('chatSourceCount').textContent = '1';
+      $('chatSourceList').replaceChildren();
+      addText('li', '', 'AI 101/Project 2/progress-arcade/projects.json', $('chatSourceList'));
+      return;
+    }
+    if (!chatToken) {
+      const tokenResponse = await fetch('/api/chat-token', { cache: 'no-store' });
+      if (!tokenResponse.ok) throw new Error('The local chat connection is unavailable.');
+      chatToken = (await tokenResponse.json()).token;
+    }
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-idea-csrf': chatToken },
+      body: JSON.stringify({ projectId, prompt, history: chatHistory.slice(-6) }),
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'No answer arrived.');
+    if (projectId === viewProjectId) {
+      chatMessage('assistant', result.answer);
+      chatHistory.push({ role: 'user', text: prompt }, { role: 'assistant', text: result.answer });
+      chatHistory = chatHistory.slice(-6);
+      $('chatStatus').textContent = '✓ ANSWER READY';
+      $('chatLimit').textContent = `${result.sources.length} VAULT SOURCES · LOCAL ONLY`;
+      $('chatSourceCount').textContent = String(result.sources.length);
+      $('chatSourceList').replaceChildren();
+      for (const source of result.sources) addText('li', '', source, $('chatSourceList'));
+    }
+  } catch (error) {
+    if (projectId === viewProjectId) chatMessage('assistant', `CHECK NEEDED: ${error.message}`);
+    $('chatStatus').textContent = '! CHECK NEEDED';
+  } finally { button.disabled = false; }
 }
 
 // Tiny ASCII sprite: the cat blinks, flicks its tail, and winks on hover.
@@ -346,12 +430,27 @@ $('actionForm').addEventListener('submit', async (event) => {
   } catch (error) { toast(error.message, true); }
   finally { button.disabled = false; }
 });
+$('chatForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const prompt = $('chatPrompt').value.trim();
+  if (prompt.length >= 3 && viewProjectId) askCompanion(prompt);
+});
+$('chatPrompt').addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); $('chatForm').requestSubmit(); }
+});
+document.querySelectorAll('[data-chat-question]').forEach((button) => button.addEventListener('click', () => {
+  $('chatPrompt').value = button.dataset.chatQuestion;
+  $('chatForm').requestSubmit();
+}));
 updateClock();
 setInterval(updateClock, 30000);
 if (HOSTED) {
   $('newProjectButton').hidden = true;
   document.querySelector('.sidebar-foot').innerHTML = 'READ-ONLY WEB MIRROR<br><small>Refreshes from the public vault repository after each sync.</small>';
   document.querySelector('.live-pill').textContent = '● SYNCED FROM VAULT REPO';
+  $('chatStatus').textContent = '✦ STATUS GUIDE';
+  $('chatNote').textContent = 'Ask about recorded status or the next move. This public guide reads only the project registry; it is not the local Codex AI companion and cannot read the rest of the vault or change approvals.';
+  $('chatLimit').textContent = 'PUBLIC RECORD ONLY · NO AI MODEL';
 }
 refresh(true);
 setInterval(() => refresh(), HOSTED ? 120000 : 4000);

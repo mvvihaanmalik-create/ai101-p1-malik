@@ -117,3 +117,4 @@ After accepting the first prototype for now, the user selected the iterate-or-st
 **Assumptions/open decisions:** Exact rendering method, art production cost, mobile performance, and whether the look should be 2D/2.5D or real-time 3D are unresolved; compare them with evidence in Step 2 only after Step 1 approval. The proposed first three jars are a prototype visibility limit, **not** a deletion of other projects. The user may revise art direction, information density, or which project details matter most before accepting the goal.
 
 **Step 1 check:** The user provisionally accepted the concept, preservation rule, prototype boundary, and success criteria. Saved as [[AI 101/Project 2/outputs/idea-quest/01-define-the-goal.md]]. Step 2 may compare routes, but no larger build begins until the route and small feasibility test are reviewed.
+

@@ -12,9 +12,10 @@
       "createdAt": "2026-10-08",
       "updatedAt": "2026-10-11",
       "gates": ["approved", "approved", "active", "upcoming", "upcoming"],
-      "nextMove": "Local chat works, but the user found its visual design generic. Decide whether to keep the chat core for the separate potion-room redesign or polish the standalone chat page first. Public site and 3D Step 3 remain unchanged.",
+      "nextMove": "Review the chat panel integrated into the existing 2D ASCII board. Local Codex prompts work; public status prompts use only the registry, not an AI model. Open-ended hosted AI needs a protected backend and cost decision. Then return to the separate 3D room. No Step 3 approval yet.",
       "vaultLink": "AI 101/Project 2/progress-arcade/README.md",
       "updates": [
+        {"at": "2026-10-11", "text": "At user direction, integrated the working context-chat into the existing 2D ASCII board before returning to the separate 3D makeover. Local AI prompts work; public mirror offers a labelled registry-only status guide, not hosted AI chat. No gate changed."},
         {"at": "2026-10-11", "text": "User opened the local context-chat and reported that it works but looks generic. Functional behavior is a candidate; visual direction remains open. No gate or public deployment changed."},
         {"at": "2026-10-11", "text": "User approved a bounded local read-only context-chat spike. The separate site now shows recorded status and sources; an actual Codex prompt correctly reported idea.quest 2/5 and the paused unapproved 3D Step 3. Await user review; no gate or public deployment changed."},
         {"at": "2026-10-11", "text": "User clarified that context and understanding matter more than sharing the exact Claudian session. Proposed a local read-only chat test with explicit vault context; no chat build, remote access, or gate approved."},

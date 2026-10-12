@@ -81,6 +81,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Decision:** **Keep the chat core as a technical candidate, revise the presentation direction**—working behavior is not a visual approval. The ambitious idea.quest makeover is a separate initiative from the Project 2 course workflow, even though the experimental source currently resides inside that folder. No Step 3 approval or public-site replacement was inferred.
 - **Check:** The local chat status endpoint returned HTTP 200 and showed idea.quest at **2/5**. The user's browser report supports the interaction check; it does not prove visual acceptance, real-phone access, or release readiness.
 
+### Integrate chat into the existing 2D idea.quest · Codex CLI + Node + Chrome
+
+- **Ask:** Do not polish the generic standalone chat or jump straight to the 3D makeover; put the working companion into the existing 2D ASCII site, preserve its design, then move to 3D.
+- **Result:** Added an in-style Quest Companion section to [[AI 101/Project 2/progress-arcade/README.md|the 2D board]], with selected-project context, suggested prompts, source list, status cues, and chat bubbles. The local server routes questions to the read-only Codex/context engine. Existing records and approval controls were not changed by chat. The public static mirror cannot use the owner's local Codex login; its panel instead gives labelled registry-only status answers, not open-ended AI chat.
+- **Decision:** **Keep for integrated 2D review; do not advance Step 3 or claim public AI chat is functional**—the local AI behavior works, but the user has not yet judged the integrated visuals or chosen hosted access/cost controls. The 3D makeover remains separate and paused.
+- **Check:** Four board tests passed, including cross-origin/token denial and no gate mutation; a real integrated-board prompt correctly returned idea.quest **2/5** and cited vault sources. A desktop headless Chrome screenshot showed the companion inside the established pixel layout. Public prompt handling and a real-phone view are untested.
+
 ## 2026-10-10 — idea.quest deployment and public access
 
 ### Deploy the tracker; discuss a 3D makeover · Codex + Sites

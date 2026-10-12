@@ -10,12 +10,12 @@ import { createApp, renderProgressNote } from '../server.mjs';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const seed = path.join(here, '..', 'projects.json');
 
-async function fixture() {
+async function fixture(options = {}) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'progress-arcade-'));
   const dataFile = path.join(directory, 'projects.json');
   const progressFile = path.join(directory, 'progress.md');
   fs.copyFileSync(seed, dataFile);
-  const server = createApp({ dataFile, progressFile });
+  const server = createApp({ dataFile, progressFile, ...options });
   server.listen(0, '127.0.0.1');
   await once(server, 'listening');
   return {
@@ -89,5 +89,27 @@ test('rejects empty ideas and cross-origin writes', async () => {
       body: JSON.stringify({ title: 'Bad idea', pitch: 'Should never be saved.' }),
     });
     assert.equal(foreign.status, 403);
+  } finally { await f.close(); }
+});
+
+test('embedded companion requires local token and reads selected project without changing gates', async () => {
+  let seenPrompt = '';
+  const f = await fixture({ chatRunner: async (prompt) => { seenPrompt = prompt; return 'Goal and Route are approved (2/5).'; } });
+  try {
+    const token = (await (await fetch(`${f.base}/api/chat-token`)).json()).token;
+    const payload = { projectId: 'idea-quest', prompt: 'What is approved?' };
+    const denied = await fetch(`${f.base}/api/chat`, {
+      method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://example.com', 'x-idea-csrf': token }, body: JSON.stringify(payload),
+    });
+    assert.equal(denied.status, 403);
+    const allowed = await fetch(`${f.base}/api/chat`, {
+      method: 'POST', headers: { 'content-type': 'application/json', origin: f.base, 'x-idea-csrf': token }, body: JSON.stringify(payload),
+    });
+    assert.equal(allowed.status, 200);
+    const answer = await allowed.json();
+    assert.equal(answer.answer, 'Goal and Route are approved (2/5).');
+    assert.ok(answer.sources.includes('AI 101/Project 2/progress-arcade/projects.json'));
+    assert.match(seenPrompt, /APPROVED GATES: 2\/5/);
+    assert.equal((await (await fetch(`${f.base}/api/projects`)).json()).projects.find((p) => p.id === 'idea-quest').gates.filter((g) => g === 'approved').length, 2);
   } finally { await f.close(); }
 });

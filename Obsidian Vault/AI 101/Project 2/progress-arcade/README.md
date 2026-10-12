@@ -38,6 +38,12 @@ The board begins with idea.quest, obsidian-gaze, Image Palette Studio, and the c
 
 **Motion language:** The live indicator breathes, the tiny rocket floats, stars twinkle, and icons answer hover, focus, or press. A new idea gets a brief arrival flash; an explicitly approved gate gets one checkpoint pop and XP flash. The board does not animate every card at once. The system reduced-motion preference turns these animations and transitions off.
 
+## Quest companion · 2D integration under review
+
+The existing local 2D board now includes a chat panel in the same retro ASCII/pixel style. It uses the separate context-chat prototype's refreshed, curated vault notes and the signed-in **local Codex CLI**, while preserving all project records and approval controls. Questions and answers live only in this browser tab. The companion cannot edit notes or approve gates. The user confirmed the separate chat prototype worked but looked generic, then directed this visual integration before returning to the 3D potion-room work.
+
+On the **public static mirror**, the same panel offers a limited **status guide**: it answers status/next-step prompts deterministically from the public project registry, labels that source, and says when a question needs the local AI companion. It is **not** a hosted AI chat and cannot read the rest of the vault. The owner's local Codex login cannot safely be used as a public backend. A hosted model service, access policy, cost limit, and security review are still needed for open-ended public chat. The existing site remains shareable; the 3D version remains separate and on hold.
+
 The ASCII quest cat now blinks and flicks its tail, then returns to the same resting pose; hovering makes it wink. It stays visible in the compact layout too. It does not animate in a hidden tab or when reduced motion is preferred.
 
 ## Live source of truth

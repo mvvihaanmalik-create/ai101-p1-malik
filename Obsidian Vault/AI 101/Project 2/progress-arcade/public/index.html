@@ -57,8 +57,18 @@
           <div id="questFoot" class="quest-foot"></div>
         </section>
 
+        <section class="chat-panel" aria-labelledby="chatTitle">
+          <div class="section-bar"><span>03 / QUEST COMPANION</span><span class="chat-status" id="chatStatus">✦ READY</span></div>
+          <div class="chat-heading"><div><p class="eyebrow">ASK ABOUT THE ACTIVE QUEST</p><h3 id="chatTitle">Talk it through<span>_</span></h3></div><div class="chat-pixel" aria-hidden="true">[?]<br> /|\\</div></div>
+          <p class="chat-note" id="chatNote">Your companion reads the selected project's recorded context before answering. It can explain and suggest, but cannot approve steps or change files.</p>
+          <div class="chat-quick" aria-label="Suggested questions"><button type="button" data-chat-question="What is approved for this project, and what needs my decision next?">✦ STATUS</button><button type="button" data-chat-question="What is built, and what remains untested?">◇ BUILT / UNTESTED</button><button type="button" data-chat-question="What is the next safe test without changing approvals?">→ NEXT TEST</button></div>
+          <div id="chatMessages" class="chat-messages" role="log" aria-live="polite"><p class="chat-empty">✧ Pick a quest and ask a question. Your decision gates stay yours.</p></div>
+          <details class="chat-sources"><summary>CONTEXT SOURCES <span id="chatSourceCount">0</span></summary><ul id="chatSourceList"></ul></details>
+          <form id="chatForm" class="chat-form"><label for="chatPrompt">YOUR MESSAGE <span id="chatProjectLabel"></span></label><textarea id="chatPrompt" maxlength="1200" rows="2" placeholder="What should we check next?" required></textarea><div class="chat-form-foot"><span id="chatLimit">LOCAL CODEX TEST · READ ONLY</span><button id="chatSend" class="primary-button" type="submit">ASK COMPANION ↗</button></div></form>
+        </section>
+
         <section class="bottom-grid">
-          <div class="journal-panel"><div class="section-bar"><span>03 / QUEST LOG</span><span>NEWEST FIRST</span></div><div id="journal" class="journal"></div></div>
+          <div class="journal-panel"><div class="section-bar"><span>04 / QUEST LOG</span><span>NEWEST FIRST</span></div><div id="journal" class="journal"></div></div>
           <div class="rules-panel"><div class="section-bar"><span>THE GAME RULES</span><span>♡</span></div><div class="save-icon" aria-hidden="true">┌──────────┐<br>│&nbsp; SAVE! &nbsp;│<br>└────┬─────┘<br>&nbsp;&nbsp;&nbsp;&nbsp; ◉</div><p><strong>You hold the controller.</strong> A test or a build never fills a block. Only your explicit approval unlocks the next step.</p><p>Need another pass? That’s not a loss. It’s how good projects level up.</p></div>
         </section>
         <footer class="page-foot">idea.quest_ // built for real progress, not fake percentages <span>✦</span> <span id="lastSync">WAITING FOR SYNC</span></footer>
