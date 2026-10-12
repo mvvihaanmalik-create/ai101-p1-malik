@@ -67,6 +67,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Decision:** **Keep as a prototype pending my browser review** — no public chat, phone access, write actions, deployment, or idea.quest gate approval follows from technical checks. The status/next move now asks me to keep or revise this local test.
 - **Check:** Syntax and 3/3 Node checks passed, including copied-registry freshness and cross-origin rejection. Chrome showed the desktop page; a 390px emulated viewport had no horizontal overflow and all four project buttons; a browser-submitted prompt returned a grounded 2/5 answer. This is not a real-phone or production-security test. Existing public idea.quest deployments were not changed.
 
+### Instructor repository and README link check · GitHub CLI + Codex
+
+- **Ask:** Verify the new folder reached the repository shared with instructor `nmadrid27` and that README links work.
+- **Result:** GitHub's remote API showed [[AI 101/Project 2/idea-quest-chat-spike/README.md|the complete context-chat folder]] on `main`; `nmadrid27` has **write** collaborator permission. The repository is **public**. Replaced Obsidian-only wikilinks in the chat README with GitHub-compatible relative links, clarified that `127.0.0.1` works only on the owner's PC, and changed run commands to be folder-relative. Updated the repository-root README outside the vault to link directly to the actual Project 1 and Project 2 files instead of implying they live at the repo root.
+- **Decision:** **Keep both READMEs as cross-platform navigation** — the instructor can click source, artifact, context, and preview links on GitHub; the local app URL is intentionally not a shareable link. No project gate changed.
+- **Check:** Every relative Markdown target in both updated READMEs resolved locally before push; remote folder contents and collaborator permission were queried through GitHub. The repo-root README was pushed at `bc4d14f`; the revised chat README still requires the vault sync and remote link check.
+
 ## 2026-10-10 — idea.quest deployment and public access
 
 ### Deploy the tracker; discuss a 3D makeover · Codex + Sites
