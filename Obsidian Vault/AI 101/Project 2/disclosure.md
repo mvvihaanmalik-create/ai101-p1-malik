@@ -3,7 +3,7 @@
 ## What the model did
 
 - **Codex**, from Class 6 on: drafted the workflow map, the start guide, and the five step files; filled in the source verification log and research brief wording from the papers I supplied; ran the dry run (first run); ran the Image Palette Studio steps (revised run), including writing and testing the prototype code and publishing the test site to GitHub Pages; started the Obsidian image-grading plugin and idea.quest runs.
-- **Claude**, on 2026-10-12: checked what was and was not on GitHub, assembled this `project-02/` folder from my vault files, labeled the `outputs/` folders, and drafted `diagram.md`, `decision-note.md`, `disclosure.md`, and `feedback.md` from my notes and AI use log.
+- **Claude**, on 2026-10-12: checked what was and was not on GitHub, added the missing submission files to this folder, labeled the `outputs/` folders in a README, and drafted `diagram.md`, `decision-note.md`, `disclosure.md`, and `feedback.md` from my notes and AI use log.
 
 Every run and fix is in `ai-use-log.md`, in order.
 

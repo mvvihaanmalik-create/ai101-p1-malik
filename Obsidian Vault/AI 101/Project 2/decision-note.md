@@ -15,7 +15,7 @@ I ran the same five steps again on one concrete idea: a web app that pulls a pal
 - **Step 4** is where I rejected the generic visual design and approved one bounded revision.
 - **Step 5** is where I stopped, with the untested parts written down.
 
-Both runs are in `outputs/`: `run-1-first-run-generic-dry-run` and `run-2-revised-run-image-palette`.
+Both runs are in `outputs/`. The five loose files (`01-define-the-goal.md` to `05-iterate-or-stop.md`) are the first run, and `image-palette-web-app/` is the revised run.
 
 ## Why
 
@@ -25,4 +25,4 @@ After the first run I decided more edits to the generic workflow were not worth 
 
 - The image palette idea turned out to be feasible, so this run did not show the workflow talking me out of a bad idea. That needs a riskier idea.
 - The phone result is my own report. The tests were simulated-pixel checks, not a full browser, accessibility, or privacy test.
-- I started two more runs afterward (an Obsidian image-grading plugin and the idea.quest tracker redesign). They only got through steps 1 and 2, so they sit in `outputs/extra-partial-runs/` and are not part of the comparison.
+- I started two more runs afterward (an Obsidian image-grading plugin and the idea.quest tracker redesign). They only got through steps 1 and 2, so `outputs/obsidian-gaze/` and `outputs/idea-quest/` are not part of the comparison.
