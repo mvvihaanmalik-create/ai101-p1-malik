@@ -1,20 +1,21 @@
-# AI 101 Project 1: Iterate, Then Compare
+# AI 101 coursework vault
 
-Vihaan Malik — UX Design, Junior
+The complete coursework folder is under [Obsidian Vault / AI 101](Obsidian%20Vault/AI%20101). This repository is public; the instructor account `nmadrid27` also has collaborator access.
 
-## Submission contents
+## Project 1 · Iterate, Then Compare
 
-- `AI101_P1_Malik_Vihaan_Poster.png` — final square poster
-- `context-kit/` — `README.md`, `palette.md`, `style-note.md`, `intent.md`, the assignment brief, and visual references
-- `ai-use-log.md` — first output, steering rounds, outputs, and keep/change/reject decisions
-- `decision-note.md` — final keep, rejection, first-to-final change, decisive steering move, and comparison observation
-- `disclosure.md` — one-sentence AI contribution disclosure
+- [Submission README](Obsidian%20Vault/AI%20101/Project%201/README.md)
+- [Final square poster](Obsidian%20Vault/AI%20101/Project%201/AI101_P1_Malik_Vihaan_Poster.png)
+- [Context kit and item-by-item jobs](Obsidian%20Vault/AI%20101/Project%201/context-kit/README.md)
+- [AI use log](Obsidian%20Vault/AI%20101/Project%201/ai-use-log.md)
+- [Decision note](Obsidian%20Vault/AI%20101/Project%201/decision-note.md) · [disclosure](Obsidian%20Vault/AI%20101/Project%201/disclosure.md)
 
-## Final artifact verification
+The final poster is 1254 × 1254 px, contains no text, and uses exactly three RGB colours: `#2145D9`, `#FF5A4F`, and `#FFF1D0`.
 
-- Dimensions: 1254 × 1254 pixels
-- Text: none
-- Exact RGB palette: `#2145D9`, `#FF5A4F`, `#FFF1D0`
-- Distinct pixel colours: 3
+## Project 2 · Workflow and prototypes
 
-The `Project 1` directory is the submission root corresponding to the guide's example `project-01/`. The guide's listed files are present here; the three named context notes were formalized during Class 3 and are dated as such, rather than presented as inputs to earlier generations.
+- [Workflow directions](Obsidian%20Vault/AI%20101/Project%202/00-start-here.md) · [current progress](Obsidian%20Vault/AI%20101/Project%202/progress.md)
+- [idea.quest tracker](Obsidian%20Vault/AI%20101/Project%202/progress-arcade/README.md)
+- [Local context-chat prototype](Obsidian%20Vault/AI%20101/Project%202/idea-quest-chat-spike/README.md)
+
+The chat prototype runs only on the owner's Windows computer. Its `127.0.0.1` address in the project README is **not a public link**; use its GitHub source and screenshots to review it remotely. The [existing public idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site) remains a separate read-only tracker.
