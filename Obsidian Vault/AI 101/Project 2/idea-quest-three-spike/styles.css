@@ -4,6 +4,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);font-family:Trebuchet MS
 button{font:inherit;cursor:pointer}
 button:focus-visible{outline:3px solid #ffe19c;outline-offset:4px}
 .room{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 56% 32%,#63405b 0,#271a32 42%,#170f1d 100%)}
+.room:after{content:"";position:absolute;inset:11px;z-index:6;pointer-events:none;border:1px solid #f7cf8e26;border-radius:18px;box-shadow:inset 0 0 0 1px #25132e35}
 .scene{position:absolute;inset:0;z-index:-2}
 .scene canvas{display:block;width:100%;height:100%;touch-action:pan-y}
 .veil{pointer-events:none;position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(22,12,28,.79) 0%,rgba(22,12,28,.16) 29%,transparent 52%,rgba(21,13,25,.32) 100%),linear-gradient(0deg,rgba(18,11,22,.83),transparent 21%,transparent 82%,rgba(20,12,25,.35));}
@@ -17,14 +18,14 @@ h1 span{color:#ff9eb4}
 .intro p:last-child{color:#f3dfd1;font-size:.9rem;line-height:1.4;margin:7px 0}
 .room.selected .intro{opacity:0}
 .jar-dock{position:absolute;z-index:3;bottom:clamp(75px,10vh,105px);left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,minmax(115px,1fr));gap:10px;width:min(640px,calc(100% - 44px));}
-.jar-option{border:1px solid rgba(255,221,176,.33);border-radius:16px;background:linear-gradient(160deg,rgba(53,34,56,.87),rgba(30,19,39,.94));box-shadow:inset 0 1px #ffffff20,0 12px 30px #0e07125c;color:var(--ink);padding:10px 12px;text-align:left;display:flex;align-items:center;gap:10px;min-height:62px;min-width:0;transition:transform .25s ease,border-color .25s ease,background .25s ease}
-.jar-option:hover,.jar-option[aria-pressed="true"]{transform:translateY(-4px);border-color:var(--project-color);background:#3e2a42}
+.jar-option{border:2px solid #eac592;border-radius:15px;background:linear-gradient(160deg,#fff0c9,#dfbd93);box-shadow:inset 0 2px #fff9e7,0 5px 0 #754d5d,0 13px 25px #0e071289;color:#3e293e;padding:10px 12px;text-align:left;display:flex;align-items:center;gap:10px;min-height:65px;min-width:0;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.jar-option:hover,.jar-option[aria-pressed="true"]{transform:translateY(-5px);border-color:var(--project-color);box-shadow:inset 0 2px #fff9e7,0 7px 0 #754d5d,0 18px 30px #0e0712a0}
 .jar-option:hover .jar-gem,.jar-option[aria-pressed="true"] .jar-gem{box-shadow:0 0 16px var(--project-color)}
-.jar-gem{flex:0 0 20px;width:20px;height:28px;background:linear-gradient(160deg,#ffffff8c,var(--project-color) 45%,#211521);border:2px solid #f4deb585;border-radius:8px 8px 11px 11px;transition:box-shadow .25s}
+.jar-gem{flex:0 0 23px;width:23px;height:29px;background:linear-gradient(160deg,#ffffffdb,var(--project-color) 45%,#59425d);border:2px solid #866284;border-radius:9px 9px 12px 12px;box-shadow:inset 2px 2px #ffffffa8,0 2px 0 #775a5e;transition:box-shadow .25s}
 .jar-copy{min-width:0;display:block}
 .jar-name{display:block;font-weight:900;font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.jar-count{display:block;color:#e3c7b4;font-size:.72rem;margin-top:3px;letter-spacing:.03em}
-.details{position:absolute;z-index:5;right:clamp(20px,4vw,64px);top:50%;transform:translateY(-50%);width:min(345px,calc(100% - 40px));max-height:calc(100svh - 170px);overflow:auto;background:#f9e8c6;color:#382332;border:2px solid #eac591;border-radius:23px;box-shadow:0 20px 60px #130913a8,inset 0 0 0 4px #fff3d8;padding:22px 24px 24px}
+.jar-count{display:block;color:#785366;font-size:.72rem;margin-top:3px;letter-spacing:.03em;font-weight:800}
+.details{position:absolute;z-index:5;right:clamp(20px,4vw,64px);top:50%;transform:translateY(-50%);width:min(345px,calc(100% - 40px));max-height:calc(100svh - 170px);overflow:auto;background:linear-gradient(145deg,#fff1d4,#efd2ae);color:#382332;border:3px solid #e8b978;border-radius:23px;box-shadow:0 8px 0 #754457,0 24px 60px #130913a8,inset 0 0 0 4px #fff6e1;padding:22px 24px 24px}
 .details[hidden]{display:none}
 .details .eyebrow{color:#926b55}
 .details-top{display:flex;justify-content:space-between;align-items:center}

@@ -6,7 +6,7 @@
 
 **Now:** A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.
 
-**Next decision:** Review the chat panel integrated into the existing 2D ASCII board. Local Codex prompts work; public status prompts use only the registry, not an AI model. Open-ended hosted AI needs a protected backend and cost decision. Then return to the separate 3D room. No Step 3 approval yet.
+**Next decision:** Review the chat panel in the existing public 2D board and the improved local 3D potion-room art pass. The 3D build is still a rough prototype, not commercial game-quality art. Keep the public 2D site live; decide whether the 3D direction is worth a custom-model/texture pass. No Step 3 approval yet.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-11
 

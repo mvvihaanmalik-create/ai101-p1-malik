@@ -9,7 +9,7 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > [!info] Last recorded project status — October 11
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **idea.quest:** current public ASCII mirror remains live; Goal and Three.js Route approved (2/5). The 3D Step 3 review is paused; a separate local read-only context-chat prototype awaits user review. Neither prototype is published.
+> - **idea.quest:** current public ASCII mirror remains live; Goal and Three.js Route approved (2/5). The improved local 3D Step 3 art pass awaits visual review; the separate local read-only context-chat prototype has been integrated into the 2D board. The 3D room is not published.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -94,6 +94,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Result:** Updated the existing public [idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site) Site to version **5**, preserving its public audience and the ASCII visual system. The hosted panel gives labelled status/next-step responses from public `projects.json`; it does **not** pretend to be the local Codex AI chat. The separate Vercel snapshot was not redeployed. Project records remain 2/5 for idea.quest.
 - **Decision:** **Keep for user review, then return to 3D**—the 2D panel is published, but open-ended public AI chat still needs a protected backend, usage/cost limits, and an access choice. No Step 3 gate was approved.
 - **Check:** Sites deployment succeeded; live HTML and JavaScript returned HTTP 200 with the new panel and status-guide code. The same hosted source was exercised locally at an emulated 390px viewport: page width equalled 390px, tapping the status prompt returned a labelled registry answer, and the progress bar stayed 2/5. This is not a real-phone test.
+
+### Return to 3D: handheld-fantasy art pass · Codex + Three.js + Chrome
+
+- **Ask:** Improve the separate 3D idea.quest site toward a polished, playful handheld-game feel, using Yo-kai Watch as a quality reference without copying its characters or assets.
+- **Result:** Reworked [[AI 101/Project 2/idea-quest-three-spike/README.md|the local Three.js room]] with painted wood, warmer/cooler stage lighting, a moonlit window, shelves, curtains, a lantern, richer cat/hat details, wax-sealed glowing jars, and parchment-like project buttons. Added cat blinking/attention and jar hover/select motion. Saved [[AI 101/Project 2/idea-quest-three-spike/preview-art-pass-desktop.png|desktop]] and [[AI 101/Project 2/idea-quest-three-spike/preview-art-pass-mobile.png|emulated-mobile]] views. The same records still show idea.quest 2/5, Gaze 2/5, Image Palette 5/5; public 2D idea.quest stays live and was not replaced.
+- **Decision:** **Keep as a visual iteration, not a Step 3 approval or Switch-quality claim** — it is more coherent than the first primitive-room spike, but still needs authored character modeling, materials, animation, and a tighter mobile composition. Wait for the user's visual judgment before the next gate or any public 3D release.
+- **Check:** Rebuilt the browser bundle; 2/2 3D tests and 4/4 tracker tests passed. Headless Chrome showed no visible error; at emulated 390px width there was no horizontal overflow, all three 118px project buttons appeared, and selecting Gaze opened the matching detail panel within the viewport. No real-phone GPU or user visual acceptance test yet.
 
 ## 2026-10-10 — idea.quest deployment and public access
 

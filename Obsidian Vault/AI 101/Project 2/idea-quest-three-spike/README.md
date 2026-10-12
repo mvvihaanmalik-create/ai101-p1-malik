@@ -2,7 +2,9 @@
 
 **Status:** Local, read-only Step 3 prototype for review. It does not replace or redeploy the [current public idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site) or its [Vercel snapshot](https://idea-quest-ai101.vercel.app). No Step 3 gate has been approved.
 
-This is deliberately a small real-3D test: one wooden table, an original low-poly black cat witch, candles, and three selectable 3D jars. The cat and bottles are geometry, not the earlier concept image pasted onto a plane. Selecting a jar moves it forward and shows an HTML project record. The procedural art is a feasibility scaffold, **not** a finished Yo-kai-inspired illustration or final visual sign-off.
+This is deliberately a small real-3D test: one wooden table, an original low-poly black cat witch, candles, and three selectable 3D jars. The cat and bottles are geometry, not the earlier concept image pasted onto a plane. Selecting a jar moves it forward and shows an HTML project record. An October 11 art-direction pass added warm/cool theatrical lighting, painted wood grain, wall shelves, a moonlit window, curtains, a hanging lantern, more expressive cat features, wax-sealed jars, and parchment-like controls. The cat blinks and turns subtly toward a chosen jar; hovered/selected jars lift and glow. These are original procedural details, not copied game assets. This remains a prototype, **not** commercial game-level art or final visual sign-off.
+
+[[AI 101/Project 2/idea-quest-three-spike/preview-art-pass-desktop.png|Current desktop preview]] · [[AI 101/Project 2/idea-quest-three-spike/preview-art-pass-mobile.png|Current 390px emulated-mobile preview]]
 
 ## Run on this Windows computer
 
@@ -35,4 +37,4 @@ The server binds only to 127.0.0.1 and exposes only this prototype's three web a
 
 Run `npm test --prefix 'C:\Users\91982\Documents\Obsidian Vault\AI 101\Project 2\idea-quest-three-spike'`. To rebuild `app.js`, run the absolute `build.ps1`; it installs pinned Three.js/esbuild packages under local AppData, **outside this synced vault**, then bundles the source. It does not touch the public tracker.
 
-This test does not establish real-phone GPU performance, polished art fidelity, production accessibility, or that the public Site can host a 3D replacement. Those require later checks and an explicit release decision.
+The current image still has simple primitive silhouettes and theatrical flats rather than the authored character model, textures, VFX, and animation needed for Nintendo Switch-quality presentation. The 390px emulated-mobile capture also leaves more dead floor space than desired. This test does not establish real-phone GPU performance, polished art fidelity, production accessibility, or that the public Site can host a 3D replacement. Those require later checks and an explicit release decision.
