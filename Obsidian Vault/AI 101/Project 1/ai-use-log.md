@@ -74,6 +74,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Decision:** **Keep both READMEs as cross-platform navigation** — the instructor can click source, artifact, context, and preview links on GitHub; the local app URL is intentionally not a shareable link. No project gate changed.
 - **Check:** Every relative Markdown target in both updated READMEs resolved locally. GitHub rendered the root and chat READMEs with working navigation to the handoff and preview images; its API confirmed `nmadrid27` has **write** access. The synced remote `main` matched local at `07515c0`, and all **11/11** files in the chat folder matched the Vault file list with no missing paths. The public idea.quest link returned HTTP 200; `127.0.0.1` remains owner-PC-only, not an instructor link.
 
+### Full Project 2 push and local chat review · GitHub CLI + Codex
+
+- **Ask:** Clarify that the entire Project 2 course folder—not only the chat experiment—must be on the instructor-shared GitHub repository; then continue the local chat review.
+- **Result:** Compared the remote Git tree with the vault's Project 2 folder: all **85/85 paths and file-content hashes matched** at `7b6067f`. GitHub reports `nmadrid27` has write access. The user opened the local context-chat page and said it works but looks generic.
+- **Decision:** **Keep the chat core as a technical candidate, revise the presentation direction**—working behavior is not a visual approval. The ambitious idea.quest makeover is a separate initiative from the Project 2 course workflow, even though the experimental source currently resides inside that folder. No Step 3 approval or public-site replacement was inferred.
+- **Check:** The local chat status endpoint returned HTTP 200 and showed idea.quest at **2/5**. The user's browser report supports the interaction check; it does not prove visual acceptance, real-phone access, or release readiness.
+
 ## 2026-10-10 — idea.quest deployment and public access
 
 ### Deploy the tracker; discuss a 3D makeover · Codex + Sites
