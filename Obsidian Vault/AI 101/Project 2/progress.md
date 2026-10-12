@@ -6,7 +6,7 @@
 
 **Now:** A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.
 
-**Next decision:** Review the running local context-chat prototype at http://127.0.0.1:4189/. Its first grounded answer passed; decide keep or revise. Public site and 3D Step 3 remain unchanged.
+**Next decision:** Local chat works, but the user found its visual design generic. Decide whether to keep the chat core for the separate potion-room redesign or polish the standalone chat page first. Public site and 3D Step 3 remain unchanged.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-11
 
