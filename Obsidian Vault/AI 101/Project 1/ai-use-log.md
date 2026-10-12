@@ -88,6 +88,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Decision:** **Keep for integrated 2D review; do not advance Step 3 or claim public AI chat is functional**—the local AI behavior works, but the user has not yet judged the integrated visuals or chosen hosted access/cost controls. The 3D makeover remains separate and paused.
 - **Check:** Four board tests passed, including cross-origin/token denial and no gate mutation; a real integrated-board prompt correctly returned idea.quest **2/5** and cited vault sources. A desktop headless Chrome screenshot showed the companion inside the established pixel layout. Public prompt handling and a real-phone view are untested.
 
+### Publish the 2D companion panel · Sites + Codex
+
+- **Ask:** Continue the 2D integration and publish it before returning to the separate 3D build.
+- **Result:** Updated the existing public [idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site) Site to version **5**, preserving its public audience and the ASCII visual system. The hosted panel gives labelled status/next-step responses from public `projects.json`; it does **not** pretend to be the local Codex AI chat. The separate Vercel snapshot was not redeployed. Project records remain 2/5 for idea.quest.
+- **Decision:** **Keep for user review, then return to 3D**—the 2D panel is published, but open-ended public AI chat still needs a protected backend, usage/cost limits, and an access choice. No Step 3 gate was approved.
+- **Check:** Sites deployment succeeded; live HTML and JavaScript returned HTTP 200 with the new panel and status-guide code. The same hosted source was exercised locally at an emulated 390px viewport: page width equalled 390px, tapping the status prompt returned a labelled registry answer, and the progress bar stayed 2/5. This is not a real-phone test.
+
 ## 2026-10-10 — idea.quest deployment and public access
 
 ### Deploy the tracker; discuss a 3D makeover · Codex + Sites
