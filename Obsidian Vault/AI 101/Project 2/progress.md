@@ -6,7 +6,7 @@
 
 **Now:** A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.
 
-**Next decision:** Review a proposed local, read-only website-chat test that gives a new Codex thread explicit vault/project context. The public site and 3D Step 3 stay unchanged until approval.
+**Next decision:** Review the running local context-chat prototype at http://127.0.0.1:4189/. Its first grounded answer passed; decide keep or revise. Public site and 3D Step 3 remain unchanged.
 
 **Live board:** [[AI 101/Project 2/progress-arcade/README.md]] · **Updated:** 2026-10-11
 

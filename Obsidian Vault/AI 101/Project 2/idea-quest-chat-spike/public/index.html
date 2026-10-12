@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>idea.quest / context chat test</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="star">✦</span><strong>idea.quest</strong><span class="slash">/</span><span>context chat</span></div>
+      <div class="mode"><span class="mode-dot"></span> LOCAL TEST · READ ONLY</div>
+    </header>
+
+    <div class="layout">
+      <aside class="rail" aria-label="Projects and context">
+        <div class="rail-title"><span>01</span> PROJECTS</div>
+        <div id="project-list" class="project-list" aria-label="Select a project"></div>
+
+        <section class="status-card" aria-labelledby="status-heading">
+          <div class="section-kicker">CURRENT QUEST</div>
+          <h1 id="status-heading">Loading…</h1>
+          <p id="project-pitch" class="muted"></p>
+          <div id="gate-row" class="gate-row" aria-label="Workflow gates"></div>
+          <div class="progress-meta"><span id="progress-label"></span><span id="updated-label"></span></div>
+          <div class="next-label">NEXT DECISION</div>
+          <p id="next-move" class="next-move"></p>
+        </section>
+
+        <details class="sources">
+          <summary>Context loaded <span id="source-count">0</span></summary>
+          <ul id="source-list"></ul>
+        </details>
+      </aside>
+
+      <main class="chat" aria-labelledby="chat-heading">
+        <div class="chat-header">
+          <div><div class="section-kicker">02 / THE WORKBENCH</div><h2 id="chat-heading">Ask about the work.</h2></div>
+          <span id="agent-state" class="agent-state" role="status">READY</span>
+        </div>
+        <p class="chat-intro">This new Codex conversation receives a fresh, selected-project handoff from your vault before each answer. It can explain and propose—not edit, approve, or deploy.</p>
+        <div class="quick-asks" aria-label="Suggested questions">
+          <button type="button" data-question="What is the current project status, what is approved, and what needs my decision next?">✦ Current status</button>
+          <button type="button" data-question="What have we built so far, what is only a prototype, and what remains untested?">◌ Built vs. untested</button>
+          <button type="button" data-question="What should we test next without changing any files or approval gates?">→ Next safe test</button>
+        </div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="welcome"><span class="welcome-icon">✦</span><strong>A quiet room for questions.</strong><p>Choose a project, then ask. The status and source list come from the vault—not from guessed memory.</p></div>
+        </div>
+        <form id="chat-form" class="composer">
+          <label for="prompt">YOUR PROMPT</label>
+          <textarea id="prompt" rows="3" maxlength="1200" placeholder="What do we know about this project?" required></textarea>
+          <div class="composer-bottom"><span>Enter to send · Shift+Enter for a line break</span><button id="send" type="submit">Ask Codex <span>↗</span></button></div>
+        </form>
+        <p class="footnote">Local Windows test only. Chat history lives in this tab; the current public idea.quest stays unchanged.</p>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

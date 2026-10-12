@@ -9,7 +9,7 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > [!info] Last recorded project status — October 11
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **idea.quest:** current public ASCII mirror remains live; Goal and Three.js Route approved (2/5). The local 3D side prototype awaits Step 3 visual review and is not published.
+> - **idea.quest:** current public ASCII mirror remains live; Goal and Three.js Route approved (2/5). The 3D Step 3 review is paused; a separate local read-only context-chat prototype awaits user review. Neither prototype is published.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -59,6 +59,13 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 - **Result:** Refined [[AI 101/Project 2/idea-quest-chat-feasibility.md|the feasibility note]] to propose a new Codex thread with an explicit, refreshed handoff from the active project registry, workflow, approved outputs, and recent AI-use-log entries. Defined a read-only local test: it must correctly report idea.quest's **2/5** approved gates and paused Step 3 without editing records. Verified locally that Codex CLI supports a chosen working root and app-server threads; no website agent was run.
 - **Decision:** **Same-session requirement dropped; local context-aware spike pending approval.** Prefer a small reviewed handoff over silently copying this entire chat or vault into a public website. Remote phone prompts and write actions remain separate decisions.
 - **Check:** No chat integration, direct Claudian-session sharing, authentication flow, or live context-recall test has been completed; public idea.quest remains read-only.
+
+### Local context-chat prototype and first grounded answer · Codex CLI + Node + Chrome
+
+- **Ask:** “Proceed” with the small local, context-aware, read-only website-chat test while the 3D review stays paused.
+- **Result:** Built [[AI 101/Project 2/idea-quest-chat-spike/README.md|a separate local chat/status page]] that lists the existing project records, shows the loaded context sources, refreshes curated vault notes before each prompt, and sends a question to an ephemeral read-only Codex run. A short [[AI 101/Project 2/idea-quest-chat-spike/handoff.md|handoff]] carries the current conversation's decisions without claiming exact Claudian-session sharing. The first model attempt failed because the CLI account rejected `gpt-6-sol`; the explicit `gpt-5.6-sol` turn succeeded. Its answer correctly distinguished idea.quest's **2/5 approved Goal/Route** from the paused, unapproved 3D Step 3 and kept-public ASCII tracker. A later answer recognized that the chat test itself had run after its source note was updated.
+- **Decision:** **Keep as a prototype pending my browser review** — no public chat, phone access, write actions, deployment, or idea.quest gate approval follows from technical checks. The status/next move now asks me to keep or revise this local test.
+- **Check:** Syntax and 3/3 Node checks passed, including copied-registry freshness and cross-origin rejection. Chrome showed the desktop page; a 390px emulated viewport had no horizontal overflow and all four project buttons; a browser-submitted prompt returned a grounded 2/5 answer. This is not a real-phone or production-security test. Existing public idea.quest deployments were not changed.
 
 ## 2026-10-10 — idea.quest deployment and public access
 

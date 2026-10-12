@@ -12,9 +12,10 @@
       "createdAt": "2026-10-08",
       "updatedAt": "2026-10-11",
       "gates": ["approved", "approved", "active", "upcoming", "upcoming"],
-      "nextMove": "Review a proposed local, read-only website-chat test that gives a new Codex thread explicit vault/project context. The public site and 3D Step 3 stay unchanged until approval.",
+      "nextMove": "Review the running local context-chat prototype at http://127.0.0.1:4189/. Its first grounded answer passed; decide keep or revise. Public site and 3D Step 3 remain unchanged.",
       "vaultLink": "AI 101/Project 2/progress-arcade/README.md",
       "updates": [
+        {"at": "2026-10-11", "text": "User approved a bounded local read-only context-chat spike. The separate site now shows recorded status and sources; an actual Codex prompt correctly reported idea.quest 2/5 and the paused unapproved 3D Step 3. Await user review; no gate or public deployment changed."},
         {"at": "2026-10-11", "text": "User clarified that context and understanding matter more than sharing the exact Claudian session. Proposed a local read-only chat test with explicit vault context; no chat build, remote access, or gate approved."},
         {"at": "2026-10-11", "text": "Paused 3D Step 3 review to explore a Codex chat/status side feature. Feasibility note compares status-only, local chat, and owner-only remote bridge. Public site is unchanged; no new gate or chat route approved."},
         {"at": "2026-10-11", "text": "Built an isolated read-only Three.js feasibility slice. The real registry now yields 2/2/5; a clearly labelled in-memory demo shows 0/2/5. Local browser and automated checks passed; visual approval remains pending."},
