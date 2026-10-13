@@ -55,7 +55,7 @@ export function createWorkshop(scene,renderer) {
   environment.dispose();pmrem.dispose();
   scene.add(new THREE.HemisphereLight('#8cbbb8','#4a3020',.38));
   const key=new THREE.DirectionalLight('#ffcf8e',.75);key.position.set(-3,7,6);key.castShadow=true;
-  key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-7;key.shadow.camera.right=7;key.shadow.camera.top=7;key.shadow.camera.bottom=-5;key.shadow.normalBias=.025;key.shadow.bias=-.00015;key.shadow.radius=3;scene.add(key);
+  key.shadow.mapSize.set(1024,1024);key.shadow.camera.left=-7;key.shadow.camera.right=7;key.shadow.camera.top=7;key.shadow.camera.bottom=-5;key.shadow.normalBias=.025;key.shadow.bias=-.00015;key.shadow.radius=3;scene.add(key);
   const rim=new THREE.DirectionalLight('#62b7bc',1.25);rim.position.set(-4,4,-3);scene.add(rim);
   const fill=new THREE.DirectionalLight('#eeb087',.18);fill.position.set(-6,2,-1);scene.add(fill);
 

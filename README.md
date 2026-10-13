@@ -2,6 +2,16 @@
 
 The complete coursework folder is under [Obsidian Vault / AI 101](Obsidian%20Vault/AI%20101). This repository is public; the instructor account `nmadrid27` also has collaborator access.
 
+## Review the current idea.quest workshop
+
+**[Open the live 3D workshop](https://idea-quest-ai101.vercel.app/)**
+
+- [Professor review guide and walkthrough](Obsidian%20Vault/AI%20101/Project%202/idea-quest-review.md)
+- [Current source and verification](Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike/README.md)
+- [Project record and checkpoints](Obsidian%20Vault/AI%20101/Project%202/Workshop%20Projects/idea-quest.md)
+
+The live site is a public read-only snapshot. The local workshop saves projects and checkpoints to the vault. Publication does not change class approval gates.
+
 ## Project 1 · Iterate, Then Compare
 
 - [Submission README](Obsidian%20Vault/AI%20101/Project%201/README.md)

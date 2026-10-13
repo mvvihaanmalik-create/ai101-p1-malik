@@ -6,7 +6,7 @@ function element(tag, className, text) { const node = document.createElement(tag
 function noteLink(vault, file) { return `obsidian://open?vault=${encodeURIComponent(vault || 'Obsidian Vault')}&file=${encodeURIComponent('AI 101/' + file)}`; }
 function externalLink(label, href) { const anchor = element('a', 'destination', label); anchor.href = href; if (href.startsWith('https:') || href.startsWith('/api/')) { anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; } return anchor; }
 
-export function createCollectionUI({ getState, save, refresh, openProject, onCheckpoint }) {
+export function createCollectionUI({ getState, save, refresh, openProject, onCheckpoint, onVisibilityChange }) {
   const dialog = $('libraryDialog'), checkpoint = $('checkpointForm'), settings = $('projectSettings'), create = $('createProjectForm');
   const drafts = new Map(); let currentId = null, checkpointDirty = false, settingsDirty = false;
   let returnFocus = null;
@@ -15,7 +15,7 @@ export function createCollectionUI({ getState, save, refresh, openProject, onChe
     $('libraryContent').hidden = createMode; create.hidden = !createMode;
     $('libraryTitle').textContent = createMode ? 'A new chapter' : 'The collection';
     if (candidate) { create.elements.title.value = candidate.title; create.elements.folder.value = candidate.folder; }
-    render(); if (!dialog.open) dialog.showModal();
+    render(); if (!dialog.open) dialog.showModal();onVisibilityChange?.();
     (createMode ? create.elements.title : $('librarySearch')).focus();
   }
   function close() { dialog.close(); returnFocus?.focus(); }
@@ -104,6 +104,7 @@ export function createCollectionUI({ getState, save, refresh, openProject, onChe
   $('libraryAdd').addEventListener('click',()=>show(true));$('createCancel').addEventListener('click',()=>show());$('libraryClose').addEventListener('click',close);
   $('librarySearch').addEventListener('input',render);$('libraryFilter').addEventListener('change',render);
   dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)close();}});
-  if(HOSTED){$('newProject').hidden=true;$('libraryAdd').hidden=true;checkpoint.closest('details').hidden=true;settings.closest('details').hidden=true;$('discoveryPanel').hidden=true;document.querySelector('.footnote span:first-child').textContent='IDEA.QUEST · SHARED WORKSHOP';document.querySelector('.footnote span:last-child').textContent='Published snapshot. Vault saves are available in the local workshop.';}
+  dialog.addEventListener('close',()=>onVisibilityChange?.());
+  if(HOSTED){document.querySelector('.project-activity').hidden=true;document.querySelector('.journey > summary').textContent='Project milestones';$('focusLabel').textContent='FEATURED PROJECT';$('newProject').hidden=true;$('libraryAdd').hidden=true;checkpoint.closest('details').hidden=true;settings.closest('details').hidden=true;$('discoveryPanel').hidden=true;$('editionNote').hidden=false;$('editionNote').textContent='You’re viewing the shared collection. Project updates and session notes are saved in the local workshop.';document.querySelector('.footnote span:first-child').textContent='IDEA.QUEST · SHARED WORKSHOP';document.querySelector('.footnote span:last-child').textContent='A published snapshot. Explore the room or open All projects.';}
   return { render, renderProject, show, rememberDraft };
 }

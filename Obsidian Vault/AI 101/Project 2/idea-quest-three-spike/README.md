@@ -1,8 +1,10 @@
 # idea.quest · isolated Three.js feasibility study
 
+**[Open the live 3D workshop](https://idea-quest-ai101.vercel.app/)** · [Professor review guide](../idea-quest-review.md) · [Project record](../Workshop%20Projects/idea-quest.md)
 
 
-**Status:** Local vault-connected workshop with editable project notes and checkpoints; Step 3 remains under review. It does not replace or redeploy the [current public idea.quest](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site) or its [Vercel snapshot](https://idea-quest-ai101.vercel.app). No Step 3 gate has been approved.
+
+**Status:** The local vault-connected workshop supports editable project notes and checkpoints. Its public, read-only 3D edition is now deployed at [idea-quest-ai101.vercel.app](https://idea-quest-ai101.vercel.app). The [existing 2D Sites board](https://idea-quest-ai101.mv-vihaanmalik.chatgpt.site) remains available. No class approval gate changed.
 
 
 
@@ -14,7 +16,7 @@ The bottles retain their animated potion surfaces, bubbles, medallions, and proj
 
 
 
-[[AI 101/Project 2/idea-quest-three-spike/preview-quest-tracker-desktop.jpg|Current desktop preview]] � [[AI 101/Project 2/idea-quest-three-spike/preview-quest-tracker-mobile.jpg|Current 390px emulated-mobile preview]]
+[Current live preview](preview-performance-live.jpg) · [Desktop collection](preview-connected-collection-desktop.jpg) · [390px emulated journal](preview-connected-journal-mobile.jpg)
 
 
 
@@ -194,8 +196,33 @@ Corrected the previous mistaken app rename: Bob is the cat, and idea.quest is th
 
 **Persistence:** project data lives in vault Markdown; table/shelf/retired placement and preferred focus remain per-browser preferences. A stale save is rejected with the draft intact. Keep my draft and use the latest note reloads the current revision while preserving the form; save again to confirm your version. Broken links, unavailable folders, and duplicate IDs are reported in Collection. Retiring an artifact never deletes its note or code. Removing an imported note does not recreate it on restart.
 
-**Local and hosted:** no GitHub/Vercel account connection is required to attach links. Automatic remote commit/deployment tracking and private online sync are later integrations. No public deployment or Git push was performed for this revision.
+**Local and hosted:** no GitHub/Vercel account connection is required to attach links. Automatic remote commit/deployment tracking and private online sync are later integrations. This collection initially ran locally; the public snapshot was subsequently deployed as documented below. No Git push was performed.
 
 ### Verification of the connected collection
 
 11 automated tests pass: seeded approvals, local API persistence, foreign-origin rejection, note discovery and identity after moves/restarts, deletion without resurrection, stale-write rejection, linked-note activity, path boundaries, link deduplication, editable milestones, and retained released state while revisiting. The real browser verified creation, custom milestones, imported destinations, direct vault edits, retained drafts and conflict resolution, checkpoints, and released state. Disposable verification records were removed. Desktop and 390px emulated phone views showed no horizontal overflow; browser warning/error logs were empty. Native Obsidian protocol launch and real-phone behavior remain untested. Previews: `preview-connected-collection-desktop.jpg`, `preview-connected-journal-mobile.jpg`. Released status is retained separately from current work state through the `released` property.
+
+
+## Public Vercel workshop — October 13, 2026
+
+User requested deployment. Production deployment `dpl_9EMwd9A1imVQtYAzDDsFQf7ehPrz` is READY and promoted to https://idea-quest-ai101.vercel.app. Its immutable build URL is https://idea-quest-ai101-8uuv57ibg-vihaanmalik.vercel.app. Target: existing project `idea-quest-ai101`, owner VihaanM / `vihaanmalik`. Source: local prepared files (no Git commit SHA); SHA1 hashes and the publication timestamp are saved in `deployment-manifest.json`.
+
+The hosted room, Bob, artifact opening, Collection, progress trails, and project GitHub/live destinations work online. It is labelled Published snapshot. Local-only project creation, checkpoint/settings saves, and vault-note links are hidden; shelf/focus preferences still belong to the current browser. Only project summary fields are published: no raw vault notes, local paths, session history, write token, server code, or credentials. Automatic vault sync continues in the local workshop; online changes require republishing until a separate authenticated sync service is built.
+
+Verification: 11 local tests pass. Hosted edition inspected before upload; CLI dry run verified exactly six static files. After staging and promotion, HTML, bundle, stylesheet, project JSON, and Three.js license returned HTTP 200 and matched the recorded source hashes at both the build URL and permanent alias. The live browser loaded the room/collection without a sign-in wall; Bob's pet response worked. One harmless GPU shader precision warning was observed on the staged browser, with no runtime failure. Screenshot: `preview-production-vercel.jpg`. The temporary 4190 hosted-check server was stopped after verification.
+
+To prepare another publication, run `node prepare-hosted.mjs`, inspect `public-deploy/projects.json`, then deploy from `public-deploy` using the existing project and scope. The current CLI is the cached Vercel 58.1.0 package. Use `deploy --prod --skip-domain --project prj_zblNLbIE9RMYCLvgbmcWDpdHipAQ --scope vihaanmalik --yes --non-interactive`, verify the returned READY build, then `promote <build-url> --scope vihaanmalik --yes --non-interactive`. Verify the permanent alias serves matching hashes. Authentication remains in the CLI's credential store.
+
+## Faster opening and clearer controls — October 13, 2026
+
+Project controls now load before construction and compilation of the 3D room. The room uses a native-density/pixel budget, a 1024px shadow map, and a nine-sample paint filter instead of 37 samples; bloom and four-sample postprocess MSAA were removed. The authored room and Bob geometry remain intact. Sustained slow foreground frames can select a lighter rendering mode.
+
+Animation pauses in hidden tabs, offscreen rooms, the collection, and idle journals. A shared frame gate keeps pointer events and the animation loop from doubling drag rendering. Normal room animation targets 30fps and active dragging targets 60fps; these are budgets, not measured device guarantees. Room extras includes a saved pause-motion choice. The focus countdown advances independently of rendering.
+
+All projects and View project make the hosted actions explicit. Links and important controls have 44px tap targets, visible keyboard focus, and clearer snapshot explanations. Ordinary opening takes 260ms, with the longer ribbon interaction remaining optional. Hosted polling is once per minute; local discovery remains every five seconds.
+
+Measured in one native 480×712 embedded preview: project controls became usable at 0.23s versus 3.49s before; render submission was approximately 3.3ms versus 6.6ms. These are illustrative local runs with uncontrolled cache/scheduling. The embedded browser throttled animation callbacks to about 1Hz, so no actual phone FPS claim is made. Physical phone GPU performance remains unverified.
+
+Verification: 15 tests passed, including rendering budgets, lifecycle pause conditions, adaptation, and competing pointer/frame callbacks. Browser checks covered desktop and 390px phone layouts without horizontal overflow, searching/opening projects, destination links, quiet mode, and the focus clock advancing while motion was paused. No runtime errors were observed. Saved an actual checkpoint in the idea.quest vault note; no approval gates changed.
+
+Final production deployment dpl_EDUK3TYs576KofkD32TAknf48aca is READY and promoted to https://idea-quest-ai101.vercel.app. Immutable URL: https://idea-quest-ai101-pzz8gs8vd-vihaanmalik.vercel.app. All five public assets returned HTTP 200 and matched the manifest hashes at both URLs. Public hosting remains a read-only published collection; vault changes appear online after republishing. Live preview: preview-performance-live.jpg.

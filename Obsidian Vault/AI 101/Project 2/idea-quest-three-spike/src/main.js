@@ -8,6 +8,10 @@ import { artifactKind, ARTIFACTS } from './artifact-kind.js';
 import { makeArtifactModels } from './artifact-models.js';
 import { parseOrganization, nextTableFocus, tableSlot } from './organization.js';
 import { createCollectionUI } from './collection-ui.js';
+import { createRenderMonitor } from './render-monitor.js';
+import { renderDensity, shouldRunRoom, createFrameBudget, frameDue } from './render-policy.js';
+const renderMonitor=createRenderMonitor();
+const frameBudget=createFrameBudget();
 
 let IDS = ['idea-quest', 'obsidian-gaze', 'image-palette'];
 let vaultState=null, collectionUI=null, firstRegistry=true;
@@ -16,7 +20,7 @@ const COLORS = { 'idea-quest': '#c68af1', 'obsidian-gaze': '#42e2cb', 'image-pal
 const LABELS = { 'idea-quest': 'idea.quest', 'obsidian-gaze': 'Gaze', 'image-palette': 'Image Palette' };
 const DEMO = new URLSearchParams(window.location.search).get('demo') === '1';
 const HOSTED = document.body.dataset.mode === 'hosted';
-function connectionLabel(){return HOSTED?`Published snapshot · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}
+function connectionLabel(){return HOSTED?`Shared collection · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}
 const $ = (id) => document.getElementById(id);
 let focusId='idea-quest';
 try {const saved=localStorage.getItem('ideaQuest.focus');if(saved)focusId=saved;} catch {}
@@ -41,13 +45,13 @@ function questFor(project){
 function renderFocus(){
   focusId=nextTableFocus(organization,focusId,IDS);
   const p=records.get(focusId);
-  if(p){const q=questFor(p);$('focusTitle').textContent=p.title;$('focusNext').textContent=q.action;$('focusOpen').textContent='Resume project →';}
+  if(p){const q=questFor(p);$('focusTitle').textContent=p.title;$('focusNext').textContent=q.action;$('focusOpen').textContent=HOSTED?'View project →':'Resume project →';}
   else{$('focusTitle').textContent='A clear worktable';$('focusNext').textContent='Bring an artifact back when you’re ready.';$('focusOpen').textContent=collectionIds('shelf').length?'Browse the shelf →':'Browse retired artifacts →';}
   $('questTotal').textContent=`${collectionIds('table').length} on the table · ${collectionIds('shelf').length} on the shelf`;
 }
 function renderCollections(){
   for(const place of ['table','shelf','retired']){const button=$(place+'Tab');button.textContent=`${PLACE_LABELS[place]} (${collectionIds(place).length})`;button.setAttribute('aria-pressed',String(collection===place));}
-  $('collectionHint').textContent={table:'Tap to open · drag to put on the shelf.',shelf:'Resting projects and collected work. Bring an artifact back whenever you like.',retired:'Cleared from the room. Restore an artifact with its progress intact.'}[collection];
+  $('collectionHint').textContent={table:'Open a project below. Drag its artifact to the shelf when you want to put it aside.',shelf:'Projects put aside and finished work. Open one to view it or bring it back.',retired:'Put away from the room. Open a project to restore it; its files stay safe.'}[collection];
 }
 function showCollection(place){collection=place;hoveredId=null;renderDock();renderCollections();}
 function jarRestPose(jar){
@@ -86,6 +90,9 @@ let primaryProjectId='idea-quest';
 let reveal=null,revealTimer=null,ribbonDrag=null,ribbonDragged=false;
 let selectedId = null;
 let scene, camera, renderer, cat, workshop, raycaster, paintRenderer;
+let sceneReady=false,renderReady=false,roomInView=true,loopRunning=false,roomPaused=false,contextLost=false;
+let lightRendering=!!navigator.connection?.saveData,lastDraw=0,lastHover=0;
+try{roomPaused=localStorage.getItem('ideaQuest.roomMotion')==='paused';}catch{}
 let catHovered=false, catMood="idle", lastInteraction=0, helloCount=0;
 const jars = new Map();
 const pickMeshes = [];
@@ -110,7 +117,7 @@ const catPickMeshes = [];
 const jarSymbols = { 'idea-quest': '✧', 'obsidian-gaze': '◉', 'image-palette': '✿' };
 
 function showError(message) { $('error').textContent = message; $('error').hidden = false; }
-function clearError() { if(sceneFailure)showError(sceneFailure);else $('error').hidden = true; }
+function clearError() { $('error').hidden = true; }
 
 function mat(color, options = {}) { return painterly(new THREE.MeshStandardMaterial({ color, roughness:1, ...options }),1.4,.65); }
 function mesh(geometry, material, parent, x = 0, y = 0, z = 0) {
@@ -148,7 +155,7 @@ function radiusAt(y) {
     const [r0, y0] = bottleProfile[i - 1];
     if (y <= y1) return r0 + (r1 - r0) * ((y - y0) / Math.max(.0001, y1 - y0));
   }
-  return bottleProfile.at(-1)[0];
+  return bottleProfile[bottleProfile.length-1][0];
 }
 function liquidGeometry(level) {
   if (level <= 0) return null;
@@ -252,42 +259,60 @@ function buildJar(id, x) {
   const jar = { id, group, bottle, cap, models, kind:'potion', homeX: x, homeZ:.4, baseScale:1, liquid: null, level: -1, potionGlow, sparkles, dust, flight:null };
   group.visible=organization[id]!=='retired';
   group.traverse((node) => {
-    if (node.isMesh) { node.userData.projectId = id; pickMeshes.push(node); }
+    if (node.isMesh) { node.userData.projectId = id;node.castShadow=node.material?.type!=='MeshPhysicalMaterial';pickMeshes.push(node); }
   });
   jars.set(id, jar);
   return jar;
 }
 
-function setupScene() {
+async function setupScene() {
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(40, 1, .1, 60);
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
+  renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'default' });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.NeutralToneMapping;
   renderer.toneMappingExposure = 1.05;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
-  renderer.setPixelRatio(Math.min(2,Math.max(1.5,window.devicePixelRatio||1)));
+  renderer.setPixelRatio(1);
   $('scene').appendChild(renderer.domElement);
   workshop = createWorkshop(scene,renderer);
+  await new Promise(resolve=>setTimeout(resolve,0));
   buildCat();
-  buildJar(IDS[0], -1.25);
-  buildJar(IDS[1], .62);
-  buildJar(IDS[2], 2.49);
-  for (const jar of jars.values()) jar.group.traverse((node) => { if (node.isMesh && node.material?.type !== 'MeshPhysicalMaterial') node.castShadow = true; });
   cat.traverse((node) => { if (node.isMesh) {node.castShadow = true;catPickMeshes.push(node);} });
   paintRenderer=createPaintRenderer(renderer,scene,camera);
+  paintRenderer.setLight(lightRendering);
   raycaster = new THREE.Raycaster();
   renderer.domElement.addEventListener('pointerup', finishPotionDrag);
   renderer.domElement.addEventListener('pointerdown', beginPotionDrag);
   renderer.domElement.addEventListener('pointercancel',()=>finishPotionDrag(null));
   renderer.domElement.addEventListener('lostpointercapture',()=>{if(potionDrag)finishPotionDrag(null);});
   dropHint=document.createElement('div');dropHint.className='potion-drop-hint';dropHint.hidden=true;document.body.append(dropHint);
-  renderer.domElement.addEventListener('pointermove',event=>{if(!updatePotionDrag(event))hoverJar(event);});
+  renderer.domElement.addEventListener('pointermove',event=>{if(updatePotionDrag(event))return;const now=performance.now();if(now-lastHover>50){lastHover=now;hoverJar(event);}});
   renderer.domElement.addEventListener('pointerleave',()=>{hoveredId=null;catHovered=false;pointerLook.set(0,0);renderer.domElement.style.cursor='default';});
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize',()=>{resize();animate(true);});
+  renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();contextLost=true;syncRoomLoop();$('sceneLoading').hidden=false;$('sceneLoading').textContent='The room is resting. Your project collection is still available.';});
+  renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;lastFrame=0;resize();$('sceneLoading').hidden=true;syncRoomLoop();});
+  sceneReady=true;syncSceneArtifacts();
   resize();
-  renderer.setAnimationLoop(animate);
+  if(renderer.compileAsync)await renderer.compileAsync(scene,camera);
+  renderReady=true;
+  $('sceneLoading').hidden=true;
+  document.addEventListener('visibilitychange',()=>{frameBudget.reset();lastFrame=0;lastDraw=0;if(document.visibilityState==='visible')animate(true);syncRoomLoop();});
+  if('IntersectionObserver' in window)new IntersectionObserver(entries=>{const wasVisible=roomInView;roomInView=entries[0].isIntersecting;if(roomInView&&!wasVisible)animate(true);syncRoomLoop();},{threshold:.03}).observe($('scene'));
+  reducedMotion.addEventListener('change',()=>{animate();syncRoomLoop();});
+  animate();syncRoomLoop();
+}
+
+function syncRoomLoop(){
+  if(!renderer||!renderReady)return;
+  const reading=selectedId&&!reveal&&performance.now()-lastInteraction>2800;
+  const run=!contextLost&&!reading&&shouldRunRoom({visible:document.visibilityState==='visible',inView:roomInView,collectionOpen:$('libraryDialog').open,still:reducedMotion.matches||roomPaused});
+  if(!run)renderMonitor.paused(reading?'reading the journal':$('libraryDialog').open?'browsing the collection':!roomInView?'room offscreen':document.visibilityState!=='visible'?'background tab':'quiet room');
+  if(run===loopRunning)return;
+  loopRunning=run;lastFrame=0;lastDraw=0;
+  frameBudget.reset();if(run)renderMonitor.resumed();
+  renderer.setAnimationLoop(run?animate:null);
 }
 
 function resize() {
@@ -295,7 +320,7 @@ function resize() {
   const bounds = $('scene').getBoundingClientRect();
   const mobile = bounds.width < 700;
   mobileLayout=mobile;
-  renderer.setPixelRatio(mobile?Math.min(1.5,window.devicePixelRatio||1):Math.min(2,Math.max(1.5,window.devicePixelRatio||1)));
+  renderer.setPixelRatio(renderDensity(bounds.width,bounds.height,window.devicePixelRatio||1,lightRendering));
   renderer.setSize(bounds.width, bounds.height, false);
   paintRenderer?.resize(bounds.width,bounds.height);
   camera.aspect = Math.max(.1, bounds.width / bounds.height);
@@ -310,9 +335,15 @@ function resize() {
   jars.forEach((jar, id) => {jar.homeX=xs[Math.max(0,collectionIds('table').indexOf(id))%3];jar.homeZ=mobile?1.15:.4;jar.baseScale=mobile?.86:1;});
   workshop.setMobile(mobile);
 }
-function animate() {
+function animate(scheduledTime) {
+  if(!renderer||!renderReady||contextLost||$('libraryDialog').open||document.visibilityState!=='visible'||!roomInView)return;
+  const now=performance.now();
+  const scheduled=typeof scheduledTime==='number';
+  if(!frameDue(now,lastDraw,scheduled,!!potionDrag?.active,scheduledTime===true))return;lastDraw=now;
+  const began=renderMonitor.begin(renderer);
   const time=performance.now();
-  const still = reducedMotion.matches;
+  const still = reducedMotion.matches||roomPaused;
+  const interval=lastFrame?time-lastFrame:0;
   const dt=Math.min(.05,lastFrame?(time-lastFrame)/1000:.016);lastFrame=time;
   const ease=still?1:1-Math.exp(-9*dt);
   jars.forEach((jar) => {
@@ -393,8 +424,11 @@ function animate() {
   camera.position.lerp(camTarget,still?1:1-Math.exp(-3*dt));
   cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?-1.7:0,reveal?2.2:closeShelf?3.2:mobileLayout?1.75:1.8,closeShelf?-3:0),still?1:1-Math.exp(-3*dt));
   camera.lookAt(cameraAim);
-  if(focusEnds){const remaining=Math.max(0,Math.ceil((focusEnds-Date.now())/1000));$('focusSession').textContent=remaining?`End focus · ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')}`:'Start 15-minute focus';if(!remaining){focusEnds=0;greetCat('celebrate');say('A little session, a real step forward. Take a breath.');}}
+
   paintRenderer?paintRenderer.render():renderer.render(scene,camera);
+  renderMonitor.end(renderer,began,lightRendering?'Light':'Balanced');
+  if(!lightRendering&&scheduled&&frameBudget.sample(interval)){lightRendering=true;paintRenderer?.setLight(true);resize();}
+  syncRoomLoop();
 }
 
 function projectAtPointer(event) {
@@ -519,7 +553,7 @@ function renderDock() {
     button.className = 'jar-option';
     button.dataset.projectId = id;
     button.style.setProperty('--project-color', COLORS[id]);
-    button.setAttribute('aria-pressed', String(selectedId === id));
+    button.classList.toggle('is-selected',selectedId===id);button.setAttribute('aria-haspopup','dialog');
     button.setAttribute('aria-label', `${project.title}, ${approvedCount(project)} of 5 gates approved. Open project details.`);
     const gem = document.createElement('span'); gem.className = 'jar-gem'; gem.setAttribute('aria-hidden', 'true');gem.textContent=jarSymbols[id];
     const copy = document.createElement('span'); copy.className = 'jar-copy';
@@ -527,7 +561,7 @@ function renderDock() {
     const q=questFor(project);
     const kind=artifactKind(project,primaryProjectId);
     button.dataset.artifactKind=kind;gem.textContent={potion:'✧',scroll:'≋',keepsake:'❖'}[kind];
-    button.setAttribute('aria-label',`${project.title}: ${collection==='table'?q.status:collection==='shelf'?'On the shelf':'Retired and restorable'}. ${q.done} of ${project.gates.length} milestones complete. Open project.`);
+    button.setAttribute('aria-label',`${project.title}: ${collection==='table'?q.status:collection==='shelf'?'On the shelf':'Retired and restorable'}. Open project.`);
     const status=document.createElement('span');status.className='quest-status';status.textContent=collection==='retired'?'Retired · restorable':q.status;
     const trail=questTrail(project);
     const action=document.createElement('span');action.className='quest-action';action.textContent=collection==='table'?q.action+' →':collection==='shelf'?'View or bring back →':'View or restore →';
@@ -560,7 +594,8 @@ function renderDetails(project) {
   $('potionPlace').textContent={table:'On your worktable',shelf:'On the wall shelf',retired:'Retired'}[organization[project.id]];
   $('shelvePotion').textContent=organization[project.id]==='table'?'Move to wall shelf':organization[project.id]==='shelf'?'Bring to worktable':'Restore to worktable';
   $('disposePotion').hidden=organization[project.id]==='retired';
-  $('detailLatest').textContent = project.updates?.[0] ? `Latest · ${project.updates[0].at}: ${project.updates[0].text}` : 'No dated updates yet.';
+  const updatedDate=new Date(project.updatedAt);
+  $('detailLatest').textContent = HOSTED ? (Number.isFinite(updatedDate.getTime())?`Updated · ${new Intl.DateTimeFormat('en',{dateStyle:'medium',timeZone:'UTC'}).format(updatedDate)}`:'') : project.updates?.[0] ? `Latest · ${project.updates[0].at}: ${project.updates[0].text}` : 'No dated updates yet.';
   const list = $('gateList'); list.replaceChildren();
   project.gates.forEach((state, i) => {
     const item = document.createElement('li'); item.className = state;
@@ -592,7 +627,7 @@ function openArtifact(){
   reveal.mode='emerging';reveal.start=performance.now();chime();
   $('openArtifact').hidden=true;$('revealClose').focus();$('revealHint').textContent='A little note is finding its way out…';
   const id=reveal.id;
-  revealTimer=setTimeout(()=>{if(!reveal||reveal.id!==id)return;if(!reveal.playful){showQuestJournal(id);return;}reveal.mode='sealed';$('ribbonParcel').hidden=false;$('revealHint').textContent='One small step, tucked inside.';$('pullRibbon').focus();if(renderer)animate();},reducedMotion.matches?0:720);
+  revealTimer=setTimeout(()=>{if(!reveal||reveal.id!==id)return;if(!reveal.playful){showQuestJournal(id);return;}reveal.mode='sealed';$('ribbonParcel').hidden=false;$('revealHint').textContent='One small step, tucked inside.';$('pullRibbon').focus();if(renderer)animate();},reducedMotion.matches?0:reveal.playful?720:260);
   if(renderer)animate();
 }
 function unfurlArtifact(){
@@ -623,18 +658,19 @@ function returnToTable() {
   syncSceneArtifacts();if(renderer)animate();
 }
 function syncSceneArtifacts(){
-  if(!scene)return;
+  if(!sceneReady)return;
   const wanted=new Set([...collectionIds('table').slice(0,3),...collectionIds('shelf').slice(0,3),...(selectedId?[selectedId]:[])]);
   for(const [id,jar] of jars){if(wanted.has(id)||jar.flight)continue;scene.remove(jar.group,jar.dust);jar.group.traverse(node=>{if(node.isMesh){node.geometry.dispose();const materials=Array.isArray(node.material)?node.material:[node.material];materials.forEach(m=>{m.map?.dispose();m.dispose();});}});jar.dust.geometry.dispose();jar.dust.material.dispose();jars.delete(id);for(let i=pickMeshes.length-1;i>=0;i--)if(pickMeshes[i].userData.projectId===id)pickMeshes.splice(i,1);}
   for(const id of wanted){if(!records.has(id))continue;if(!jars.has(id))buildJar(id,0);const jar=jars.get(id),project=records.get(id);jar.baseScale=mobileLayout?.86:1;jar.kind=artifactKind(project,primaryProjectId);jar.bottle.visible=jar.kind==='potion';jar.models.scroll.root.visible=jar.kind==='scroll';jar.models.keepsake.visible=jar.kind==='keepsake';const level=levelFor(project);if(level!==jar.level){updateLiquid(jar,level);jar.level=level;}}
 }
 function applyRegistry(state) {
   if (!Array.isArray(state.projects)) throw new Error('Project registry has no projects.');
+  const wasFirst=firstRegistry;
   vaultState=state;
   primaryProjectId=state.activeProjectId||IDS[0];
   records = new Map(state.projects.map((project) => [project.id, project]));
   IDS=state.projects.map(project=>project.id);
-  if(firstRegistry){let saved={};try{saved=JSON.parse(storedOrganization)||{};}catch{}const parsed=parseOrganization(storedOrganization,IDS);for(const id of IDS)if(Object.hasOwn(saved,id))organization[id]=parsed[id];firstRegistry=false;}
+  if(firstRegistry){let saved={};try{saved=JSON.parse(storedOrganization)||{};}catch{}const parsed=parseOrganization(storedOrganization,IDS);for(const id of IDS)if(Object.prototype.hasOwnProperty.call(saved,id))organization[id]=parsed[id];firstRegistry=false;}
   for(const id of IDS){COLORS[id] ||= ['#c68af1','#42cbb3','#ffbd65','#cf8e8e'][IDS.indexOf(id)%4];jarSymbols[id] ||= '✧';if(!organization[id])organization[id]=collectionIds('table').length<3&&records.get(id).phase!=='complete'?'table':'shelf';}
   let tableCount=0;for(const id of IDS)if(organization[id]==='table'&&++tableCount>3)organization[id]='shelf';
   if(selectedId&&!records.has(selectedId))returnToTable();
@@ -643,6 +679,9 @@ function applyRegistry(state) {
   if (selectedId) renderDetails(records.get(selectedId));
   $('connection').textContent = connectionLabel();
   renderFocus();
+  if(wasFirst)say(HOSTED?'Open a project to see its story, code, and live app.':'Your next step is waiting. Open a project to continue.');
+  renderMonitor.markProjects();
+  for(const id of ['libraryOpen','newProject','focusOpen'])$(id).disabled=false;
   clearError();
 }
 async function loadRegistry() {
@@ -654,6 +693,12 @@ async function loadRegistry() {
   lastRegistryText = text;
 }
 
+function updateFocusClock(){
+  if(!focusEnds||document.visibilityState!=='visible')return;
+  const remaining=Math.max(0,Math.ceil((focusEnds-Date.now())/1000));
+  $('focusSession').textContent=remaining?`End focus · ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')}`:'Start 15-minute focus';
+  if(!remaining){focusEnds=0;catMood='celebrate';lastInteraction=performance.now();greetingUntil=lastInteraction+2600;say('A little session, a real step forward. Take a breath.');chime();animate();syncRoomLoop();}
+}
 function interactRoom(action){
   if(action==='journal'){
     if(focusEnds){focusEnds=0;$('focusSession').textContent='Start 15-minute focus';say('Taking a breather. Your progress is still here.');}
@@ -662,14 +707,17 @@ function interactRoom(action){
   lastInteraction=performance.now();if(renderer)animate();
 }
 async function boot() {
-  collectionUI=createCollectionUI({getState:()=>vaultState,refresh:loadRegistry,openProject:id=>{lastFocusedId=id;selectProject(id);},save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime();}});
+  collectionUI=createCollectionUI({getState:()=>vaultState,onVisibilityChange:syncRoomLoop,refresh:loadRegistry,openProject:id=>{lastFocusedId=id;selectProject(id);},save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime();animate();syncRoomLoop();}});
   const tools=document.createElement('div');tools.className='workshop-play';tools.setAttribute('aria-label','Workshop interactions');
-  tools.innerHTML='<details class="room-rituals"><summary>Room rituals <span aria-hidden="true">✧</span></summary><div class="ritual-list"><button id="shelfView" aria-pressed="false">Explore shelf</button><button id="stokeFire">Stoke fire</button><button id="lanternToggle" aria-pressed="true">Lantern</button><button id="focusSession">Start 15-minute focus</button></div></details>';
+  tools.innerHTML='<details class="room-rituals"><summary>Room extras <span aria-hidden="true">✧</span></summary><div class="ritual-list"><button id="shelfView" aria-pressed="false">Explore shelf</button><button id="stokeFire">Stoke fire</button><button id="lanternToggle" aria-pressed="true">Lantern</button><button id="pauseRoom" aria-pressed="false">Pause room motion</button><button id="focusSession">Start 15-minute focus</button></div></details>';
   $('room').append(tools);
+  $('pauseRoom').setAttribute('aria-pressed',String(roomPaused));$('pauseRoom').textContent=roomPaused?'Resume room motion':'Pause room motion';
+  window.setInterval(updateFocusClock,1000);
   $('shelfView').addEventListener('click',()=>{roomView=!roomView;$('shelfView').setAttribute('aria-pressed',String(roomView));$('shelfView').textContent=roomView?'Back to room':'Explore shelf';showCollection(roomView?'shelf':'table');animate();});
   $('stokeFire').addEventListener('click',()=>interactRoom('fire'));
   $('lanternToggle').addEventListener('click',()=>interactRoom('lantern'));
   $('focusSession').addEventListener('click',()=>interactRoom('journal'));
+  $('pauseRoom').addEventListener('click',()=>{roomPaused=!roomPaused;try{localStorage.setItem('ideaQuest.roomMotion',roomPaused?'paused':'live');}catch{}$('pauseRoom').setAttribute('aria-pressed',String(roomPaused));$('pauseRoom').textContent=roomPaused?'Resume room motion':'Pause room motion';animate();syncRoomLoop();});
 
   $('replayReveal').addEventListener('click',()=>{if(selectedId)selectProject(selectedId,true);});
   $('revealClose').addEventListener('click',returnToTable);
@@ -696,17 +744,18 @@ async function boot() {
   document.addEventListener('keydown', (event) => {
     if(event.key==='Escape'&&potionDrag){finishPotionDrag(null);return;}
     if(event.key==='Escape'&&selectedId)returnToTable();
-    if(event.key==='Tab'&&selectedId){const panel=reveal?$('artifactReveal'):$('details');const tabbable=[...panel.querySelectorAll('button,a[href],input,textarea,select,summary')].filter(el=>!el.disabled&&el.getClientRects().length);const first=tabbable[0],last=tabbable.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
+    if(event.key==='Tab'&&selectedId){const panel=reveal?$('artifactReveal'):$('details');const tabbable=[...panel.querySelectorAll('button,a[href],input,textarea,select,summary')].filter(el=>!el.disabled&&el.getClientRects().length);const first=tabbable[0],last=tabbable[tabbable.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
   });
-  try { setupScene(); }
-  catch (error) {sceneFailure=`3D view unavailable on this browser: ${error.message}. Project buttons will still work.`;showError(sceneFailure);}
   try { await loadRegistry(); }
   catch (error) { $('connection').textContent=HOSTED?'Collection unavailable · retrying':'Vault unavailable · retrying';showError(error.message); }
-  if(sceneFailure)showError(sceneFailure);
-  requestAnimationFrame(()=>{$('loading').hidden=true;});
+  $('loading').hidden=true;
+  await new Promise(resolve=>setTimeout(resolve,50));
+  try { await setupScene(); }
+  catch (error) {sceneFailure='The 3D room is unavailable here. All projects and links are still ready in All projects.';$('sceneLoading').textContent=sceneFailure;$('sceneLoading').hidden=false;}
+  if(!sceneReady){$('pauseRoom').disabled=true;$('stokeFire').disabled=true;$('lanternToggle').disabled=true;$('shelfView').disabled=true;}
   window.setInterval(() => {
     if (document.visibilityState === 'visible') loadRegistry().catch((error) => {$('connection').textContent=HOSTED?'Collection unavailable · retrying':'Vault unavailable · retrying';showError(error.message);});
-  }, 5000);
+  }, HOSTED?60000:5000);
 }
 boot();
 

@@ -10,8 +10,9 @@
 </head>
 <body>
   <main class="room" id="room">
-    <div class="loading" id="loading" role="status"><span aria-hidden="true">✦</span><p>Opening the workshop…</p></div>
+    <div class="loading" id="loading" role="status"><span aria-hidden="true">✦</span><p>Opening your projects…</p></div>
     <div id="scene" class="scene" aria-hidden="true"></div>
+    <p id="sceneLoading" class="scene-loading" role="status">Bob is lighting the fire… Your projects are ready below.</p>
     <div class="veil" aria-hidden="true"></div>
 
     <header class="masthead">
@@ -26,8 +27,8 @@
         </h1>
       </div>
       <div class="room-tools">
-        <button type="button" class="collection-launch" id="libraryOpen">Collection</button>
-        <button type="button" class="collection-launch" id="newProject">+ New idea</button>
+        <button type="button" class="collection-launch" id="libraryOpen" disabled>All projects</button>
+        <button type="button" class="collection-launch" id="newProject" disabled>+ New idea</button>
         <span class="live-mark" id="connection" role="status">Opening your vault…</span>
         <button type="button" class="sound-button" id="soundButton" aria-label="Enable sound effects" aria-pressed="false" title="Sound effects">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" stroke-linejoin="round"/><path class="sound-waves" d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14" stroke-linecap="round"/><path class="sound-off" d="m17 10 4 4m0-4-4 4" stroke-linecap="round"/></svg>
@@ -36,10 +37,10 @@
     </header>
 
     <section class="intro" aria-label="Your focus quest">
-      <p class="eyebrow">CURRENT QUEST</p>
+      <p class="eyebrow" id="focusLabel">CURRENT PROJECT</p>
       <h2 id="focusTitle">Choose a project</h2>
       <p id="focusNext" class="focus-next"></p>
-      <button id="focusOpen" class="focus-open" type="button">Open journal <span aria-hidden="true">→</span></button>
+      <button id="focusOpen" class="focus-open" type="button" disabled>Open project <span aria-hidden="true">→</span></button>
       <span id="questTotal"></span>
     </section>
 
@@ -80,6 +81,7 @@
       <div class="last-checkpoint"><span class="eyebrow">LAST TIME</span><p id="lastChanged"></p></div>
       <div class="quest-journey"><div id="detailProgress"></div><p id="detailTrailState" class="trail-state"></p><p class="trail-legend"><span>✦ Finished</span><span>◆ Current</span><span>◇ Ahead</span></p></div>
       <div class="next-card"><span class="eyebrow">NEXT SMALL STEP</span><p id="detailNext"></p></div>
+      <p class="edition-note" id="editionNote" hidden></p>
       <button class="focus-open" id="setFocus" type="button">Make this my focus</button>
       <div id="milestoneActions" class="milestone-actions"></div>
       <details class="checkpoint-panel"><summary>Save where you stopped</summary>

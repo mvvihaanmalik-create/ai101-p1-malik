@@ -2,27 +2,27 @@
   "project": "idea-quest-ai101",
   "projectId": "prj_zblNLbIE9RMYCLvgbmcWDpdHipAQ",
   "accountId": "team_rYbBIpXkLNdDUrzd7HHQ5qOZ",
-  "asOf": "2026-10-13T20:57:27.064Z",
+  "asOf": "2026-10-13T21:58:18.384Z",
   "files": [
     {
       "file": "index.html",
-      "sha": "ead70ed67ccc092e1f4933ff243a6dcb0f287225",
-      "size": 12599
+      "sha": "626f886128dc02df5c13d36a277f417d8c3a6b89",
+      "size": 12832
     },
     {
       "file": "app.js",
-      "sha": "8c734ab1057788976c68b0bd5a27c62fdfa67e27",
-      "size": 692216
+      "sha": "096118ca7058a37d5b06b178973c756dda6f40f2",
+      "size": 687335
     },
     {
       "file": "styles.css",
-      "sha": "0d80f8b78e1a38c5cec48d7f5d6d255e4dca69eb",
-      "size": 47366
+      "sha": "cbdf389ff5b531b4ecf3a08382a22025c785a771",
+      "size": 49189
     },
     {
       "file": "projects.json",
-      "sha": "3d3444bcb015b7e6231d0b753015de3a7462fd36",
-      "size": 3824
+      "sha": "4080d8a5ff0142e964ffa80075ae20efc0954ad7",
+      "size": 3889
     },
     {
       "file": "THREE-LICENSE.txt",
@@ -34,5 +34,13 @@
       "sha": "d0d16fa6043530e4b0e14b34bd9061cd21c58d24",
       "size": 96
     }
-  ]
+  ],
+  "deployment": {
+    "id": "dpl_EDUK3TYs576KofkD32TAknf48aca",
+    "url": "https://idea-quest-ai101.vercel.app",
+    "buildUrl": "https://idea-quest-ai101-pzz8gs8vd-vihaanmalik.vercel.app",
+    "target": "production",
+    "state": "READY",
+    "verifiedAt": "2026-10-13"
+  }
 }
