@@ -51,7 +51,7 @@ function renderFocus(){
 }
 function renderCollections(){
   for(const place of ['table','shelf','retired']){const button=$(place+'Tab');button.textContent=`${PLACE_LABELS[place]} (${collectionIds(place).length})`;button.setAttribute('aria-pressed',String(collection===place));}
-  $('collectionHint').textContent={table:'Open a project below. Drag its artifact to the shelf when you want to put it aside.',shelf:'Projects put aside and finished work. Open one to view it or bring it back.',retired:'Put away from the room. Open a project to restore it; its files stay safe.'}[collection];
+  $('collectionHint').textContent={table:'Tap an artifact or its name to open. Drag to the shelf to put it aside.',shelf:'Tap a shelf artifact to open. Drag it back to the table to continue.',retired:'Choose a retired project to view or restore it.'}[collection];
 }
 function showCollection(place){collection=place;hoveredId=null;renderDock();renderCollections();}
 function jarRestPose(jar){
@@ -295,6 +295,7 @@ async function setupScene() {
   renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;lastFrame=0;resize();$('sceneLoading').hidden=true;syncRoomLoop();});
   sceneReady=true;syncSceneArtifacts();
   resize();
+  for(const jar of jars.values()){const pose=jarRestPose(jar);jar.group.position.copy(pose.position);jar.group.scale.setScalar(pose.scale);}
   if(renderer.compileAsync)await renderer.compileAsync(scene,camera);
   renderReady=true;
   $('sceneLoading').hidden=true;
@@ -334,6 +335,7 @@ function resize() {
   const xs = mobile ? [-1.50, 0, 1.50] : [-1.25, .62, 2.49];
   jars.forEach((jar, id) => {jar.homeX=xs[Math.max(0,collectionIds('table').indexOf(id))%3];jar.homeZ=mobile?1.15:.4;jar.baseScale=mobile?.86:1;});
   workshop.setMobile(mobile);
+  for(const jar of jars.values())if(!selectedId&&!jar.flight&&potionDrag?.id!==jar.id){const pose=jarRestPose(jar);jar.group.position.copy(pose.position);jar.group.scale.setScalar(pose.scale);}
 }
 function animate(scheduledTime) {
   if(!renderer||!renderReady||contextLost||$('libraryDialog').open||document.visibilityState!=='visible'||!roomInView)return;
@@ -424,6 +426,7 @@ function animate(scheduledTime) {
   camera.position.lerp(camTarget,still?1:1-Math.exp(-3*dt));
   cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?-1.7:0,reveal?2.2:closeShelf?3.2:mobileLayout?1.75:1.8,closeShelf?-3:0),still?1:1-Math.exp(-3*dt));
   camera.lookAt(cameraAim);
+  positionArtifactLabels();
 
   paintRenderer?paintRenderer.render():renderer.render(scene,camera);
   renderMonitor.end(renderer,began,lightRendering?'Light':'Balanced');
@@ -507,7 +510,8 @@ function chime(kind='select') {
     notes.forEach((frequency,i)=>{const o=audioContext.createOscillator(),g=audioContext.createGain(),t=audioContext.currentTime+i*.085;o.type='sine';o.frequency.value=frequency;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.055,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+.4);o.connect(g);g.connect(audioContext.destination);o.start(t);o.stop(t+.42);});
   } catch { soundEnabled=false;$('soundButton').setAttribute('aria-pressed','false'); }
 }
-function say(text){if(lastDialogue===text)return;$('keeperLine').textContent=text;lastDialogue=text;}
+let dialogueTimer;
+function say(text){if(lastDialogue===text)return;$('keeperLine').textContent=text;lastDialogue=text;const keeper=document.querySelector('.keeper');keeper.classList.add('speaking');clearTimeout(dialogueTimer);dialogueTimer=setTimeout(()=>keeper.classList.remove('speaking'),6500);}
 function greetCat(kind='hello'){
   lastInteraction=performance.now();
   catMood=kind==='pet'?'pet':'hello';greetingUntil=lastInteraction+6000;
@@ -541,7 +545,8 @@ function renderDock() {
   const dock = $('jarDock');
   dock.replaceChildren();
   renderCollections();
-  const visibleIds=collectionIds(collection).slice(0,3);
+  const visibleIds=collection==='retired'?collectionIds('retired').slice(0,3):[...collectionIds('table').slice(0,3),...collectionIds('shelf').slice(0,3)];
+  dock.classList.toggle('retired-labels',collection==='retired');
   dock.style.setProperty('--visible-count',Math.max(1,visibleIds.length));
   $('emptyCollection').hidden=visibleIds.length>0;
   $('emptyCollection').textContent={table:'A little breathing room. Bring an artifact back from the wall shelf or Retired.',shelf:'Your shelf is waiting. Drag an artifact here, or move it from its journal.',retired:'Nothing retired. Cleared artifacts will appear here, ready to restore.'}[collection];
@@ -555,18 +560,13 @@ function renderDock() {
     button.style.setProperty('--project-color', COLORS[id]);
     button.classList.toggle('is-selected',selectedId===id);button.setAttribute('aria-haspopup','dialog');
     button.setAttribute('aria-label', `${project.title}, ${approvedCount(project)} of 5 gates approved. Open project details.`);
-    const gem = document.createElement('span'); gem.className = 'jar-gem'; gem.setAttribute('aria-hidden', 'true');gem.textContent=jarSymbols[id];
-    const copy = document.createElement('span'); copy.className = 'jar-copy';
     const name = document.createElement('span'); name.className = 'jar-name'; name.textContent = project.title;
     const q=questFor(project);
     const kind=artifactKind(project,primaryProjectId);
-    button.dataset.artifactKind=kind;gem.textContent={potion:'✧',scroll:'≋',keepsake:'❖'}[kind];
-    button.setAttribute('aria-label',`${project.title}: ${collection==='table'?q.status:collection==='shelf'?'On the shelf':'Retired and restorable'}. Open project.`);
-    const status=document.createElement('span');status.className='quest-status';status.textContent=collection==='retired'?'Retired · restorable':q.status;
-    const trail=questTrail(project);
-    const action=document.createElement('span');action.className='quest-action';action.textContent=collection==='table'?q.action+' →':collection==='shelf'?'View or bring back →':'View or restore →';
-    copy.append(name,trail,status,action);button.append(gem,copy);
-    if(id===focusId){button.classList.add('is-focus');const flag=document.createElement('span');flag.className='focus-flag';flag.textContent='CURRENT QUEST';button.append(flag);}
+    button.dataset.artifactKind=kind;button.dataset.place=organization[id];
+    button.setAttribute('aria-label',`${project.title}: ${organization[id]==='table'?q.status:organization[id]==='shelf'?'On the shelf':'Retired and restorable'}. Open project.`);
+    button.title=project.title+' · Open journal';
+    button.append(name);
     button.addEventListener('click', () => { lastFocusedId = id; selectProject(id); });
     button.addEventListener('pointerenter', () => { hoveredId = id; });
     button.addEventListener('pointerleave', () => { if (hoveredId === id) hoveredId = null; });
@@ -574,7 +574,31 @@ function renderDock() {
     button.addEventListener('blur', () => { if (hoveredId === id) hoveredId = null; });
     dock.append(button);
   }
-  if(collectionIds(collection).length>3){const more=document.createElement('button');more.className='browse-more';more.type='button';more.textContent=`View all ${collectionIds(collection).length} in the collection →`;more.addEventListener('click',()=>collectionUI.show());dock.append(more);}
+  if(collectionIds(collection).length>3){const more=document.createElement('button');more.className='browse-more';more.type='button';more.textContent='More projects →';more.addEventListener('click',()=>collectionUI.show());dock.append(more);}
+  positionArtifactLabels();
+}
+const labelAnchor=new THREE.Vector3();
+function positionArtifactLabels(){
+  const dock=$('jarDock'),positioned=renderReady&&!contextLost&&collection!=='retired';
+  dock.classList.toggle('labels-positioned',positioned);
+  if(!positioned)return;
+  const bounds=$('scene').getBoundingClientRect(),roomBounds=$('room').getBoundingClientRect();
+  const placed=[];
+  for(const button of dock.querySelectorAll('[data-project-id]')){
+    const jar=jars.get(button.dataset.projectId);
+    if(!jar){button.hidden=true;continue;}
+    labelAnchor.copy(jar.group.position);labelAnchor.y-=.12;labelAnchor.project(camera);
+    button.hidden=!jar.group.visible||labelAnchor.z>1||labelAnchor.z< -1||!!jar.flight||potionDrag?.id===jar.id;
+    const width=mobileLayout?organization[jar.id]==='shelf'?90:collectionIds('table').length===3?92:128:organization[jar.id]==='shelf'?136:168;
+    const x=Math.max(width/2+12,Math.min(bounds.width-width/2-12,(labelAnchor.x+1)*bounds.width/2));
+    button.style.width=width+'px';
+    const left=bounds.left-roomBounds.left+x-width/2,baseTop=bounds.top-roomBounds.top+(1-labelAnchor.y)*bounds.height/2+10;
+    const height=button.offsetHeight;let top=baseTop;
+    for(const previous of placed)if(left<previous.right+8&&left+width>previous.left-8&&top<previous.bottom+8&&top+height>previous.top-8)top=previous.bottom+8;
+    if(!button.hidden)placed.push({left,right:left+width,top,bottom:top+height});
+    button.style.left=(bounds.left-roomBounds.left+x)+'px';
+    button.style.top=top+'px';button.style.setProperty('--label-offset',(top-baseTop)+'px');button.classList.toggle('label-staggered',top>baseTop);
+  }
 }
 function renderDetails(project) {
   if(!project)return;

@@ -606,3 +606,9 @@ User clarified that Bob is the character, not the app. Restored idea.quest brand
 - **Ask:** Call the current build IdeaQuest Final to distinguish it from earlier prototypes.
 - **Result:** Renamed the vault review note to IdeaQuest Final.md; updated project title, wordmark/browser title, professor-facing navigation, and GitHub README labels. Kept an old-note redirect and stable implementation paths. Bob remains the character; approval records are unchanged.
 - **Verification:** Rebuilt the bundle and hosted snapshot; relative review links resolve. The READY naming deployment is dpl_EKRCQto9QTZtiBt9G5sHJuuPUU5P. GitHub publication is scoped to the naming changes.
+
+### Unclutter the IdeaQuest Final room — October 13, 2026 · Codex
+
+- **Ask:** Fix cramped spacing, show only the selected artifact’s scroll, and identify each artifact with a label beneath it.
+- **Result:** Replaced overview scroll cards with projected clickable name labels; hid the duplicate focus parchment; retained the selected journal and its progress/next-step content. Added separated lower navigation, compact Bob interactions, wider mobile artifact spacing, immediate correct startup/resize placement, and non-overlapping shelf labels.
+- **Verification:** 15 existing tests passed; desktop and 390px phone label/journal layouts checked. Mobile gaps measured about 13px between table labels and 24px between Bob controls and navigation, without horizontal overflow. Shelving and Undo checked with two shelf labels separated; original arrangement restored. No runtime errors observed. Scope is presentation and placement; no approval changed.

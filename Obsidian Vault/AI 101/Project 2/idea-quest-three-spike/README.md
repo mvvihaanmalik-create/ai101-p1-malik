@@ -230,3 +230,9 @@ Final production deployment dpl_EDUK3TYs576KofkD32TAknf48aca is READY and promot
 ## IdeaQuest Final naming — October 13, 2026
 
 The current published build is labelled **IdeaQuest Final** in the page title, wordmark, project record, and professor review guide. The source folder retains its existing path for compatibility. The earlier review note redirects to `IdeaQuest Final.md`. Naming does not approve additional class gates. Production naming build: dpl_EKRCQto9QTZtiBt9G5sHJuuPUU5P, https://idea-quest-ai101.vercel.app/.
+
+## Room spacing and selection-only journals — October 13, 2026
+
+Removed the always-visible focus parchment and the large progress/next-step cards from the overview. Each rendered artifact now has a small clickable name beneath it, positioned from the camera projection. Labels follow camera/room changes and hide during dragging. Crowded shelf names stagger with a subtle connecting line. Detailed progress and notes remain inside the one selected journal. Bob uses a compact control strip and a temporary response line; navigation and its hint sit in a separate lower band. Phone artifact/mat spacing is wider, and startup/resize place objects in their correct slots immediately.
+
+Verification: 15 existing tests passed. Desktop 1440×900 and phone 390×844 checks covered artifact labels, journal open/return, and no horizontal overflow. Phone table label gaps measured about 13px and the Bob/navigation gap about 24px. Two shelf labels remained separate after moving a potion; Undo restored the original three-table/one-shelf arrangement. Browser runtime errors were empty. Public release and matching GitHub source were updated; approvals unchanged.
