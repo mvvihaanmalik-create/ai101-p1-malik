@@ -612,3 +612,7 @@ User clarified that Bob is the character, not the app. Restored idea.quest brand
 - **Ask:** Fix cramped spacing, show only the selected artifact’s scroll, and identify each artifact with a label beneath it.
 - **Result:** Replaced overview scroll cards with projected clickable name labels; hid the duplicate focus parchment; retained the selected journal and its progress/next-step content. Added separated lower navigation, compact Bob interactions, wider mobile artifact spacing, immediate correct startup/resize placement, and non-overlapping shelf labels.
 - **Verification:** 15 existing tests passed; desktop and 390px phone label/journal layouts checked. Mobile gaps measured about 13px between table labels and 24px between Bob controls and navigation, without horizontal overflow. Shelving and Undo checked with two shelf labels separated; original arrangement restored. No runtime errors observed. Scope is presentation and placement; no approval changed.
+
+### Logo text correction — October 13, 2026 · Codex
+
+User asked to remove Final from the visible wordmark. Changed only its SVG text and accessible logo name to IdeaQuest; the final-build review notes and project identity retain IdeaQuest Final. Published naming correction dpl_7e1sd4JHjatfbpbVkhPb3qoRtjUb to the existing live URL and verified the logo in the browser. Source and manifest synced to the course repository.

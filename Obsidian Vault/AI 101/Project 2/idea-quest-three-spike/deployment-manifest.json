@@ -2,12 +2,12 @@
   "project": "idea-quest-ai101",
   "projectId": "prj_zblNLbIE9RMYCLvgbmcWDpdHipAQ",
   "accountId": "team_rYbBIpXkLNdDUrzd7HHQ5qOZ",
-  "asOf": "2026-10-13T22:20:57.307Z",
+  "asOf": "2026-10-13T22:33:44.045Z",
   "files": [
     {
       "file": "index.html",
-      "sha": "8f02c497c09c0db669291429e0675495910ae2c0",
-      "size": 12854
+      "sha": "e7388b4196cff2d018025533413fe5d7b39c8147",
+      "size": 12842
     },
     {
       "file": "app.js",
@@ -21,7 +21,7 @@
     },
     {
       "file": "projects.json",
-      "sha": "b82e20e1fbfdc22f49803a375c943e5a361e5b67",
+      "sha": "638c9da42da11e2dbd78f1289000e14a878de879",
       "size": 4055
     },
     {
@@ -36,9 +36,9 @@
     }
   ],
   "deployment": {
-    "id": "dpl_ePN7XUp3FP5WE4zhPcJZubDgtUPa",
+    "id": "dpl_7e1sd4JHjatfbpbVkhPb3qoRtjUb",
     "url": "https://idea-quest-ai101.vercel.app",
-    "buildUrl": "https://idea-quest-ai101-ognc3ed4b-vihaanmalik.vercel.app",
+    "buildUrl": "https://idea-quest-ai101-ba1p3dnon-vihaanmalik.vercel.app",
     "target": "production",
     "state": "READY",
     "verifiedAt": "2026-10-13"
