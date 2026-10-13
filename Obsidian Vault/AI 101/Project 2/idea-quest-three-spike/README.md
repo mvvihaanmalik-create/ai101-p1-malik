@@ -1,6 +1,6 @@
-# idea.quest · isolated Three.js feasibility study
+# IdeaQuest Final — The Midnight Workshop
 
-**[Open the live 3D workshop](https://idea-quest-ai101.vercel.app/)** · [Professor review guide](../idea-quest-review.md) · [Project record](../Workshop%20Projects/idea-quest.md)
+**[Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/)** · [Professor review guide](../IdeaQuest%20Final.md) · [Project record](../Workshop%20Projects/idea-quest.md)
 
 
 
@@ -226,3 +226,7 @@ Measured in one native 480×712 embedded preview: project controls became usable
 Verification: 15 tests passed, including rendering budgets, lifecycle pause conditions, adaptation, and competing pointer/frame callbacks. Browser checks covered desktop and 390px phone layouts without horizontal overflow, searching/opening projects, destination links, quiet mode, and the focus clock advancing while motion was paused. No runtime errors were observed. Saved an actual checkpoint in the idea.quest vault note; no approval gates changed.
 
 Final production deployment dpl_EDUK3TYs576KofkD32TAknf48aca is READY and promoted to https://idea-quest-ai101.vercel.app. Immutable URL: https://idea-quest-ai101-pzz8gs8vd-vihaanmalik.vercel.app. All five public assets returned HTTP 200 and matched the manifest hashes at both URLs. Public hosting remains a read-only published collection; vault changes appear online after republishing. Live preview: preview-performance-live.jpg.
+
+## IdeaQuest Final naming — October 13, 2026
+
+The current published build is labelled **IdeaQuest Final** in the page title, wordmark, project record, and professor review guide. The source folder retains its existing path for compatibility. The earlier review note redirects to `IdeaQuest Final.md`. Naming does not approve additional class gates. Production naming build: dpl_EKRCQto9QTZtiBt9G5sHJuuPUU5P, https://idea-quest-ai101.vercel.app/.

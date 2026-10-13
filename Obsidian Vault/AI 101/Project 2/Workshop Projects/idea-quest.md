@@ -1,7 +1,7 @@
 ---
 ideaquest: true
 id: "idea-quest"
-title: "idea.quest"
+title: "IdeaQuest Final"
 pitch: "A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars."
 phase: "active"
 repository: "https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike"
@@ -13,15 +13,15 @@ createdAt: "2026-10-08"
 updatedAt: "2026-10-13T21:44:13.831Z"
 ---
 
-# idea.quest
+# IdeaQuest Final
 
 This project belongs to your idea.quest collection. Edit the properties above in Obsidian or use its workshop journal.
 
 ## Professor review
 
-- [Open the live 3D workshop](https://idea-quest-ai101.vercel.app/)
+- [Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/)
 - [Review the source on GitHub](https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike)
-- [Review guide and verification](../idea-quest-review.md)
+- [Review guide and verification](../IdeaQuest%20Final.md)
 
 The hosted workshop is a read-only published snapshot; the local workshop saves to this vault. Publication does not approve any class workflow gate.
 

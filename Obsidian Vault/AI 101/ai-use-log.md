@@ -600,3 +600,9 @@ User clarified that Bob is the character, not the app. Restored idea.quest brand
 - **Ask:** Make the current workshop visible in the course GitHub repository and vault for professor review.
 - **Result:** Added a professor review guide with the live app, source, walkthrough, test/deployment records, and screenshot; linked it from the workflow start guide and workshop README. Added GitHub and Vercel destinations to the idea.quest vault record. Prepared the course repository's front page with a prominent live-workshop section. No class approval changed.
 - **Verification:** Automatic approval rejected the broad 222-file vault sync. Prepared a narrower publication of the workshop's changed source/tests, the review guide, project record, workflow navigation, AI log, and repository README. Excluded unrelated vault files and checked the selected text for credential patterns. Local review links resolve; publication results are recorded in the corresponding Git commit.
+
+### IdeaQuest Final naming — October 13, 2026 · Codex
+
+- **Ask:** Call the current build IdeaQuest Final to distinguish it from earlier prototypes.
+- **Result:** Renamed the vault review note to IdeaQuest Final.md; updated project title, wordmark/browser title, professor-facing navigation, and GitHub README labels. Kept an old-note redirect and stable implementation paths. Bob remains the character; approval records are unchanged.
+- **Verification:** Rebuilt the bundle and hosted snapshot; relative review links resolve. The READY naming deployment is dpl_EKRCQto9QTZtiBt9G5sHJuuPUU5P. GitHub publication is scoped to the naming changes.

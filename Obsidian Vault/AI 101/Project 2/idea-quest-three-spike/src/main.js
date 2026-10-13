@@ -17,7 +17,7 @@ let IDS = ['idea-quest', 'obsidian-gaze', 'image-palette'];
 let vaultState=null, collectionUI=null, firstRegistry=true;
 const STEPS = ['Define the goal', 'Choose a route', 'Build a small prototype', 'Human check', 'Iterate or stop'];
 const COLORS = { 'idea-quest': '#c68af1', 'obsidian-gaze': '#42e2cb', 'image-palette': '#ffbd65' };
-const LABELS = { 'idea-quest': 'idea.quest', 'obsidian-gaze': 'Gaze', 'image-palette': 'Image Palette' };
+const LABELS = { 'idea-quest': 'IdeaQuest Final', 'obsidian-gaze': 'Gaze', 'image-palette': 'Image Palette' };
 const DEMO = new URLSearchParams(window.location.search).get('demo') === '1';
 const HOSTED = document.body.dataset.mode === 'hosted';
 function connectionLabel(){return HOSTED?`Shared collection · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}

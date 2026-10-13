@@ -1,6 +1,6 @@
-## Review the current idea.quest build
+## IdeaQuest Final
 
-[Open the live 3D workshop](https://idea-quest-ai101.vercel.app/) · [Professor review guide](idea-quest-review.md) · [Source and verification](idea-quest-three-spike/README.md)
+[Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/) · [Professor review guide](IdeaQuest%20Final.md) · [Source and verification](idea-quest-three-spike/README.md)
 
 ## Goal
 
