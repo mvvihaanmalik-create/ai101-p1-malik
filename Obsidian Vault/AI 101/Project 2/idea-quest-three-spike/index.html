@@ -3,51 +3,151 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#211521">
-  <title>idea.quest — potion room study</title>
+  <meta name="theme-color" content="#233b4a">
+  <meta name="description" content="A tiny enchanted workshop for your ideas. Explore your projects, one little step at a time.">
+  <title>idea.quest — The Midnight Workshop</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <main class="room" id="room">
+    <div class="loading" id="loading" role="status"><span aria-hidden="true">✦</span><p>Opening the workshop…</p></div>
     <div id="scene" class="scene" aria-hidden="true"></div>
     <div class="veil" aria-hidden="true"></div>
 
     <header class="masthead">
       <div>
-        <p class="eyebrow">AI 101 · potion room study</p>
-        <h1>idea<span>.</span>quest</h1>
+        <h1 class="workshop-logo" aria-label="idea.quest">
+          <svg viewBox="0 0 184 44" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="wordmarkGold" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#f6e8bb"/><stop offset=".5" stop-color="#d8bd7e"/><stop offset="1" stop-color="#aa8650"/></linearGradient></defs>
+            <text x="1" y="33" fill="url(#wordmarkGold)" font-family="Old English Text MT, Palatino Linotype, Georgia, serif" font-size="32" font-weight="700" letter-spacing="-1">idea.quest</text>
+            <path d="m178 5-1.7 4.7-4.7 1.7 4.7 1.7 1.7 4.7 1.7-4.7 4.7-1.7-4.7-1.7Z" fill="#dec18a" opacity=".75"/>
+            <path d="m85 35 3 2-3 3h3l-2 3" fill="none" stroke="#bf9d63" stroke-width=".9"/>
+          </svg>
+        </h1>
       </div>
-      <span class="live-mark" id="connection">READING VAULT</span>
+      <div class="room-tools">
+        <button type="button" class="collection-launch" id="libraryOpen">Collection</button>
+        <button type="button" class="collection-launch" id="newProject">+ New idea</button>
+        <span class="live-mark" id="connection" role="status">Opening your vault…</span>
+        <button type="button" class="sound-button" id="soundButton" aria-label="Enable sound effects" aria-pressed="false" title="Sound effects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" stroke-linejoin="round"/><path class="sound-waves" d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14" stroke-linecap="round"/><path class="sound-off" d="m17 10 4 4m0-4-4 4" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </header>
 
-    <section class="intro" aria-label="About this project room">
-      <p class="eyebrow">THE MIDNIGHT WORKSHOP</p>
-      <p>Tap a jar to bring its story closer.</p>
+    <section class="intro" aria-label="Your focus quest">
+      <p class="eyebrow">CURRENT QUEST</p>
+      <h2 id="focusTitle">Choose a project</h2>
+      <p id="focusNext" class="focus-next"></p>
+      <button id="focusOpen" class="focus-open" type="button">Open journal <span aria-hidden="true">→</span></button>
+      <span id="questTotal"></span>
     </section>
 
-    <div class="jar-dock" id="jarDock" role="group" aria-label="Choose a project jar"></div>
+    <aside class="keeper" aria-label="Bob, the workshop keeper">
+      <div class="keeper-name"><span aria-hidden="true">✦</span> BOB <span class="keeper-role" id="keeperMood">your workshop keeper</span></div>
+      <p id="keeperLine" aria-live="polite">Every big idea starts with a little spark.</p>
+      <div class="cat-actions"><button type="button" id="greetButton">Say hello <span aria-hidden="true">↗</span></button><button type="button" id="petButton">Pet Bob <span aria-hidden="true">♡</span></button></div>
+    </aside>
+    <div class="collection-controls"><div class="collection-tabs" role="group" aria-label="Artifact collections">
+      <button id="tableTab" type="button" aria-pressed="true">Worktable</button><button id="shelfTab" type="button" aria-pressed="false">Wall shelf</button><button id="retiredTab" type="button" aria-pressed="false">Retired</button>
+    </div><p id="collectionHint">Your active projects.</p></div>
+    <p id="emptyCollection" class="empty-collection" hidden></p>
+    <div class="jar-dock" id="jarDock" role="group" aria-label="Choose a project artifact"></div>
 
-    <section class="details" id="details" aria-labelledby="detailTitle" hidden>
+    <section class="artifact-reveal" id="artifactReveal" role="dialog" aria-modal="true" aria-labelledby="revealTitle" hidden>
+      <button id="revealClose" class="reveal-close" type="button" aria-label="Return to room">← Return to room</button>
+      <p id="revealKind" class="eyebrow"></p><h2 id="revealTitle"></h2>
+      <p id="revealHint" class="reveal-hint" aria-live="polite"></p>
+      <button id="openArtifact" class="open-artifact" type="button">Lift the cork →</button>
+      <div id="ribbonParcel" hidden>
+        <button id="pullRibbon" class="scroll-parcel" type="button" aria-label="Pull the ribbon to reveal your next step">
+          <span class="parcel-paper" aria-hidden="true"></span><span class="parcel-ribbon" aria-hidden="true"></span>
+          <span class="parcel-seal" aria-hidden="true">✧</span><span class="parcel-tail" aria-hidden="true">↓</span>
+        </button><p class="pull-instruction">Pull the ribbon down to unfurl<br><span>or tap the seal</span></p>
+      </div>
+    </section>
+
+    <section class="details" id="details" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
       <div class="details-top">
-        <span class="eyebrow">PROJECT RECORD</span>
+        <span class="eyebrow">YOUR QUEST JOURNAL</span>
         <button class="close" id="returnButton" type="button" aria-label="Return to table">×</button>
       </div>
       <div class="detail-seal" id="detailSeal" aria-hidden="true">✦</div>
       <h2 id="detailTitle"></h2>
       <p class="detail-pitch" id="detailPitch"></p>
-      <div class="count-line"><strong id="detailCount"></strong><span>approval gates</span></div>
-      <ol class="gate-list" id="gateList" aria-label="Workflow steps"></ol>
-      <div class="next-card"><span class="eyebrow">NEXT MOVE</span><p id="detailNext"></p></div>
-      <p class="latest" id="detailLatest"></p>
+      <p class="detail-placement" id="detailPlacement"></p>
+      <nav class="project-links" id="projectLinks" aria-label="Project destinations"></nav>
+      <div class="last-checkpoint"><span class="eyebrow">LAST TIME</span><p id="lastChanged"></p></div>
+      <div class="quest-journey"><div id="detailProgress"></div><p id="detailTrailState" class="trail-state"></p><p class="trail-legend"><span>✦ Finished</span><span>◆ Current</span><span>◇ Ahead</span></p></div>
+      <div class="next-card"><span class="eyebrow">NEXT SMALL STEP</span><p id="detailNext"></p></div>
+      <button class="focus-open" id="setFocus" type="button">Make this my focus</button>
+      <div id="milestoneActions" class="milestone-actions"></div>
+      <details class="checkpoint-panel"><summary>Save where you stopped</summary>
+        <form id="checkpointForm" class="journal-form">
+          <label>What changed?<textarea name="changed" rows="3" maxlength="4000" required placeholder="What did you build, fix, or decide?"></textarea></label>
+          <label>What’s next?<textarea name="next" rows="2" maxlength="2000" required placeholder="One useful next step."></textarea></label>
+          <p id="checkpointMessage" role="status"></p><button type="submit" class="back">Save checkpoint to vault</button>
+          <button type="button" id="reloadCheckpoint" class="quiet-button" hidden>Keep my draft and use the latest note</button>
+        </form>
+      </details>
+      <details class="project-settings"><summary>Links, state & milestones</summary>
+        <form id="projectSettings" class="journal-form">
+          <label>Project name<input name="title" maxlength="120" required></label>
+          <label>One sentence<input name="pitch" maxlength="1000"></label>
+          <label>State<select name="phase"><option value="idea">Idea</option><option value="active">Building</option><option value="review">Reviewing</option><option value="complete">Released</option><option value="resting">Resting</option><option value="revisiting">Revisiting</option></select></label>
+          <label>GitHub repository<input name="repository" type="url" placeholder="https://github.com/you/project"></label>
+          <label>Live app<input name="live" type="url" placeholder="https://your-app.vercel.app"></label>
+          <label>Next step<textarea name="next" rows="2" maxlength="2000"></textarea></label>
+          <label>Linked folder in AI 101<input name="folder" placeholder="Project 2/my-project"></label>
+          <label id="milestoneEditor">Milestones · one per line<textarea name="milestoneText" rows="3" placeholder="Build the core interaction&#10;Try it on my phone&#10;Release"></textarea></label>
+          <p id="settingsMessage" role="status"></p><button type="submit" class="back">Save project details</button>
+          <button id="reloadSettings" type="button" class="quiet-button" hidden>Keep my edits and use the latest note</button>
+        </form>
+      </details>
+      <details class="project-activity"><summary>Recent vault activity & sessions</summary><div id="projectActivity"></div></details>
+      <details class="artifact-management"><summary>Move or put away</summary><div class="organize-potion"><span id="potionPlace" class="eyebrow"></span>
+        <div class="organize-actions"><button id="shelvePotion" type="button">Move to wall shelf</button><button id="disposePotion" type="button">Retire artifact</button></div>
+        <p>Retired artifacts can be restored. Your progress stays saved.</p>
+      </div></details>
+      <details class="journey"><summary>Quest history & notes</summary>
+        <ol class="gate-list" id="gateList" aria-label="Workflow steps"></ol>
+        <p id="fullNext" class="full-next"></p>
+        <p class="latest" id="detailLatest"></p>
+      </details>
+      <button id="replayReveal" class="replay-reveal" type="button">✧ Play with the ribbon</button>
       <button class="back" id="backButton" type="button">← Return to table</button>
     </section>
 
     <footer class="footnote">
-      <span>LOCAL 3D TEST · READ ONLY</span>
-      <span>Only the current public idea.quest remains shareable.</span>
+      <span>AI 101 · LOCAL PREVIEW</span>
+      <span>Projects and checkpoints live in your vault.</span>
     </footer>
+    <div id="moveToast" class="move-toast" hidden><span id="moveMessage" role="status"></span><button id="undoMove" type="button">Undo</button><button id="dismissMove" type="button" aria-label="Dismiss notification">×</button></div>
     <p class="error" id="error" role="alert" hidden></p>
   </main>
+  <dialog id="libraryDialog" class="library-dialog" aria-labelledby="libraryTitle">
+    <header class="library-heading"><div><p class="eyebrow">YOUR WORK, ALL TOGETHER</p><h2 id="libraryTitle">The collection</h2></div><button id="libraryClose" class="quiet-button" aria-label="Close collection">×</button></header>
+    <div id="libraryContent">
+      <div class="library-toolbar"><label class="search-label">Find a project<input id="librarySearch" type="search" placeholder="Search names, ideas, next steps…"></label><label>Show<select id="libraryFilter"><option value="all">Everything</option><option value="active">Building</option><option value="review">Reviewing</option><option value="complete">Released</option><option value="resting">Resting</option><option value="idea">Ideas</option></select></label></div>
+      <p id="librarySummary" class="library-summary"></p>
+      <div id="libraryGrid" class="library-grid"></div>
+      <details id="discoveryPanel" class="discovery-panel"><summary id="discoverySummary">Found in your vault</summary><p>Link an existing project folder once. Its notes will then appear in its journal.</p><div id="discoveryList"></div></details>
+      <button id="libraryAdd" class="back" type="button">+ Add an idea or existing project</button>
+      <p id="syncNotes" class="library-summary"></p>
+    </div>
+    <form id="createProjectForm" class="journal-form" hidden>
+      <p>Start with a name. Add a repository, live link, or vault folder whenever you have one.</p>
+      <label>Project name<input name="title" maxlength="120" required placeholder="What are you making?"></label>
+      <label>One sentence<input name="pitch" maxlength="1000" placeholder="What does it do?"></label>
+      <label>State<select name="phase"><option value="idea">A new idea</option><option value="complete">Already released</option></select></label>
+      <label>GitHub repository<input name="repository" type="url" placeholder="https://github.com/you/project"></label>
+      <label>Live app<input name="live" type="url" placeholder="https://your-app.vercel.app"></label>
+      <label>Linked folder in AI 101<input name="folder" placeholder="Project 2/my-project"></label>
+      <label>Next small step<textarea name="next" rows="2" maxlength="2000" placeholder="Where will you start—or return?"></textarea></label>
+      <p id="createMessage" role="status"></p>
+      <button class="back" type="submit">Add to my collection</button><button id="createCancel" class="quiet-button" type="button">Back to collection</button>
+    </form>
+  </dialog>
   <script src="./app.js" defer></script>
 </body>
 </html>

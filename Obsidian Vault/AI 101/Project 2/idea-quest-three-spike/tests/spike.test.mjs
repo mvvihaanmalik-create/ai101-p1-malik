@@ -22,14 +22,14 @@ test('liquid levels count approvals only; artifact is not a workflow jar', () =>
   assert.equal(state.projects.find((item) => item.id === 'ai-art-pin-up').gates.length, 0);
 });
 
-test('side server serves current registry read-only and can use an isolated fixture', async () => {
+test('local server preserves live class approvals and rejects unauthorized writes', async () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'idea-quest-three-'));
   const dataFile = path.join(directory, 'projects.json');
   const state = JSON.parse(fs.readFileSync(registry, 'utf8'));
   const idea = state.projects.find((item) => item.id === 'idea-quest');
   idea.gates = ['active', 'upcoming', 'upcoming', 'upcoming', 'upcoming'];
   fs.writeFileSync(dataFile, JSON.stringify(state));
-  const server = createApp({ dataFile });
+  const server = createApp({ dataFile, vaultRoot: directory });
   server.listen(0, '127.0.0.1');
   await once(server, 'listening');
   const url = `http://127.0.0.1:${server.address().port}`;
@@ -47,10 +47,12 @@ test('side server serves current registry read-only and can use an isolated fixt
     assert.equal(levelFor((await response.json()).projects.find((item) => item.id === 'idea-quest')), 0);
     response = await fetch(`${url}/api/projects`);
     assert.equal(levelFor((await response.json()).projects.find((item) => item.id === 'idea-quest')), .6);
-    assert.equal((await fetch(`${url}/api/projects`, { method: 'POST' })).status, 405);
+    assert.equal((await fetch(`${url}/api/projects`, { method: 'POST' })).status, 403);
   } finally {
     server.close();
     await once(server, 'close');
+    assert.equal(path.dirname(directory), os.tmpdir());
+    assert.ok(path.basename(directory).startsWith('idea-quest-three-'));
     fs.rmSync(directory, { recursive: true, force: true });
   }
 });

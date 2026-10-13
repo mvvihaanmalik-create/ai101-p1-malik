@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const [file,offsetText,lengthText]=process.argv.slice(2);
+if(!['index.html','app.js','styles.css','projects.json','THREE-LICENSE.txt','vercel.json'].includes(file))throw new Error('Not a deployment file');
+const data=fs.readFileSync(path.join(here,'public-deploy',file));
+const offset=Number(offsetText),length=Number(lengthText);
+if(!Number.isInteger(offset)||offset<0||!Number.isInteger(length)||length<1||length>30000)throw new Error('Invalid chunk');
+process.stdout.write(JSON.stringify({data:data.subarray(offset,offset+length).toString('base64')}));

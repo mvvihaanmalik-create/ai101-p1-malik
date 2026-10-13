@@ -1,0 +1,38 @@
+{
+  "project": "idea-quest-ai101",
+  "projectId": "prj_zblNLbIE9RMYCLvgbmcWDpdHipAQ",
+  "accountId": "team_rYbBIpXkLNdDUrzd7HHQ5qOZ",
+  "asOf": "2026-10-13T20:57:27.064Z",
+  "files": [
+    {
+      "file": "index.html",
+      "sha": "ead70ed67ccc092e1f4933ff243a6dcb0f287225",
+      "size": 12599
+    },
+    {
+      "file": "app.js",
+      "sha": "8c734ab1057788976c68b0bd5a27c62fdfa67e27",
+      "size": 692216
+    },
+    {
+      "file": "styles.css",
+      "sha": "0d80f8b78e1a38c5cec48d7f5d6d255e4dca69eb",
+      "size": 47366
+    },
+    {
+      "file": "projects.json",
+      "sha": "3d3444bcb015b7e6231d0b753015de3a7462fd36",
+      "size": 3824
+    },
+    {
+      "file": "THREE-LICENSE.txt",
+      "sha": "7293d37daed3d6714b36d830e30c9614a5e268ec",
+      "size": 1081
+    },
+    {
+      "file": "vercel.json",
+      "sha": "d0d16fa6043530e4b0e14b34bd9061cd21c58d24",
+      "size": 96
+    }
+  ]
+}

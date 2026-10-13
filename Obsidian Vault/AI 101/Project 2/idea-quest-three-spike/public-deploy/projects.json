@@ -1,0 +1,129 @@
+{
+  "version": 2,
+  "activeProjectId": "idea-quest",
+  "projects": [
+    {
+      "id": "ai-art-pin-up",
+      "title": "AI-art pin-up",
+      "pitch": "A three-color exhibition poster shaped through multiple creative steering rounds.",
+      "kind": "artifact",
+      "phase": "complete",
+      "released": true,
+      "repository": "",
+      "live": "",
+      "nextMove": "Final artifact submitted. This predates the five-gate coding workflow.",
+      "changed": "Final 1254×1254 three-color poster and documentation are in Project 1.",
+      "gates": [],
+      "gateNames": [],
+      "legacyWorkflow": false,
+      "milestones": [],
+      "updatedAt": "2026-10-08",
+      "sessions": [],
+      "activity": [],
+      "updates": []
+    },
+    {
+      "id": "idea-quest",
+      "title": "idea.quest",
+      "pitch": "A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.",
+      "kind": "workflow",
+      "phase": "active",
+      "released": false,
+      "repository": "",
+      "live": "",
+      "nextMove": "Import one of my existing builds, then use a checkpoint after my next coding session.",
+      "changed": "Added the vault-connected project collection, project links, custom milestones, and saved session checkpoints. Bob now recalls the next step when you return.",
+      "gates": [
+        "approved",
+        "approved",
+        "active",
+        "upcoming",
+        "upcoming"
+      ],
+      "gateNames": [
+        "Goal",
+        "Route",
+        "Build",
+        "Review",
+        "Refine"
+      ],
+      "legacyWorkflow": true,
+      "milestones": [],
+      "updatedAt": "2026-10-13T20:39:01.708Z",
+      "sessions": [],
+      "activity": [],
+      "updates": []
+    },
+    {
+      "id": "image-palette",
+      "title": "Image Palette Studio",
+      "pitch": "Upload an image, extract its colors, and try them on a website preview.",
+      "kind": "workflow",
+      "phase": "revisiting",
+      "released": true,
+      "repository": "https://github.com/mvvihaanmalik-create/ai101-image-palette-studio",
+      "live": "https://mvvihaanmalik-create.github.io/ai101-image-palette-studio/",
+      "nextMove": "Side quest: test the new manual accent override before accepting that later iteration.",
+      "changed": "Original five-gate run was accepted; the later accent-override change is published for review, not accepted.",
+      "gates": [
+        "approved",
+        "approved",
+        "approved",
+        "approved",
+        "approved"
+      ],
+      "gateNames": [
+        "Goal",
+        "Route",
+        "Build",
+        "Review",
+        "Refine"
+      ],
+      "legacyWorkflow": true,
+      "milestones": [],
+      "updatedAt": "2026-10-08",
+      "sessions": [],
+      "activity": [],
+      "updates": []
+    },
+    {
+      "id": "obsidian-gaze",
+      "title": "obsidian-gaze",
+      "pitch": "One image in. One cinematic grade out. An offline Obsidian plugin.",
+      "kind": "workflow",
+      "phase": "active",
+      "released": false,
+      "repository": "",
+      "live": "",
+      "nextMove": "Review the film-frame UI in the main vault; keep, adjust, or reject it.",
+      "changed": "Cinema-styled UI built and tested in a disposable vault. Main-vault visual review is still pending.",
+      "gates": [
+        "approved",
+        "approved",
+        "active",
+        "upcoming",
+        "upcoming"
+      ],
+      "gateNames": [
+        "Goal",
+        "Route",
+        "Build",
+        "Review",
+        "Refine"
+      ],
+      "legacyWorkflow": true,
+      "milestones": [],
+      "updatedAt": "2026-10-08",
+      "sessions": [],
+      "activity": [],
+      "updates": []
+    }
+  ],
+  "candidates": [],
+  "sync": {
+    "root": "Published collection",
+    "mode": "hosted",
+    "asOf": "2026-10-13T20:57:27.064Z",
+    "warnings": []
+  }
+}

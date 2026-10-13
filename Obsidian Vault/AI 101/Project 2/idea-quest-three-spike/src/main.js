@@ -1,27 +1,118 @@
 import * as THREE from 'three';
+import { painterly } from './painterly.js';
+import { createPaintRenderer } from './paint-renderer.js';
 import { approvedCount, levelFor } from './progress.js';
+import { createSpiritCat, animateSpiritCat } from './spirit-cat.js';
+import { createWorkshop } from './workshop.js';
+import { artifactKind, ARTIFACTS } from './artifact-kind.js';
+import { makeArtifactModels } from './artifact-models.js';
+import { parseOrganization, nextTableFocus, tableSlot } from './organization.js';
+import { createCollectionUI } from './collection-ui.js';
 
-const IDS = ['idea-quest', 'obsidian-gaze', 'image-palette'];
+let IDS = ['idea-quest', 'obsidian-gaze', 'image-palette'];
+let vaultState=null, collectionUI=null, firstRegistry=true;
 const STEPS = ['Define the goal', 'Choose a route', 'Build a small prototype', 'Human check', 'Iterate or stop'];
 const COLORS = { 'idea-quest': '#c68af1', 'obsidian-gaze': '#42e2cb', 'image-palette': '#ffbd65' };
 const LABELS = { 'idea-quest': 'idea.quest', 'obsidian-gaze': 'Gaze', 'image-palette': 'Image Palette' };
 const DEMO = new URLSearchParams(window.location.search).get('demo') === '1';
+const HOSTED = document.body.dataset.mode === 'hosted';
+function connectionLabel(){return HOSTED?`Published snapshot · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}
 const $ = (id) => document.getElementById(id);
+let focusId='idea-quest';
+try {const saved=localStorage.getItem('ideaQuest.focus');if(saved)focusId=saved;} catch {}
+const ORGANIZATION_KEY='ideaQuest.organization.v1'+(DEMO?'.demo':'');
+let storedOrganization=null;try{storedOrganization=localStorage.getItem(ORGANIZATION_KEY);}catch{}
+let organization=parseOrganization(storedOrganization,IDS);
+let collection='table',undoAction=null;
+const PLACE_LABELS={table:'Worktable',shelf:'Wall shelf',retired:'Retired'};
+function collectionIds(place){return IDS.filter(id=>organization[id]===place);}
+function saveOrganization(){try{localStorage.setItem(ORGANIZATION_KEY,JSON.stringify(organization));if(focusId)localStorage.setItem('ideaQuest.focus',focusId);return true;}catch{return false;}}
+const QUESTS={
+  'idea-quest': {action:'Review the workshop design',hint:'Try the room and cat, then decide what to keep or change.'},
+  'obsidian-gaze': {action:'Review the film-frame UI',hint:'Open Gaze in your vault. Keep, adjust, or reject the design.'},
+  'image-palette': {action:'Test the accent-color override',hint:'The original quest is complete. Check the new accent feature before accepting it.'}
+};
+function questFor(project){
+  const done=approvedCount(project),revisit=project.phase==='revisiting';
+  const knownNote={'idea-quest':/3D potion-room|workshop design/i,'obsidian-gaze':/film-frame UI/i,'image-palette':/manual accent override/i}[project.id];
+  const summary=knownNote?.test(project.nextMove||'')?QUESTS[project.id]:null;
+  return {...(summary||{action:project.nextMove?.split('. ')[0]||'Choose your next step',hint:project.pitch}),status:revisit?'Revisiting':project.phase==='complete'?'Released':project.phase==='resting'?'Resting':project.phase==='idea'?'New idea':project.phase==='review'||/\b(review|test|check)\b/i.test(project.nextMove||'')?'Ready for your review':'Building',done};
+}
+function renderFocus(){
+  focusId=nextTableFocus(organization,focusId,IDS);
+  const p=records.get(focusId);
+  if(p){const q=questFor(p);$('focusTitle').textContent=p.title;$('focusNext').textContent=q.action;$('focusOpen').textContent='Resume project →';}
+  else{$('focusTitle').textContent='A clear worktable';$('focusNext').textContent='Bring an artifact back when you’re ready.';$('focusOpen').textContent=collectionIds('shelf').length?'Browse the shelf →':'Browse retired artifacts →';}
+  $('questTotal').textContent=`${collectionIds('table').length} on the table · ${collectionIds('shelf').length} on the shelf`;
+}
+function renderCollections(){
+  for(const place of ['table','shelf','retired']){const button=$(place+'Tab');button.textContent=`${PLACE_LABELS[place]} (${collectionIds(place).length})`;button.setAttribute('aria-pressed',String(collection===place));}
+  $('collectionHint').textContent={table:'Tap to open · drag to put on the shelf.',shelf:'Resting projects and collected work. Bring an artifact back whenever you like.',retired:'Cleared from the room. Restore an artifact with its progress intact.'}[collection];
+}
+function showCollection(place){collection=place;hoveredId=null;renderDock();renderCollections();}
+function jarRestPose(jar){
+  const place=organization[jar.id];
+  if(place==='shelf')return {position:workshop.shelfSlot(Math.max(0,collectionIds('shelf').indexOf(jar.id)%3)),scale:mobileLayout?.37:.38};
+  const active=collectionIds('table');
+  return {position:new THREE.Vector3(tableSlot(Math.max(0,active.indexOf(jar.id)),active.length,mobileLayout),1,mobileLayout?1.15:.4),scale:mobileLayout?.86:1};
+}
+function movePotion(id,to,isUndo=false){
+  if(!IDS.includes(id)||!['table','shelf','retired'].includes(to)||organization[id]===to)return;
+  if(to==='table'&&collectionIds('table').length>=3){say('Three ideas on the table is plenty. Shelve one first, then bring this one back.');showError('The worktable holds three projects. Move one to the shelf to make room.');return;}
+  const from=organization[id],previousFocus=focusId;
+  organization[id]=to;focusId=nextTableFocus(organization,focusId,IDS);
+  const saved=saveOrganization(),jar=jars.get(id);
+  if(jar){
+    if(from==='retired'){const pose=jarRestPose(jar);jar.group.position.copy(pose.position);jar.group.position.y+=.7;jar.group.scale.setScalar(.02);}
+    jar.group.visible=true;
+    jar.flight={from:jar.group.position.clone(),fromScale:jar.group.scale.x,start:performance.now(),duration:to==='retired'?1450:1650,to};
+  }
+  selectedId=null;reveal=null;clearTimeout(revealTimer);hoveredId=null;$('artifactReveal').hidden=true;$('details').hidden=true;$('room').classList.remove('selected','revealing');setRoomModal(false);
+  syncSceneArtifacts();renderDock();renderCollections();renderFocus();
+  if(!isUndo){undoAction={id,from,to,previousFocus};$('undoMove').hidden=false;}
+  $('moveMessage').textContent=(isUndo?'Restored ':to==='shelf'?'Shelved ':to==='retired'?'Retired ':'Returned to the table: ')+(LABELS[id]||id)+(saved?'.':'. Saved for this visit only.');
+  $('moveToast').hidden=false;
+  say(to==='shelf'?'Resting, not forgotten. I’ll keep this one safe.':to==='retired'?'A little more room for your next idea.':'Welcome back, little idea.');
+  lastInteraction=performance.now();catMood=to==='retired'?'pet':'hello';greetingUntil=lastInteraction+3000;
+  $(collection+'Tab').focus();chime();if(renderer)animate();
+}
+function undoMove(){if(!undoAction)return;const action=undoAction;undoAction=null;movePotion(action.id,action.from,true);focusId=nextTableFocus(organization,action.previousFocus,IDS);saveOrganization();renderFocus();renderDock();$('undoMove').hidden=true;}
+
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let records = new Map();
+let primaryProjectId='idea-quest';
+let reveal=null,revealTimer=null,ribbonDrag=null,ribbonDragged=false;
 let selectedId = null;
-let scene, camera, renderer, cat, lantern, raycaster;
+let scene, camera, renderer, cat, workshop, raycaster, paintRenderer;
+let catHovered=false, catMood="idle", lastInteraction=0, helloCount=0;
 const jars = new Map();
 const pickMeshes = [];
 let lastFocusedId = null;
 let lastRegistryText = null;
 let hoveredId = null;
+let greetingUntil = 0;
+let lastFrame = 0;
+let pointerDown = null;
+let potionDrag = null;
+let dropHint;
+let roomView=false,focusEnds=0,cozyUntil=0,watchedPotion=null,watchUntil=0;
+const cameraAim=new THREE.Vector3(0,1.8,0);
+let soundEnabled = false;
+let audioContext;
+let lastDialogue = '';
+let sceneFailure = null;
+const pointerLook = new THREE.Vector2();
+const cameraHome = new THREE.Vector3();
+let mobileLayout = false;
+const catPickMeshes = [];
+const jarSymbols = { 'idea-quest': '✧', 'obsidian-gaze': '◉', 'image-palette': '✿' };
 
 function showError(message) { $('error').textContent = message; $('error').hidden = false; }
-function clearError() { $('error').hidden = true; }
+function clearError() { if(sceneFailure)showError(sceneFailure);else $('error').hidden = true; }
 
-function mat(color, options = {}) { return new THREE.MeshToonMaterial({ color, ...options }); }
+function mat(color, options = {}) { return painterly(new THREE.MeshStandardMaterial({ color, roughness:1, ...options }),1.4,.65); }
 function mesh(geometry, material, parent, x = 0, y = 0, z = 0) {
   const item = new THREE.Mesh(geometry, material);
   item.position.set(x, y, z);
@@ -39,258 +130,18 @@ function block(parent, material, x, y, z, sx, sy, sz) {
 function stroke(parent, material, points, radius = .025) {
   return mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points.map(([x, y, z]) => new THREE.Vector3(x, y, z))), 24, radius, 6, false), material, parent);
 }
-function woodTexture() {
-  const canvas = document.createElement('canvas');
-  canvas.width = 512; canvas.height = 256;
-  const context = canvas.getContext('2d');
-  const wash = context.createLinearGradient(0, 0, 0, 256);
-  wash.addColorStop(0, '#d39158'); wash.addColorStop(.55, '#a86648'); wash.addColorStop(1, '#8e5543');
-  context.fillStyle = wash; context.fillRect(0, 0, 512, 256);
-  for (let i = 0; i < 40; i++) {
-    const y = i * 6.5;
-    context.beginPath();
-    for (let x = 0; x <= 512; x += 8) {
-      const wave = Math.sin(x * .018 + i * .6) * (1.5 + i % 3) + Math.sin(x * .046 + i) * .7;
-      if (x === 0) context.moveTo(x, y + wave); else context.lineTo(x, y + wave);
-    }
-    context.strokeStyle = i % 4 === 0 ? '#f2b77a33' : '#5e35402d';
-    context.lineWidth = i % 4 === 0 ? 2 : 1;
-    context.stroke();
-  }
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
-  return texture;
-}
-
-function buildBackdrop() {
-  scene.background = new THREE.Color('#281a33');
-  scene.fog = new THREE.Fog('#281a33', 13, 27);
-  const wall = mat('#65465f');
-  const beam = mat('#492c45');
-  block(scene, wall, 0, 2, -5.2, 22, 9, .22);
-  block(scene, beam, 0, 5.1, -4.9, 22, .28, .35);
-  block(scene, beam, -5, 2, -4.9, .28, 7, .35);
-  block(scene, beam, 5, 2, -4.9, .28, 7, .35);
-  const panel = mat('#76516a');
-  const inlay = mat('#b17a71');
-  for (const x of [-4.36, -2.9, -1.44, 0, 1.44, 2.9, 4.36]) {
-    block(scene, panel, x, -.15, -4.75, 1.36, 1.9, .16);
-    block(scene, inlay, x, .76, -4.58, 1.4, .055, .13);
-    block(scene, beam, x, -.92, -4.57, 1.46, .13, .18);
-  }
-  block(scene, inlay, 0, .85, -4.45, 10, .12, .22);
-  for (const x of [-4.65, -1.2, 4.65]) {
-    block(scene, beam, x, 2.75, -4.65, .19, 3.8, .23);
-    block(scene, inlay, x, 4.6, -4.49, .34, .12, .28);
-  }
-
-  const windowShape = new THREE.Shape();
-  windowShape.moveTo(-1.25, 0);
-  windowShape.lineTo(1.25, 0);
-  windowShape.lineTo(1.25, 2.15);
-  windowShape.absarc(0, 2.15, 1.25, 0, Math.PI, false);
-  windowShape.lineTo(-1.25, 0);
-  const windowGroup = new THREE.Group();
-  windowGroup.position.set(2.45, 2.0, -4.99);
-  scene.add(windowGroup);
-  mesh(new THREE.ShapeGeometry(windowShape), new THREE.MeshBasicMaterial({ color: '#244c88' }), windowGroup);
-  ball(windowGroup, new THREE.MeshBasicMaterial({ color: '#ffecbb' }), .53, 2.62, .03, .25, .25, .02);
-  block(windowGroup, mat('#9a6580'), 0, 1.05, .08, .10, 2.1, .14);
-  block(windowGroup, mat('#9a6580'), 0, 1.7, .08, 2.45, .10, .14);
-  const arch = mesh(new THREE.TorusGeometry(1.3, .1, 8, 36, Math.PI), mat('#9a6580'), windowGroup, 0, 2.15, .1);
-  arch.rotation.z = 0;
-  block(windowGroup, mat('#9a6580'), -1.3, 1.06, .1, .17, 2.2, .17);
-  block(windowGroup, mat('#9a6580'), 1.3, 1.06, .1, .17, 2.2, .17);
-  block(windowGroup, mat('#9a6580'), 0, -.08, .1, 2.75, .18, .2);
-  const night = new THREE.Group();
-  night.position.set(0, 0, .035);
-  windowGroup.add(night);
-  const skyline = mat('#17365e');
-  for (const [x, y, w, h] of [[-.8, .35, .34, .7], [-.43, .4, .25, .8], [-.09, .28, .22, .56], [.28, .45, .29, .9], [.65, .32, .3, .64]]) {
-    block(night, skyline, x, y, 0, w, h, .015);
-  }
-  for (const [x, y, size] of [[-.7, 2.7, .035], [-.28, 3.12, .025], [.92, 3.07, .03], [.28, 2.21, .02], [-.9, 1.78, .025]]) {
-    ball(night, new THREE.MeshBasicMaterial({ color: '#fbdfa2' }), x, y, 0, size, size, .012);
-  }
-  const curtain = mat('#9c5c7c', { side: THREE.DoubleSide });
-  for (const sign of [-1, 1]) {
-    const drape = mesh(new THREE.ConeGeometry(.42, 2.9, 7, 1, true, 0, Math.PI), curtain, windowGroup, sign * 1.39, 1.38, .32);
-    drape.rotation.y = sign * .5;
-    block(windowGroup, mat('#e5ad72'), sign * 1.28, 1.15, .43, .45, .055, .07);
-  }
-
-  const shelf = mat('#a56a4b');
-  const bookColors = ['#7a5d9e', '#517c8a', '#ad6a66', '#cca376', '#79658b'];
-  for (const [sx, sy] of [[-3.53, 3.15], [4.04, 3.15]]) {
-    block(scene, shelf, sx, sy, -4.12, 1.55, .12, .62);
-    block(scene, mat('#e2b17c'), sx, sy + .08, -4.12, 1.57, .04, .64);
-    for (let i = 0; i < 6; i++) {
-      const h = .38 + (i % 3) * .09;
-      block(scene, mat(bookColors[(i + (sx > 0 ? 2 : 0)) % bookColors.length]), sx - .52 + i * .2, sy + .13 + h / 2, -4.11, .16, h, .37);
-    }
-    block(scene, inlay, sx - .52, sy - .17, -4.06, .1, .32, .45);
-    block(scene, inlay, sx + .52, sy - .17, -4.06, .1, .32, .45);
-  }
-
-  const floor = block(scene, mat('#322735'), 0, -.58, .5, 25, .15, 14);
-  floor.receiveShadow = true;
-  const floorLine = mat('#46384a');
-  for (let z = -6; z <= 7; z += 1.25) block(scene, floorLine, 0, -.485, z, 22, .005, .018);
-  const gold = mat('#f0ae65');
-  for (let i = 0; i < 9; i++) {
-    const star = mesh(new THREE.OctahedronGeometry(.03 + (i % 3) * .012), gold, scene,
-      -3.9 + i * .9, 3.1 + Math.sin(i * 3.7) * .55, -3.7);
-    star.rotation.z = i * .4;
-  }
-}
-
-function buildTable() {
-  const table = new THREE.Group();
-  scene.add(table);
-  const wood = mat('#ffffff', { map: woodTexture() });
-  const darkWood = mat('#663a39');
-  const edge = mat('#bd7b45');
-  const grain = mat('#bb8058');
-  const brass = mat('#e3ad6a');
-  block(table, darkWood, 0, .61, .35, 9.4, .37, 3.6);
-  for (let i = -1; i <= 1; i++) {
-    const plank = block(table, wood, 0, .84, .35 + i * 1.08, 9.15, .1, 1.04);
-    plank.castShadow = true;
-    block(table, edge, 0, .86, .86 + i * 1.08, 9.1, .015, .028);
-    for (let j = 0; j < 3; j++) {
-      stroke(table, grain, [
-        [-4.22, .899, .18 + i * 1.08 + j * .25],
-        [-2.1, .901, .2 + i * 1.08 + j * .25 + .03],
-        [.15, .899, .17 + i * 1.08 + j * .25],
-        [2.7, .9, .19 + i * 1.08 + j * .25 - .02],
-        [4.2, .899, .18 + i * 1.08 + j * .25],
-      ], .006);
-    }
-  }
-  for (const x of [-3.95, 3.95]) for (const z of [-.85, 1.4]) {
-    block(table, darkWood, x, -.12, z, .55, 1.3, .55);
-  }
-  block(table, edge, 0, .49, 2.08, 9.45, .09, .1);
-  block(table, brass, 0, .68, 2.1, 9.2, .025, .035);
-  for (const x of [-4.45, 4.45]) {
-    ball(table, brass, x, .66, 2.13, .05, .05, .02);
-  }
-}
-
-function whisker(group, x1, y1, x2, y2) {
-  const a = new THREE.Vector3(x1, y1, .63);
-  const b = new THREE.Vector3(x2, y2, .63);
-  const d = b.clone().sub(a);
-  const line = mesh(new THREE.CylinderGeometry(.009, .009, d.length(), 6), mat('#d6a2ab'), group);
-  line.position.copy(a.clone().add(b).multiplyScalar(.5));
-  line.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize());
-}
-
 function buildCat() {
-  cat = new THREE.Group();
+  cat = createSpiritCat();
   cat.position.set(-3.1, .92, .35);
   scene.add(cat);
-  const fur = mat('#222238');
-  const litFur = mat('#39344d');
-  const ear = mat('#a06080');
-  const hat = mat('#704798');
-  const hatLight = mat('#a06ac0');
-  const amber = new THREE.MeshBasicMaterial({ color: '#ffc96e' });
-  const black = new THREE.MeshBasicMaterial({ color: '#241822' });
-  const shine = new THREE.MeshBasicMaterial({ color: '#fff3d0' });
-  const eyes = [];
-
-  ball(cat, litFur, 0, .58, 0, .54, .66, .43);
-  ball(cat, mat('#724f8c'), 0, .57, -.26, .6, .65, .32);
-  ball(cat, fur, 0, 1.55, .12, .77, .68, .64);
-  ball(cat, litFur, -.5, 1.34, .4, .32, .25, .34);
-  ball(cat, litFur, .5, 1.34, .4, .32, .25, .34);
-  for (const sign of [-1, 1]) {
-    const e = mesh(new THREE.ConeGeometry(.31, .65, 3), fur, cat, sign * .52, 2.08, .03);
-    e.rotation.z = sign * -.25;
-    const inner = mesh(new THREE.ConeGeometry(.16, .36, 3), ear, cat, sign * .52, 2.06, .29);
-    inner.rotation.z = sign * -.25;
-    ball(cat, fur, sign * .31, .16, .42, .18, .12, .21);
-    for (const eye of [
-      ball(cat, amber, sign * .31, 1.61, .68, .205, .255, .075),
-      ball(cat, black, sign * .27, 1.6, .75, .085, .165, .035),
-      ball(cat, shine, sign * .25 - .045, 1.70, .79, .044, .06, .02),
-    ]) { eye.userData.openHeight = eye.scale.y; eyes.push(eye); }
-    whisker(cat, sign * .42, 1.3, sign * .85, 1.37);
-    whisker(cat, sign * .43, 1.25, sign * .83, 1.18);
-    ball(cat, mat('#e3869d'), sign * .51, 1.3, .66, .14, .055, .02);
-    const brow = ball(cat, fur, sign * .29, 1.93, .67, .22, .045, .05);
-    brow.rotation.z = -sign * .18;
-  }
-  ball(cat, ear, 0, 1.37, .77, .09, .065, .05);
-  ball(cat, mat('#e98594'), 0, 1.22, .76, .085, .07, .025);
-  ball(cat, mat('#f6c1bd'), 0, 1.11, .77, .13, .035, .03);
-  const tailCurve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(-.4, .45, -.2), new THREE.Vector3(-.86, .45, -.25),
-    new THREE.Vector3(-1.01, 1.0, -.15), new THREE.Vector3(-.86, 1.14, .04)
-  ]);
-  mesh(new THREE.TubeGeometry(tailCurve, 18, .105, 8, false), fur, cat);
-
-  const brim = ball(cat, hat, -.09, 2.18, .06, 1.15, .13, .93);
-  brim.rotation.z = -.14;
-  brim.rotation.x = -.12;
-  const hatCrown = mesh(new THREE.CylinderGeometry(.37, .65, .89, 32), hat, cat, -.15, 2.71, -.05);
-  hatCrown.rotation.z = -.21;
-  const hatTip = mesh(new THREE.CylinderGeometry(.09, .37, .64, 28), hatLight, cat, -.35, 3.29, -.05);
-  hatTip.rotation.z = -.52;
-  ball(cat, hatLight, -.64, 3.51, -.05, .16, .15, .15);
-  const hatBand = mat('#f1b86f');
-  mesh(new THREE.TorusGeometry(.63, .055, 8, 30), hatBand, cat, -.12, 2.25, -.04).rotation.x = Math.PI / 2;
-  const hatStar = mesh(new THREE.OctahedronGeometry(.16, 0), mat('#ffe7a9'), cat, .28, 2.27, .75);
-  hatStar.rotation.z = Math.PI / 4;
-  mesh(new THREE.TorusGeometry(.44, .045, 8, 28), mat('#edb468'), cat, -.16, 2.26, -.03).rotation.x = Math.PI / 2;
-  const capeTie = mat('#eac077');
-  ball(cat, capeTie, 0, .63, .47, .14, .14, .07);
-  ball(cat, mat('#f6e0ac'), 0, .65, .51, .055, .055, .02);
-  const collar = mesh(new THREE.TorusGeometry(.46, .09, 8, 28, Math.PI), hatLight, cat, 0, .9, .15);
-  collar.rotation.x = Math.PI / 2;
-  cat.userData.eyes = eyes;
-  cat.userData.hatStar = hatStar;
   return cat;
-}
-
-function makeCandle(x, z, height) {
-  const candle = new THREE.Group();
-  candle.position.set(x, .92, z);
-  scene.add(candle);
-  mesh(new THREE.CylinderGeometry(.12, .14, height, 12), mat('#f3d8a5'), candle, 0, height / 2, 0);
-  mesh(new THREE.CylinderGeometry(.2, .19, .055, 16), mat('#a86d54'), candle, 0, .03, 0);
-  const flame = mesh(new THREE.ConeGeometry(.075, .24, 10), new THREE.MeshBasicMaterial({ color: '#ffd27b' }), candle, 0, height + .16, 0);
-  const light = new THREE.PointLight('#ffae69', 3, 4, 2);
-  light.position.set(0, height + .2, .1);
-  candle.add(light);
-  return flame;
-}
-
-function buildLantern() {
-  lantern = new THREE.Group();
-  lantern.position.set(-.45, 4.42, -2.35);
-  scene.add(lantern);
-  const iron = mat('#5c3658');
-  const gold = mat('#e7aa67');
-  mesh(new THREE.CylinderGeometry(.025, .025, 1.2, 8), iron, lantern, 0, .43, 0);
-  mesh(new THREE.ConeGeometry(.34, .26, 8), iron, lantern, 0, -.29, 0);
-  const glow = ball(lantern, new THREE.MeshBasicMaterial({ color: '#ffd99a', transparent: true, opacity: .78 }), 0, -.7, 0, .29, .35, .29);
-  glow.renderOrder = 2;
-  mesh(new THREE.CylinderGeometry(.37, .37, .07, 12), gold, lantern, 0, -.99, 0);
-  for (let i = 0; i < 6; i++) {
-    const angle = i * Math.PI / 3;
-    mesh(new THREE.CylinderGeometry(.022, .022, .68, 6), gold, lantern, Math.cos(angle) * .29, -.67, Math.sin(angle) * .29);
-  }
-  const light = new THREE.PointLight('#ffbf76', 2.2, 8, 2);
-  light.position.y = -.71;
-  lantern.add(light);
 }
 
 const bottleProfile = [
   [0, .06], [.30, .06], [.52, .18], [.62, .35], [.64, .61], [.64, 1.22],
   [.57, 1.40], [.39, 1.58], [.29, 1.68], [.29, 1.94], [.34, 1.94]
 ];
+const smoothBottle = new THREE.SplineCurve(bottleProfile.slice(1).map(([r,y])=>new THREE.Vector2(r,y))).getPoints(64);
 function radiusAt(y) {
   for (let i = 1; i < bottleProfile.length; i++) {
     const [r1, y1] = bottleProfile[i];
@@ -303,35 +154,48 @@ function liquidGeometry(level) {
   if (level <= 0) return null;
   const top = .08 + 1.49 * level;
   const profile = [new THREE.Vector2(0, .075)];
-  for (const [r, y] of bottleProfile) {
+  for (const {x:r, y} of smoothBottle) {
     if (y > .075 && y < top) profile.push(new THREE.Vector2(r * .89, y));
   }
   profile.push(new THREE.Vector2(radiusAt(top) * .89, top));
   profile.push(new THREE.Vector2(0, top));
-  return { geometry: new THREE.LatheGeometry(profile, 32), top, radius: radiusAt(top) * .89 };
+  return { geometry: new THREE.LatheGeometry(profile, 64), top, radius: radiusAt(top) * .89 };
 }
 function updateLiquid(jar, level) {
   if (jar.potionGlow) jar.potionGlow.intensity = level > 0 ? .45 + level * .6 : 0;
   if (jar.liquid) {
-    jar.group.remove(jar.liquid);
-    jar.liquid.traverse((node) => { if (node.isMesh) node.geometry.dispose(); });
+    jar.liquid.parent?.remove(jar.liquid);
+    jar.liquid.traverse((node) => { if (node.isMesh) {node.geometry.dispose();node.material.dispose();} });
     jar.liquid = null;
   }
   const shape = liquidGeometry(level);
   if (!shape) return;
   const liquid = new THREE.Group();
   const color = COLORS[jar.id];
-  mesh(shape.geometry, new THREE.MeshToonMaterial({ color, emissive: color, emissiveIntensity: .23, side: THREE.DoubleSide }), liquid);
-  const surface = mesh(new THREE.CircleGeometry(shape.radius, 32), new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide }), liquid, 0, shape.top, 0);
-  surface.rotation.x = -Math.PI / 2;
+  const liquidMat = new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: .14, roughness: .95, metalness: 0 });
+  const ripple={time:{value:0},top:{value:shape.top},strength:{value:0}};
+  const rippleShader=(shader)=>{
+    shader.uniforms.potionTime=ripple.time;shader.uniforms.potionTop=ripple.top;shader.uniforms.potionStrength=ripple.strength;
+    shader.vertexShader='uniform float potionTime; uniform float potionTop; uniform float potionStrength;\n'+shader.vertexShader;
+    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\ntransformed.y += smoothstep(potionTop * .6, potionTop, position.y) * (sin(position.x * 7.0 + potionTime * 1.6) * .012 + cos(position.z * 6.0 + potionTime * 1.3) * .009) * potionStrength;');
+  };
+  liquidMat.onBeforeCompile=rippleShader;painterly(liquidMat,1.1,.5);
+  mesh(shape.geometry, liquidMat, liquid);
+  const surfaceGeometry=new THREE.CircleGeometry(shape.radius,64);surfaceGeometry.rotateX(-Math.PI/2);surfaceGeometry.translate(0,shape.top+.006,0);
+  const surfaceMat=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:.18,roughness:.95,side:THREE.DoubleSide});surfaceMat.onBeforeCompile=rippleShader;painterly(surfaceMat,1.1,.5);
+  mesh(surfaceGeometry,surfaceMat,liquid);
+  const bubbles=[];
   for (let i = 0; i < Math.max(2, Math.floor(level * 8)); i++) {
     const angle = i * 2.39996;
     const radius = .11 + (i % 3) * .11;
     const y = .2 + (shape.top - .3) * ((i + .5) / Math.max(2, Math.floor(level * 8)));
-    if (y < shape.top - .05) ball(liquid, new THREE.MeshBasicMaterial({ color: '#fff4d2', transparent: true, opacity: .46 }), Math.cos(angle) * radius, y, Math.sin(angle) * radius, .03 + (i % 2) * .012);
+    if (y < shape.top - .05) {const bubble=ball(liquid,new THREE.MeshBasicMaterial({color:'#fff4d2',transparent:true,opacity:.33}),Math.cos(angle)*radius,y,Math.sin(angle)*radius,.025+(i%2)*.012);bubble.userData.phase=i*.51;bubbles.push(bubble);}
   }
   liquid.renderOrder = 1;
-  jar.group.add(liquid);
+  liquid.userData.top = shape.top;
+  liquid.userData.ripple=ripple;
+  liquid.userData.bubbles=bubbles;
+  jar.bottle.add(liquid);
   jar.liquid = liquid;
 }
 function buildJar(id, x) {
@@ -339,36 +203,54 @@ function buildJar(id, x) {
   group.position.set(x, .93, .42);
   scene.add(group);
   const color = COLORS[id];
-  const profile = bottleProfile.map(([r, y]) => new THREE.Vector2(r, y));
-  const glass = mesh(new THREE.LatheGeometry(profile, 32), new THREE.MeshPhysicalMaterial({
-    color: '#d9f4f5', transparent: true, opacity: .24, roughness: .11, metalness: 0,
-    clearcoat: 1, clearcoatRoughness: .08,
-    depthWrite: false, side: THREE.DoubleSide
+  const profile = [new THREE.Vector2(0,.06),...smoothBottle];
+  const glass = mesh(new THREE.LatheGeometry(profile, 64), new THREE.MeshPhysicalMaterial({
+    color: '#d2e9ff', transparent: true, opacity: .16, roughness: .2, metalness: 0,
+    clearcoat: 0, clearcoatRoughness: 1,
+    depthWrite: false, side: THREE.FrontSide
   }), group);
   glass.renderOrder = 3;
-  const bronze = mat('#d8a979');
+  const bronze = mat('#e6b567', {metalness:.48,roughness:.3});
   const pale = mat('#f8e5bb');
-  mesh(new THREE.CylinderGeometry(.7, .73, .055, 32), mat('#774956'), group, 0, .005, 0);
+  mesh(new THREE.CylinderGeometry(.69, .73, .065, 64), mat('#ad775b'), group, 0, .005, 0);
+  mesh(new THREE.CylinderGeometry(.70, .70, .02, 64), mat('#233d51'), group, 0, .049, 0);
   mesh(new THREE.TorusGeometry(.65, .035, 8, 32), bronze, group, 0, .12, 0).rotation.x = Math.PI / 2;
   mesh(new THREE.TorusGeometry(.35, .035, 6, 28), mat('#f4d3aa'), group, 0, 1.93, 0).rotation.x = Math.PI / 2;
-  const cork = mesh(new THREE.CylinderGeometry(.31, .28, .27, 12), mat('#bc8552'), group, 0, 2.06, 0);
+  const cork = mesh(new THREE.CylinderGeometry(.31, .28, .27, 48), mat('#ac7952'), group, 0, 2.06, 0);
   cork.rotation.z = -.03;
-  mesh(new THREE.CylinderGeometry(.34, .34, .035, 24), bronze, group, 0, 2.2, 0);
+  const capTop=mesh(new THREE.CylinderGeometry(.34, .34, .035, 24), bronze, group, 0, 2.2, 0);
   const wax = ball(group, mat(color), 0, 2.23, 0, .16, .06, .16);
   wax.rotation.z = -.08;
-  const medallion = mesh(new THREE.OctahedronGeometry(.18, 0), pale, group, 0, 1.12, .67);
-  medallion.rotation.z = Math.PI / 4;
-  ball(group, mat(color), 0, 1.12, .76, .07, .07, .018);
+  stroke(group,bronze,[[-.23,1.90,.22],[-.25,1.59,.43],[0,1.30,.65],[.25,1.59,.43],[.23,1.90,.22]],.017);
+  const medallion = mesh(new THREE.CylinderGeometry(.205,.205,.045,48),bronze,group,0,1.13,.653);medallion.rotation.x=Math.PI/2;
+  const labelCanvas=document.createElement('canvas');labelCanvas.width=512;labelCanvas.height=512;
+  const ctx=labelCanvas.getContext('2d');ctx.scale(4,4);ctx.fillStyle='#fff0cd';ctx.fillRect(0,0,128,128);ctx.strokeStyle='#aa8158';ctx.lineWidth=3;ctx.beginPath();ctx.arc(64,64,54,0,Math.PI*2);ctx.stroke();ctx.fillStyle='#574056';ctx.font='bold 72px Georgia';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(jarSymbols[id],64,67);
+  const labelMap=new THREE.CanvasTexture(labelCanvas);labelMap.colorSpace=THREE.SRGBColorSpace;labelMap.anisotropy=8;
+  mesh(new THREE.CircleGeometry(.181,48),new THREE.MeshStandardMaterial({map:labelMap,roughness:.7}),group,0,1.13,.68);
   for (const sign of [-1, 1]) {
-    stroke(group, new THREE.MeshBasicMaterial({ color: '#f7fff6', transparent: true, opacity: .35 }), [
+    stroke(group, new THREE.MeshBasicMaterial({ color: '#eddbc0', transparent: true, opacity: .17 }), [
       [sign * .41, .42, .48], [sign * .47, .75, .47], [sign * .46, 1.1, .45], [sign * .37, 1.39, .37]
     ], .014);
   }
   mesh(new THREE.TorusGeometry(.39, .025, 6, 28), new THREE.MeshBasicMaterial({ color }), group, 0, .25, 0).rotation.x = Math.PI / 2;
+  for(const r of [.53,.62])mesh(new THREE.TorusGeometry(r,.012,10,64),bronze,group,0,.15,0).rotation.x=Math.PI/2;
+  for(let i=0;i<12;i++){const a=i*Math.PI/6;const mark=mesh(new THREE.OctahedronGeometry(.021),bronze,group,Math.sin(a)*.49,.29,Math.cos(a)*.49);mark.scale.y=1.6;}
   const potionGlow = new THREE.PointLight(color, 0, 2.2, 2);
   potionGlow.position.set(0, .72, .1);
   group.add(potionGlow);
-  const jar = { id, group, homeX: x, liquid: null, level: -1, potionGlow };
+  const sparkles = new THREE.Group();group.add(sparkles);
+  for(let i=0;i<8;i++){
+    const star=mesh(new THREE.OctahedronGeometry(.026+(i%3)*.008),new THREE.MeshBasicMaterial({color:'#ffefb0',transparent:true,opacity:0}),sparkles);
+    star.userData.phase=i*.78;
+  }
+  const dustGeometry=new THREE.BufferGeometry();dustGeometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array(32*3),3));
+  const dust=new THREE.Points(dustGeometry,new THREE.PointsMaterial({color,size:.07,transparent:true,opacity:0,depthWrite:false}));dust.visible=false;scene.add(dust);
+  const bottle=new THREE.Group();group.add(bottle);
+  for(const child of [...group.children])if(child!==bottle&&child!==sparkles)bottle.add(child);
+  const cap=new THREE.Group();bottle.add(cap);for(const part of [cork,capTop,wax])cap.add(part);
+  const models=makeArtifactModels(group,color);
+  const jar = { id, group, bottle, cap, models, kind:'potion', homeX: x, homeZ:.4, baseScale:1, liquid: null, level: -1, potionGlow, sparkles, dust, flight:null };
+  group.visible=organization[id]!=='retired';
   group.traverse((node) => {
     if (node.isMesh) { node.userData.projectId = id; pickMeshes.push(node); }
   });
@@ -381,38 +263,28 @@ function setupScene() {
   camera = new THREE.PerspectiveCamera(40, 1, .1, 60);
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.19;
+  renderer.toneMapping = THREE.NeutralToneMapping;
+  renderer.toneMappingExposure = 1.05;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
+  renderer.shadowMap.type = THREE.PCFShadowMap;
+  renderer.setPixelRatio(Math.min(2,Math.max(1.5,window.devicePixelRatio||1)));
   $('scene').appendChild(renderer.domElement);
-  scene.add(new THREE.AmbientLight('#b5a2c7', 1.05));
-  const warm = new THREE.DirectionalLight('#ffd4a2', 3.3);
-  warm.position.set(-3.5, 6, 5);
-  warm.castShadow = true;
-  warm.shadow.mapSize.set(1024, 1024);
-  warm.shadow.camera.left = -7; warm.shadow.camera.right = 7;
-  warm.shadow.camera.top = 7; warm.shadow.camera.bottom = -5;
-  warm.shadow.bias = -.0005;
-  scene.add(warm);
-  const cool = new THREE.DirectionalLight('#87b2ff', 1.65);
-  cool.position.set(4, 4, -3);
-  scene.add(cool);
-  buildBackdrop();
-  buildTable();
+  workshop = createWorkshop(scene,renderer);
   buildCat();
-  buildLantern();
-  makeCandle(-4.15, -.78, .72);
-  makeCandle(4.12, -.75, .95);
-  buildJar(IDS[0], -1.3);
-  buildJar(IDS[1], .45);
-  buildJar(IDS[2], 2.23);
+  buildJar(IDS[0], -1.25);
+  buildJar(IDS[1], .62);
+  buildJar(IDS[2], 2.49);
   for (const jar of jars.values()) jar.group.traverse((node) => { if (node.isMesh && node.material?.type !== 'MeshPhysicalMaterial') node.castShadow = true; });
-  cat.traverse((node) => { if (node.isMesh) node.castShadow = true; });
+  cat.traverse((node) => { if (node.isMesh) {node.castShadow = true;catPickMeshes.push(node);} });
+  paintRenderer=createPaintRenderer(renderer,scene,camera);
   raycaster = new THREE.Raycaster();
-  renderer.domElement.addEventListener('pointerup', pickJar);
-  renderer.domElement.addEventListener('pointermove', hoverJar);
+  renderer.domElement.addEventListener('pointerup', finishPotionDrag);
+  renderer.domElement.addEventListener('pointerdown', beginPotionDrag);
+  renderer.domElement.addEventListener('pointercancel',()=>finishPotionDrag(null));
+  renderer.domElement.addEventListener('lostpointercapture',()=>{if(potionDrag)finishPotionDrag(null);});
+  dropHint=document.createElement('div');dropHint.className='potion-drop-hint';dropHint.hidden=true;document.body.append(dropHint);
+  renderer.domElement.addEventListener('pointermove',event=>{if(!updatePotionDrag(event))hoverJar(event);});
+  renderer.domElement.addEventListener('pointerleave',()=>{hoveredId=null;catHovered=false;pointerLook.set(0,0);renderer.domElement.style.cursor='default';});
   window.addEventListener('resize', resize);
   resize();
   renderer.setAnimationLoop(animate);
@@ -421,53 +293,108 @@ function setupScene() {
 function resize() {
   if (!renderer) return;
   const bounds = $('scene').getBoundingClientRect();
-  const mobile = bounds.width < 650;
+  const mobile = bounds.width < 700;
+  mobileLayout=mobile;
+  renderer.setPixelRatio(mobile?Math.min(1.5,window.devicePixelRatio||1):Math.min(2,Math.max(1.5,window.devicePixelRatio||1)));
   renderer.setSize(bounds.width, bounds.height, false);
+  paintRenderer?.resize(bounds.width,bounds.height);
   camera.aspect = Math.max(.1, bounds.width / bounds.height);
-  camera.fov = mobile ? 48 : 40;
-  camera.position.set(mobile ? .15 : 1.05, mobile ? 3.15 : 3.75, mobile ? 13.5 : 10.8);
-  camera.lookAt(0, mobile ? 1.73 : 1.55, 0);
+  camera.fov = mobile ? 42 : 38;
+  cameraHome.set(mobile ? 0 : .75, mobile ? 5.6 : 4.05, mobile ? 11.3 : 12.2);
+  camera.position.copy(cameraHome);
+  camera.lookAt(0, mobile ? 1.75 : 1.8, 0);
   camera.updateProjectionMatrix();
-  cat.position.x = mobile ? -1.75 : -3.1;
-  cat.scale.setScalar(mobile ? .82 : 1);
-  const xs = mobile ? [-.66, .7, 1.94] : [-1.3, .45, 2.23];
-  IDS.forEach((id, i) => { jars.get(id).homeX = xs[i]; });
+  cat.position.set(mobile?0:-3.37,mobile?1.68:1.04,mobile?-1.12:.12);
+  cat.scale.setScalar(mobile?.84:.95);
+  const xs = mobile ? [-1.50, 0, 1.50] : [-1.25, .62, 2.49];
+  jars.forEach((jar, id) => {jar.homeX=xs[Math.max(0,collectionIds('table').indexOf(id))%3];jar.homeZ=mobile?1.15:.4;jar.baseScale=mobile?.86:1;});
+  workshop.setMobile(mobile);
 }
-function animate(time) {
+function animate() {
+  const time=performance.now();
   const still = reducedMotion.matches;
+  const dt=Math.min(.05,lastFrame?(time-lastFrame)/1000:.016);lastFrame=time;
+  const ease=still?1:1-Math.exp(-9*dt);
   jars.forEach((jar) => {
     const isSelected = jar.id === selectedId;
     const isHovered = jar.id === hoveredId;
-    const goalX = jar.homeX + (isSelected ? (window.innerWidth < 650 ? -.13 : -.9) : 0);
-    const goalZ = isSelected ? 1.8 : .42;
-    const goalY = (isSelected ? 1.2 : .93) + (!still && isHovered ? .04 : 0);
-    const goalScale = isSelected ? 1.26 : isHovered ? 1.055 : 1;
-    const ease = still ? 1 : .09;
-    jar.group.position.x += (goalX - jar.group.position.x) * ease;
-    jar.group.position.y += (goalY - jar.group.position.y) * ease;
-    jar.group.position.z += (goalZ - jar.group.position.z) * ease;
-    jar.group.scale.lerp(new THREE.Vector3(goalScale, goalScale, goalScale), ease);
-    if (!still && !isSelected) jar.group.rotation.z = Math.sin(time * .0011 + jar.homeX) * .012;
-    else jar.group.rotation.z = 0;
+    const place=organization[jar.id],rest=jarRestPose(jar);
+    const target=isSelected?new THREE.Vector3(mobileLayout?0:-1.1,mobileLayout?1.12:1.02,mobileLayout?2.3:1.9):rest.position;
+    const targetScale=isSelected?jar.baseScale*(reveal?1.18:1.1):rest.scale*(isHovered?1.045:1);
+    jar.dust.visible=false;
+    if(potionDrag?.active&&potionDrag.id===jar.id){
+      jar.group.position.lerp(potionDrag.target,still?1:Math.max(ease,.35));
+      jar.group.rotation.z=still?0:THREE.MathUtils.lerp(jar.group.rotation.z,potionDrag.tilt,.2);
+      jar.group.scale.setScalar(potionDrag.scale*1.08);
+    }else if(jar.flight){
+      const f=jar.flight,p=still?1:Math.min(1,(time-f.start)/f.duration),smooth=p*p*(3-2*p);
+      if(f.to==='retired'){
+        jar.group.position.copy(f.from);jar.group.position.y+=Math.sin(p*Math.PI)*.30;
+        jar.group.scale.setScalar(f.fromScale*Math.max(.001,1-smooth*1.18));jar.group.rotation.z=Math.sin(p*Math.PI)*.15;
+        jar.group.visible=p<.82;
+        jar.dust.visible=!still&&p<1;jar.dust.material.opacity=Math.sin(p*Math.PI)*.9;
+        const positions=jar.dust.geometry.attributes.position;
+        for(let i=0;i<positions.count;i++){const angle=i*2.39996;const r=.18+p*(.7+(i%4)*.11);positions.setXYZ(i,f.from.x+Math.cos(angle)*r,f.from.y+.35+(i%5)*.15+p*1.2,f.from.z+Math.sin(angle)*r*.55);}
+        positions.needsUpdate=true;
+      }else{
+        jar.group.visible=true;jar.group.position.lerpVectors(f.from,rest.position,smooth);jar.group.position.y+=f.dragDrop?Math.sin(p*Math.PI*2)*.16*(1-p):Math.sin(p*Math.PI)*1.15;
+        jar.group.scale.setScalar(THREE.MathUtils.lerp(f.fromScale,rest.scale,smooth));jar.group.rotation.z=Math.sin(p*Math.PI*2)*.07;
+      }
+      if(p>=1){jar.flight=null;jar.group.visible=f.to!=='retired';jar.dust.visible=false;}
+    }else{
+      jar.group.visible=place!=='retired'||isSelected;
+      jar.group.position.lerp(target,ease);jar.group.position.y+=!still&&isHovered?.006:0;
+      jar.group.scale.lerp(new THREE.Vector3(targetScale,targetScale,targetScale),ease);
+      jar.group.rotation.z=still||isSelected||place==='shelf'?0:Math.sin(time*.0011+jar.homeX)*.012;
+    }
+    const opening=isSelected&&reveal?.mode!=='closed'&&reveal?.id===jar.id;
+    const openEase=still?1:1-Math.exp(-5*dt);
+    jar.cap.position.y=THREE.MathUtils.lerp(jar.cap.position.y,opening?.63:0,openEase);
+    jar.cap.position.x=THREE.MathUtils.lerp(jar.cap.position.x,opening?-.45:0,openEase);
+    jar.cap.rotation.z=THREE.MathUtils.lerp(jar.cap.rotation.z,opening?.25:0,openEase);
+    jar.models.lid.rotation.x=THREE.MathUtils.lerp(jar.models.lid.rotation.x,opening?-1.12:0,openEase);
+    jar.models.scroll.ribbon.visible=!opening;jar.models.scroll.seal.visible=!opening;jar.models.scroll.stamp.visible=!opening;
+    const message=jar.models.message.root;
+    message.visible=opening&&reveal?.mode==='emerging';
+    const messageY=jar.kind==='potion'?2.48:jar.kind==='keepsake'?1.25:1.48;
+    message.position.y=THREE.MathUtils.lerp(message.position.y,opening?messageY:.7,openEase);
+    message.position.z=.35;message.rotation.z=still?0:Math.sin(time*.0018)*.06;
+    message.scale.setScalar(THREE.MathUtils.lerp(message.scale.x,opening?(reveal?.mode==='unfolding'?.83:.52):.02,openEase));
+    jar.sparkles.children.forEach((spark,i)=>{
+      const p=spark.userData.phase,t=time*.001;
+      spark.position.set(Math.sin(p+t*.3)*.80,.40+((p*.31+(still?0:t*.25))%1.9),Math.cos(p+t*.3)*.70);
+      spark.rotation.y=still?0:t;
+      spark.material.opacity=(isSelected?.7:isHovered?.45:.14)*(still?1:.55+.45*Math.sin(t*2+p));
+      spark.visible=jar.level>0&&(jar.kind==='potion'||isSelected);
+    });
+    if(jar.liquid){const data=jar.liquid.userData;data.ripple.time.value=time*.001;data.ripple.strength.value=still?0:isSelected||isHovered?1:.45;data.bubbles.forEach(b=>{if(!still)b.position.y=.15+((time*.00007+b.userData.phase)%1)*(data.top-.20);});}
     if (jar.potionGlow && jar.level > 0) {
       const base = .45 + jar.level * .6;
-      jar.potionGlow.intensity = base * (isSelected ? 1.8 : isHovered ? 1.4 : 1) *
+      jar.potionGlow.intensity = (jar.kind==='potion'?base:0) * (isSelected ? 1.8 : isHovered ? 1.4 : 1) *
         (still ? 1 : 1 + .07 * Math.sin(time * .003 + jar.homeX));
     }
   });
   if (cat) {
-    const blinkPhase = (time * .001) % 4.7;
-    const blink = still ? 1 : blinkPhase > 4.37 && blinkPhase < 4.57
-      ? Math.max(.08, Math.abs(blinkPhase - 4.47) * 10) : 1;
-    for (const eye of cat.userData.eyes) eye.scale.y = eye.userData.openHeight * blink;
-    cat.rotation.z = still ? 0 : Math.sin(time * .0012) * .014;
-    const targetYaw = selectedId ? Math.max(-.13, Math.min(.13, (jars.get(selectedId).homeX + 3.1) * .025)) : 0;
-    cat.rotation.y += (targetYaw - cat.rotation.y) * (still ? 1 : .04);
-    cat.position.y = .92 + (still ? 0 : .012 * Math.sin(time * .0025));
-    cat.userData.hatStar.rotation.y = still ? 0 : time * .0007;
+    const greet=Math.max(0,Math.min(1,(greetingUntil-time)/1000));
+    const watching=!!potionDrag?.active||!!reveal||(time<watchUntil&&!!watchedPotion),cozy=!watching&&time<cozyUntil;
+    const mood=watching?'idle':cozy?'cozy':greet>0?catMood:time-lastInteraction>20000?'sleepy':'idle';
+    const moodLabel=watching?'watching your artifact':cozy?'warming little paws':mood==='pet'?'very happy to see you':mood==='hello'?'saying hello':mood==='celebrate'?'celebrating your progress':mood==='sleepy'?'a little sleepy':catHovered||hoveredId?'a curious little helper':'your workshop keeper';
+    if($('keeperMood').textContent!==moodLabel)$('keeperMood').textContent=moodLabel;
+    let look=selectedId?.65:pointerLook.x,lookY=pointerLook.y;
+    if(watching){const p=potionDrag?.active?potionDrag.target:jars.get(reveal?.id||watchedPotion)?.group.position.clone().add(new THREE.Vector3(0,reveal?2:0,0));if(p){look=THREE.MathUtils.clamp((p.x-cat.position.x)/3,-1,1);lookY=THREE.MathUtils.clamp((p.y+1-(cat.position.y+1.75))/2,-1,1);}}
+    if(cozy){look=.85;lookY=-.3;}
+    animateSpiritCat(cat,time*.001,dt,{still,look,lookY,greet,mood,watching,cozy,attention:watching||catHovered||!!hoveredId});
   }
-  if (lantern) lantern.rotation.z = still ? 0 : Math.sin(time * .0008) * .018;
-  renderer.render(scene, camera);
+  workshop?.update(time*.001,still);
+  const closeShelf=roomView&&!selectedId&&!mobileLayout;
+  const camTarget=reveal&&!mobileLayout?new THREE.Vector3(-.3,4.1,10.5):closeShelf?new THREE.Vector3(-1.7,4.4,9.4):cameraHome.clone();
+  camTarget.x+=still||mobileLayout?0:pointerLook.x*.25;
+  camTarget.y+=still||mobileLayout?0:pointerLook.y*.12;
+  camera.position.lerp(camTarget,still?1:1-Math.exp(-3*dt));
+  cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?-1.7:0,reveal?2.2:closeShelf?3.2:mobileLayout?1.75:1.8,closeShelf?-3:0),still?1:1-Math.exp(-3*dt));
+  camera.lookAt(cameraAim);
+  if(focusEnds){const remaining=Math.max(0,Math.ceil((focusEnds-Date.now())/1000));$('focusSession').textContent=remaining?`End focus · ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')}`:'Start 15-minute focus';if(!remaining){focusEnds=0;greetCat('celebrate');say('A little session, a real step forward. Take a breath.');}}
+  paintRenderer?paintRenderer.render():renderer.render(scene,camera);
 }
 
 function projectAtPointer(event) {
@@ -476,22 +403,115 @@ function projectAtPointer(event) {
   const pointer = new THREE.Vector2(((event.clientX - rect.left) / rect.width) * 2 - 1,
     -((event.clientY - rect.top) / rect.height) * 2 + 1);
   raycaster.setFromCamera(pointer, camera);
-  return raycaster.intersectObjects(pickMeshes, false)[0]?.object.userData.projectId || null;
+  return raycaster.intersectObjects(pickMeshes.filter(mesh=>{const j=jars.get(mesh.userData.projectId);if(!j||organization[j.id]==='retired'||!j.group.visible||j.flight)return false;for(let n=mesh;n;n=n.parent)if(!n.visible)return false;return true;}), false)[0]?.object.userData.projectId || null;
+}
+function beginPotionDrag(event){
+  if(event.pointerType==='mouse'&&event.button!==0)return;
+  pointerDown={x:event.clientX,y:event.clientY};if(selectedId)return;
+  const id=projectAtPointer(event);if(!id)return;
+  const jar=jars.get(id),normal=camera.getWorldDirection(new THREE.Vector3());
+  const plane=new THREE.Plane().setFromNormalAndCoplanarPoint(normal,jar.group.position);
+  const hit=raycaster.ray.intersectPlane(plane,new THREE.Vector3());if(!hit)return;
+  potionDrag={id,pointerId:event.pointerId,active:false,plane,offset:jar.group.position.clone().sub(hit),target:jar.group.position.clone(),scale:jar.group.scale.x,tilt:0,to:organization[id]==='table'?'shelf':'table',over:false};
+  renderer.domElement.setPointerCapture(event.pointerId);
+}
+function dragDestination(){
+  const point=potionDrag.to==='shelf'?workshop.shelfSlot(1):new THREE.Vector3(.65,1.6,mobileLayout?1.15:.4);
+  const ndc=point.clone().project(camera),rect=renderer.domElement.getBoundingClientRect();
+  return {x:rect.left+(ndc.x+1)*rect.width/2,y:rect.top+(1-ndc.y)*rect.height/2,rx:mobileLayout?95:150,ry:mobileLayout?65:85};
+}
+function updatePotionDrag(event){
+  if(!potionDrag||event.pointerId!==potionDrag.pointerId)return false;
+  if(!potionDrag.active&&Math.hypot(event.clientX-pointerDown.x,event.clientY-pointerDown.y)<8)return false;
+  potionDrag.active=true;watchedPotion=potionDrag.id;watchUntil=performance.now()+2400;event.preventDefault();lastInteraction=performance.now();
+  projectAtPointer(event);
+  const hit=raycaster.ray.intersectPlane(potionDrag.plane,new THREE.Vector3());
+  if(hit){const next=hit.add(potionDrag.offset);potionDrag.tilt=THREE.MathUtils.clamp((potionDrag.target.x-next.x)*.12,-.16,.16);potionDrag.target.copy(next);}
+  const d=dragDestination();potionDrag.over=((event.clientX-d.x)/d.rx)**2+((event.clientY-d.y)/d.ry)**2<1;
+  dropHint.hidden=false;dropHint.style.left=d.x+'px';dropHint.style.top=d.y+'px';dropHint.classList.toggle('ready',potionDrag.over);
+  dropHint.textContent=potionDrag.over?'Release · lovely spot!':potionDrag.to==='shelf'?'↑ Rest on the shelf':'↓ Back to the worktable';
+  renderer.domElement.style.cursor='grabbing';hoveredId=potionDrag.id;animate();return true;
+}
+function finishPotionDrag(event){
+  const drag=potionDrag;potionDrag=null;if(dropHint)dropHint.hidden=true;
+  if(drag&&renderer.domElement.hasPointerCapture(drag.pointerId))renderer.domElement.releasePointerCapture(drag.pointerId);
+  renderer.domElement.style.cursor='grab';
+  if(!drag?.active){if(event)pickJar(event);else pointerDown=null;return;}
+  pointerDown=null;hoveredId=null;
+  if(event&&drag.over){movePotion(drag.id,drag.to);const flight=jars.get(drag.id).flight;if(flight){flight.duration=650;flight.dragDrop=true;}chime('select');}
+  else{const jar=jars.get(drag.id);jar.flight={from:jar.group.position.clone(),fromScale:jar.group.scale.x,start:performance.now(),duration:500,to:organization[drag.id],dragDrop:true};}
+  animate();
 }
 function pickJar(event) {
   if (event.pointerType === 'mouse' && event.button !== 0) return;
+  if(!pointerDown||Math.hypot(event.clientX-pointerDown.x,event.clientY-pointerDown.y)>12)return;
+  pointerDown=null;
+  if(reveal){if(reveal.mode==='closed')openArtifact();else if(reveal.mode==='sealed')unfurlArtifact();return;}
   const id = projectAtPointer(event);
-  if (id) selectProject(id);
+  if (id) {lastFocusedId=id;selectProject(id);}
+  else if(raycaster.intersectObjects(catPickMeshes,false).length) greetCat("pet");
+  else {const prop=raycaster.intersectObjects(workshop.interactables,false)[0];if(prop)interactRoom(prop.object.userData.roomAction);}
+  if(event.pointerType!=='mouse')hoveredId=null;
 }
 function hoverJar(event) {
+  lastInteraction=performance.now();
   hoveredId = projectAtPointer(event);
-  renderer.domElement.style.cursor = hoveredId ? 'pointer' : 'default';
+  catHovered=!hoveredId&&raycaster.intersectObjects(catPickMeshes,false).length>0;
+  const rect=renderer.domElement.getBoundingClientRect();
+  pointerLook.set((event.clientX-rect.left)/rect.width*2-1,1-(event.clientY-rect.top)/rect.height*2);
+  const prop=raycaster.intersectObjects(workshop.interactables,false)[0];
+  renderer.domElement.style.cursor = hoveredId?'grab':catHovered||prop?'pointer':'default';
+  renderer.domElement.title=hoveredId?'Drag to move · tap to discover':prop?{fire:'Stoke the fire',lantern:'Toggle the lantern',journal:'Begin a focus session'}[prop.object.userData.roomAction]:'';
 }
 
+function chime(kind='select') {
+  if(!soundEnabled)return;
+  try {
+    audioContext??=new (window.AudioContext||window.webkitAudioContext)();
+    audioContext.resume();
+    const notes=kind==='hello'?[659.25,880,987.77]:[523.25,783.99];
+    notes.forEach((frequency,i)=>{const o=audioContext.createOscillator(),g=audioContext.createGain(),t=audioContext.currentTime+i*.085;o.type='sine';o.frequency.value=frequency;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.055,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+.4);o.connect(g);g.connect(audioContext.destination);o.start(t);o.stop(t+.42);});
+  } catch { soundEnabled=false;$('soundButton').setAttribute('aria-pressed','false'); }
+}
+function say(text){if(lastDialogue===text)return;$('keeperLine').textContent=text;lastDialogue=text;}
+function greetCat(kind='hello'){
+  lastInteraction=performance.now();
+  catMood=kind==='pet'?'pet':'hello';greetingUntil=lastInteraction+6000;
+  const lines=kind==='pet'?['Prrrr… that is exactly the spot.','One more little head scratch?','You bring the ideas. I’ll bring the purrs.']:['Oh, hello! I saved you the warmest spot.','A little idea and a little courage. We can do this.','The fire is warm. There’s no need to rush.'];
+  say(lines[helloCount++%lines.length]);chime('hello');
+  // Paint the response in the input event even when the host throttles animation frames.
+  if(renderer&&cat)animate();
+}
+
+
+const TRAIL_STEPS=['Goal','Route','Build','Review','Refine'];
+function questTrail(project,labels=false){
+  const trail=document.createElement('span');trail.className='quest-trail'+(labels?' with-labels':'');
+  const done=approvedCount(project),total=project.gates.length;
+  if(!total){trail.className='project-state-seal';trail.textContent=project.phase==='complete'?'❖ Released keepsake':'✧ Your milestones, your pace';return trail;}
+  const names=project.gateNames||TRAIL_STEPS;
+  trail.style.setProperty('--trail-count',total);
+  trail.style.setProperty('--trail-fill',`${Math.max(0,done-1)/Math.max(1,total-1)*100}%`);
+  trail.classList.toggle('complete',done===total);
+  trail.setAttribute('role','progressbar');trail.setAttribute('aria-valuemin','0');trail.setAttribute('aria-valuemax',String(total));trail.setAttribute('aria-valuenow',String(done));
+  trail.setAttribute('aria-label','Quest progress');
+  trail.setAttribute('aria-valuetext',project.gates.map((state,i)=>`${names[i]} ${state==='approved'?'complete':state==='active'?'current':'ahead'}`).join(', '));
+  const track=document.createElement('span');track.className='trail-track';track.setAttribute('aria-hidden','true');trail.append(track);
+  const stars=document.createElement('span');stars.className='trail-stars';stars.setAttribute('aria-hidden','true');
+  project.gates.forEach((state,i)=>{const node=document.createElement('span');node.className='trail-stop '+state;node.title=`${names[i]} · ${state==='approved'?'complete':state==='active'?'current':'ahead'}`;
+    const gem=document.createElement('span');gem.className='trail-gem';gem.textContent=state==='approved'?'✦':state==='active'?'◆':'◇';node.append(gem);
+    if(labels){const text=document.createElement('span');text.className='trail-name';text.textContent=names[i];node.append(text);}stars.append(node);});
+  trail.append(stars);return trail;
+}
 function renderDock() {
   const dock = $('jarDock');
   dock.replaceChildren();
-  for (const id of IDS) {
+  renderCollections();
+  const visibleIds=collectionIds(collection).slice(0,3);
+  dock.style.setProperty('--visible-count',Math.max(1,visibleIds.length));
+  $('emptyCollection').hidden=visibleIds.length>0;
+  $('emptyCollection').textContent={table:'A little breathing room. Bring an artifact back from the wall shelf or Retired.',shelf:'Your shelf is waiting. Drag an artifact here, or move it from its journal.',retired:'Nothing retired. Cleared artifacts will appear here, ready to restore.'}[collection];
+  for (const id of visibleIds) {
     const project = records.get(id);
     if (!project) continue;
     const button = document.createElement('button');
@@ -501,11 +521,18 @@ function renderDock() {
     button.style.setProperty('--project-color', COLORS[id]);
     button.setAttribute('aria-pressed', String(selectedId === id));
     button.setAttribute('aria-label', `${project.title}, ${approvedCount(project)} of 5 gates approved. Open project details.`);
-    const gem = document.createElement('span'); gem.className = 'jar-gem'; gem.setAttribute('aria-hidden', 'true');
+    const gem = document.createElement('span'); gem.className = 'jar-gem'; gem.setAttribute('aria-hidden', 'true');gem.textContent=jarSymbols[id];
     const copy = document.createElement('span'); copy.className = 'jar-copy';
-    const name = document.createElement('span'); name.className = 'jar-name'; name.textContent = LABELS[id];
-    const count = document.createElement('span'); count.className = 'jar-count'; count.textContent = `${approvedCount(project)} / 5 APPROVED`;
-    copy.append(name, count); button.append(gem, copy);
+    const name = document.createElement('span'); name.className = 'jar-name'; name.textContent = project.title;
+    const q=questFor(project);
+    const kind=artifactKind(project,primaryProjectId);
+    button.dataset.artifactKind=kind;gem.textContent={potion:'✧',scroll:'≋',keepsake:'❖'}[kind];
+    button.setAttribute('aria-label',`${project.title}: ${collection==='table'?q.status:collection==='shelf'?'On the shelf':'Retired and restorable'}. ${q.done} of ${project.gates.length} milestones complete. Open project.`);
+    const status=document.createElement('span');status.className='quest-status';status.textContent=collection==='retired'?'Retired · restorable':q.status;
+    const trail=questTrail(project);
+    const action=document.createElement('span');action.className='quest-action';action.textContent=collection==='table'?q.action+' →':collection==='shelf'?'View or bring back →':'View or restore →';
+    copy.append(name,trail,status,action);button.append(gem,copy);
+    if(id===focusId){button.classList.add('is-focus');const flag=document.createElement('span');flag.className='focus-flag';flag.textContent='CURRENT QUEST';button.append(flag);}
     button.addEventListener('click', () => { lastFocusedId = id; selectProject(id); });
     button.addEventListener('pointerenter', () => { hoveredId = id; });
     button.addEventListener('pointerleave', () => { if (hoveredId === id) hoveredId = null; });
@@ -513,75 +540,172 @@ function renderDock() {
     button.addEventListener('blur', () => { if (hoveredId === id) hoveredId = null; });
     dock.append(button);
   }
+  if(collectionIds(collection).length>3){const more=document.createElement('button');more.className='browse-more';more.type='button';more.textContent=`View all ${collectionIds(collection).length} in the collection →`;more.addEventListener('click',()=>collectionUI.show());dock.append(more);}
 }
 function renderDetails(project) {
+  if(!project)return;
+  collectionUI?.renderProject(project);
   $('detailTitle').textContent = project.title;
   $('detailPitch').textContent = project.pitch;
-  $('detailCount').textContent = `${approvedCount(project)} / 5`;
+  $('detailPlacement').textContent={table:'On your worktable',shelf:'In your collection · on the wall shelf',retired:'Retired · ready to restore'}[organization[project.id]];
+  $('detailProgress').replaceChildren(questTrail(project,true));
+  $('detailTrailState').textContent=project.legacyWorkflow&&approvedCount(project)===5?(project.phase==='revisiting'?'Original milestones complete · revisiting':'Original milestones complete'):questFor(project).status;
   $('detailSeal').style.color = COLORS[project.id];
-  $('detailNext').textContent = project.nextMove;
+  const q=questFor(project);
+  $('detailNext').textContent=q.action;
+  $('fullNext').textContent=project.nextMove;
+  $('setFocus').textContent=project.id===focusId?'Your current focus ✓':'Make this my focus';
+  $('setFocus').disabled=project.id===focusId;
+  $('setFocus').hidden=organization[project.id]!=='table'||project.id===focusId;
+  $('potionPlace').textContent={table:'On your worktable',shelf:'On the wall shelf',retired:'Retired'}[organization[project.id]];
+  $('shelvePotion').textContent=organization[project.id]==='table'?'Move to wall shelf':organization[project.id]==='shelf'?'Bring to worktable':'Restore to worktable';
+  $('disposePotion').hidden=organization[project.id]==='retired';
   $('detailLatest').textContent = project.updates?.[0] ? `Latest · ${project.updates[0].at}: ${project.updates[0].text}` : 'No dated updates yet.';
   const list = $('gateList'); list.replaceChildren();
   project.gates.forEach((state, i) => {
     const item = document.createElement('li'); item.className = state;
-    item.textContent = `${String(i + 1).padStart(2, '0')} · ${STEPS[i]}`;
+    item.textContent = `${String(i + 1).padStart(2, '0')} · ${project.gateNames?.[i]||STEPS[i]}`;
     list.append(item);
   });
 }
-function selectProject(id) {
-  const project = records.get(id);
-  if (!project) return;
-  selectedId = id;
-  renderDock();
-  renderDetails(project);
-  $('details').hidden = false;
-  $('room').classList.add('selected');
-  $('returnButton').focus();
-  if (window.innerWidth < 650) $('details').scrollTop = 0;
+function setRoomModal(active){if(!active)document.body.classList.remove('artifact-inspection');for(const selector of ['.masthead','.intro','.keeper','.collection-controls','.jar-dock','.empty-collection','.footnote','.workshop-play','#moveToast']){const element=document.querySelector(selector);if(element)element.inert=active;}}
+function selectProject(id,playful=false) {
+  const project=records.get(id);if(!project)return;
+  if(potionDrag)finishPotionDrag(null);
+  clearTimeout(revealTimer);selectedId=id;setRoomModal(true);if(mobileLayout){window.scrollTo({top:0,behavior:'instant'});document.body.classList.add('artifact-inspection');}
+  syncSceneArtifacts();
+  const kind=artifactKind(project,primaryProjectId);reveal={id,kind,mode:'closed',playful:playful===true,start:performance.now()};
+  chime();lastInteraction=performance.now();watchedPotion=id;watchUntil=lastInteraction+4000;
+  renderDock();renderDetails(project);
+  $('details').hidden=true;$('details').querySelector('.journey').open=false;
+  $('room').classList.add('selected','revealing');$('artifactReveal').hidden=false;
+  $('revealKind').textContent=ARTIFACTS[kind].name;
+  $('revealTitle').textContent=project.title;
+  $('revealHint').textContent=ARTIFACTS[kind].hint;
+  $('openArtifact').textContent=ARTIFACTS[kind].opening+' →';$('openArtifact').hidden=false;
+  $('ribbonParcel').hidden=true;$('artifactReveal').style.setProperty('--pull',0);
+  $('revealClose').focus();say('Let’s see what this little '+(kind==='scroll'?'scroll':kind==='keepsake'?'keepsake':'potion')+' holds.');
+  if(renderer)animate();openArtifact();
+}
+function openArtifact(){
+  if(!reveal||reveal.mode!=='closed')return;
+  reveal.mode='emerging';reveal.start=performance.now();chime();
+  $('openArtifact').hidden=true;$('revealClose').focus();$('revealHint').textContent='A little note is finding its way out…';
+  const id=reveal.id;
+  revealTimer=setTimeout(()=>{if(!reveal||reveal.id!==id)return;if(!reveal.playful){showQuestJournal(id);return;}reveal.mode='sealed';$('ribbonParcel').hidden=false;$('revealHint').textContent='One small step, tucked inside.';$('pullRibbon').focus();if(renderer)animate();},reducedMotion.matches?0:720);
+  if(renderer)animate();
+}
+function unfurlArtifact(){
+  if(!reveal||!['sealed','unfolding'].includes(reveal.mode))return;
+  reveal.mode='unfolding';$('artifactReveal').classList.add('unfurling');
+  $('artifactReveal').style.setProperty('--pull',1);chime();const id=reveal.id;
+  clearTimeout(revealTimer);
+  revealTimer=setTimeout(()=>{if(!reveal||reveal.id!==id)return;
+    showQuestJournal(id);
+  },reducedMotion.matches?0:650);
+  if(renderer)animate();
+}
+function showQuestJournal(id){
+  if(selectedId!==id)return;
+  clearTimeout(revealTimer);reveal=null;ribbonDrag=null;
+  $('artifactReveal').hidden=true;$('artifactReveal').classList.remove('unfurling');$('room').classList.remove('revealing');
+  $('details').hidden=false;renderDetails(records.get(id));$('returnButton').focus();$('details').scrollTop=0;
+  $('details').querySelector('.artifact-management').open=false;
+  catMood=records.get(id).phase==='complete'||records.get(id).gates.length>0&&approvedCount(records.get(id))===records.get(id).gates.length?'celebrate':'hello';greetingUntil=performance.now()+2600;
+  const project=records.get(id);say(project.changed?`Last time: ${project.changed.slice(0,100)} Next: ${project.nextMove.slice(0,100)}`:'Your next small step: '+(project.nextMove||'Save an idea to begin.'));if(renderer)animate();
 }
 function returnToTable() {
-  selectedId = null;
-  $('details').hidden = true;
-  $('room').classList.remove('selected');
-  renderDock();
-  if (lastFocusedId) $('jarDock').querySelector(`[data-project-id="${lastFocusedId}"]`)?.focus();
+  collectionUI?.rememberDraft();
+  clearTimeout(revealTimer);reveal=null;ribbonDrag=null;selectedId=null;
+  $('artifactReveal').hidden=true;$('artifactReveal').classList.remove('unfurling');$('details').hidden=true;
+  $('room').classList.remove('selected','revealing');setRoomModal(false);renderDock();say('Every big idea starts with a little spark.');
+  if(lastFocusedId)$('jarDock').querySelector(`[data-project-id="${lastFocusedId}"]`)?.focus();
+  syncSceneArtifacts();if(renderer)animate();
+}
+function syncSceneArtifacts(){
+  if(!scene)return;
+  const wanted=new Set([...collectionIds('table').slice(0,3),...collectionIds('shelf').slice(0,3),...(selectedId?[selectedId]:[])]);
+  for(const [id,jar] of jars){if(wanted.has(id)||jar.flight)continue;scene.remove(jar.group,jar.dust);jar.group.traverse(node=>{if(node.isMesh){node.geometry.dispose();const materials=Array.isArray(node.material)?node.material:[node.material];materials.forEach(m=>{m.map?.dispose();m.dispose();});}});jar.dust.geometry.dispose();jar.dust.material.dispose();jars.delete(id);for(let i=pickMeshes.length-1;i>=0;i--)if(pickMeshes[i].userData.projectId===id)pickMeshes.splice(i,1);}
+  for(const id of wanted){if(!records.has(id))continue;if(!jars.has(id))buildJar(id,0);const jar=jars.get(id),project=records.get(id);jar.baseScale=mobileLayout?.86:1;jar.kind=artifactKind(project,primaryProjectId);jar.bottle.visible=jar.kind==='potion';jar.models.scroll.root.visible=jar.kind==='scroll';jar.models.keepsake.visible=jar.kind==='keepsake';const level=levelFor(project);if(level!==jar.level){updateLiquid(jar,level);jar.level=level;}}
 }
 function applyRegistry(state) {
   if (!Array.isArray(state.projects)) throw new Error('Project registry has no projects.');
+  vaultState=state;
+  primaryProjectId=state.activeProjectId||IDS[0];
   records = new Map(state.projects.map((project) => [project.id, project]));
-  for (const id of IDS) {
-    const project = records.get(id);
-    if (!project || project.gates?.length !== 5) throw new Error(`Expected five-gate project missing: ${id}`);
-    const jar = jars.get(id);
-    if (jar) {
-      const level = levelFor(project);
-      if (level !== jar.level) { updateLiquid(jar, level); jar.level = level; }
-    }
-  }
+  IDS=state.projects.map(project=>project.id);
+  if(firstRegistry){let saved={};try{saved=JSON.parse(storedOrganization)||{};}catch{}const parsed=parseOrganization(storedOrganization,IDS);for(const id of IDS)if(Object.hasOwn(saved,id))organization[id]=parsed[id];firstRegistry=false;}
+  for(const id of IDS){COLORS[id] ||= ['#c68af1','#42cbb3','#ffbd65','#cf8e8e'][IDS.indexOf(id)%4];jarSymbols[id] ||= '✧';if(!organization[id])organization[id]=collectionIds('table').length<3&&records.get(id).phase!=='complete'?'table':'shelf';}
+  let tableCount=0;for(const id of IDS)if(organization[id]==='table'&&++tableCount>3)organization[id]='shelf';
+  if(selectedId&&!records.has(selectedId))returnToTable();
+  saveOrganization();syncSceneArtifacts();collectionUI?.render();
   renderDock();
   if (selectedId) renderDetails(records.get(selectedId));
-  $('connection').textContent = DEMO ? 'DEMO LEVELS · NOT LIVE' : 'VAULT RECORDS · READ ONLY';
+  $('connection').textContent = connectionLabel();
+  renderFocus();
   clearError();
 }
 async function loadRegistry() {
-  const response = await fetch(DEMO ? '/api/projects?demo=1' : '/api/projects', { cache: 'no-store' });
-  if (!response.ok) throw new Error('Could not read the vault project registry.');
+  const response = await fetch(HOSTED ? './projects.json' : DEMO ? '/api/projects?demo=1' : '/api/projects', { cache: 'no-store' });
+  if (!response.ok) throw new Error(HOSTED?'Could not load the published collection.':'Could not read the vault project registry.');
   const text = await response.text();
-  if (text === lastRegistryText) return;
+  if (text === lastRegistryText) {clearError();$('connection').textContent=connectionLabel();return;}
   applyRegistry(JSON.parse(text));
   lastRegistryText = text;
 }
 
+function interactRoom(action){
+  if(action==='journal'){
+    if(focusEnds){focusEnds=0;$('focusSession').textContent='Start 15-minute focus';say('Taking a breather. Your progress is still here.');}
+    else{focusEnds=Date.now()+15*60*1000;say('Fifteen quiet minutes. Just one small step for '+(LABELS[focusId]||'your next idea')+'.');}
+  }else{if(action==='fire'){cozyUntil=performance.now()+16000;catMood='cozy';}const on=workshop?.interact(action);say(action==='fire'?'Bob tucks into their cloak and warms their paws.':on?'A warm light for your next idea.':'Moonlight and embers. A quieter kind of cozy.');if(action==='lantern')$('lanternToggle').setAttribute('aria-pressed',String(on));}
+  lastInteraction=performance.now();if(renderer)animate();
+}
 async function boot() {
+  collectionUI=createCollectionUI({getState:()=>vaultState,refresh:loadRegistry,openProject:id=>{lastFocusedId=id;selectProject(id);},save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime();}});
+  const tools=document.createElement('div');tools.className='workshop-play';tools.setAttribute('aria-label','Workshop interactions');
+  tools.innerHTML='<details class="room-rituals"><summary>Room rituals <span aria-hidden="true">✧</span></summary><div class="ritual-list"><button id="shelfView" aria-pressed="false">Explore shelf</button><button id="stokeFire">Stoke fire</button><button id="lanternToggle" aria-pressed="true">Lantern</button><button id="focusSession">Start 15-minute focus</button></div></details>';
+  $('room').append(tools);
+  $('shelfView').addEventListener('click',()=>{roomView=!roomView;$('shelfView').setAttribute('aria-pressed',String(roomView));$('shelfView').textContent=roomView?'Back to room':'Explore shelf';showCollection(roomView?'shelf':'table');animate();});
+  $('stokeFire').addEventListener('click',()=>interactRoom('fire'));
+  $('lanternToggle').addEventListener('click',()=>interactRoom('lantern'));
+  $('focusSession').addEventListener('click',()=>interactRoom('journal'));
+
+  $('replayReveal').addEventListener('click',()=>{if(selectedId)selectProject(selectedId,true);});
+  $('revealClose').addEventListener('click',returnToTable);
+  $('openArtifact').addEventListener('click',openArtifact);
+  $('pullRibbon').addEventListener('click',()=>{if(!ribbonDrag&&!ribbonDragged)unfurlArtifact();ribbonDragged=false;});
+  $('pullRibbon').addEventListener('keydown',()=>{ribbonDragged=false;});
+  const ribbon=$('pullRibbon');
+  ribbon.addEventListener('pointerdown',e=>{if(reveal?.mode!=='sealed'||(e.pointerType==='mouse'&&e.button!==0))return;ribbonDragged=false;ribbonDrag={pointerId:e.pointerId,y:e.clientY,pull:0};ribbon.setPointerCapture(e.pointerId);});
+  ribbon.addEventListener('pointermove',e=>{if(!ribbonDrag||e.pointerId!==ribbonDrag.pointerId)return;const pull=Math.max(0,Math.min(1,(e.clientY-ribbonDrag.y)/85));ribbonDrag.pull=pull;if(pull>.08)ribbonDragged=true;$('artifactReveal').style.setProperty('--pull',pull);if(pull>=1){ribbonDrag=null;unfurlArtifact();}});
+  ribbon.addEventListener('pointerup',e=>{if(!ribbonDrag)return;const pull=ribbonDrag.pull;ribbonDrag=null;if(pull>.45)unfurlArtifact();else $('artifactReveal').style.setProperty('--pull',0);});
+  ribbon.addEventListener('pointercancel',()=>{ribbonDrag=null;$('artifactReveal').style.setProperty('--pull',0);});
   $('returnButton').addEventListener('click', returnToTable);
   $('backButton').addEventListener('click', returnToTable);
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && selectedId) returnToTable(); });
+  $('focusOpen').addEventListener('click',()=>{if(focusId){lastFocusedId=focusId;selectProject(focusId);}else{showCollection(collectionIds('shelf').length?'shelf':'retired');$(collection+'Tab').focus();}});
+  for(const place of ['table','shelf','retired'])$(place+'Tab').addEventListener('click',()=>showCollection(place));
+  $('shelvePotion').addEventListener('click',()=>{if(selectedId)movePotion(selectedId,organization[selectedId]==='table'?'shelf':'table');});
+  $('disposePotion').addEventListener('click',()=>{if(selectedId)movePotion(selectedId,'retired');});
+  $('undoMove').addEventListener('click',undoMove);
+  $('dismissMove').addEventListener('click',()=>{$('moveToast').hidden=true;});
+  $('setFocus').addEventListener('click',()=>{if(!selectedId)return;focusId=selectedId;try{localStorage.setItem('ideaQuest.focus',focusId);}catch{}renderFocus();renderDock();renderDetails(records.get(selectedId));say('One small quest at a time. I’m right here.');});
+  $('greetButton').addEventListener('click',()=>greetCat('hello'));
+  $('petButton').addEventListener('click',()=>greetCat('pet'));
+  $('soundButton').addEventListener('click',()=>{soundEnabled=!soundEnabled;$('soundButton').setAttribute('aria-pressed',String(soundEnabled));$('soundButton').setAttribute('aria-label',soundEnabled?'Mute sound effects':'Enable sound effects');if(soundEnabled)chime('hello');});
+  document.addEventListener('keydown', (event) => {
+    if(event.key==='Escape'&&potionDrag){finishPotionDrag(null);return;}
+    if(event.key==='Escape'&&selectedId)returnToTable();
+    if(event.key==='Tab'&&selectedId){const panel=reveal?$('artifactReveal'):$('details');const tabbable=[...panel.querySelectorAll('button,a[href],input,textarea,select,summary')].filter(el=>!el.disabled&&el.getClientRects().length);const first=tabbable[0],last=tabbable.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
+  });
   try { setupScene(); }
-  catch (error) { showError(`3D view unavailable on this browser: ${error.message}. Project buttons will still work.`); }
+  catch (error) {sceneFailure=`3D view unavailable on this browser: ${error.message}. Project buttons will still work.`;showError(sceneFailure);}
   try { await loadRegistry(); }
-  catch (error) { showError(error.message); }
+  catch (error) { $('connection').textContent=HOSTED?'Collection unavailable · retrying':'Vault unavailable · retrying';showError(error.message); }
+  if(sceneFailure)showError(sceneFailure);
+  requestAnimationFrame(()=>{$('loading').hidden=true;});
   window.setInterval(() => {
-    if (document.visibilityState === 'visible') loadRegistry().catch((error) => showError(error.message));
+    if (document.visibilityState === 'visible') loadRegistry().catch((error) => {$('connection').textContent=HOSTED?'Collection unavailable · retrying':'Vault unavailable · retrying';showError(error.message);});
   }, 5000);
 }
 boot();
@@ -589,3 +713,4 @@ boot();
 // Narrow, read-only hooks for automated checks of the prototype; no write action exists.
 window.__ideaQuestTest = { levelFor, selectProject, getSelected: () => selectedId, getLevels: () =>
   Object.fromEntries(IDS.map((id) => [id, jars.get(id)?.level ?? null])) };
+

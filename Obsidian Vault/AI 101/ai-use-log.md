@@ -23,6 +23,33 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 >
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
 
+## 2026-10-12 - Quest tracker readability and focus
+
+### Clear status and one next action - Codex
+
+- **Ask:** Improve text legibility and cognitive load; make the status intuitive and gamified enough to use as a project tracker.
+- **Result:** Added readable status/action cards, five-segment approved milestone bars, a browser-saved focus quest, and a Continue quest entry point. Pending revisions on an accepted project appear as a bonus quest. The journal prioritizes the next action and collapses detailed milestones and source notes. Mobile uses a scrolling card list.
+- **Decision:** **Pending my review** - focus is a local preference; no project approvals or source records changed.
+- **Check:** Build passed. Verified focus persistence after reload, expanded source notes, Escape, and desktop/mobile layout with no overflow. Restored idea.quest focus after testing. Previous data tests were not rerun.
+
+## 2026-10-12 - Soft edges and expressive Mikan
+
+### Painting pass, imperfect shapes, and gentler expressions - Codex + Three.js
+
+- **Ask:** Move beyond textured 3D toward hand-painted edges and imperfect shapes; make the cat adorable, responsive, and expressive, and fix its creepy eyes.
+- **Result:** Added edge-aware paint blending, warped furniture/stone silhouettes, and a softer cat shape. Replaced the yellow-ring stare with large dark pupils, narrow ivory whites, cheek blush, and relaxed brows. Added curious/sleepy states, greeting waves, petting smiles/hearts, and celebration, plus a keyboard/touch pet button. Raised the mobile perch for face visibility.
+- **Decision:** **Pending my visual review** - no project gate or release approval inferred.
+- **Check:** Built with existing dependencies. Checked desktop/mobile composition, petting/hearts, greeting, project details and Escape. No runtime errors or mobile overflow observed. A delayed screenshot frame initially obscured reactions; the next composed frame confirmed them. Real-device frame rate is unverified.
+
+## 2026-10-12 - idea.quest painterly materials
+
+### Visible brushwork and matte shading - Codex + Three.js
+
+- **Ask:** Make the cat and room more painterly like the reference; they still look too smooth and plastic.
+- **Result:** Added surface-anchored gouache strokes, pigment variation, and brush-driven shading to the cat, stone, wood, walls, and props. Reduced reflections and softened potion highlights. Updated the local preview screenshots.
+- **Decision:** **Pending my visual review** - a stronger procedural painting treatment, not final acceptance.
+- **Check:** Build succeeded; desktop/mobile visual review and browser shader-error check passed. No registry or server changes; data tests were not rerun.
+
 ## 2026-10-12 — Project 2 submission files
 
 ### Add missing Project 2 submission files · Claude
@@ -504,3 +531,54 @@ Project 1 poster. Shared starting brief: **square; student AI-art pin-up; bold f
 - **Ask:** Refine image prompts and compare outputs across model options; also installed Obsidian this session.
 - **Result:** Several candidate images with varying quality.
 - **Decision:** **Keep the final image** — selected after repeated prompt/model comparisons.
+
+
+## 2026-10-12 — Idea Quest potion organization · Codex
+
+- **Ask:** Send inactive or finished potions to the back wall and dispose of unwanted ones; plan and animate the interactions.
+- **Result:** Worktable / Wall shelf / Retired collections, animated shelf flight and sparkle disposal, Undo and restoration, browser-saved placement, focus fallback and empty states. No registry or approval changes.
+- **Verification:** Three helper tests passed; browser checks covered persistence, disposal, Undo, restoration, empty table, and mobile controls. Original placements restored after testing.
+- **Decision:** Local review build only; no new approval gate accepted.
+
+### Direct potion dragging · Codex
+
+- Added drag between scene table and shelf, glowing drop guidance, responsive tilt, settling bounce, invalid-drop return, Escape cancellation, and retained Undo/persistence.
+- Verified desktop dragging in both directions and rejected drops. No approval or project-record changes. Touch hardware feel remains unverified.
+
+### Workshop depth and interaction · Codex
+
+Added shelf exploration, eased camera parallax, interactive fire and lantern, and a journal focus countdown. Desktop browser checks passed for controls and physical journal click. No registry or approval changes.
+
+## 2026-10-13 — Mikan reactions and scroll interface · Codex
+
+- Added potion-following gaze, post-drop attention, fire cozy pose, and folded cloak.
+- Reworked cards and journal into legible parchment scrolls; tucked extra controls into Room rituals and added reduced-motion-aware transitions.
+- Built and checked fire response, cloak, drag/Undo and phone journal with no runtime errors. Local preview server restarted. Mid-gesture feel awaits user review; approvals unchanged.
+
+### Mixed artifacts and layered note reveal · Codex
+
+- **Ask:** Use a mixture of potions, scrolls, and other artifacts, choose categorization, and implement the jar/hidden-note reference interaction.
+- **Result:** State-derived potion/scroll/keepsake models, artifact approach and opening animations, a revealed ribbon note, pull/tap to unfurl the project journal, and Mikan attention. Shelf placement remains independent of artifact type.
+- **Verification:** Five helper tests passed. Browser checks covered all three reveal variants, real ribbon drag and tap, mobile journal, scroll/chest shelving with Undo, and no runtime errors. Restored original placement. No gate or registry changes.
+
+### Intuitive flow and visual status · Codex
+
+- **Ask:** Make the flow easier and show fantasy progress instead of step fractions.
+- **Result:** One-tap automatic opening/journal; optional ribbon replay; collapsed move/retire controls; visual earned-star/current-gem/upcoming trail with accessible progress metadata.
+- **Verification:** Build and desktop/mobile browser checks passed. Approved/active/upcoming mappings, completed bonus status, optional replay and organization disclosure checked. No project progress or approval changes.
+
+### bob rename, compact wizarding wordmark, and model polish · Codex
+
+- **Ask:** Smaller Harry Potter inspired logo, rename to bob, and sharper, more finished game-like 3D assets.
+- **Result:** Original compact gothic SVG wordmark; bob labels/title; multisampling/supersampling and lighter paint filtering; material finish improvements; rebuilt scroll/chest details, cloak stitching, and layered fire/embers.
+- **Verification:** Build and desktop/phone browser checks passed for rendering, branding, journal and chest reveal, with no shader/runtime errors. Real-device performance and commercial console art parity are not established. Preview server restarted; original registry IDs and approval gates retained.
+
+### Name correction · Codex
+
+User clarified that Bob is the character, not the app. Restored idea.quest branding/title/project display; updated keeper labels, pet action and dialogue to Bob. Art and workflow progress remain unchanged.
+
+### Connected vault collection · October 13, 2026 · Codex
+
+- **Ask:** Execute the collection, automatic vault discovery, existing/new project links, and persistent what changed + what's next design.
+- **Result:** Added vault Markdown project records, five-second discovery, stable IDs, linked-folder activity, possible-project import suggestions, searchable parchment collection, existing/new project creation, HTTPS destinations, custom editable Markdown milestones, and dated checkpoint history. Imported four existing records and attached the known Palette repository/live links. Released work remains collected when revisited. Bob recalls saved context and responds to saves/releases. Added an Obsidian project template. Local API saves require matching origin and session token and reject stale revisions while preserving drafts. Existing class approval registry was not edited; room placement remains a browser preference.
+- **Verification:** Eleven tests passed. Real browser flow created a disposable project, saved its state/links/milestones, observed a direct vault edit, rejected a stale checkpoint with its draft intact, rebased and saved that draft while retaining the vault edit, and marked the test project released. A separate note added directly in the vault was discovered and assigned an ID. Removed both temporary notes. Desktop and 390px phone layouts had no horizontal overflow; no browser warning/error logs were observed. Actual phone/Obsidian protocol opening was not tested. Public copies and external accounts were not changed.
