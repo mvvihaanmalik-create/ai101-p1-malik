@@ -4,12 +4,12 @@ Vihaan Malik · AI 101 · Project 1 + Project 2
 
 Each entry records the **ask, result, and decision with a reason**. Tools are named at the start of each section; checks appear only when they affect the decision. Statuses describe what was known at that point in the session.
 
-[[#2026-10-12 — Project 2 submission files|Submission files]] · [[#2026-10-11 — idea.quest potion-room redesign|Latest project work]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
+[[#2026-10-12 — Project 2 submission files|Submission files]] · [[#2026-10-13 — IdeaQuest Final site|Final site]] · [[#2026-10-11 — idea.quest potion-room redesign|Route and prototype history]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
 
-> [!info] Last recorded project status — October 11
+> [!info] Recorded project status — updated October 13
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **idea.quest:** current public ASCII mirror remains live; Goal and Three.js Route approved (2/5). The improved local 3D Step 3 art pass awaits visual review; the separate local read-only context-chat prototype has been integrated into the 2D board. The 3D room is not published.
+> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/ with source/review instructions on the course GitHub repo. The logo reads IdeaQuest; Bob is the cat. The public site is a read-only snapshot; local saves use vault Markdown. Class approval remains 2/5; real-phone performance remains unverified.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -22,6 +22,19 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > - **Check:** Optional. What was actually checked, who checked it, and any material limit.
 >
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
+
+## 2026-10-13 — IdeaQuest Final site
+
+### Final workshop, utility pass, and publication · Codex
+
+- **Ask:** Make idea.quest a cozy, painterly 3D project workshop that is useful for collecting existing and new vibe-coded work. Connect last changes and next steps to the vault, publish it for others and the professor, reduce lag, and remove the crowded overview scrolls.
+- **AI work:** Codex wrote and revised the HTML/CSS/JavaScript, procedural Three.js room and original cat models, painted materials, animation, artifact classification, drag/shelf/retire/Undo interactions, journals, visual progress, and focus timer. It implemented local vault discovery, existing/new project creation, repository/live links, saved checkpoints, editable milestones, and stale-save protection. It built and tested the app, prepared the public snapshot, deployed to Vercel, and pushed scoped source/documentation to GitHub. Tools included Three.js, esbuild, Node.js tests, browser checks, Vercel CLI, and GitHub/Git.
+- **My decisions:** I chose the 3D route, supplied the cozy visual reference, and directed the cat, hat/cloak, reactions, painterly finish, artifacts, room interactions, and practical project collection. I requested deployment and professor-facing links. I rejected the cramped layout and asked for small names beneath artifacts, with a scroll only after selection. I called the review build **IdeaQuest Final**, then asked for the visible logo to say **IdeaQuest**. **Bob** is the character. These were my design and scope choices; Codex implemented the code.
+- **Final result:** [Live workshop](https://idea-quest-ai101.vercel.app/) · [GitHub source and run instructions](https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike) · [Professor review guide](https://github.com/mvvihaanmalik-create/ai101-p1-malik/blob/main/Obsidian%20Vault/AI%20101/Project%202/IdeaQuest%20Final.md). Artifacts have clickable name labels; one selected journal shows progress, last change, next step, and destinations. Earlier builds remain documented below.
+- **Utility boundary:** The local workshop reads and saves project records in vault Markdown and discovers additions. The public site is a **read-only published snapshot** of four projects: it cannot read my Windows vault or save into it, and online updates require republishing. Repository/live destinations are links, not automatic commit/deployment tracking. Arrangement and focus are browser preferences; retiring an artifact does not delete its files.
+- **Recorded checks:** 15 automated tests passed during the final layout build. Browser checks covered 1440×900 desktop and 390×844 emulated phone layouts, search, journals, destination links, separated labels, shelving/Undo, and the focus timer while motion was paused. No horizontal overflow or runtime errors were observed in those checks. The final layout's five public assets matched source hashes at both deployed URLs. Rendering uses a pixel budget, lighter postprocessing, a shared drag/frame limit, and pauses unnecessary animation. Physical-phone GPU performance and touch feel remain unverified; the throttled embedded preview does not establish real-phone FPS or guarantee no lag on every device.
+- **Publication evidence:** Latest production deployment **dpl_7e1sd4JHjatfbpbVkhPb3qoRtjUb** is READY and promoted to the live URL. Its [immutable build](https://idea-quest-ai101-ba1p3dnon-vihaanmalik.vercel.app/) and live browser were checked for the logo correction. Source through that correction is recorded in GitHub commit **b33811d**. The professor account **nmadrid27** has existing write access. A broad vault-sync attempt was rejected; narrower workshop/review commits were published and verified.
+- **Decision:** **Published for professor review at my request.** “Final” distinguishes this review build from the prototypes; it does not accept additional class workflow gates. IdeaQuest still has **2/5 approved gates**. Commercial console art parity and automatic private online vault sync are not established.
 
 ## 2026-10-12 - Quest tracker readability and focus
 
