@@ -1,5 +1,17 @@
 # 05 / 05 · Revise or stop
 
+## New run: idea.quest — Step 5 decision draft (2026-10-15)
+
+**Starts from:** Vihaan's accepted, bounded [[AI 101/Project 2/outputs/idea-quest/04-human-check.md|Step 4 human check]] and the original goal: a shareable 3D project workshop with project status that can be updated from his local tools and automatically published after validation.
+
+**Passed:** The site is public; the retained project records and 3D workshop are usable in the checked browser flows. Vihaan reported phone tapping/dragging working, approved the live status display, and confirmed the post-login update. The status-only monitor has published a validated status edit without changing pinned visual assets.
+
+**Unknown or limited:** No long-duration unattended-publishing study, broad device/browser performance check, hardware audio assessment, or full security audit. The monitor needs the Windows machine and Vercel CLI session. Public visitors cannot edit; website code/design is intentionally outside automatic status publishing. The instructor GitHub copy and disclosure should be reviewed separately before submission.
+
+**Recommended next move — stop this workflow pass:** Keep the accepted status-only route rather than expanding it to public editing or automatic code/design deployment. This meets the latest bounded requirement without adding a hosted write service or broad Vault exposure. Cost: no new feature build; only occasional checks that the monitor and credentials still work. Risk: a future status edit may fail to publish while the computer is off or credentials expire. Check: compare a harmless status edit against the live project journal when needed, and inspect the local publisher log if it does not arrive.
+
+**Decision gate:** Vihaan chooses **stop here for now** or names one specific change worth a new bounded feasibility/prototype/human-check loop. No Step 5 approval is inferred from Step 4 acceptance.
+
 **Output:** one bounded change or a stop decision · **Gate:** your final choice for this pass
 
 ## Starts from

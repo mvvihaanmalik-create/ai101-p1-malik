@@ -6,7 +6,7 @@ pitch: "A vault-backed project tracker being redesigned as a cozy potion room wi
 phase: "active"
 repository: "https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike"
 live: "https://idea-quest-ai101.vercel.app/"
-next: "Try the published workshop on a phone and review how quickly projects open."
+next: "Review the live status-only update, then decide whether to keep the monitor running after Windows login."
 changed: "Made projects usable before the 3D room finishes loading, reduced paint and shadow rendering costs, and paused rendering in background tabs, offscreen views, and open journals. Added clearer project actions and larger touch targets."
 folder: "Project 2/progress-arcade"
 createdAt: "2026-10-08"

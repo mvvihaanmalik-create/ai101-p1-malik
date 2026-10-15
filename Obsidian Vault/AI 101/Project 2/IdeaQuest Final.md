@@ -25,8 +25,8 @@ An interactive project collection in a cozy 3D workshop, with Bob the cat, proje
 
 ## Scope and verification
 
-The public site is a published, read-only snapshot. It does not access the owner's Windows vault. Project creation, automatic vault discovery, checkpoint saves, and milestone editing work in the local workshop; online updates require republishing. No account or sign-in is needed to review the public site.
+The public site is read-only to visitors and does not access the owner's Windows vault. Project creation, vault discovery, checkpoint saves, and milestone editing work in the local workshop. A status-only monitor now publishes validated project summaries from the owner's running Windows computer; website design/code updates still require a separate release. The monitor is not yet configured to restart after reboot. No account or sign-in is needed to review the public site.
 
 The October 13 performance update loads project controls before the room, reduces GPU work, caps render density, and suspends unnecessary animation. Fifteen automated tests passed. Browser checks covered desktop and 390px phone layouts, search, journals, links, pause mode, and the focus timer. Physical-phone frame rates remain unmeasured.
 
-Class workflow approval remains **2/5 for idea.quest**. Deploying the workshop does not mark the remaining gates as accepted. This build is available for review.
+Class workflow approval is **3/5 for idea.quest** after Vihaan accepted the Step 3 prototype on October 13. The Human check and final decision remain open. The public site may still display the earlier published 2/5 snapshot until it is deliberately republished.

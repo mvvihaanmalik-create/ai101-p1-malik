@@ -25,6 +25,18 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 
 ## 2026-10-15 — IdeaQuest usability audit and sounds
 
+### Status publisher at Windows login · Codex
+
+- **Ask:** After reviewing the status display (“looks fine”), Vihaan said “proceed” to the proposed login-start setup.
+- **Result:** Added a user-level Windows Startup shortcut to a launcher outside the Vault. The launcher checks for an existing idea.quest `--watch` process before starting one hidden. Invoking it started the monitor; the log recorded the startup.
+- **Decision:** Keep the status-only scope and the existing **3/5** workflow status. A real sign-out/sign-in and another automatic publication remain untested; this is not Step 4 approval.
+
+### Post-login human check · Codex
+
+- **Ask:** Vihaan reported “yup it does” about the post-login site update and said “lets proceed.”
+- **Result:** Recorded his observation and accepted Step 4 for the bounded status-only publication route. Saved [[AI 101/Project 2/outputs/idea-quest/04-human-check.md|the human-check output]] and advanced the local workflow tracker to **4/5**.
+- **Decision:** Keep the working status-only route, with visitor editing and automatic website code/design publication out of scope. Step 5 remains his decision; the report is not a broad reliability, phone-performance, or security audit.
+
 ### Continue working, recover context, and optional audio · Codex
 
 - **Ask:** Audit usability, improve function further, and add sounds.

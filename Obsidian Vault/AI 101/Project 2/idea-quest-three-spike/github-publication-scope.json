@@ -1,0 +1,81 @@
+{
+  "repository": "mvvihaanmalik-create/ai101-p1-malik",
+  "files": [
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/.gitignore",
+      "sha256": "9b8d95e2a2ea254612e8c366827e13f03180cd0521ba30ffa9943a1d6c4485ca"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/app.js",
+      "sha256": "60e921e1d098ab9f93cad4d854b34e93c71c34f175a9cbdf79876a2cb686de0c"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/index.html",
+      "sha256": "e2c5c837d5f000d4fa9d572209d5fed9bab21e1dffa1077d012925337f0c475f"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/styles.css",
+      "sha256": "6f90532b87053f07dcfc0288e03280e0a4bccd090f5008b89a7eb8860134a8d0"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/README.md",
+      "sha256": "5fcb9545ac526b5b7c2a5c14a64edf67ddf28014229fb8d21f4098c1797bf57f"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/deployment-manifest.json",
+      "sha256": "5c1e5b6a9fda90513bc3a711ed1e149493af43feb70917ef3ca9a9d759879a23"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/preview-performance-live.jpg",
+      "sha256": "a3706c4e063cde57bd3308ffd76faf70b5647de2d373145b14780b144c8c829f"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/src/collection-ui.js",
+      "sha256": "ccfcc0f1be72d931fdee092185bd9eecb1d0ff3f9b5a4420db3e30fdbbcc70d1"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/src/main.js",
+      "sha256": "ca0f8914b5e19242086f073a507826ab5e988d9cf5a3c85bb137fb9996df1acd"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/src/paint-renderer.js",
+      "sha256": "c5292909453cfb70425c997a5934393d932bb02bfddff5b486e9c1cb00d54c46"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/src/render-monitor.js",
+      "sha256": "7325288ff19c176caf2aa564bc3cdf019c87ab0d7bc28783a6c250d766e91a5a"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/src/render-policy.js",
+      "sha256": "c02a4d0d288511103f370c0a9c802e80f95d820f80d49bcbe069307f750ce686"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/src/workshop.js",
+      "sha256": "2c0318057eb1399930548c72e527fc2cb1514a7c2de8e2bf7e4264e06652f7e6"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-three-spike/tests/render-policy.test.mjs",
+      "sha256": "39d522ddeeee7cf35622817fd7192fa3164cd02596bfc5653100abcc1023e696"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/idea-quest-review.md",
+      "sha256": "9453a97c1e90935cbb395ffb156c5a5fab3628936114ba234e3df44589046994"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/Workshop Projects/idea-quest.md",
+      "sha256": "bb8922cd697b210bc2b6d9af384c8a293b29a7482c8ae3ac0e1909339bc318c7"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/Project 2/00-start-here.md",
+      "sha256": "d638722a38c54e5747155150e26c2fdcf01bca07c2cbd77cb5e23a49e76bf4ad"
+    },
+    {
+      "path": "Obsidian Vault/AI 101/ai-use-log.md",
+      "sha256": "b2565d0b71abbe466230d7d5d45207c05c784485cff761f7f79157589494867b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e4a430d66a84fa795af14960107e1c156d4853502d3c5a6ec76b96bfc493f516"
+    }
+  ]
+}

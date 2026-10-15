@@ -24,21 +24,21 @@
     },
     {
       "id": "idea-quest",
-      "title": "idea.quest",
+      "title": "IdeaQuest Final",
       "pitch": "A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.",
       "kind": "workflow",
       "phase": "active",
       "released": false,
-      "repository": "",
-      "live": "",
-      "nextMove": "Import one of my existing builds, then use a checkpoint after my next coding session.",
-      "changed": "Added the vault-connected project collection, project links, custom milestones, and saved session checkpoints. Bob now recalls the next step when you return.",
+      "repository": "https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike",
+      "live": "https://idea-quest-ai101.vercel.app/",
+      "nextMove": "Review the live status-only update, then decide whether to keep the monitor running after Windows login.",
+      "changed": "Made projects usable before the 3D room finishes loading, reduced paint and shadow rendering costs, and paused rendering in background tabs, offscreen views, and open journals. Added clearer project actions and larger touch targets.",
       "gates": [
         "approved",
         "approved",
-        "active",
-        "upcoming",
-        "upcoming"
+        "approved",
+        "approved",
+        "active"
       ],
       "gateNames": [
         "Goal",
@@ -49,7 +49,7 @@
       ],
       "legacyWorkflow": true,
       "milestones": [],
-      "updatedAt": "2026-10-13T20:39:01.708Z",
+      "updatedAt": "2026-10-13T21:44:13.831Z",
       "sessions": [],
       "activity": [],
       "updates": []
@@ -123,7 +123,7 @@
   "sync": {
     "root": "Published collection",
     "mode": "hosted",
-    "asOf": "2026-10-13T20:57:27.064Z",
+    "asOf": "2026-10-15T20:57:43.398Z",
     "warnings": []
   }
 }

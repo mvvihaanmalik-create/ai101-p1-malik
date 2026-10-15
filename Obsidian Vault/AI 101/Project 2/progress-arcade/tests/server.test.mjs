@@ -94,7 +94,11 @@ test('rejects empty ideas and cross-origin writes', async () => {
 
 test('embedded companion requires local token and reads selected project without changing gates', async () => {
   let seenPrompt = '';
-  const f = await fixture({ chatRunner: async (prompt) => { seenPrompt = prompt; return 'Goal and Route are approved (2/5).'; } });
+  const approved = JSON.parse(fs.readFileSync(seed, 'utf8')).projects
+    .find((project) => project.id === 'idea-quest').gates
+    .filter((gate) => gate === 'approved').length;
+  const stubAnswer = `Approved gates: ${approved}/5.`;
+  const f = await fixture({ chatRunner: async (prompt) => { seenPrompt = prompt; return stubAnswer; } });
   try {
     const token = (await (await fetch(`${f.base}/api/chat-token`)).json()).token;
     const payload = { projectId: 'idea-quest', prompt: 'What is approved?' };
@@ -107,9 +111,9 @@ test('embedded companion requires local token and reads selected project without
     });
     assert.equal(allowed.status, 200);
     const answer = await allowed.json();
-    assert.equal(answer.answer, 'Goal and Route are approved (2/5).');
+    assert.equal(answer.answer, stubAnswer);
     assert.ok(answer.sources.includes('AI 101/Project 2/progress-arcade/projects.json'));
-    assert.match(seenPrompt, /APPROVED GATES: 2\/5/);
-    assert.equal((await (await fetch(`${f.base}/api/projects`)).json()).projects.find((p) => p.id === 'idea-quest').gates.filter((g) => g === 'approved').length, 2);
+    assert.match(seenPrompt, new RegExp(`APPROVED GATES: ${approved}/5`));
+    assert.equal((await (await fetch(`${f.base}/api/projects`)).json()).projects.find((p) => p.id === 'idea-quest').gates.filter((g) => g === 'approved').length, approved);
   } finally { await f.close(); }
 });
