@@ -30,11 +30,16 @@
         <button type="button" class="collection-launch" id="libraryOpen" disabled>All projects</button>
         <button type="button" class="collection-launch" id="newProject" disabled>+ New idea</button>
         <span class="live-mark" id="connection" role="status">Opening your vault…</span>
-        <button type="button" class="sound-button" id="soundButton" aria-label="Enable sound effects" aria-pressed="false" title="Sound effects">
+        <button type="button" class="sound-button" id="soundButton" aria-label="Enable workshop sounds" aria-pressed="false" title="Enable workshop sounds">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" stroke-linejoin="round"/><path class="sound-waves" d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14" stroke-linecap="round"/><path class="sound-off" d="m17 10 4 4m0-4-4 4" stroke-linecap="round"/></svg>
+          <span class="audio-label" id="soundLabel">Sound off</span>
         </button>
       </div>
     </header>
+    <div class="resume-control" aria-label="Return to your work">
+      <button type="button" id="resumeProject" disabled><span class="resume-verb">Continue</span> <span id="resumeTitle">your project</span> <span aria-hidden="true">↗</span></button>
+      <span id="focusClock" role="timer" aria-label="Focus time remaining" hidden></span>
+    </div>
 
     <section class="intro" aria-label="Your focus quest" hidden>
       <p class="eyebrow" id="focusLabel">CURRENT PROJECT</p>
@@ -83,6 +88,7 @@
       <div class="next-card"><span class="eyebrow">NEXT SMALL STEP</span><p id="detailNext"></p></div>
       <p class="edition-note" id="editionNote" hidden></p>
       <button class="focus-open" id="setFocus" type="button">Make this my focus</button>
+      <button class="journal-focus quiet-button" id="projectFocus" type="button">Start 15-minute focus</button>
       <div id="milestoneActions" class="milestone-actions"></div>
       <details class="checkpoint-panel"><summary>Save where you stopped</summary>
         <form id="checkpointForm" class="journal-form">
@@ -108,8 +114,8 @@
       </details>
       <details class="project-activity"><summary>Recent vault activity & sessions</summary><div id="projectActivity"></div></details>
       <details class="artifact-management"><summary>Move or put away</summary><div class="organize-potion"><span id="potionPlace" class="eyebrow"></span>
-        <div class="organize-actions"><button id="shelvePotion" type="button">Move to wall shelf</button><button id="disposePotion" type="button">Retire artifact</button></div>
-        <p>Retired artifacts can be restored. Your progress stays saved.</p>
+        <div class="organize-actions"><button id="shelvePotion" type="button" aria-describedby="organizeHelp">Move to wall shelf</button><button id="restoreShelf" type="button" hidden>Restore to wall shelf</button><button id="disposePotion" type="button">Retire artifact</button></div>
+        <p id="organizeHelp">Retired artifacts can be restored. Your progress stays saved.</p>
       </div></details>
       <details class="journey"><summary>Quest history & notes</summary>
         <ol class="gate-list" id="gateList" aria-label="Workflow steps"></ol>
@@ -131,7 +137,7 @@
     <header class="library-heading"><div><p class="eyebrow">YOUR WORK, ALL TOGETHER</p><h2 id="libraryTitle">The collection</h2></div><button id="libraryClose" class="quiet-button" aria-label="Close collection">×</button></header>
     <div id="libraryContent">
       <div class="library-toolbar"><label class="search-label">Find a project<input id="librarySearch" type="search" placeholder="Search names, ideas, next steps…"></label><label>Show<select id="libraryFilter"><option value="all">Everything</option><option value="active">Building</option><option value="review">Reviewing</option><option value="complete">Released</option><option value="resting">Resting</option><option value="idea">Ideas</option></select></label></div>
-      <p id="librarySummary" class="library-summary"></p>
+      <div class="library-meta"><p id="librarySummary" class="library-summary" role="status"></p><button id="clearLibraryFilters" type="button" class="quiet-button" hidden>Clear filters</button></div>
       <div id="libraryGrid" class="library-grid"></div>
       <details id="discoveryPanel" class="discovery-panel"><summary id="discoverySummary">Found in your vault</summary><p>Link an existing project folder once. Its notes will then appear in its journal.</p><div id="discoveryList"></div></details>
       <button id="libraryAdd" class="back" type="button">+ Add an idea or existing project</button>

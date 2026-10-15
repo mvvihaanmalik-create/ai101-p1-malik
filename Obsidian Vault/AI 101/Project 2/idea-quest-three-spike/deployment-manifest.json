@@ -2,27 +2,27 @@
   "project": "idea-quest-ai101",
   "projectId": "prj_zblNLbIE9RMYCLvgbmcWDpdHipAQ",
   "accountId": "team_rYbBIpXkLNdDUrzd7HHQ5qOZ",
-  "asOf": "2026-10-13T22:33:44.045Z",
+  "asOf": "2026-10-15T12:24:17.999Z",
   "files": [
     {
       "file": "index.html",
-      "sha": "e7388b4196cff2d018025533413fe5d7b39c8147",
-      "size": 12842
+      "sha": "5a1e9807baa781db6a16323d22ebb966d477ac04",
+      "size": 13663
     },
     {
       "file": "app.js",
-      "sha": "0d21ad40225ebf532930fb9d746434e496d7406b",
-      "size": 688128
+      "sha": "f223f171fe3265456650b99688ae0242a13fc942",
+      "size": 695330
     },
     {
       "file": "styles.css",
-      "sha": "326f6357e1ffa7575d0d9a360fbea6ac7c9f7437",
-      "size": 53852
+      "sha": "3554d3a83356178b9834f59d03f6615725ae52f7",
+      "size": 57075
     },
     {
       "file": "projects.json",
-      "sha": "638c9da42da11e2dbd78f1289000e14a878de879",
-      "size": 4055
+      "sha": "9216f9fdfafd0b5402414795f59dfc9cccee900e",
+      "size": 4084
     },
     {
       "file": "THREE-LICENSE.txt",
@@ -36,11 +36,11 @@
     }
   ],
   "deployment": {
-    "id": "dpl_7e1sd4JHjatfbpbVkhPb3qoRtjUb",
+    "id": "dpl_BG3kE3FgwUmEBfQxjApKyBvjp8Nh",
     "url": "https://idea-quest-ai101.vercel.app",
-    "buildUrl": "https://idea-quest-ai101-ba1p3dnon-vihaanmalik.vercel.app",
+    "buildUrl": "https://idea-quest-ai101-qv971eclt-vihaanmalik.vercel.app",
     "target": "production",
     "state": "READY",
-    "verifiedAt": "2026-10-13"
+    "verifiedAt": "2026-10-15"
   }
 }

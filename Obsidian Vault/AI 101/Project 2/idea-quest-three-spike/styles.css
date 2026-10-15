@@ -188,3 +188,20 @@ body:has(dialog[open]){overflow:hidden}.collection-card .collection-next{display
 }
 @media(max-width:699px){.keeper{bottom:176px}}
 .jar-dock .label-staggered:after{content:'';display:block;position:absolute;left:50%;right:auto;top:calc(-1 * var(--label-offset));bottom:auto;width:0;height:var(--label-offset);border:0;border-left:1px solid #e2c89b66;border-radius:0;background:none;box-shadow:none}
+
+/* Audit pass: a compact way back to work, discoverable audio, and honest view changes. */
+.resume-control{position:absolute;z-index:4;top:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;max-width:310px;color:#f3e3bf}
+.resume-control button{display:flex;align-items:center;gap:9px;min-height:44px;min-width:0;max-width:260px;padding:8px 12px;border:1px solid #aa95614d;border-radius:6px;background:#233329dc;color:#f4e5c3;font-size:13px;text-align:left}
+.resume-control button:hover{background:#3c5139;border-color:#d1b577}.resume-verb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#cbb17e}#resumeTitle{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}#focusClock{font:700 13px/1.4 monospace;color:#f5d895;white-space:nowrap}
+.room.selected .resume-control{visibility:hidden}
+.masthead .sound-button{display:flex;gap:7px;width:auto;min-height:44px;height:auto;border-radius:6px;padding:8px 10px;flex-shrink:0}.audio-label{font-size:12px;white-space:nowrap;color:#e9ddbc}.sound-button[aria-pressed=true]{background:#3d5538;border-color:#d2b97588}.sound-button svg{width:18px;height:18px;flex-shrink:0}
+.sound-settings{border:0;border-top:1px solid #baaa7855;margin:9px 0 0;padding:15px 2px 4px;min-width:0;color:#eee0bc}.sound-settings legend{font-size:12px;padding:0 6px 0 0}.sound-settings label{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.5}.sound-settings input[type=range]{width:100%;min-height:32px;accent-color:#e4c78e;margin:5px 0}.sound-settings .ambience-option{justify-content:flex-start;align-items:center;min-height:36px;font-size:12px;gap:7px}.ambience-option input{width:18px;height:18px;accent-color:#b5c79c}.sound-settings p{font-size:11px;line-height:1.5;color:#c1b79c;margin:6px 0 0}
+.journal-focus{width:100%;margin:12px 0 4px;min-height:44px;font-size:14px}.library-meta{display:flex;justify-content:space-between;align-items:center;gap:14px}.library-meta .quiet-button{flex-shrink:0;font-size:12px;padding:8px 10px}.collection-empty{font-size:16px;line-height:1.6;padding:15px 0}
+.room[data-view=shelf] .jar-option[data-place=table]{visibility:hidden;pointer-events:none}
+@media(min-width:700px) and (max-width:1150px){.resume-control{top:90px;left:auto;right:4%;transform:none;max-width:290px}}
+@media(max-width:699px){
+ .resume-control{top:130px;left:auto;right:20px;transform:none;max-width:190px;gap:5px}.resume-control button{max-width:190px;gap:6px;padding:8px;font-size:12px}.resume-verb{font-size:9px}.resume-control:has(#focusClock:not([hidden])) button{max-width:140px}.resume-control #focusClock{font-size:11px}
+ .masthead .sound-button{width:auto;height:44px;min-height:44px;padding:7px 8px;gap:5px}.audio-label{font-size:11px}.masthead h1.workshop-logo{width:90px}.room-tools{max-width:240px}
+ .workshop-play{top:130px;max-width:135px}.room-rituals summary{font-size:12px}.room-rituals summary span{margin-left:8px}.ritual-list{width:235px;max-height:60svh;overflow:auto;max-width:calc(100vw - 44px)}
+ .scene{top:122px}.library-meta{align-items:flex-start;gap:10px}.library-meta .library-summary{font-size:12px}.library-meta .quiet-button{margin-top:6px}.journal-focus{font-size:14px}
+}

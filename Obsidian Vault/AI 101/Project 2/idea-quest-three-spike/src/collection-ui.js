@@ -6,7 +6,7 @@ function element(tag, className, text) { const node = document.createElement(tag
 function noteLink(vault, file) { return `obsidian://open?vault=${encodeURIComponent(vault || 'Obsidian Vault')}&file=${encodeURIComponent('AI 101/' + file)}`; }
 function externalLink(label, href) { const anchor = element('a', 'destination', label); anchor.href = href; if (href.startsWith('https:') || href.startsWith('/api/')) { anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; } return anchor; }
 
-export function createCollectionUI({ getState, save, refresh, openProject, onCheckpoint, onVisibilityChange }) {
+export function createCollectionUI({ getState, save, refresh, openProject, onCheckpoint, onVisibilityChange, onSound=()=>{} }) {
   const dialog = $('libraryDialog'), checkpoint = $('checkpointForm'), settings = $('projectSettings'), create = $('createProjectForm');
   const drafts = new Map(); let currentId = null, checkpointDirty = false, settingsDirty = false;
   let returnFocus = null;
@@ -15,22 +15,23 @@ export function createCollectionUI({ getState, save, refresh, openProject, onChe
     $('libraryContent').hidden = createMode; create.hidden = !createMode;
     $('libraryTitle').textContent = createMode ? 'A new chapter' : 'The collection';
     if (candidate) { create.elements.title.value = candidate.title; create.elements.folder.value = candidate.folder; }
-    render(); if (!dialog.open) dialog.showModal();onVisibilityChange?.();
+    render(); if (!dialog.open) dialog.showModal();onVisibilityChange?.();onSound('scroll');
     (createMode ? create.elements.title : $('librarySearch')).focus();
   }
-  function close() { dialog.close(); returnFocus?.focus(); }
+  function close() { dialog.close();if(returnFocus?.isConnected&&returnFocus.getClientRects().length)returnFocus.focus();else $('libraryOpen').focus(); }
   function render() {
     const state = getState(); if (!state) return;
-    const search = $('librarySearch').value.toLowerCase(), filter = $('libraryFilter').value;
-    const projects = state.projects.filter(p => (!search || [p.title,p.pitch,p.nextMove,p.repository].join(' ').toLowerCase().includes(search)) && (filter === 'all' || p.phase === filter || filter === 'complete' && p.released || filter === 'active' && p.phase === 'revisiting'));
+    const search = $('librarySearch').value.trim().toLowerCase(), filter = $('libraryFilter').value;
+    $('clearLibraryFilters').hidden=!search&&filter==='all';
+    const projects = state.projects.filter(p => (!search || [p.title,p.pitch,p.nextMove,p.changed,p.repository,p.live].join(' ').toLowerCase().includes(search)) && (filter === 'all' || p.phase === filter || filter === 'complete' && p.released || filter === 'active' && p.phase === 'revisiting'));
     $('librarySummary').textContent = `${projects.length} of ${state.projects.length} projects · ${HOSTED?'published '+new Date(state.sync.asOf).toLocaleDateString():'saved in '+state.sync.root}`;
     const grid = $('libraryGrid'); grid.replaceChildren();
     for (const project of projects) {
       const card = element('button', 'collection-card'); card.type = 'button';
       card.append(element('span', 'collection-emblem', project.released ? '❖' : symbols[project.phase] || '✧'), element('h3','',project.title), element('span','collection-state',(project.released && project.phase !== 'complete' ? 'Released · ' : '') + (states[project.phase] || 'Idea')), element('p','',project.pitch || 'A little project with a place in your collection.'), element('p','collection-next',project.nextMove || (project.phase === 'complete' ? 'Open the result and its story →' : 'Choose your next small step →')));
-      card.addEventListener('click', () => { close(); openProject(project.id); }); grid.append(card);
+      card.addEventListener('click', () => { close(); openProject(project.id,true); }); grid.append(card);
     }
-    if (!projects.length) grid.append(element('p','collection-empty','No projects match. Try another search, or add your first idea.'));
+    if (!projects.length) grid.append(element('p','collection-empty',HOSTED?'No matching projects. Clear the filters to see the collection.':'No matching projects. Clear the filters or add a new idea.'));
     $('discoverySummary').textContent = `Found in your vault · ${state.candidates.length} possible projects`;
     $('discoveryPanel').hidden = !state.candidates.length;
     const candidates = $('discoveryList'); candidates.replaceChildren();
@@ -103,6 +104,7 @@ export function createCollectionUI({ getState, save, refresh, openProject, onChe
   $('libraryOpen').addEventListener('click',()=>show());$('newProject').addEventListener('click',()=>show(true));
   $('libraryAdd').addEventListener('click',()=>show(true));$('createCancel').addEventListener('click',()=>show());$('libraryClose').addEventListener('click',close);
   $('librarySearch').addEventListener('input',render);$('libraryFilter').addEventListener('change',render);
+  $('clearLibraryFilters').addEventListener('click',()=>{$('librarySearch').value='';$('libraryFilter').value='all';render();$('librarySearch').focus();onSound('navigate');});
   dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)close();}});
   dialog.addEventListener('close',()=>onVisibilityChange?.());
   if(HOSTED){document.querySelector('.project-activity').hidden=true;document.querySelector('.journey > summary').textContent='Project milestones';$('focusLabel').textContent='FEATURED PROJECT';$('newProject').hidden=true;$('libraryAdd').hidden=true;checkpoint.closest('details').hidden=true;settings.closest('details').hidden=true;$('discoveryPanel').hidden=true;$('editionNote').hidden=false;$('editionNote').textContent='You’re viewing the shared collection. Project updates and session notes are saved in the local workshop.';document.querySelector('.footnote span:first-child').textContent='IDEA.QUEST · SHARED WORKSHOP';document.querySelector('.footnote span:last-child').textContent='A published snapshot. Explore the room or open All projects.';}

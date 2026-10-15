@@ -23,6 +23,16 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 >
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
 
+## 2026-10-15 — IdeaQuest usability audit and sounds
+
+### Continue working, recover context, and optional audio · Codex
+
+- **Ask:** Audit usability, improve function further, and add sounds.
+- **Result:** Codex reviewed the existing code and walked through the project flows. Fixed return from journals to filtered collection results; added Clear filters and corrected the public empty state; exposed saved focus through a compact Continue shortcut; added journal focus controls and reload-persistent countdowns. Shelf selection now changes the camera on phones and desktop, and paused name labels use the current transform. Unavailable full-table moves explain the limit; retired work can restore directly to the shelf. Added local synthesized artifact/paper/placement/Undo/purr/hearth/lantern/completion sounds, visible Sound on/off, remembered volume/ambience, and mute/background stopping. Artwork and selection-only scrolls retained.
+- **Check:** All 24 tests passed, including sound signal bounds, opt-in/mute/background/failure handling, focus restoration, and existing vault/API/approval/render/publisher checks. Browser walkthroughs checked desktop and 390px phone layouts, preserved searches, countdown after reload, sound preferences, shelf navigation, paused label placement and full-table retirement/recovery. Original arrangements restored, and no horizontal overflow/runtime errors observed in checked flows. The status publisher initially rejected changed visuals as designed; its exact pins were updated to this reviewed package without removing drift checks.
+- **Publication:** Deployed READY build dpl_BG3kE3FgwUmEBfQxjApKyBvjp8Nh to https://idea-quest-ai101.vercel.app/. All five public asset hashes matched at staged and live URLs. Live sound controls and Bob interaction were checked. Source, audit evidence, and this log are being synced in a scoped course-repository commit.
+- **Limits/decision:** User authorized this usability/sound pass; no course gate was approved by the code or timer. This is a code/browser audit, not an independent user study or hardware listening test. Physical phone feel/FPS, cross-browser audio and a full 15-minute run remain unverified. Hosted editing is still read-only. No status monitor was running when checked; after-login startup remains the existing separate pending decision. [Detailed audit](https://github.com/mvvihaanmalik-create/ai101-p1-malik/blob/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike/usability-audit-2026-10-15.md).
+
 ## 2026-10-13 — IdeaQuest Final site
 
 ### Final workshop, utility pass, and publication · Codex

@@ -4,12 +4,12 @@ Vihaan Malik · AI 101 · Project 1 + Project 2
 
 Each entry records the **ask, result, and decision with a reason**. Tools are named at the start of each section; checks appear only when they affect the decision. Statuses describe what was known at that point in the session.
 
-[[#2026-10-12 — Project 2 submission files|Submission files]] · [[#2026-10-13 — IdeaQuest Final site|Final site]] · [[#2026-10-11 — idea.quest potion-room redesign|Route and prototype history]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
+[[#2026-10-13 — ESF audit of Project 2|ESF audit]] · [[#2026-10-12 — Project 2 submission files|Submission files]] · [[#2026-10-13 — IdeaQuest Final site|Final site]] · [[#2026-10-11 — idea.quest potion-room redesign|Route and prototype history]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
 
 > [!info] Recorded project status — updated October 13
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/ with source/review instructions on the course GitHub repo. The logo reads IdeaQuest; Bob is the cat. The public site is a read-only snapshot; local saves use vault Markdown. Class approval remains 2/5; real-phone performance remains unverified.
+> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/ with source/review instructions on the course GitHub repo. The logo reads IdeaQuest; Bob is the cat. Visitors have a read-only view; a local monitor now auto-publishes validated status edits while this Windows session runs. The user accepted Step 3 on October 13, making class approval **3/5**; Step 4 remains open. The user reported that phone tapping and dragging work fine, without supplying device or measured performance details.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -22,6 +22,69 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > - **Check:** Optional. What was actually checked, who checked it, and any material limit.
 >
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
+
+## 2026-10-15 — IdeaQuest usability audit and sounds
+
+### Continue working, recover context, and optional audio · Codex
+
+- **Ask:** Audit usability, improve function further, and add sounds.
+- **Result:** Codex reviewed the existing code and walked through the project flows. Fixed return from journals to filtered collection results; added Clear filters and corrected the public empty state; exposed saved focus through a compact Continue shortcut; added journal focus controls and reload-persistent countdowns. Shelf selection now changes the camera on phones and desktop, and paused name labels use the current transform. Unavailable full-table moves explain the limit; retired work can restore directly to the shelf. Added local synthesized artifact/paper/placement/Undo/purr/hearth/lantern/completion sounds, visible Sound on/off, remembered volume/ambience, and mute/background stopping. Artwork and selection-only scrolls retained.
+- **Check:** All 24 tests passed, including sound signal bounds, opt-in/mute/background/failure handling, focus restoration, and existing vault/API/approval/render/publisher checks. Browser walkthroughs checked desktop and 390px phone layouts, preserved searches, countdown after reload, sound preferences, shelf navigation, paused label placement and full-table retirement/recovery. Original arrangements restored, and no horizontal overflow/runtime errors observed in checked flows. The status publisher initially rejected changed visuals as designed; its exact pins were updated to this reviewed package without removing drift checks.
+- **Publication:** Deployed READY build dpl_BG3kE3FgwUmEBfQxjApKyBvjp8Nh to https://idea-quest-ai101.vercel.app/. All five public asset hashes matched at staged and live URLs. Live sound controls and Bob interaction were checked. Source, audit evidence, and this log are being synced in a scoped course-repository commit.
+- **Limits/decision:** User authorized this usability/sound pass; no course gate was approved by the code or timer. This is a code/browser audit, not an independent user study or hardware listening test. Physical phone feel/FPS, cross-browser audio and a full 15-minute run remain unverified. Hosted editing is still read-only. No status monitor was running when checked; after-login startup remains the existing separate pending decision. [Detailed audit](https://github.com/mvvihaanmalik-create/ai101-p1-malik/blob/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike/usability-audit-2026-10-15.md).
+
+## 2026-10-13 — ESF audit of Project 2
+
+### Build and test status-only automatic publishing · Codex
+
+- **Ask:** I approved a bounded test that automatically publishes validated project-status edits from the shared local Vault, with website design/code excluded.
+- **Result:** Codex built [[AI 101/Project 2/idea-quest-three-spike/status-auto-publish.mjs|the local monitor]] and four safety tests. It watches the registry and marked workshop notes, builds an allowlisted status JSON, runs 19 idea.quest and four tracker tests, stages the existing Vercel project, verifies hashes, promotes, and checks the live status. One assistant edit to the idea.quest `next` field reached the public site automatically. The site showed **3/5** and the edited next step; visual assets matched their previous hashes. [[AI 101/Project 2/idea-quest-three-spike/README.md|Run details and limits]].
+- **Decision:** **Prototype ready for my review, not Step 4 approval.** The monitor is running on this Windows session but is not installed to restart after reboot; status-only scope excludes visual/code changes.
+- **Check:** The first attempt aborted when inputs changed during validation, then retried successfully. A temporary-stage cleanup warning occurred after live verification; cleanup was adjusted and a fresh dry run passed. Public JSON had no raw session history or Windows path. Longer-term unattended behavior remains unverified.
+
+### Limit the automatic-publish test to status · Vihaan + Codex
+
+- **Ask:** I chose “status only” for the first automatic-publish test, rather than include website design/code changes.
+- **Result:** [[AI 101/Project 2/02-check-feasibility.md|Feasibility note]] now bounds the candidate input and public output fields. [[AI 101/Project 2/progress.md|Progress]] still shows 3/5 with Step 4 active.
+- **Decision:** **Keep the first test narrow.** No monitor, deployment, or Step 4 approval was authorized by this scope answer alone.
+
+### Choose automatic publishing for assistant-directed edits · Vihaan + Codex
+
+- **Ask:** I selected the latter option: publish automatically after a validated edit, rather than require me to approve a preview and trigger publication each time.
+- **Result:** [[AI 101/Project 2/02-check-feasibility.md|Feasibility return]] compares a local monitor that uses the existing sanitized snapshot builder and scoped Vercel CLI deployment with a separate Git-connected site repo and a hosted write service. Read-only Vercel account/project checks succeeded when the account scope was explicit. [[AI 101/Project 2/04-human-check.md|Step 4]] and the ESF resistance draft record the choice.
+- **Decision:** **Explore the local-monitor route first, pending scope choice.** No watcher, production deployment, or Step 4 gate approval happened in this turn. The next decision is whether the first automatic-publish test includes only project records/status or also site code/design.
+
+### Clarify how I want to edit idea.quest · Vihaan + Codex/ESF
+
+- **Ask:** After rejecting the public read-only/manual-republish boundary, I specified that I want to edit the project directly from either Obsidian Claudian or the ChatGPT desktop app.
+- **Result:** [[AI 101/Project 2/04-human-check.md|Step 4]] now records that requirement; [[esf/AI-101/records-of-resistance/ror-02-idea-quest-editing-boundary.md|ESF resistance draft]] captures the rejected boundary and my exact wording for review.
+- **Decision:** **Investigate a scoped agent-to-site publishing path.** I have not yet chosen automatic background publication versus preview-and-publish within an assistant task, and have not approved a sync implementation or Step 4 gate.
+
+### Reject the public snapshot boundary · Vihaan + Codex
+
+- **Ask:** I was asked whether I accept a public read-only snapshot with local Vault edits and manual republishing.
+- **Result:** I answered “no.” [[AI 101/Project 2/04-human-check.md|Step 4]] now records the rejected boundary separately from my positive phone-interaction check.
+- **Decision:** **Revise or investigate, not approve Step 4.** My preferred online editing/sync behavior has not yet been specified; no new architecture or deployment is authorized by this answer alone.
+
+### Check idea.quest on an actual phone · Vihaan + Codex
+
+- **Ask:** I checked the published workshop on my actual phone after Step 3 acceptance and answered the question about tapping, dragging, lag, and glitches.
+- **Result:** I reported “its working fine.” [[AI 101/Project 2/04-human-check.md|Step 4 draft]] records that observation without inventing device, browser, frame-rate, or longer-term results.
+- **Decision:** **Keep the observed phone interaction for now; overall Step 4 decision pending.** I have not yet accepted or rejected the separate local-edit/public-read-only boundary in this check.
+
+### Accept the idea.quest prototype gate · Vihaan + Codex
+
+- **Ask:** After reviewing the ESF audit, I answered “i do accept it” to the explicit Step 3 acceptance question.
+- **Result:** [[AI 101/Project 2/outputs/idea-quest/03-build-a-small-prototype.md|Accepted Step 3 record]] saved; the local idea.quest registry and [[AI 101/Project 2/progress.md|progress note]] now show **3/5** with Human check active. The tracker test initially failed because it expected the old 2/5 seed; its assertion was made gate-count-aware, then all four tests passed.
+- **Decision:** **Keep the current published build as the Step 3 prototype.** This does not approve the Step 4 human check, final decision, or a fresh deployment.
+- **Check:** The public Vercel snapshot and shared GitHub repository were not updated in this action; their displayed progress may still be 2/5 until a deliberate publication/sync.
+
+### Test the existing work without advancing gates · Codex + ESF
+
+- **Ask:** Audit Project 2 with ESF after the IdeaQuest Final publication, separating automated evidence from my approval and reflection.
+- **Result:** [[AI 101/Project 2/esf-audit-2026-10-13.md|Draft audit]] records 32 passing automated checks across five prototypes, the live site's HTTP/asset checks, the workflow-map structure, and a GitHub folder comparison. It flags stale disclosure/status text, repo-versus-Vault differences, and hands-on checks still owed.
+- **Decision:** **Pending my review** — no Step 3–5 idea.quest gate, ESF Five Questions answer, Position Statement, or final disclosure was supplied or approved by this audit.
+- **Check:** Gaze's Vault snapshot lacks the deliberately external `esbuild` dependency, so its four tests were run in the isolated build after matching source/test hashes. The live 3D assets matched local `public-deploy` files; no physical-phone interaction was retested.
 
 ## 2026-10-13 — IdeaQuest Final site
 

@@ -10,6 +10,8 @@ import { parseOrganization, nextTableFocus, tableSlot } from './organization.js'
 import { createCollectionUI } from './collection-ui.js';
 import { createRenderMonitor } from './render-monitor.js';
 import { renderDensity, shouldRunRoom, createFrameBudget, frameDue } from './render-policy.js';
+import { createWorkshopAudio } from './workshop-audio.js';
+import { restoreFocus, FOCUS_DURATION } from './focus-session.js';
 const renderMonitor=createRenderMonitor();
 const frameBudget=createFrameBudget();
 
@@ -22,6 +24,15 @@ const DEMO = new URLSearchParams(window.location.search).get('demo') === '1';
 const HOSTED = document.body.dataset.mode === 'hosted';
 function connectionLabel(){return HOSTED?`Shared collection · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}
 const $ = (id) => document.getElementById(id);
+let audioStorage;try{audioStorage=localStorage;}catch{}
+const audio=createWorkshopAudio({storage:audioStorage,onChange:renderSoundState});
+function renderSoundState(state=audio.state()){
+  $('soundButton').setAttribute('aria-pressed',String(state.enabled));
+  $('soundButton').setAttribute('aria-label',state.unavailable?'Workshop audio unavailable':state.enabled?'Mute workshop sounds':'Enable workshop sounds');
+  $('soundButton').title=state.unavailable?'Audio is unavailable in this browser':state.enabled?'Mute workshop sounds · volume in Room extras':'Enable workshop sounds · volume in Room extras';
+  $('soundLabel').textContent=state.unavailable?'No audio':state.enabled?'Sound on':'Sound off';
+  if($('soundVolume')){$('soundVolume').value=Math.round(state.volume*100);$('soundVolumeValue').textContent=Math.round(state.volume*100)+'%';$('hearthAmbience').checked=state.ambience;}
+}
 let focusId='idea-quest';
 try {const saved=localStorage.getItem('ideaQuest.focus');if(saved)focusId=saved;} catch {}
 const ORGANIZATION_KEY='ideaQuest.organization.v1'+(DEMO?'.demo':'');
@@ -48,12 +59,16 @@ function renderFocus(){
   if(p){const q=questFor(p);$('focusTitle').textContent=p.title;$('focusNext').textContent=q.action;$('focusOpen').textContent=HOSTED?'View project →':'Resume project →';}
   else{$('focusTitle').textContent='A clear worktable';$('focusNext').textContent='Bring an artifact back when you’re ready.';$('focusOpen').textContent=collectionIds('shelf').length?'Browse the shelf →':'Browse retired artifacts →';}
   $('questTotal').textContent=`${collectionIds('table').length} on the table · ${collectionIds('shelf').length} on the shelf`;
+  const current=records.get(focusEnds?focusProjectId:focusId);
+  $('resumeTitle').textContent=current?.title||'your collection';
+  $('resumeProject').disabled=false;$('resumeProject').setAttribute('aria-label',current?`Continue ${current.title}`:'Browse all projects');
+  $('resumeProject').title=current?.nextMove||'Browse all projects';
 }
 function renderCollections(){
   for(const place of ['table','shelf','retired']){const button=$(place+'Tab');button.textContent=`${PLACE_LABELS[place]} (${collectionIds(place).length})`;button.setAttribute('aria-pressed',String(collection===place));}
   $('collectionHint').textContent={table:'Tap an artifact or its name to open. Drag to the shelf to put it aside.',shelf:'Tap a shelf artifact to open. Drag it back to the table to continue.',retired:'Choose a retired project to view or restore it.'}[collection];
 }
-function showCollection(place){collection=place;hoveredId=null;renderDock();renderCollections();}
+function showCollection(place){collection=place;roomView=place==='shelf';$('room').dataset.view=place;if($('shelfView')){$('shelfView').setAttribute('aria-pressed',String(roomView));$('shelfView').textContent=roomView?'Back to room':'Explore shelf';}hoveredId=null;renderDock();renderCollections();chime('navigate');if(renderer)animate(true);}
 function jarRestPose(jar){
   const place=organization[jar.id];
   if(place==='shelf')return {position:workshop.shelfSlot(Math.max(0,collectionIds('shelf').indexOf(jar.id)%3)),scale:mobileLayout?.37:.38};
@@ -74,11 +89,11 @@ function movePotion(id,to,isUndo=false){
   selectedId=null;reveal=null;clearTimeout(revealTimer);hoveredId=null;$('artifactReveal').hidden=true;$('details').hidden=true;$('room').classList.remove('selected','revealing');setRoomModal(false);
   syncSceneArtifacts();renderDock();renderCollections();renderFocus();
   if(!isUndo){undoAction={id,from,to,previousFocus};$('undoMove').hidden=false;}
-  $('moveMessage').textContent=(isUndo?'Restored ':to==='shelf'?'Shelved ':to==='retired'?'Retired ':'Returned to the table: ')+(LABELS[id]||id)+(saved?'.':'. Saved for this visit only.');
+  $('moveMessage').textContent=(isUndo?'Restored ':to==='shelf'?'Shelved ':to==='retired'?'Retired ':'Returned to the table: ')+(records.get(id)?.title||LABELS[id]||id)+(saved?'.':'. Saved for this visit only.');
   $('moveToast').hidden=false;
   say(to==='shelf'?'Resting, not forgotten. I’ll keep this one safe.':to==='retired'?'A little more room for your next idea.':'Welcome back, little idea.');
   lastInteraction=performance.now();catMood=to==='retired'?'pet':'hello';greetingUntil=lastInteraction+3000;
-  $(collection+'Tab').focus();chime();if(renderer)animate();
+  $(collection+'Tab').focus();chime(isUndo?'undo':to==='retired'?'retire':'place');if(renderer)animate();
 }
 function undoMove(){if(!undoAction)return;const action=undoAction;undoAction=null;movePotion(action.id,action.from,true);focusId=nextTableFocus(organization,action.previousFocus,IDS);saveOrganization();renderFocus();renderDock();$('undoMove').hidden=true;}
 
@@ -104,10 +119,9 @@ let lastFrame = 0;
 let pointerDown = null;
 let potionDrag = null;
 let dropHint;
-let roomView=false,focusEnds=0,cozyUntil=0,watchedPotion=null,watchUntil=0;
+let roomView=false,focusEnds=0,focusProjectId=null,returnToCollection=false,cozyUntil=0,watchedPotion=null,watchUntil=0;
+const FOCUS_KEY='ideaQuest.focusSession'+(DEMO?'.demo':'');
 const cameraAim=new THREE.Vector3(0,1.8,0);
-let soundEnabled = false;
-let audioContext;
 let lastDialogue = '';
 let sceneFailure = null;
 const pointerLook = new THREE.Vector2();
@@ -419,13 +433,14 @@ function animate(scheduledTime) {
     animateSpiritCat(cat,time*.001,dt,{still,look,lookY,greet,mood,watching,cozy,attention:watching||catHovered||!!hoveredId});
   }
   workshop?.update(time*.001,still);
-  const closeShelf=roomView&&!selectedId&&!mobileLayout;
-  const camTarget=reveal&&!mobileLayout?new THREE.Vector3(-.3,4.1,10.5):closeShelf?new THREE.Vector3(-1.7,4.4,9.4):cameraHome.clone();
+  const closeShelf=roomView&&!selectedId;
+  const camTarget=reveal&&!mobileLayout?new THREE.Vector3(-.3,4.1,10.5):closeShelf?(mobileLayout?new THREE.Vector3(-2.1,4.9,6.5):new THREE.Vector3(-1.7,4.4,9.4)):cameraHome.clone();
   camTarget.x+=still||mobileLayout?0:pointerLook.x*.25;
   camTarget.y+=still||mobileLayout?0:pointerLook.y*.12;
   camera.position.lerp(camTarget,still?1:1-Math.exp(-3*dt));
-  cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?-1.7:0,reveal?2.2:closeShelf?3.2:mobileLayout?1.75:1.8,closeShelf?-3:0),still?1:1-Math.exp(-3*dt));
+  cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?(mobileLayout?-2.1:-1.7):0,reveal?2.2:closeShelf?3.7:mobileLayout?1.75:1.8,closeShelf?-3:0),still?1:1-Math.exp(-3*dt));
   camera.lookAt(cameraAim);
+  camera.updateMatrixWorld(true);
   positionArtifactLabels();
 
   paintRenderer?paintRenderer.render():renderer.render(scene,camera);
@@ -460,7 +475,9 @@ function dragDestination(){
 function updatePotionDrag(event){
   if(!potionDrag||event.pointerId!==potionDrag.pointerId)return false;
   if(!potionDrag.active&&Math.hypot(event.clientX-pointerDown.x,event.clientY-pointerDown.y)<8)return false;
+  const began=!potionDrag.active;
   potionDrag.active=true;watchedPotion=potionDrag.id;watchUntil=performance.now()+2400;event.preventDefault();lastInteraction=performance.now();
+  if(began&&roomView)showCollection('table');
   projectAtPointer(event);
   const hit=raycaster.ray.intersectPlane(potionDrag.plane,new THREE.Vector3());
   if(hit){const next=hit.add(potionDrag.offset);potionDrag.tilt=THREE.MathUtils.clamp((potionDrag.target.x-next.x)*.12,-.16,.16);potionDrag.target.copy(next);}
@@ -475,7 +492,7 @@ function finishPotionDrag(event){
   renderer.domElement.style.cursor='grab';
   if(!drag?.active){if(event)pickJar(event);else pointerDown=null;return;}
   pointerDown=null;hoveredId=null;
-  if(event&&drag.over){movePotion(drag.id,drag.to);const flight=jars.get(drag.id).flight;if(flight){flight.duration=650;flight.dragDrop=true;}chime('select');}
+  if(event&&drag.over){movePotion(drag.id,drag.to);const flight=jars.get(drag.id).flight;if(flight){flight.duration=650;flight.dragDrop=true;}}
   else{const jar=jars.get(drag.id);jar.flight={from:jar.group.position.clone(),fromScale:jar.group.scale.x,start:performance.now(),duration:500,to:organization[drag.id],dragDrop:true};}
   animate();
 }
@@ -501,22 +518,14 @@ function hoverJar(event) {
   renderer.domElement.title=hoveredId?'Drag to move · tap to discover':prop?{fire:'Stoke the fire',lantern:'Toggle the lantern',journal:'Begin a focus session'}[prop.object.userData.roomAction]:'';
 }
 
-function chime(kind='select') {
-  if(!soundEnabled)return;
-  try {
-    audioContext??=new (window.AudioContext||window.webkitAudioContext)();
-    audioContext.resume();
-    const notes=kind==='hello'?[659.25,880,987.77]:[523.25,783.99];
-    notes.forEach((frequency,i)=>{const o=audioContext.createOscillator(),g=audioContext.createGain(),t=audioContext.currentTime+i*.085;o.type='sine';o.frequency.value=frequency;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.055,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+.4);o.connect(g);g.connect(audioContext.destination);o.start(t);o.stop(t+.42);});
-  } catch { soundEnabled=false;$('soundButton').setAttribute('aria-pressed','false'); }
-}
+function chime(kind='navigate'){void audio.play(kind);}
 let dialogueTimer;
 function say(text){if(lastDialogue===text)return;$('keeperLine').textContent=text;lastDialogue=text;const keeper=document.querySelector('.keeper');keeper.classList.add('speaking');clearTimeout(dialogueTimer);dialogueTimer=setTimeout(()=>keeper.classList.remove('speaking'),6500);}
 function greetCat(kind='hello'){
   lastInteraction=performance.now();
   catMood=kind==='pet'?'pet':'hello';greetingUntil=lastInteraction+6000;
   const lines=kind==='pet'?['Prrrr… that is exactly the spot.','One more little head scratch?','You bring the ideas. I’ll bring the purrs.']:['Oh, hello! I saved you the warmest spot.','A little idea and a little courage. We can do this.','The fire is warm. There’s no need to rush.'];
-  say(lines[helloCount++%lines.length]);chime('hello');
+  say(lines[helloCount++%lines.length]);chime(kind==='pet'?'purr':'navigate');
   // Paint the response in the input event even when the host throttles animation frames.
   if(renderer&&cat)animate();
 }
@@ -615,8 +624,16 @@ function renderDetails(project) {
   $('setFocus').textContent=project.id===focusId?'Your current focus ✓':'Make this my focus';
   $('setFocus').disabled=project.id===focusId;
   $('setFocus').hidden=organization[project.id]!=='table'||project.id===focusId;
+  $('projectFocus').textContent=focusEnds&&focusProjectId===project.id?'End this focus session':focusEnds?'Switch focus here · 15 min':'Start 15-minute focus';
+  $('projectFocus').hidden=organization[project.id]!=='table';
+  $('returnButton').setAttribute('aria-label',returnToCollection?'Back to projects':'Return to table');
+  $('backButton').textContent=returnToCollection?'← Back to projects':'← Return to table';
   $('potionPlace').textContent={table:'On your worktable',shelf:'On the wall shelf',retired:'Retired'}[organization[project.id]];
   $('shelvePotion').textContent=organization[project.id]==='table'?'Move to wall shelf':organization[project.id]==='shelf'?'Bring to worktable':'Restore to worktable';
+  const tableFull=organization[project.id]!=='table'&&collectionIds('table').length>=3;
+  $('shelvePotion').disabled=tableFull;
+  $('organizeHelp').textContent=tableFull?'Your worktable holds three projects. Shelve one first to make room. Retired work can also be restored to the wall shelf.':'Retired artifacts can be restored. Your files and progress stay saved.';
+  $('restoreShelf').hidden=organization[project.id]!=='retired';
   $('disposePotion').hidden=organization[project.id]==='retired';
   const updatedDate=new Date(project.updatedAt);
   $('detailLatest').textContent = HOSTED ? (Number.isFinite(updatedDate.getTime())?`Updated · ${new Intl.DateTimeFormat('en',{dateStyle:'medium',timeZone:'UTC'}).format(updatedDate)}`:'') : project.updates?.[0] ? `Latest · ${project.updates[0].at}: ${project.updates[0].text}` : 'No dated updates yet.';
@@ -627,14 +644,15 @@ function renderDetails(project) {
     list.append(item);
   });
 }
-function setRoomModal(active){if(!active)document.body.classList.remove('artifact-inspection');for(const selector of ['.masthead','.intro','.keeper','.collection-controls','.jar-dock','.empty-collection','.footnote','.workshop-play','#moveToast']){const element=document.querySelector(selector);if(element)element.inert=active;}}
-function selectProject(id,playful=false) {
+function setRoomModal(active){if(!active)document.body.classList.remove('artifact-inspection');for(const selector of ['.masthead','.resume-control','.intro','.keeper','.collection-controls','.jar-dock','.empty-collection','.footnote','.workshop-play','#moveToast']){const element=document.querySelector(selector);if(element)element.inert=active;}}
+function selectProject(id,playful=false,fromCollection=false) {
   const project=records.get(id);if(!project)return;
   if(potionDrag)finishPotionDrag(null);
+  returnToCollection=fromCollection;
   clearTimeout(revealTimer);selectedId=id;setRoomModal(true);if(mobileLayout){window.scrollTo({top:0,behavior:'instant'});document.body.classList.add('artifact-inspection');}
   syncSceneArtifacts();
   const kind=artifactKind(project,primaryProjectId);reveal={id,kind,mode:'closed',playful:playful===true,start:performance.now()};
-  chime();lastInteraction=performance.now();watchedPotion=id;watchUntil=lastInteraction+4000;
+  lastInteraction=performance.now();watchedPotion=id;watchUntil=lastInteraction+4000;
   renderDock();renderDetails(project);
   $('details').hidden=true;$('details').querySelector('.journey').open=false;
   $('room').classList.add('selected','revealing');$('artifactReveal').hidden=false;
@@ -648,7 +666,7 @@ function selectProject(id,playful=false) {
 }
 function openArtifact(){
   if(!reveal||reveal.mode!=='closed')return;
-  reveal.mode='emerging';reveal.start=performance.now();chime();
+  reveal.mode='emerging';reveal.start=performance.now();chime(reveal.kind==='keepsake'?'keepsake':reveal.kind==='scroll'?'scroll':'potion');
   $('openArtifact').hidden=true;$('revealClose').focus();$('revealHint').textContent='A little note is finding its way out…';
   const id=reveal.id;
   revealTimer=setTimeout(()=>{if(!reveal||reveal.id!==id)return;if(!reveal.playful){showQuestJournal(id);return;}reveal.mode='sealed';$('ribbonParcel').hidden=false;$('revealHint').textContent='One small step, tucked inside.';$('pullRibbon').focus();if(renderer)animate();},reducedMotion.matches?0:reveal.playful?720:260);
@@ -657,7 +675,7 @@ function openArtifact(){
 function unfurlArtifact(){
   if(!reveal||!['sealed','unfolding'].includes(reveal.mode))return;
   reveal.mode='unfolding';$('artifactReveal').classList.add('unfurling');
-  $('artifactReveal').style.setProperty('--pull',1);chime();const id=reveal.id;
+  $('artifactReveal').style.setProperty('--pull',1);chime('scroll');const id=reveal.id;
   clearTimeout(revealTimer);
   revealTimer=setTimeout(()=>{if(!reveal||reveal.id!==id)return;
     showQuestJournal(id);
@@ -678,7 +696,9 @@ function returnToTable() {
   clearTimeout(revealTimer);reveal=null;ribbonDrag=null;selectedId=null;
   $('artifactReveal').hidden=true;$('artifactReveal').classList.remove('unfurling');$('details').hidden=true;
   $('room').classList.remove('selected','revealing');setRoomModal(false);renderDock();say('Every big idea starts with a little spark.');
-  if(lastFocusedId)$('jarDock').querySelector(`[data-project-id="${lastFocusedId}"]`)?.focus();
+  const backToLibrary=returnToCollection;returnToCollection=false;
+  if(backToLibrary)collectionUI.show();else{const target=lastFocusedId&&$('jarDock').querySelector(`[data-project-id="${lastFocusedId}"]`);if(target&&!target.hidden)target.focus();else $('resumeProject').focus();}
+  chime('scroll');
   syncSceneArtifacts();if(renderer)animate();
 }
 function syncSceneArtifacts(){
@@ -702,7 +722,9 @@ function applyRegistry(state) {
   renderDock();
   if (selectedId) renderDetails(records.get(selectedId));
   $('connection').textContent = connectionLabel();
-  renderFocus();
+  if(wasFirst){let saved=null;try{saved=restoreFocus(localStorage.getItem(FOCUS_KEY),Date.now(),IDS);}catch{}if(saved){focusEnds=saved.endsAt;focusProjectId=saved.projectId;}}
+  if(focusEnds&&!records.has(focusProjectId)){focusEnds=0;focusProjectId=null;persistFocus();}
+  renderFocus();updateFocusClock();
   if(wasFirst)say(HOSTED?'Open a project to see its story, code, and live app.':'Your next step is waiting. Open a project to continue.');
   renderMonitor.markProjects();
   for(const id of ['libraryOpen','newProject','focusOpen'])$(id).disabled=false;
@@ -717,33 +739,50 @@ async function loadRegistry() {
   lastRegistryText = text;
 }
 
+function persistFocus(){try{if(focusEnds)localStorage.setItem(FOCUS_KEY,JSON.stringify({endsAt:focusEnds,projectId:focusProjectId}));else localStorage.removeItem(FOCUS_KEY);}catch{}}
 function updateFocusClock(){
-  if(!focusEnds||document.visibilityState!=='visible')return;
+  if(document.visibilityState!=='visible')return;
   const remaining=Math.max(0,Math.ceil((focusEnds-Date.now())/1000));
-  $('focusSession').textContent=remaining?`End focus · ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')}`:'Start 15-minute focus';
-  if(!remaining){focusEnds=0;catMood='celebrate';lastInteraction=performance.now();greetingUntil=lastInteraction+2600;say('A little session, a real step forward. Take a breath.');chime();animate();syncRoomLoop();}
+  const time=`${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')}`;
+  $('focusSession').textContent=remaining?`End focus · ${time}`:'Start 15-minute focus';
+  $('focusClock').hidden=!remaining;$('focusClock').textContent=time;
+  if(focusEnds&&!remaining){focusEnds=0;focusProjectId=null;persistFocus();catMood='celebrate';lastInteraction=performance.now();greetingUntil=lastInteraction+2600;say('A little session, a real step forward. Save a checkpoint when you’re ready.');chime('complete');renderFocus();if(selectedId)renderDetails(records.get(selectedId));animate();syncRoomLoop();}
+}
+function toggleFocus(id=focusId){
+  if(focusEnds&&focusProjectId===id){focusEnds=0;focusProjectId=null;say('Focus ended. Your progress is still here.');chime('navigate');}
+  else{if(!records.has(id)){collectionUI.show();return;}focusId=id;focusProjectId=id;focusEnds=Date.now()+FOCUS_DURATION;saveOrganization();say('Fifteen quiet minutes with '+records.get(id).title+'. One small step.');chime('keepsake');}
+  persistFocus();renderFocus();updateFocusClock();if(selectedId)renderDetails(records.get(selectedId));
 }
 function interactRoom(action){
   if(action==='journal'){
-    if(focusEnds){focusEnds=0;$('focusSession').textContent='Start 15-minute focus';say('Taking a breather. Your progress is still here.');}
-    else{focusEnds=Date.now()+15*60*1000;say('Fifteen quiet minutes. Just one small step for '+(LABELS[focusId]||'your next idea')+'.');}
+    toggleFocus(focusEnds?focusProjectId:focusId);
   }else{if(action==='fire'){cozyUntil=performance.now()+16000;catMood='cozy';}const on=workshop?.interact(action);say(action==='fire'?'Bob tucks into their cloak and warms their paws.':on?'A warm light for your next idea.':'Moonlight and embers. A quieter kind of cozy.');if(action==='lantern')$('lanternToggle').setAttribute('aria-pressed',String(on));}
+  if(action==='fire'||action==='lantern')chime(action);
   lastInteraction=performance.now();if(renderer)animate();
 }
 async function boot() {
-  collectionUI=createCollectionUI({getState:()=>vaultState,onVisibilityChange:syncRoomLoop,refresh:loadRegistry,openProject:id=>{lastFocusedId=id;selectProject(id);},save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime();animate();syncRoomLoop();}});
+  collectionUI=createCollectionUI({getState:()=>vaultState,onVisibilityChange:syncRoomLoop,refresh:loadRegistry,openProject:(id,fromCollection=false)=>{lastFocusedId=id;selectProject(id,false,fromCollection);},onSound:chime,save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime(created||released?'complete':'place');animate();syncRoomLoop();}});
   const tools=document.createElement('div');tools.className='workshop-play';tools.setAttribute('aria-label','Workshop interactions');
   tools.innerHTML='<details class="room-rituals"><summary>Room extras <span aria-hidden="true">✧</span></summary><div class="ritual-list"><button id="shelfView" aria-pressed="false">Explore shelf</button><button id="stokeFire">Stoke fire</button><button id="lanternToggle" aria-pressed="true">Lantern</button><button id="pauseRoom" aria-pressed="false">Pause room motion</button><button id="focusSession">Start 15-minute focus</button></div></details>';
   $('room').append(tools);
+  tools.querySelector('.ritual-list').insertAdjacentHTML('beforeend','<fieldset class="sound-settings"><legend>Workshop sound</legend><label for="soundVolume">Volume <output id="soundVolumeValue">35%</output></label><input id="soundVolume" type="range" min="0" max="100" step="5" value="35"><label class="ambience-option"><input id="hearthAmbience" type="checkbox" checked> Fireplace ambience</label><p>Sound starts after you switch it on. Your choice is remembered.</p></fieldset>');
+  renderSoundState();
+  document.addEventListener('pointerdown',()=>{void audio.unlock();},{capture:true});
+  document.addEventListener('keydown',()=>{void audio.unlock();},{capture:true});
+  document.addEventListener('visibilitychange',()=>{audio.setVisible(document.visibilityState==='visible');updateFocusClock();});
+  $('soundVolume').addEventListener('input',event=>audio.setVolume(event.target.value/100));
+  $('hearthAmbience').addEventListener('change',event=>audio.setAmbience(event.target.checked));
+  $('projectFocus').addEventListener('click',()=>toggleFocus(selectedId));
+  $('resumeProject').addEventListener('click',()=>{const id=focusEnds?focusProjectId:focusId;if(records.has(id)){lastFocusedId=id;selectProject(id);}else collectionUI.show();});
   $('pauseRoom').setAttribute('aria-pressed',String(roomPaused));$('pauseRoom').textContent=roomPaused?'Resume room motion':'Pause room motion';
   window.setInterval(updateFocusClock,1000);
-  $('shelfView').addEventListener('click',()=>{roomView=!roomView;$('shelfView').setAttribute('aria-pressed',String(roomView));$('shelfView').textContent=roomView?'Back to room':'Explore shelf';showCollection(roomView?'shelf':'table');animate();});
+  $('shelfView').addEventListener('click',()=>showCollection(roomView?'table':'shelf'));
   $('stokeFire').addEventListener('click',()=>interactRoom('fire'));
   $('lanternToggle').addEventListener('click',()=>interactRoom('lantern'));
   $('focusSession').addEventListener('click',()=>interactRoom('journal'));
   $('pauseRoom').addEventListener('click',()=>{roomPaused=!roomPaused;try{localStorage.setItem('ideaQuest.roomMotion',roomPaused?'paused':'live');}catch{}$('pauseRoom').setAttribute('aria-pressed',String(roomPaused));$('pauseRoom').textContent=roomPaused?'Resume room motion':'Pause room motion';animate();syncRoomLoop();});
 
-  $('replayReveal').addEventListener('click',()=>{if(selectedId)selectProject(selectedId,true);});
+  $('replayReveal').addEventListener('click',()=>{if(selectedId)selectProject(selectedId,true,returnToCollection);});
   $('revealClose').addEventListener('click',returnToTable);
   $('openArtifact').addEventListener('click',openArtifact);
   $('pullRibbon').addEventListener('click',()=>{if(!ribbonDrag&&!ribbonDragged)unfurlArtifact();ribbonDragged=false;});
@@ -759,12 +798,13 @@ async function boot() {
   for(const place of ['table','shelf','retired'])$(place+'Tab').addEventListener('click',()=>showCollection(place));
   $('shelvePotion').addEventListener('click',()=>{if(selectedId)movePotion(selectedId,organization[selectedId]==='table'?'shelf':'table');});
   $('disposePotion').addEventListener('click',()=>{if(selectedId)movePotion(selectedId,'retired');});
+  $('restoreShelf').addEventListener('click',()=>{if(selectedId)movePotion(selectedId,'shelf');});
   $('undoMove').addEventListener('click',undoMove);
   $('dismissMove').addEventListener('click',()=>{$('moveToast').hidden=true;});
   $('setFocus').addEventListener('click',()=>{if(!selectedId)return;focusId=selectedId;try{localStorage.setItem('ideaQuest.focus',focusId);}catch{}renderFocus();renderDock();renderDetails(records.get(selectedId));say('One small quest at a time. I’m right here.');});
   $('greetButton').addEventListener('click',()=>greetCat('hello'));
   $('petButton').addEventListener('click',()=>greetCat('pet'));
-  $('soundButton').addEventListener('click',()=>{soundEnabled=!soundEnabled;$('soundButton').setAttribute('aria-pressed',String(soundEnabled));$('soundButton').setAttribute('aria-label',soundEnabled?'Mute sound effects':'Enable sound effects');if(soundEnabled)chime('hello');});
+  $('soundButton').addEventListener('click',async()=>{const on=!audio.state().enabled;const ready=await audio.setEnabled(on);if(on&&ready)chime('keepsake');if(audio.state().unavailable)say('Sound isn’t available in this browser. The room still works.');});
   document.addEventListener('keydown', (event) => {
     if(event.key==='Escape'&&potionDrag){finishPotionDrag(null);return;}
     if(event.key==='Escape'&&selectedId)returnToTable();
