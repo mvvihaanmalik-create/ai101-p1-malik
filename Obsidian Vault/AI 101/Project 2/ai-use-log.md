@@ -6,10 +6,10 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 
 [[#2026-10-13 — ESF audit of Project 2|ESF audit]] · [[#2026-10-12 — Project 2 submission files|Submission files]] · [[#2026-10-13 — IdeaQuest Final site|Final site]] · [[#2026-10-11 — idea.quest potion-room redesign|Route and prototype history]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
 
-> [!info] Recorded project status — updated October 13
+> [!info] Recorded project status — updated October 15
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/ with source/review instructions on the course GitHub repo. The logo reads IdeaQuest; Bob is the cat. Visitors have a read-only view; a local monitor now auto-publishes validated status edits while this Windows session runs. The user accepted Step 3 on October 13, making class approval **3/5**; Step 4 remains open. The user reported that phone tapping and dragging work fine, without supplying device or measured performance details.
+> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/. Visitors have a read-only view; a local Windows-login monitor publishes validated status-only edits. Vihaan accepted the bounded human check and chose to stop this workflow pass on October 15: **5/5** gates. The new audit and latest log are local until repository sync is separately verified.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -24,6 +24,12 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
 
 ## 2026-10-15 — IdeaQuest usability audit and sounds
+
+### Finish five-gate run and audit · Codex
+
+- **Ask:** Vihaan said “okay lets finish here” and requested an audit Markdown file for the run.
+- **Result:** Recorded the Step 5 stop choice, saved [[AI 101/Project 2/outputs/idea-quest/05-iterate-or-stop.md|the stop output]] and [[audit|the run audit]], and set the local tracker to **5/5**.
+- **Decision:** Stop this bounded workflow pass. Preserve the status-only boundary; untested reliability, device coverage, and repository/disclosure review remain visible rather than being presented as completed.
 
 ### Status publisher at Windows login · Codex
 

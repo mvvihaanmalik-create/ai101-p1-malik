@@ -12,6 +12,8 @@
 
 **Decision gate:** Vihaan chooses **stop here for now** or names one specific change worth a new bounded feasibility/prototype/human-check loop. No Step 5 approval is inferred from Step 4 acceptance.
 
+**Accepted stop (2026-10-15):** Vihaan said “okay lets finish here” and requested an audit for this run. Keep the working status-only route; do not add public editing, automatic site-code deployment, or another feature in this pass. Step 5 is approved as a stop decision, with the limits above carried forward. The audit is [[audit]].
+
 **Output:** one bounded change or a stop decision · **Gate:** your final choice for this pass
 
 ## Starts from
