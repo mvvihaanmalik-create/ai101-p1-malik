@@ -1,3 +1,5 @@
+[ESF: no PS for idea.quest release log; note one?]
+
 # AI use log
 
 Vihaan Malik · AI 101 · Project 1 + Project 2
@@ -6,10 +8,10 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 
 [[#2026-10-13 — ESF audit of Project 2|ESF audit]] · [[#2026-10-12 — Project 2 submission files|Submission files]] · [[#2026-10-13 — IdeaQuest Final site|Final site]] · [[#2026-10-11 — idea.quest potion-room redesign|Route and prototype history]] · [[#2026-10-01 — Class 6|Class 6]] · [[#2026-09-29 — Class 5|Class 5]] · [[#2026-09-22 — Class 3|Class 3]] · [[#2026-09-17 — Class 2|Poster rounds]] · [[log-archive/ai-use-log-before-2026-10-10|Full original record]]
 
-> [!info] Recorded project status — updated October 15
+> [!info] Recorded project status — updated October 20
 > - **Image Palette Studio:** revised prototype accepted for now; the later manual-accent feature still needs an interaction check.
 > - **Gaze:** two workflow gates approved; installed and user-enabled in the main vault. Cinema UI needs aesthetic review and a main-vault reload/check.
-> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/. Visitors have a read-only view; a local Windows-login monitor publishes validated status-only edits. Vihaan accepted the bounded human check and chose to stop this workflow pass on October 15: **5/5** gates. The new audit and latest log are local until repository sync is separately verified.
+> - **IdeaQuest Final:** the 3D workshop is published at https://idea-quest-ai101.vercel.app/. Visitors have a read-only view; a local Windows-login monitor publishes validated status-only edits. Vihaan stopped the earlier bounded workflow pass on October 15 at **5/5** gates. Vihaan requested publication of the October 20 shelf-interaction revision; it is live, with real-phone review and instructor-repository sync not yet claimed.
 > - **Project 1:** exact three-colour submission poster retained; later horror posters are candidates.
 
 > [!tip]- Add a future entry
@@ -23,18 +25,33 @@ Each entry records the **ask, result, and decision with a reason**. Tools are na
 >
 > Combine follow-ups about the same activity. Start a new entry for a meaningful change, output, or decision. Use “none” for editing-only work and “not recorded” when the original evidence does not identify a tool. Keep rejected attempts and distinguish approval from a passed test.
 
+## 2026-10-20 — Current-site shelf interaction
+
+### Select the shelf before seeing project names · Codex
+
+- **Ask:** Vihaan wanted shelf project names hidden in the distant room view; selecting the shelf should move/zoom the camera, then let him choose a project. He asked whether he needed to implement it or I would.
+- **Result:** I built a local-only change in the existing Three.js source. A projected shelf-sign button opens the existing shelf view; shelf names appear there, not in the overview. The desktop shelf camera moves closer. Journal selection, return, keyboard Escape, the collection fallback, and all project records remain in place. [[AI 101/Project 2/idea-quest-three-spike/README.md|Details and previews]].
+- **Check:** 25 automated tests and the bundle build passed. Headless Chrome desktop and emulated-phone checks exercised shelf entry, label visibility, artifact selection, journal return, and Escape with no page errors. An emulated touch run showed no horizontal overflow or write requests. This does not establish real-phone feel.
+- **Decision:** Keep as a **local prototype for review**. Do not publish or count it as a new gate until Vihaan checks the visuals and interaction.
+
+### Publish the shelf revision · Codex + Vercel CLI
+
+- **Ask:** Vihaan said “publish it and proceed” after the local shelf preview.
+- **Result:** Rechecked the 25 idea.quest and four tracker tests, prepared the allowlisted six-file public package, updated the status-only publisher's visual hashes, and deployed the shelf revision to the existing Vercel project. Staged and live HTML, bundle, CSS, project JSON, and license matched local SHA1 values; production deployment `dpl_EFLsog6Dsf8eaJ4qGVEopNFocQs2` is Ready at https://idea-quest-ai101.vercel.app/. The local status watcher was restarted as one process. [[AI 101/Project 2/idea-quest-three-spike/README.md|Release details]].
+- **Decision:** Published within the requested scope. Earlier five-gate completion remains **5/5**, not a new approval. Wait for Vihaan's actual-phone shelf/framing check before calling the interaction fully reviewed; no GitHub sync is claimed.
+
 ## 2026-10-15 — IdeaQuest usability audit and sounds
 
 ### Finish five-gate run and audit · Codex
 
 - **Ask:** Vihaan said “okay lets finish here” and requested an audit Markdown file for the run.
-- **Result:** Recorded the Step 5 stop choice, saved [[AI 101/Project 2/outputs/idea-quest/05-iterate-or-stop.md|the stop output]] and [[audit|the run audit]], and set the local tracker to **5/5**.
+- **Result:** Recorded the Step 5 stop choice, saved [[AI 101/Project 2/outputs/idea-quest/05-iterate-or-stop.md|the stop output]] and [[audit-note|the run audit]], and set the local tracker to **5/5**.
 - **Decision:** Stop this bounded workflow pass. Preserve the status-only boundary; untested reliability, device coverage, and repository/disclosure review remain visible rather than being presented as completed.
 
 ### Sync the finished run to GitHub · Codex
 
 - **Ask:** Vihaan requested that the latest updates be pushed to the existing instructor-shared repository if not already there.
-- **Result:** Compared the scoped Project 2 files with the clean repository mirror, screened the six changed/new files for private paths and credential patterns, fixed a trailing-whitespace check, and pushed the stop decision, 5/5 tracker, AI use log, and [[audit|audit]] to `main` as commit `c1ec52e`.
+- **Result:** Compared the scoped Project 2 files with the clean repository mirror, screened the six changed/new files for private paths and credential patterns, fixed a trailing-whitespace check, and pushed the stop decision, 5/5 tracker, AI use log, and [[audit-note|audit]] to `main` as commit `c1ec52e`.
 - **Decision:** Keep this a scoped Project 2 sync, not a dump of private Vault state. The repository's remote `main` matched the new commit when checked; this log entry itself is being added in a follow-up sync.
 
 ### Status publisher at Windows login · Codex

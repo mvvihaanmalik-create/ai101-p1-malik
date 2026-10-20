@@ -14,7 +14,7 @@ Use this workflow to turn a non-technical designer's build idea into a small, te
 3. Read [[AI 101/Project 2/progress.md]] for the active project's compact status; reset it when a new project begins.
 4. Read [[AI 101/Project 2/intent]] for the project problem and [[research-brief]] for the checked research claim and its limits.
 5. Consult [[source-verification-log]] when relying on a research claim.
-6. Work through the step files in order: [[AI 101/Project 2/01-define-the-goal.md]], [[AI 101/Project 2/02-check-feasibility.md]], [[AI 101/Project 2/03-build-a-small-prototype.md]], [[AI 101/Project 2/04-human-check.md]], then [[AI 101/Project 2/05-iterate-or-stop.md]]. Do not skip a step's check before moving on.
+6. Work through the steps in order: [[AI 101/Project 2/01-define-the-goal.md]], then use [[AI 101/Project 2/agents/Technologist|the Technologist agent]] in place of [[AI 101/Project 2/02-check-feasibility.md]], followed by [[AI 101/Project 2/03-build-a-small-prototype.md]], [[AI 101/Project 2/04-human-check.md]], and [[AI 101/Project 2/05-iterate-or-stop.md]]. The agent must stop for my route and test approval before the build. Do not skip a step's check before moving on.
 
 ## Visual check-in for every project
 

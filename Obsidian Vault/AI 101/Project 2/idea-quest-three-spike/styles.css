@@ -198,6 +198,10 @@ body:has(dialog[open]){overflow:hidden}.collection-card .collection-next{display
 .sound-settings{border:0;border-top:1px solid #baaa7855;margin:9px 0 0;padding:15px 2px 4px;min-width:0;color:#eee0bc}.sound-settings legend{font-size:12px;padding:0 6px 0 0}.sound-settings label{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.5}.sound-settings input[type=range]{width:100%;min-height:32px;accent-color:#e4c78e;margin:5px 0}.sound-settings .ambience-option{justify-content:flex-start;align-items:center;min-height:36px;font-size:12px;gap:7px}.ambience-option input{width:18px;height:18px;accent-color:#b5c79c}.sound-settings p{font-size:11px;line-height:1.5;color:#c1b79c;margin:6px 0 0}
 .journal-focus{width:100%;margin:12px 0 4px;min-height:44px;font-size:14px}.library-meta{display:flex;justify-content:space-between;align-items:center;gap:14px}.library-meta .quiet-button{flex-shrink:0;font-size:12px;padding:8px 10px}.collection-empty{font-size:16px;line-height:1.6;padding:15px 0}
 .room[data-view=shelf] .jar-option[data-place=table]{visibility:hidden;pointer-events:none}
+.jar-option[hidden],.shelf-hotspot[hidden]{display:none}
+.shelf-hotspot{position:absolute;z-index:3;transform:translate(-50%,-50%);min-height:44px;min-width:108px;padding:9px 13px;border:1px solid #d5bd83a8;border-radius:6px;background:#263a33e8;box-shadow:0 3px 0 #15231d,0 8px 18px #0b1117a6;color:#f6e6bd;font-size:11px;font-weight:800;letter-spacing:.06em;white-space:nowrap;transition:background .18s,border-color .18s}
+.shelf-hotspot span{margin-left:6px;color:#e3b978}.shelf-hotspot:hover{background:#435b43;border-color:#e5d29d}
+.room.selected .shelf-hotspot{display:none}
 @media(min-width:700px) and (max-width:1150px){.resume-control{top:90px;left:auto;right:4%;transform:none;max-width:290px}}
 @media(max-width:699px){
  .resume-control{top:130px;left:auto;right:20px;transform:none;max-width:190px;gap:5px}.resume-control button{max-width:190px;gap:6px;padding:8px;font-size:12px}.resume-verb{font-size:9px}.resume-control:has(#focusClock:not([hidden])) button{max-width:140px}.resume-control #focusClock{font-size:11px}

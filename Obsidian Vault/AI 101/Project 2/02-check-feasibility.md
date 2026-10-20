@@ -1,5 +1,8 @@
 # 02 / 05 · Choose a route
 
+> [!note] Superseded by the Technologist agent for Project 3
+> Keep this original step as Project 2 evidence. The current workflow calls [[AI 101/Project 2/agents/Technologist|the Technologist agent]] after the goal step; use this page only to review the original process.
+
 **Output:** evidence + route comparison · **Gate:** you approve the approach
 
 ## Starts from

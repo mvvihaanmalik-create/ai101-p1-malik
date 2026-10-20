@@ -12,7 +12,9 @@
 
 **Decision gate:** Vihaan chooses **stop here for now** or names one specific change worth a new bounded feasibility/prototype/human-check loop. No Step 5 approval is inferred from Step 4 acceptance.
 
-**Accepted stop (2026-10-15):** Vihaan said “okay lets finish here” and requested an audit for this run. Keep the working status-only route; do not add public editing, automatic site-code deployment, or another feature in this pass. Step 5 is approved as a stop decision, with the limits above carried forward. The audit is [[audit]].
+**Accepted stop (2026-10-15):** Vihaan said “okay lets finish here” and requested an audit for this run. Keep the working status-only route; do not add public editing, automatic site-code deployment, or another feature in this pass. Step 5 is approved as a stop decision, with the limits above carried forward. The audit is [[audit-note]].
+
+**New bounded shelf revision for review (2026-10-20):** Vihaan redirected the current Three.js room away from always-visible distant shelf project labels: select the shelf first, move/zoom the camera, then choose a shelved project. In response to his question about who would implement it, a **local-only** revision reused the existing shelf view, hid shelf names in the overview, added a shelf-sign control, and tightened the shelf camera. [[AI 101/Project 2/idea-quest-three-spike/README.md|Build and check details]]. Automated/browser checks passed, but Vihaan has not yet judged the view on his phone or approved a live deployment. The prior 5/5 pass remains a historical completed run; this later revision does not silently advance a new gate.
 
 **Output:** one bounded change or a stop decision · **Gate:** your final choice for this pass
 

@@ -123,8 +123,10 @@ export function createVaultStore({ vaultRoot, dataFile }) {
       const activity = folder ? files.filter(f => relative(f).startsWith(`${folder}/`) && f !== file).map(f => ({ path: relative(f), title: path.basename(f, '.md'), at: fs.statSync(f).mtime.toISOString() })).sort((a,b) => b.at.localeCompare(a.at)).slice(0, 5) : [];
       let repository = '', live = '';
       try { repository = link(d.repository); live = link(d.live); } catch { warnings.push(`Check HTTPS project links for ${d.title}`); }
+      // The class registry owns historical workflow status; workshop notes own new projects.
+      const phase = old?.kind === 'workflow' && phases.includes(old.phase) ? old.phase : phases.includes(d.phase) ? d.phase : 'idea';
       projects.push({ ...old, id: d.id, title: d.title, pitch: typeof d.pitch === 'string' ? d.pitch : '', kind: old?.kind || 'project',
-        phase: phases.includes(d.phase) ? d.phase : 'idea', released: d.released === true || d.phase === 'complete' || d.id === 'image-palette' && old?.gates?.every(gate=>gate==='approved'), repository, live, nextMove: typeof d.next === 'string' ? d.next : '',
+        phase, released: d.released === true || phase === 'complete' || d.id === 'image-palette' && old?.gates?.every(gate=>gate==='approved'), repository, live, nextMove: typeof d.next === 'string' ? d.next : '',
         changed: sessions[0]?.changed || (typeof d.changed === 'string' ? d.changed : ''), folder, milestones, sessions, activity,
         gates: old?.gates || milestones.map(m => m.done === true ? 'approved' : 'upcoming'),
         gateNames: old?.gates?.length ? ['Goal', 'Route', 'Build', 'Review', 'Refine'] : milestones.map(m => m.title),

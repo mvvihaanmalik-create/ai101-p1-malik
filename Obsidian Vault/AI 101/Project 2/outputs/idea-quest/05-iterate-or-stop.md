@@ -6,4 +6,4 @@ On October 15, 2026, Vihaan said “okay lets finish here.” This approves stop
 
 **Do not expand in this pass:** Public editing, a hosted write service, automatic website design/code publication, or further visual polishing. Any later expansion starts a new bounded feasibility, prototype, and human-check loop.
 
-**Accepted limits:** The Windows computer and Vercel CLI session must be available; a later publication can fail; broad device/browser performance, long-term unattended reliability, hardware audio, and security have not been fully audited. See [[audit|run audit]] for evidence and open checks.
+**Accepted limits:** The Windows computer and Vercel CLI session must be available; a later publication can fail; broad device/browser performance, long-term unattended reliability, hardware audio, and security have not been fully audited. See [[audit-note|run audit]] for evidence and open checks.

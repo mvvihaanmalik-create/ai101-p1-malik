@@ -35,6 +35,24 @@ test('vault notes are rediscovered after edits, moves, additions and server rest
   fs.unlinkSync(path.join(f.root,restart.read().projects.find(p=>p.id==='legacy').vaultPath));restart.seed();
   assert.equal(restart.read().projects.some(p=>p.id==='legacy'),false);
 });
+test('registry phase wins for existing workflows, while new project phase stays note-owned', t=>{
+  const f=fixture(t);
+  f.legacy.projects[0].phase='complete';
+  f.legacy.projects[0].gates=Array(5).fill('approved');
+  fs.writeFileSync(f.dataFile,JSON.stringify(f.legacy));
+  const store=createVaultStore({vaultRoot:f.root,dataFile:f.dataFile});store.seed();t.after(()=>store.close());
+  const workflowFile=path.join(f.root,store.read().projects.find(p=>p.id==='legacy').vaultPath);
+  fs.writeFileSync(workflowFile,fs.readFileSync(workflowFile,'utf8').replace('phase: "complete"','phase: "active"'));
+  const workflow=store.read().projects.find(p=>p.id==='legacy');
+  assert.equal(workflow.phase,'complete');
+  assert.equal(workflow.released,true);
+  assert.deepEqual(workflow.gates,Array(5).fill('approved'));
+  const id=store.create({title:'Note-owned build'});
+  let project=store.read().projects.find(p=>p.id===id);
+  store.update(id,{action:'settings',revision:project.revision,title:project.title,phase:'active',milestoneText:'Prototype'});
+  project=store.read().projects.find(p=>p.id===id);
+  assert.equal(project.phase,'active');
+});
 test('checkpoints protect newer Obsidian edits and class approvals; milestones use editable Markdown',t=>{
   const f=fixture(t),store=createVaultStore({vaultRoot:f.root,dataFile:f.dataFile});store.seed();t.after(()=>store.close());
   let p=store.read().projects[0];const original=fs.readFileSync(f.dataFile,'utf8');

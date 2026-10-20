@@ -10,3 +10,7 @@ export function tableSlot(index,count,mobile){
   const slots=mobile?{1:[0],2:[-1.1,1.1],3:[-1.8,0,1.8]}:{1:[.65],2:[-.35,1.65],3:[-1.25,.62,2.49]};
   return (slots[count]||slots[3])[index]??0;
 }
+export function artifactLabelVisible(place,view,scenePositioned){
+  if(!scenePositioned)return true; // Keep all project links available when the 3D room cannot render.
+  return view==='shelf'?place==='shelf':place==='table';
+}

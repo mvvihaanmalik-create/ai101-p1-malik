@@ -6,7 +6,7 @@ import { createSpiritCat, animateSpiritCat } from './spirit-cat.js';
 import { createWorkshop } from './workshop.js';
 import { artifactKind, ARTIFACTS } from './artifact-kind.js';
 import { makeArtifactModels } from './artifact-models.js';
-import { parseOrganization, nextTableFocus, tableSlot } from './organization.js';
+import { parseOrganization, nextTableFocus, tableSlot, artifactLabelVisible } from './organization.js';
 import { createCollectionUI } from './collection-ui.js';
 import { createRenderMonitor } from './render-monitor.js';
 import { renderDensity, shouldRunRoom, createFrameBudget, frameDue } from './render-policy.js';
@@ -66,6 +66,7 @@ function renderFocus(){
 }
 function renderCollections(){
   for(const place of ['table','shelf','retired']){const button=$(place+'Tab');button.textContent=`${PLACE_LABELS[place]} (${collectionIds(place).length})`;button.setAttribute('aria-pressed',String(collection===place));}
+  $('shelfHotspot').setAttribute('aria-label',`Explore wall shelf, ${collectionIds('shelf').length} projects`);
   $('collectionHint').textContent={table:'Tap an artifact or its name to open. Drag to the shelf to put it aside.',shelf:'Tap a shelf artifact to open. Drag it back to the table to continue.',retired:'Choose a retired project to view or restore it.'}[collection];
 }
 function showCollection(place){collection=place;roomView=place==='shelf';$('room').dataset.view=place;if($('shelfView')){$('shelfView').setAttribute('aria-pressed',String(roomView));$('shelfView').textContent=roomView?'Back to room':'Explore shelf';}hoveredId=null;renderDock();renderCollections();chime('navigate');if(renderer)animate(true);}
@@ -434,11 +435,11 @@ function animate(scheduledTime) {
   }
   workshop?.update(time*.001,still);
   const closeShelf=roomView&&!selectedId;
-  const camTarget=reveal&&!mobileLayout?new THREE.Vector3(-.3,4.1,10.5):closeShelf?(mobileLayout?new THREE.Vector3(-2.1,4.9,6.5):new THREE.Vector3(-1.7,4.4,9.4)):cameraHome.clone();
+  const camTarget=reveal&&!mobileLayout?new THREE.Vector3(-.3,4.1,10.5):closeShelf?(mobileLayout?new THREE.Vector3(-2.1,4.9,5.4):new THREE.Vector3(-5,4.8,6.5)):cameraHome.clone();
   camTarget.x+=still||mobileLayout?0:pointerLook.x*.25;
   camTarget.y+=still||mobileLayout?0:pointerLook.y*.12;
   camera.position.lerp(camTarget,still?1:1-Math.exp(-3*dt));
-  cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?(mobileLayout?-2.1:-1.7):0,reveal?2.2:closeShelf?3.7:mobileLayout?1.75:1.8,closeShelf?-3:0),still?1:1-Math.exp(-3*dt));
+  cameraAim.lerp(new THREE.Vector3(reveal&&!mobileLayout?-.65:closeShelf?(mobileLayout?-2.1:-3.8):0,reveal?2.2:closeShelf?3.7:mobileLayout?1.75:1.8,closeShelf?-3.7:0),still?1:1-Math.exp(-3*dt));
   camera.lookAt(cameraAim);
   camera.updateMatrixWorld(true);
   positionArtifactLabels();
@@ -587,17 +588,30 @@ function renderDock() {
   positionArtifactLabels();
 }
 const labelAnchor=new THREE.Vector3();
+const shelfAnchor=new THREE.Vector3();
+function positionShelfHotspot(positioned,bounds,roomBounds){
+  const button=$('shelfHotspot');
+  button.hidden=!positioned||collection!=='table'||!!selectedId||collectionIds('shelf').length===0;
+  if(button.hidden)return;
+  shelfAnchor.set(mobileLayout?-2.1:-3.6,mobileLayout?3.69:3.89,-3.65).project(camera);
+  if(shelfAnchor.z< -1||shelfAnchor.z>1){button.hidden=true;return;}
+  const x=(shelfAnchor.x+1)*bounds.width/2;
+  const y=(1-shelfAnchor.y)*bounds.height/2;
+  button.style.left=(bounds.left-roomBounds.left+Math.max(68,Math.min(bounds.width-68,x)))+'px';
+  button.style.top=(bounds.top-roomBounds.top+Math.max(60,Math.min(bounds.height-60,y)))+'px';
+}
 function positionArtifactLabels(){
   const dock=$('jarDock'),positioned=renderReady&&!contextLost&&collection!=='retired';
   dock.classList.toggle('labels-positioned',positioned);
-  if(!positioned)return;
+  if(!positioned){$('shelfHotspot').hidden=true;return;}
   const bounds=$('scene').getBoundingClientRect(),roomBounds=$('room').getBoundingClientRect();
+  positionShelfHotspot(positioned,bounds,roomBounds);
   const placed=[];
   for(const button of dock.querySelectorAll('[data-project-id]')){
     const jar=jars.get(button.dataset.projectId);
     if(!jar){button.hidden=true;continue;}
     labelAnchor.copy(jar.group.position);labelAnchor.y-=.12;labelAnchor.project(camera);
-    button.hidden=!jar.group.visible||labelAnchor.z>1||labelAnchor.z< -1||!!jar.flight||potionDrag?.id===jar.id;
+    button.hidden=!artifactLabelVisible(organization[jar.id],collection,positioned)||!jar.group.visible||labelAnchor.z>1||labelAnchor.z< -1||!!jar.flight||potionDrag?.id===jar.id;
     const width=mobileLayout?organization[jar.id]==='shelf'?90:collectionIds('table').length===3?92:128:organization[jar.id]==='shelf'?136:168;
     const x=Math.max(width/2+12,Math.min(bounds.width-width/2-12,(labelAnchor.x+1)*bounds.width/2));
     button.style.width=width+'px';
@@ -777,6 +791,7 @@ async function boot() {
   $('pauseRoom').setAttribute('aria-pressed',String(roomPaused));$('pauseRoom').textContent=roomPaused?'Resume room motion':'Pause room motion';
   window.setInterval(updateFocusClock,1000);
   $('shelfView').addEventListener('click',()=>showCollection(roomView?'table':'shelf'));
+  $('shelfHotspot').addEventListener('click',()=>{showCollection('shelf');const first=$('jarDock').querySelector('[data-place="shelf"]:not([hidden])');(first||$('shelfTab')).focus();});
   $('stokeFire').addEventListener('click',()=>interactRoom('fire'));
   $('lanternToggle').addEventListener('click',()=>interactRoom('lantern'));
   $('focusSession').addEventListener('click',()=>interactRoom('journal'));
@@ -808,6 +823,7 @@ async function boot() {
   document.addEventListener('keydown', (event) => {
     if(event.key==='Escape'&&potionDrag){finishPotionDrag(null);return;}
     if(event.key==='Escape'&&selectedId)returnToTable();
+    if(event.key==='Escape'&&roomView&&!$('libraryDialog').open){showCollection('table');$('shelfHotspot').focus();}
     if(event.key==='Tab'&&selectedId){const panel=reveal?$('artifactReveal'):$('details');const tabbable=[...panel.querySelectorAll('button,a[href],input,textarea,select,summary')].filter(el=>!el.disabled&&el.getClientRects().length);const first=tabbable[0],last=tabbable[tabbable.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
   });
   try { await loadRegistry(); }

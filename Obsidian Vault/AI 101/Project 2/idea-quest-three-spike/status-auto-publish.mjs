@@ -19,9 +19,9 @@ const scope = 'vihaanmalik';
 const liveUrl = 'https://idea-quest-ai101.vercel.app/';
 const vercelCli = path.join(process.env.APPDATA || path.join(os.homedir(), 'AppData', 'Roaming'), 'npm', 'node_modules', 'vercel', 'dist', 'vc.js');
 const staticHashes = Object.freeze({
-  'index.html': '5a1e9807baa781db6a16323d22ebb966d477ac04',
-  'app.js': 'f223f171fe3265456650b99688ae0242a13fc942',
-  'styles.css': '3554d3a83356178b9834f59d03f6615725ae52f7',
+  'index.html': '007ba9cb7cbfab56f087a38de49309ea13237959',
+  'app.js': '60d810afadceb667f6bee3ec719e99772d95f1f1',
+  'styles.css': 'e55f8b3c54a4ba6fa2192f16718ad47551000640',
   'THREE-LICENSE.txt': '7293d37daed3d6714b36d830e30c9614a5e268ec',
   'vercel.json': 'd0d16fa6043530e4b0e14b34bd9061cd21c58d24',
 });

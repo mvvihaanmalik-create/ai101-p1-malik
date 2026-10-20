@@ -1,4 +1,14 @@
+[ESF: no PS for idea.quest shelf release; note one?]
+
 # IdeaQuest Final — The Midnight Workshop
+
+## Published shelf-selection revision — October 20, 2026
+
+The current Three.js room now keeps individual wall-shelf project labels out of the distant Worktable overview. A projected **Wall shelf** button sits on the shelf sign when shelved projects exist; click, tap, or keyboard-activate it to reuse the shelf camera view. The desktop shelf camera now moves closer, while shelf project labels appear only in that view. Select a shelf artifact to open its existing journal; Return preserves the shelf view, and Escape from that view returns to the worktable. The existing Wall shelf tab and All projects collection remain accessible fallbacks, including when WebGL is unavailable. No gate data, project record, or status-publishing scope changed.
+
+Local checks: 25 idea.quest and four tracker tests passed, including shelf-label visibility policy; build succeeded. Headless Chrome checks at 1440×900 and 390×844 exercised the projected button, camera view, visible/hidden labels, project detail/return, and Escape with no page errors. A separate emulated touch run tapped the shelf and artifact without horizontal overflow or write requests. [Quiet overview](preview-shelf-overview-local.png) · [Desktop shelf view](preview-shelf-closeup-local.png) · [Emulated mobile shelf view](preview-shelf-mobile-local.png).
+
+Vihaan then explicitly requested publication. The six-file public package was staged in the existing `idea-quest-ai101` Vercel project under the `vihaanmalik` scope; the five web-served assets matched the local SHA1 manifest before and after promotion. (`vercel.json` was included in the upload but is configuration, not a web-served asset.) Production deployment `dpl_EFLsog6Dsf8eaJ4qGVEopNFocQs2` is Ready at [idea.quest](https://idea-quest-ai101.vercel.app/); its immutable build URL is <https://idea-quest-ai101-35c1zad1x-vihaanmalik.vercel.app>. The local status-only publisher's visual pins were updated and its single watcher restarted; its scope remains status summaries only. **Actual-phone shelf framing/touch feel still awaits Vihaan's check.** No new workflow gate is claimed.
 
 **[Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/)** · [Professor review guide](../IdeaQuest%20Final.md) · [Project record](../Workshop%20Projects/idea-quest.md)
 

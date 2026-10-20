@@ -1,8 +1,13 @@
+[ESF: no PS for idea.quest Step 1 scope; note one?]
+
 # idea.quest · Step 1 accepted scope
 
 ## idea.quest redesign — Step 1 approved (2026-10-11)
 
 **Status:** The user said “i agree for now” on 2026-10-11. Treat the bounded goal and concept as Step 1 approval, not as final visual acceptance or permission to build a full scene. The idea.quest Goal gate is 1/5; Step 2 route review is next.
+
+> [!important] Count clarification · 2026-10-20
+> The 0/5, 2/5, and 5/5 levels proposed below are **test fixtures** for demonstrating three liquid heights, not a claim about three live project counts. The approved Goal gate meant idea.quest was 1/5 at this Step 1 point, not 0/5. In any real view, the project record controls the number and fill. On this clarification date, the local record and public display agreed: idea.quest 5/5, Gaze 2/5, Image Palette Studio 5/5; the Project 1 poster is an unscored artifact. This annotation does not change the historical Step 1 decision.
 
 **Goal and audience:** Redesign the existing vault-backed project tracker as an inviting, slightly mysterious potion-room interface that makes the user's real AI 101 project status understandable at a glance. The user should feel they are visiting a playful cartoon witch's workshop rather than reading a dense dashboard. It remains a functional tracker, not just an illustration. Primary review is on this Windows computer; the public read-only link and narrow/phone layout must remain usable. A real-phone check has not yet been performed for this redesign.
 
