@@ -1,0 +1,11 @@
+{
+  "name": "agent",
+  "startedAt": "2026-10-22T18:54:25.636Z",
+  "finishedAt": "2026-10-22T18:54:25.875Z",
+  "status": "failed",
+  "error": "Invalid request: readOnly.access is no longer supported; use permissionProfile for restricted reads",
+  "inputSha256": "bf157b16a874552db6b9bf222ec5c2c4b5716b2e9d3e0561ef8f87e4dfbd9498",
+  "instructionsSha256": "06926fda62acaa275856a285c10e358631b56c25665e2213e84700f6760e04e1",
+  "webSearches": [],
+  "rawAnswer": ""
+}

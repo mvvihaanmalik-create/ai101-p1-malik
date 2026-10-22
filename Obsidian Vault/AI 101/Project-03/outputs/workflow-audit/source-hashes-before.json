@@ -1,0 +1,42 @@
+[
+  {
+    "path": "Project 2/00-start-here.md",
+    "sha256": "27324a6a4b90005f3bd047e77e430b1a1186dec26ab05aa797fbda0f54866a89"
+  },
+  {
+    "path": "Project 2/01-define-the-goal.md",
+    "sha256": "347999222434416288ac83e4e95cf0c6a44879273906498bced77876f4a5948a"
+  },
+  {
+    "path": "Project 2/02-check-feasibility.md",
+    "sha256": "a6de802f91bf4ab89087cebbb06f5ee664d3d5c56656f7ebd27072d055961513"
+  },
+  {
+    "path": "Project 2/03-build-a-small-prototype.md",
+    "sha256": "7136a6d7701a4403298088f5834b31e2f6099437ee598b00161e6b72621a6598"
+  },
+  {
+    "path": "Project 2/04-human-check.md",
+    "sha256": "eb89764aeb2be7d73e0fdd10d41c8ed3e9d019b2305337b7a858da658abec2f1"
+  },
+  {
+    "path": "Project 2/05-iterate-or-stop.md",
+    "sha256": "54b858c9c304641fe8afcb2f4b209b038c2acfe806459b755249ffb900e57694"
+  },
+  {
+    "path": "Project 2/agents/Technologist.md",
+    "sha256": "e6afe4a52164b5f72f74981dfe72c852ec5cdfa42cf79fbb69555302302df3fa"
+  },
+  {
+    "path": "Project 2/agents/Pip.md",
+    "sha256": "762b7f7036734a728dd166c4499b267b7abd172704f07efd3457854a90205d18"
+  },
+  {
+    "path": "Project-03/workflow-agent.md",
+    "sha256": "e6afe4a52164b5f72f74981dfe72c852ec5cdfa42cf79fbb69555302302df3fa"
+  },
+  {
+    "path": "Project-03/outputs/p2-run.md",
+    "sha256": "03b4ef29bf92e45cb203c2a8254247173503abc35c6ebfa355767b65108d4efc"
+  }
+]

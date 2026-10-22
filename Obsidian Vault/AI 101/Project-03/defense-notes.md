@@ -1,33 +1,39 @@
-# defense-notes.md
-
-*Prepare these before Class 12. Keep them short. You defend by explaining, not by reading. Delete the italic guidance lines before you submit.*
+# Defense notes
 
 ## What I will show
 
-1. [Part A: the agent file and the two runs]
-2. [Part B: `AGENTS.md`, the rules, and the skill]
-3. [The caught-violation demo]
+1. [Technologist and comparison](run-comparison.md). Pip is the extra reference agent.
+2. [Vault agent](vault-agent/AGENTS.md), rules, voice, and skill.
+3. [Audit](audit-note.md) and [test exchanges](testing-log.md).
 
 ## My context choices
 
-[What the agents can read, and what you kept out. Why?]
+The Technologist reads its listed inputs. Pip gets approved summaries and public references. Full notes and private feeds stay outside Pip's scope. The vault agent uses task-approved files.
 
 ## My five rules, and why each one
 
-1. [Rule and the reason it is yours]
-2. [Rule and reason]
-3. [Rule and reason]
-4. [Rule and reason]
-5. [Rule and reason]
+1. **Teach when I'm confused.** Smaller steps, full technical context. Help me understand what I'm approving.
+2. **Keep decisions mine.** Give options and wait for my choice.
+3. **Check facts.** Label estimates and unknowns so I can judge them.
+4. **Respect privacy.** Only use allowed files. Change or share things only when asked.
+5. **Stop on failure.** Explain what broke. Let me choose the next step.
 
 ## The complex step
 
-[The skill step that needs judgment. What does it weigh, loop on, or hand back to you?]
+Step 2 compares routes against the goal, setup, budget, and rules. It proposes a small test, returns to unresolved facts, and waits for my route and test approval.
 
-## What the agent did that I did not expect
+## What stood out in the tests
 
-[One thing from the fresh-input test. Can you defend it?]
+The latest run had more guardrails and more emphasis on slowing down instead of rushing. The audit rerun explained the check and waited. The fresh test asked about shared data before tools.
 
 ## What I would change
 
-[One honest limit of what you built.]
+Shorter replies, keeping technical context. Full builds and Claudian's menu remain unchecked. This workflow audit was completed after the agents were built; its late timing is recorded.
+
+## AI use
+
+AI helped write the rules, skill, and notes. I supplied the direction, voice, teaching requirement, and reflection. Failed replies remain saved.
+
+## Before class
+
+Can I explain it? Did I direct the choices? Did I check the important claims? Could I teach it? Is the AI-use log honest?

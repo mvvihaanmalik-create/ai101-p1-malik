@@ -1,0 +1,2 @@
+/ideaquest-project-workflow
+I want a browser tool for lending books to friends. I add a book title, a name I choose, and a return date, then see what is due. It must work on my Windows laptop and an iPhone. I have one weekend and no budget. I haven't picked tools.

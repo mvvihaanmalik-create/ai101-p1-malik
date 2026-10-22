@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-22",
+  "inputSha256": "bf157b16a874552db6b9bf222ec5c2c4b5716b2e9d3e0561ef8f87e4dfbd9498",
+  "transport": "local Codex App Server; fresh threads; existing login",
+  "writesToSite": false,
+  "attempts": [
+    {
+      "name": "baseline",
+      "status": "failed",
+      "error": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6-luna' model is not supported when using Codex with a ChatGPT account.\"}}",
+      "webSearches": 0
+    },
+    {
+      "name": "agent",
+      "status": "failed",
+      "error": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6-luna' model is not supported when using Codex with a ChatGPT account.\"}}",
+      "webSearches": 0
+    }
+  ]
+}

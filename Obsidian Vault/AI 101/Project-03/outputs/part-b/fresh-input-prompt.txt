@@ -1,0 +1,2 @@
+/ideaquest-project-workflow
+I want a browser tool for planning a small gallery visit. I enter three rooms and a few artworks, then drag them into a visit order. It should work on my Windows laptop and an Android phone. I have two evenings and no budget. I haven't chosen tools.

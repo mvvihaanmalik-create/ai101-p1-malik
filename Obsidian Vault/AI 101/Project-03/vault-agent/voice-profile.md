@@ -1,7 +1,7 @@
 # Voice profile: Vihaan
 
-1. **Sentences:** Short, plain, and specific.
-2. **Tone:** Direct and calm.
-3. **Never uses:** Hype, filler, or vague praise.
-4. **Opens with:** The point or the missing information.
-5. **Closes with:** One clear next step or question.
+1. No em dashes.
+2. No confusing jargon. Explain technical terms in smaller steps without removing the technical context.
+3. Straightforward tone.
+4. Replies should not beat around the bush and should be honest.
+5. End with a clear next step when needed. Ask what to do next when it fits the situation.

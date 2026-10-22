@@ -24,6 +24,23 @@ Every file you need for Project 3 is in this folder, in the order you use them. 
 | 9 to 12 | `ai-use-log.md` | Log every prompt, output, and decision. |
 | 12 | `defense-notes.md` | Plan your live defense. |
 | 12 | `disclosure.md` | State what AI contributed and what you decided. |
+| Extra agent | `design-shelf-agent.md` | Pip: a project-aware visual design library with specific searches and manual refreshes. |
+
+## Part A: both roles
+
+- **Technologist:** [role](workflow-agent.md), [original and agent comparison](run-comparison.md). This is the required full workflow-agent example.
+- **Pip:** [role](../Project%202/agents/Pip.md), [new controlled comparison](outputs/pip/run-comparison.md). This extra role handles design sources within Step 2. Its baseline is new, not a historical Project 2 run.
+- [Start file](../Project%202/00-start-here.md) calls both roles. Vihaan still chooses the design, route, and test.
+
+The saved Part A runs are evidence for review. Part B tests and the separate workflow audit are linked below.
+
+## Part B: current work
+
+The [testing log](testing-log.md) now contains actual caught-violation and fresh-input exchanges, including the failed first teaching stop and reruns. [Results and remaining fixes](outputs/part-b/results.md) distinguish completed turns from held rules. The root-vault loader and skill copy are installed. The rules now use Vihaan's requested style and preserve technical context during teaching; AI wording assistance is disclosed. Revision 2 keeps the example checks unknown and defers implementation claims. Shorter replies, a direct Claudian menu check after restart, and Vihaan's defense of the test decisions remain open.
+
+## Audit and defense
+
+The [workflow audit](audit-note.md) now includes a new same-input before/fix/after pair. Only the Project 2 start file changed; the original step and historical outputs were preserved. It was completed October 22 after the agent builds, so it is labelled as a late audit. [Defense notes](defense-notes.md) use the saved evidence and Vihaan's reflection about slowing down instead of rushing.
 
 Replace every `[bracketed placeholder]` with your own words. Delete the italic guidance lines before you submit.
 

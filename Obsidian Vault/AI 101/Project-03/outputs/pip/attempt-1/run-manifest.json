@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-22",
+  "inputSha256": "bf157b16a874552db6b9bf222ec5c2c4b5716b2e9d3e0561ef8f87e4dfbd9498",
+  "transport": "local Codex App Server; fresh threads; existing login",
+  "writesToSite": false,
+  "attempts": [
+    {
+      "name": "baseline",
+      "status": "failed",
+      "error": "Invalid request: readOnly.access is no longer supported; use permissionProfile for restricted reads",
+      "webSearches": 0
+    },
+    {
+      "name": "agent",
+      "status": "failed",
+      "error": "Invalid request: readOnly.access is no longer supported; use permissionProfile for restricted reads",
+      "webSearches": 0
+    }
+  ]
+}

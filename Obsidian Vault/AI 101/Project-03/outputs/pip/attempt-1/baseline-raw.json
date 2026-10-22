@@ -1,0 +1,11 @@
+{
+  "name": "baseline",
+  "startedAt": "2026-10-22T18:54:24.636Z",
+  "finishedAt": "2026-10-22T18:54:25.633Z",
+  "status": "failed",
+  "error": "Invalid request: readOnly.access is no longer supported; use permissionProfile for restricted reads",
+  "inputSha256": "bf157b16a874552db6b9bf222ec5c2c4b5716b2e9d3e0561ef8f87e4dfbd9498",
+  "instructionsSha256": "df0e17504a830b9a5728f964bc3a46082edacffffb54baeaa128be9e8d23bb25",
+  "webSearches": [],
+  "rawAnswer": ""
+}

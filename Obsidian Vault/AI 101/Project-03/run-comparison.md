@@ -1,5 +1,7 @@
 # Run comparison — idea.quest feasibility
 
+This is the Technologist comparison. Pip has a separate [source-check comparison](outputs/pip/run-comparison.md), recorded October 22. Pip supports one part of Step 2; it does not replace this full feasibility example.
+
 ## The two runs
 
 | | Project 2 run | Technologist rerun |

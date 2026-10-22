@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-22",
+  "samePrompt": true,
+  "promptSha256": "b29afee231c09ada45119d9fc0c1f76102c4e42990a6ed52dbd8a64c5e3f6907",
+  "sameOriginalStep2": true,
+  "sameHarness": true,
+  "model": "claude-opus-5[1m]",
+  "bothCompleted": true,
+  "changedSourceFiles": [
+    "Project 2/00-start-here.md"
+  ],
+  "otherProtectedFilesUnchanged": true,
+  "limits": "Controlled text-response audit. No source research, file writes by the model, real project approvals, or app tests."
+}

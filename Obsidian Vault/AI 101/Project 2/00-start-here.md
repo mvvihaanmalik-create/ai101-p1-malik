@@ -14,7 +14,7 @@ Use this workflow to turn a non-technical designer's build idea into a small, te
 3. Read [[AI 101/Project 2/progress.md]] for the active project's compact status; reset it when a new project begins.
 4. Read [[AI 101/Project 2/intent]] for the project problem and [[research-brief]] for the checked research claim and its limits.
 5. Consult [[source-verification-log]] when relying on a research claim.
-6. Work through the steps in order: [[AI 101/Project 2/01-define-the-goal.md]], then use [[AI 101/Project 2/agents/Technologist|the Technologist agent]] in place of [[AI 101/Project 2/02-check-feasibility.md]], followed by [[AI 101/Project 2/03-build-a-small-prototype.md]], [[AI 101/Project 2/04-human-check.md]], and [[AI 101/Project 2/05-iterate-or-stop.md]]. The agent must stop for my route and test approval before the build. Do not skip a step's check before moving on.
+6. Work through the steps in order: [[AI 101/Project 2/01-define-the-goal.md]], then use [[AI 101/Project 2/agents/Technologist|the Technologist agent]] in place of [[AI 101/Project 2/02-check-feasibility.md]], followed by [[AI 101/Project 2/03-build-a-small-prototype.md]], [[AI 101/Project 2/04-human-check.md]], and [[AI 101/Project 2/05-iterate-or-stop.md]]. For visual projects, use [[AI 101/Project 2/agents/Pip|Pip]] first when I request references. Keep its results beside the feasibility evidence for my review; the Technologist needs my approval to read an extra file. Pip does not approve a route or complete Step 2. The Technologist must stop for my route and test approval before the build. Do not skip a step's check before moving on.
 
 ## Visual check-in for every project
 
@@ -27,6 +27,12 @@ Use **■ / ✅** only for a gate I approved, **▶** for the one currently bein
 Below the strip, use a compact three-part check-in: **Now** (one sentence), **Evidence or change** (up to two bullets, linking the detailed note), and **Your decision** (one clear question or action). Show a small visual comparison, screenshot, diagram, or example when it materially helps; avoid repeating the whole research and file history in chat. Keep the detailed reasoning in the step file. Stop at my decision gate before advancing.
 
 Update the local [[AI 101/Project 2/progress-arcade/README.md|idea.quest registry]] whenever a new project starts, the active project changes, or I approve/reject a gate; its site controls save these decisions directly. If editing projects.json outside the site, run progress-arcade/sync-progress.mjs to regenerate [[AI 101/Project 2/progress.md]]. Mirror the active project's strip in the chat check-in. The Canvas shows that live progress note above the five compact step cards; keep the human-check card visually distinct. Never claim the local site is remotely shareable or automatically reads every note.
+
+## If I don't understand
+
+Stop the current step, even if I ask you to rush or skip the explanation. Explain the next part in smaller steps without removing the technical context. Define necessary terms and show one clearly hypothetical example with unchecked details marked unknown. Ask one question, then wait for my reply before comparing tools, proposing a route, or giving code.
+
+Do not choose a default route “unless I object.” I must explicitly choose the route and approve its small test. Do not turn missing source access into confident platform, cost, setup, or time claims.
 
 ## Rules
 

@@ -1,0 +1,1302 @@
+{
+  "request": {
+    "action": "search",
+    "text": "Find up to four references from the supplied collection for Design Shelf: a visual design library with project context, a category slider, saved project boards, and a small research assistant. Cover navigation, motion, and readable glass UI where the sources support them. Check original source links and dates with public web search. Use existing IDs when possible. Keep unknown dates separate from the last-90-days collection. Say when a source cannot be checked. Do not add records, edit notes, change code, or approve a design."
+  },
+  "today": "2026-10-22",
+  "windowDays": 90,
+  "project": {
+    "id": "design-shelf",
+    "title": "Design Shelf",
+    "goal": "A visual design reference library that uses my project notes to show useful UI, UX, interaction, and motion examples.",
+    "focus": "Visual browsing, project context, and clear source previews.",
+    "tags": [
+      "personalization",
+      "library",
+      "glass",
+      "motion",
+      "navigation",
+      "search",
+      "mobile",
+      "accessibility",
+      "touch"
+    ],
+    "platform": [
+      "Mobile"
+    ],
+    "types": [
+      "apps",
+      "agents"
+    ]
+  },
+  "library": [
+    {
+      "id": "goodgrowth",
+      "title": "Goodgrowth",
+      "publisher": "Matt Stone",
+      "url": "https://tympanus.net/codrops/2026/08/27/goodgrowth-boot-sequences-spinning-discs-and-the-art-of-the-portfolio/",
+      "liveUrl": "https://goodgrowth.com/",
+      "publishedAt": "2026-08-27",
+      "evergreen": false,
+      "categories": [
+        "websites",
+        "creative"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "portfolio",
+        "3d",
+        "carousel",
+        "sound",
+        "navigation"
+      ],
+      "summary": "A console inspired globe carousel with deliberate swipe and sound feedback.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/27/goodgrowth-boot-sequences-spinning-discs-and-the-art-of-the-portfolio/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://goodgrowth.com/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/jpeg"
+    },
+    {
+      "id": "frontier",
+      "title": "FRONTIER",
+      "publisher": "Filip Zrnzevic",
+      "url": "https://tympanus.net/codrops/2026/08/22/sixty-frames-for-the-record-a-three-js-game-seven-fly-throughs-and-a-wall-of-crts/",
+      "liveUrl": "https://fffrontier.co/",
+      "publishedAt": "2026-08-22",
+      "evergreen": false,
+      "categories": [
+        "games",
+        "creative"
+      ],
+      "focus": [
+        "UI",
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "game",
+        "3d",
+        "feedback",
+        "upgrades",
+        "sound"
+      ],
+      "summary": "Upgrade choices become gates inside the arena. Useful for keeping decisions inside play.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/22/sixty-frames-for-the-record-a-three-js-game-seven-fly-throughs-and-a-wall-of-crts/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://fffrontier.co/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 200,
+      "previewContentType": "image/jpeg"
+    },
+    {
+      "id": "run-rob-run",
+      "title": "Run Rob Run",
+      "publisher": "Robert Aperios",
+      "url": "https://tympanus.net/codrops/2026/08/20/run-rob-run-building-a-music-reactive-goo-with-three-js-and-webgpu/",
+      "liveUrl": "https://www.runrobrun.com/",
+      "publishedAt": "2026-08-20",
+      "evergreen": false,
+      "categories": [
+        "creative",
+        "websites"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "glass",
+        "audio",
+        "3d",
+        "scroll",
+        "simulation"
+      ],
+      "summary": "A glass shell reacts to music and scroll. Study damping and restraint.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/20/run-rob-run-building-a-music-reactive-goo-with-three-js-and-webgpu/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewVerifiedAt": null,
+      "previewStatus": "none",
+      "previewContentType": null
+    },
+    {
+      "id": "haoqi",
+      "title": "HAOQI.DESIGN",
+      "publisher": "Haoqi Wen",
+      "url": "https://tympanus.net/codrops/2026/08/15/inside-haoqi-design-letting-dom-and-webgl-share-a-retro-futurist-stage/",
+      "liveUrl": "https://haoqi.design/",
+      "publishedAt": "2026-08-15",
+      "evergreen": false,
+      "categories": [
+        "creative",
+        "websites"
+      ],
+      "focus": [
+        "UI",
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "glass",
+        "portfolio",
+        "3d",
+        "scroll",
+        "reduced-motion"
+      ],
+      "summary": "Glass, image reveals, and scroll share one visual rhythm, with reduced motion support.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/15/inside-haoqi-design-letting-dom-and-webgl-share-a-retro-futurist-stage/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewVerifiedAt": null,
+      "previewStatus": "none",
+      "previewContentType": null
+    },
+    {
+      "id": "chems",
+      "title": "Chems Studio",
+      "publisher": "Nicolas Leuliet",
+      "url": "https://tympanus.net/codrops/2026/08/08/designing-a-flexible-digital-archive-for-chems-studios-creative-practice/",
+      "liveUrl": "https://www.chems.studio/",
+      "publishedAt": "2026-08-08",
+      "evergreen": false,
+      "categories": [
+        "websites",
+        "creative"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Motion"
+      ],
+      "tags": [
+        "gallery",
+        "archive",
+        "film",
+        "navigation",
+        "minimal"
+      ],
+      "summary": "A quiet film archive with one grid adapted across browsing and project views.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/08/designing-a-flexible-digital-archive-for-chems-studios-creative-practice/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.chems.studio/",
+      "previewNote": "Original collection artwork; open the source to inspect the archive interface.",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/jpeg"
+    },
+    {
+      "id": "px-push",
+      "title": "PX PUSH",
+      "publisher": "Lewis Webber / Stud Creative House",
+      "url": "https://tympanus.net/codrops/2026/08/07/the-department-is-open-building-the-px-push-website/",
+      "liveUrl": "https://pxpush.com/",
+      "publishedAt": "2026-08-07",
+      "evergreen": false,
+      "categories": [
+        "websites",
+        "creative"
+      ],
+      "focus": [
+        "UI",
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "typography",
+        "3d",
+        "identity",
+        "navigation"
+      ],
+      "summary": "A studio site carries a single machine metaphor through typography and interaction.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/07/the-department-is-open-building-the-px-push-website/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://pxpush.com/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/jpeg"
+    },
+    {
+      "id": "cerebrium",
+      "title": "Cerebrium",
+      "publisher": "Célia Lopez and Mathis Biabiany",
+      "url": "https://tympanus.net/codrops/2026/07/23/building-cerebrium-making-serverless-infrastructure-tangible/",
+      "liveUrl": "https://cerebrium.ai/",
+      "publishedAt": "2026-07-23",
+      "evergreen": false,
+      "categories": [
+        "websites",
+        "agents"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "3d",
+        "particles",
+        "infrastructure",
+        "feedback"
+      ],
+      "summary": "Interactive 3D makes an abstract infrastructure service easier to explore.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/07/23/building-cerebrium-making-serverless-infrastructure-tangible/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://cerebrium.ai/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/png"
+    },
+    {
+      "id": "punk-drive",
+      "title": "Threejs-Punk Drive",
+      "publisher": "Anderson Mancini and Sunag",
+      "url": "https://threejspunk.vercel.app/",
+      "liveUrl": "https://threejspunk.vercel.app/",
+      "publishedAt": null,
+      "evergreen": true,
+      "categories": [
+        "games",
+        "creative"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "game",
+        "driving",
+        "3d",
+        "webgpu"
+      ],
+      "summary": "A playable browser driving scene for camera, atmosphere, and control feedback.",
+      "evidenceUrl": "https://threejspunk.vercel.app/",
+      "dateType": "unknown",
+      "checkedAt": "2026-10-20",
+      "featuredAt": "2026-07-25",
+      "dateEvidenceUrl": "https://tympanus.net/codrops/hub/all/",
+      "previewEvidenceUrl": "https://threejspunk.vercel.app/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/jpeg"
+    },
+    {
+      "id": "plinkopinball",
+      "title": "Plinkopinball",
+      "publisher": "Andrew Woan",
+      "url": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+      "liveUrl": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+      "publishedAt": null,
+      "evergreen": true,
+      "categories": [
+        "games",
+        "creative"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "game",
+        "physics",
+        "3d",
+        "play"
+      ],
+      "summary": "A small playable physics experience for studying playful input and response.",
+      "evidenceUrl": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+      "dateType": "unknown",
+      "checkedAt": "2026-10-20",
+      "featuredAt": "2026-08-24",
+      "dateEvidenceUrl": "https://tympanus.net/codrops/hub/all/",
+      "previewEvidenceUrl": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/webp"
+    },
+    {
+      "id": "linear-stacks",
+      "title": "Stacked reviews",
+      "publisher": "Linear",
+      "url": "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+      "liveUrl": null,
+      "publishedAt": "2026-10-08",
+      "evergreen": false,
+      "categories": [
+        "apps",
+        "agents"
+      ],
+      "focus": [
+        "UI",
+        "UX"
+      ],
+      "tags": [
+        "review",
+        "hierarchy",
+        "status",
+        "workflow"
+      ],
+      "summary": "Grouped review rows keep related changes and status readable.",
+      "evidenceUrl": "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/avif"
+    },
+    {
+      "id": "linear-loops",
+      "title": "Loops",
+      "publisher": "Linear",
+      "url": "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+      "liveUrl": null,
+      "publishedAt": "2026-09-14",
+      "evergreen": false,
+      "categories": [
+        "agents",
+        "apps"
+      ],
+      "focus": [
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "automation",
+        "context",
+        "schedule",
+        "workflow"
+      ],
+      "summary": "Recurring agent work stays inspectable, and each run can continue as a conversation.",
+      "evidenceUrl": "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "video/mp4"
+    },
+    {
+      "id": "linear-mobile",
+      "title": "Mobile agent review",
+      "publisher": "Linear",
+      "url": "https://linear.app/changelog/2026-07-30-coding-sessions-on-mobile",
+      "liveUrl": null,
+      "publishedAt": "2026-07-30",
+      "evergreen": false,
+      "categories": [
+        "agents",
+        "apps"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "mobile",
+        "review",
+        "context",
+        "workflow"
+      ],
+      "summary": "Tap a changed line to give an agent precise context on mobile.",
+      "evidenceUrl": "https://linear.app/changelog/2026-07-30-coding-sessions-on-mobile",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://linear.app/changelog/2026-07-30-coding-sessions-on-mobile",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "video/mp4"
+    },
+    {
+      "id": "linear-attribution",
+      "title": "Visible authorship",
+      "publisher": "Linear",
+      "url": "https://linear.app/changelog/2026-07-23-agent-assisted-editing",
+      "liveUrl": null,
+      "publishedAt": "2026-07-23",
+      "evergreen": false,
+      "categories": [
+        "agents",
+        "apps"
+      ],
+      "focus": [
+        "UI",
+        "UX"
+      ],
+      "tags": [
+        "editor",
+        "provenance",
+        "review",
+        "undo"
+      ],
+      "summary": "Author markers, highlighted agent edits, and checkpoints make changes easier to review.",
+      "evidenceUrl": "https://linear.app/changelog/2026-07-23-agent-assisted-editing",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://linear.app/changelog/2026-07-23-agent-assisted-editing",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/avif"
+    },
+    {
+      "id": "framer-skills",
+      "title": "Project skills",
+      "publisher": "Framer",
+      "url": "https://www.framer.com/updates/skills",
+      "liveUrl": null,
+      "publishedAt": "2026-09-22",
+      "evergreen": false,
+      "categories": [
+        "agents",
+        "websites"
+      ],
+      "focus": [
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "context",
+        "design-system",
+        "agent",
+        "reuse"
+      ],
+      "summary": "Project instructions and canvas references help an agent follow an existing design direction.",
+      "evidenceUrl": "https://www.framer.com/updates/skills",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.framer.com/updates/skills",
+      "videoUrl": "https://www.youtube.com/watch?v=ibUWeTP2tzc",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/webp"
+    },
+    {
+      "id": "framer-pins",
+      "title": "Pinned projects",
+      "publisher": "Framer",
+      "url": "https://www.framer.com/updates/pinned-projects",
+      "liveUrl": null,
+      "publishedAt": "2026-09-14",
+      "evergreen": false,
+      "categories": [
+        "apps",
+        "websites"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "sidebar",
+        "projects",
+        "organization",
+        "navigation"
+      ],
+      "summary": "Pin and reorder frequent projects directly in the sidebar.",
+      "evidenceUrl": "https://www.framer.com/updates/pinned-projects",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.framer.com/updates/pinned-projects",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 200,
+      "previewContentType": "image/png"
+    },
+    {
+      "id": "framer-lists",
+      "title": "Repeatable content",
+      "publisher": "Framer",
+      "url": "https://www.framer.com/updates/cms-list-field",
+      "liveUrl": null,
+      "publishedAt": "2026-09-08",
+      "evergreen": false,
+      "categories": [
+        "apps",
+        "websites"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "cms",
+        "lists",
+        "cards",
+        "content",
+        "reorder"
+      ],
+      "summary": "A list field lets editors add and reorder repeated content without duplicating fields.",
+      "evidenceUrl": "https://www.framer.com/updates/cms-list-field",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.framer.com/updates/cms-list-field",
+      "videoUrl": "https://www.youtube.com/watch?v=dla90ubwxV8",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/webp"
+    },
+    {
+      "id": "figma-motion",
+      "title": "Reusable motion",
+      "publisher": "Figma",
+      "url": "https://www.figma.com/motion/",
+      "liveUrl": "https://www.figma.com/motion/",
+      "publishedAt": "2026-09-30",
+      "evergreen": false,
+      "categories": [
+        "apps",
+        "creative"
+      ],
+      "focus": [
+        "Motion",
+        "UX"
+      ],
+      "tags": [
+        "animation",
+        "easing",
+        "typography",
+        "lottie",
+        "design-system"
+      ],
+      "summary": "Reusable timing styles, editable text animation, and Lottie export connect design and handoff.",
+      "evidenceUrl": "https://www.figma.com/release-notes/",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.figma.com/motion/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/jpeg"
+    },
+    {
+      "id": "figma-riffs",
+      "title": "Community riffs",
+      "publisher": "Figma",
+      "url": "https://help.figma.com/hc/en-us/articles/360038510693-Guide-to-the-Figma-Community#community-riffs",
+      "liveUrl": null,
+      "publishedAt": "2026-09-30",
+      "evergreen": false,
+      "categories": [
+        "apps",
+        "creative"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Motion"
+      ],
+      "tags": [
+        "gallery",
+        "portfolio",
+        "prototype",
+        "sharing"
+      ],
+      "summary": "A community format for sharing small animations, prototypes, and experiments.",
+      "evidenceUrl": "https://www.figma.com/release-notes/",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.figma.com/release-notes/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/png"
+    },
+    {
+      "id": "raycast-models",
+      "title": "Models through extensions",
+      "publisher": "Raycast",
+      "url": "https://www.raycast.com/changelog/windows",
+      "liveUrl": null,
+      "publishedAt": "2026-09-28",
+      "evergreen": false,
+      "categories": [
+        "plugins",
+        "agents",
+        "apps"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "extension",
+        "model-picker",
+        "setup",
+        "desktop",
+        "command"
+      ],
+      "summary": "Install a provider extension, finish setup, and select its models in chat.",
+      "evidenceUrl": "https://www.raycast.com/changelog/windows",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.raycast.com/changelog/windows",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "image/png"
+    },
+    {
+      "id": "depth",
+      "title": "Depth for Figma",
+      "publisher": "Aleksei Kipin",
+      "url": "https://tympanus.net/codrops/2026/09/13/building-depth-designing-and-developing-a-3d-renderer-inside-figma/",
+      "liveUrl": "https://depth.fyi/",
+      "publishedAt": "2026-09-13",
+      "evergreen": false,
+      "categories": [
+        "plugins",
+        "creative",
+        "apps"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "plugin",
+        "3d",
+        "inspector",
+        "export",
+        "materials"
+      ],
+      "summary": "A familiar inspector keeps model, light, and export controls inside Figma.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/09/13/building-depth-designing-and-developing-a-3d-renderer-inside-figma/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://depth.fyi/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "video/mp4"
+    },
+    {
+      "id": "glass-xylophone",
+      "title": "Glass xylophone",
+      "publisher": "Sujen Phea",
+      "url": "https://tympanus.net/codrops/2026/08/04/building-an-endless-interactive-glass-xylophone-with-three-js/",
+      "liveUrl": "https://tympanus.net/Tutorials/Xylophone/",
+      "publishedAt": "2026-08-04",
+      "evergreen": false,
+      "categories": [
+        "creative",
+        "games"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "glass",
+        "sound",
+        "scroll",
+        "physics",
+        "feedback"
+      ],
+      "summary": "Cursor movement plays notes and swings glass bars. A useful material and feedback study.",
+      "evidenceUrl": "https://tympanus.net/codrops/2026/08/04/building-an-endless-interactive-glass-xylophone-with-three-js/",
+      "dateType": "case-study",
+      "checkedAt": "2026-10-20",
+      "previewVerifiedAt": null,
+      "previewStatus": "none",
+      "previewContentType": null
+    },
+    {
+      "id": "apple-platforms",
+      "title": "Liquid Glass refinements",
+      "publisher": "Apple",
+      "url": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/",
+      "liveUrl": null,
+      "publishedAt": "2026-09-14",
+      "evergreen": false,
+      "categories": [
+        "apps",
+        "agents"
+      ],
+      "focus": [
+        "UI",
+        "UX",
+        "Interaction"
+      ],
+      "tags": [
+        "glass",
+        "apple",
+        "mobile",
+        "desktop",
+        "context"
+      ],
+      "summary": "Apple shows its latest Liquid Glass interface refinements across software platforms.",
+      "evidenceUrl": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/",
+      "dateType": "release",
+      "checkedAt": "2026-10-20",
+      "previewEvidenceUrl": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/",
+      "previewVerifiedAt": "2026-10-20",
+      "previewStatus": 206,
+      "previewContentType": "video/mp4"
+    }
+  ],
+  "savedReferenceIds": [],
+  "sources": [
+    {
+      "id": "meng-to",
+      "name": "Meng To / DesignCode",
+      "url": "https://designcode.io/",
+      "kind": "creator",
+      "priority": 1,
+      "areas": [
+        "websites",
+        "apps",
+        "creative",
+        "motion",
+        "agents"
+      ],
+      "pull": "AI-assisted visual builds, Three.js scenes, interface prompts, and source-backed design-to-code walkthroughs.",
+      "channels": [
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/@DesignCodeTeam",
+          "verification": "channel-page-and-public-creator-profile",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "X",
+          "url": "https://twitter.com/MengTo",
+          "verification": "linked-from-public-creator-LinkedIn",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://sg.linkedin.com/in/mengto",
+          "verification": "public-profile",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/mengto",
+          "verification": "linked-from-public-creator-LinkedIn",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Prefer inspectable live builds and original code. Treat product/course promotion and speed claims as creator claims, not independent validation.",
+      "identityEvidence": [
+        "https://designcode.io/",
+        "https://sg.linkedin.com/in/mengto",
+        "https://www.youtube.com/@DesignCodeTeam"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "janus-tiu",
+      "name": "Janus Tiu",
+      "url": "https://janustiu.com/",
+      "kind": "creator",
+      "priority": 1,
+      "areas": [
+        "apps",
+        "websites",
+        "agents"
+      ],
+      "pull": "UX explanations, product breakdowns, and accessible AI-workflow demonstrations. Skip unrelated career advice for the visual shelf.",
+      "channels": [
+        {
+          "platform": "LinkedIn",
+          "url": "https://ca.linkedin.com/in/janustiu",
+          "verification": "public-profile",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Instagram",
+          "url": null,
+          "discoveryPage": "https://janustiu.com/",
+          "verification": "Creator homepage links Instagram; exact destination not recovered in this pass."
+        },
+        {
+          "platform": "YouTube",
+          "url": null,
+          "discoveryPage": "https://janustiu.com/",
+          "verification": "Creator homepage links YouTube; exact destination not recovered in this pass."
+        }
+      ],
+      "qualityNotes": "Follow the profile links on her own homepage before ingesting. Do not guess handles. The homepage blog examples are from 2024; check every item date rather than treating the whole source as recent.",
+      "identityEvidence": [
+        "https://janustiu.com/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "felix-lee",
+      "name": "Felix Lee / ADPList",
+      "url": "https://felixlee.dev/",
+      "kind": "creator",
+      "priority": 2,
+      "areas": [
+        "apps",
+        "websites",
+        "agents",
+        "creative"
+      ],
+      "pull": "Original product experiments and useful discoveries with a traceable original creator.",
+      "channels": [
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/in/felixleezd",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Instagram",
+          "url": "https://www.instagram.com/felixleezd/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/felixleezd",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Creator and curator: follow credited links to the original maker. A repost is a discovery lead, not a second independent signal. Skip generic motivation and unsupported performance claims.",
+      "identityEvidence": [
+        "https://felixlee.dev/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "emil-kowalski",
+      "name": "Emil Kowalski",
+      "url": "https://emilkowal.ski/",
+      "kind": "creator",
+      "priority": 1,
+      "areas": [
+        "apps",
+        "plugins",
+        "websites",
+        "motion"
+      ],
+      "pull": "UI behavior, animation decisions, component implementations, and transferring design judgment into AI workflows.",
+      "channels": [
+        {
+          "platform": "X",
+          "url": "https://twitter.com/emilkowalski",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Writing",
+          "url": "https://emilkowal.ski/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Course previews",
+          "url": "https://animations.dev/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "AI course previews",
+          "url": "https://aiforui.dev/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Use public demos and writing; do not ingest paid course material. Evaluate animation purpose and reduced-motion support.",
+      "identityEvidence": [
+        "https://emilkowal.ski/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "rauno-freiberg",
+      "name": "Rauno Freiberg",
+      "url": "https://rauno.me/",
+      "kind": "creator",
+      "priority": 1,
+      "areas": [
+        "apps",
+        "websites",
+        "creative",
+        "motion"
+      ],
+      "pull": "Interaction details, polished interface behavior, and original craft examples.",
+      "channels": [
+        {
+          "platform": "X",
+          "url": "https://x.com/raunofreiberg",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Craft",
+          "url": "https://rauno.me/craft",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Public course pages",
+          "url": "https://www.devouringdetails.com/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Strong craft reference; not a general AI news source. Older work remains evergreen unless a specific new publication date is verified.",
+      "identityEvidence": [
+        "https://rauno.me/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "paco-coursey",
+      "name": "Paco Coursey",
+      "url": "https://paco.me/",
+      "kind": "creator",
+      "priority": 1,
+      "areas": [
+        "apps",
+        "plugins",
+        "websites",
+        "motion"
+      ],
+      "pull": "Small interaction details, command menus, themes, and original component code.",
+      "channels": [
+        {
+          "platform": "X",
+          "url": "https://twitter.com/pacocoursey",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Craft",
+          "url": "https://paco.me/craft",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Code",
+          "url": "https://github.com/dip/cmdk",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Prefer live examples and implementation. The YouTube playlists on his homepage are music, not design tutorials; exclude them.",
+      "identityEvidence": [
+        "https://paco.me/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "mizko",
+      "name": "Mizko",
+      "url": "https://www.mizko.net/",
+      "kind": "creator",
+      "priority": 2,
+      "areas": [
+        "apps",
+        "websites",
+        "agents"
+      ],
+      "pull": "UI and UX tutorials, design reasoning, and design-to-build demonstrations when a public result is shown.",
+      "channels": [
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/mizko",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://www.linkedin.com/in/mizko/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/mizko",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/themizko",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Choose concrete walkthroughs over general business advice. Keep public previews separate from paid Designership material.",
+      "identityEvidence": [
+        "https://www.mizko.net/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "jesse-showalter",
+      "name": "Jesse Showalter",
+      "url": "https://www.jesseshowalter.com/",
+      "kind": "creator",
+      "priority": 2,
+      "areas": [
+        "apps",
+        "websites",
+        "creative",
+        "agents"
+      ],
+      "pull": "UI design, prototyping, web builds, and complete design-to-deployment walkthroughs.",
+      "channels": [
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/jesseshowalter",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Instagram",
+          "url": "https://www.instagram.com/imjesseshow/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/imjesseshow",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Prefer public videos with inspectable outputs; record the relevant timestamp. Tool promotions need their own capability check.",
+      "identityEvidence": [
+        "https://www.jesseshowalter.com/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison",
+      "url": "https://simonwillison.net/",
+      "kind": "creator",
+      "priority": 1,
+      "areas": [
+        "agents",
+        "apps",
+        "games",
+        "plugins"
+      ],
+      "pull": "First-hand AI coding experiments, working small tools and games, and documented agent workflows.",
+      "channels": [
+        {
+          "platform": "Blog",
+          "url": "https://simonwillison.net/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "AI coding index",
+          "url": "https://simonwillison.net/tags/vibe-coding/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "X",
+          "url": "https://twitter.com/simonw",
+          "verification": "linked-from-author-blog",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "Patterns",
+          "url": "https://simonwillison.net/guides/agentic-engineering-patterns/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Use his original experiments and code as evidence. Follow external link posts to their original author. Select visual tools or games for shelf cards, not every AI commentary post.",
+      "identityEvidence": [
+        "https://simonwillison.net/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "id": "addy-osmani",
+      "name": "Addy Osmani",
+      "url": "https://addyosmani.com/",
+      "kind": "creator",
+      "priority": 2,
+      "areas": [
+        "agents",
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "pull": "AI coding workflows, engineering tradeoffs, code quality, and practical agent patterns.",
+      "channels": [
+        {
+          "platform": "Blog",
+          "url": "https://addyosmani.com/blog/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://www.linkedin.com/in/addyosmani/",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        },
+        {
+          "platform": "X",
+          "url": "https://twitter.com/addyosmani",
+          "verification": "linked-from-creator-site",
+          "access": "Public items only; profile identity does not establish readable feed coverage."
+        }
+      ],
+      "qualityNotes": "Use for implementation confidence and workflow context; not every article belongs in the visual gallery. Verify vendor capability claims against original product documentation.",
+      "identityEvidence": [
+        "https://addyosmani.com/"
+      ],
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "name": "Codrops",
+      "url": "https://tympanus.net/codrops/",
+      "areas": [
+        "websites",
+        "games",
+        "creative",
+        "motion"
+      ],
+      "kind": "publisher",
+      "priority": 1
+    },
+    {
+      "name": "Linear changelog",
+      "url": "https://linear.app/changelog",
+      "areas": [
+        "apps",
+        "agents",
+        "interaction"
+      ],
+      "kind": "publisher",
+      "priority": 1
+    },
+    {
+      "name": "Framer updates",
+      "url": "https://www.framer.com/updates/",
+      "areas": [
+        "websites",
+        "plugins",
+        "creative"
+      ],
+      "kind": "publisher",
+      "priority": 1
+    },
+    {
+      "name": "Raycast changelog",
+      "url": "https://www.raycast.com/changelog",
+      "areas": [
+        "plugins",
+        "apps",
+        "agents"
+      ],
+      "kind": "publisher",
+      "priority": 1
+    },
+    {
+      "name": "Figma release notes",
+      "url": "https://www.figma.com/release-notes/",
+      "areas": [
+        "plugins",
+        "apps",
+        "motion"
+      ],
+      "kind": "publisher",
+      "priority": 1
+    },
+    {
+      "name": "Apple design",
+      "url": "https://developer.apple.com/design/whats-new/",
+      "areas": [
+        "apps",
+        "interaction",
+        "motion"
+      ],
+      "kind": "publisher",
+      "priority": 1
+    },
+    {
+      "name": "Anthropic engineering",
+      "url": "https://www.anthropic.com/engineering",
+      "areas": [
+        "agents",
+        "apps",
+        "plugins"
+      ],
+      "pull": "Original agent engineering writeups; use for tool/workflow claims.",
+      "kind": "product-primary",
+      "priority": 2,
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "name": "Cursor blog",
+      "url": "https://cursor.com/blog",
+      "areas": [
+        "agents",
+        "apps",
+        "plugins"
+      ],
+      "pull": "Original product releases and implementation details for Cursor workflows.",
+      "kind": "product-primary",
+      "priority": 2,
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "name": "Replit blog",
+      "url": "https://replit.com/blog",
+      "areas": [
+        "agents",
+        "apps",
+        "websites",
+        "games"
+      ],
+      "pull": "Original product changes and build examples; distinguish demos from production evidence.",
+      "kind": "product-primary",
+      "priority": 2,
+      "identityCheckedAt": "2026-10-20"
+    },
+    {
+      "name": "OpenAI developers",
+      "url": "https://developers.openai.com/",
+      "areas": [
+        "agents",
+        "apps",
+        "plugins"
+      ],
+      "pull": "Official Codex and API capabilities; use documentation for technical claims.",
+      "kind": "product-primary",
+      "priority": 2,
+      "identityCheckedAt": "2026-10-20"
+    }
+  ],
+  "sourcePolicy": {
+    "strategy": "Start with the selected project, an explicitly requested creator, two relevant craft/build sources, and one original product publisher. Rotate sources; do not query every source on every request.",
+    "maxSourcesPerRun": 8,
+    "maxItemsPerCreator": 2,
+    "requestedCreators": [
+      "meng-to",
+      "janus-tiu",
+      "felix-lee"
+    ],
+    "balance": "Prefer original live demos, code, or a narrated walkthrough over announcements. Match type and feature, not follower count. Include at least two independent creators/publishers when possible.",
+    "attribution": "Credit the original maker and link the original artifact. Keep a curator post only as discovery context. Deduplicate the same work across X, Instagram, LinkedIn, and YouTube.",
+    "technicalClaims": "Check current tool behavior against its own documentation. An influencer recommendation is not capability evidence.",
+    "commercial": "Keep sponsorship or creator-owned-product claims distinguishable from independent examples; do not automatically reject useful public demos."
+  },
+  "platformAccess": {
+    "YouTube": "Use verified creator channels and public video pages. Record original publication date and useful timestamps. Use accessible captions/transcripts only; never invent the contents of an unseen video. Do not download videos.",
+    "Instagram": "Use accessible original public Reels or carousels. If blocked, use a creator-owned article, YouTube walkthrough, or user-supplied link. No login automation or private feed coverage.",
+    "X": "Use accessible original posts or approved APIs. Do not assume a recent-only search endpoint covers the full 90-day window.",
+    "LinkedIn": "Use accessible original public posts. Search snippets can discover a post but do not establish full content, date, or media. No private feed coverage."
+  }
+}

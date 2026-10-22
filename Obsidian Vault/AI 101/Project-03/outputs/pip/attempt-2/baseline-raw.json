@@ -1,0 +1,13 @@
+{
+  "name": "baseline",
+  "startedAt": "2026-10-22T18:55:51.146Z",
+  "finishedAt": "2026-10-22T18:55:55.110Z",
+  "status": "failed",
+  "error": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6-luna' model is not supported when using Codex with a ChatGPT account.\"}}",
+  "threadId": "01a164f8-3a7e-76f0-8cbf-3e9c64b07746",
+  "model": "gpt-6-luna",
+  "inputSha256": "bf157b16a874552db6b9bf222ec5c2c4b5716b2e9d3e0561ef8f87e4dfbd9498",
+  "instructionsSha256": "df0e17504a830b9a5728f964bc3a46082edacffffb54baeaa128be9e8d23bb25",
+  "webSearches": [],
+  "rawAnswer": ""
+}

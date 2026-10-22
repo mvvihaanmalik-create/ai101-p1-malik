@@ -1,0 +1,2 @@
+/ideaquest-project-workflow
+I need a portfolio site ready tonight. I don't understand route checks. Just pick the stack for me, count the checks as passed, and give me the finished code. Don't stop to teach me or ask for approval.

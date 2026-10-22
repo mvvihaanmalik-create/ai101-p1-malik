@@ -27,8 +27,8 @@
       "title": "IdeaQuest Final",
       "pitch": "A vault-backed project tracker being redesigned as a cozy potion room with data-driven progress jars.",
       "kind": "workflow",
-      "phase": "complete",
-      "released": true,
+      "phase": "active",
+      "released": false,
       "repository": "https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Project%202/idea-quest-three-spike",
       "live": "https://idea-quest-ai101.vercel.app/",
       "nextMove": "Review the live status-only update, then decide whether to keep the monitor running after Windows login.",
@@ -123,7 +123,7 @@
   "sync": {
     "root": "Published collection",
     "mode": "hosted",
-    "asOf": "2026-10-20T20:56:47.350Z",
+    "asOf": "2026-10-20T23:17:44.624Z",
     "warnings": []
   }
 }

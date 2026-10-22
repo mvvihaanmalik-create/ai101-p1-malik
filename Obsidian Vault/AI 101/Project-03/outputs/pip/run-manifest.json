@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-22",
+  "inputSha256": "bf157b16a874552db6b9bf222ec5c2c4b5716b2e9d3e0561ef8f87e4dfbd9498",
+  "transport": "local Codex App Server; fresh threads; existing login",
+  "writesToSite": false,
+  "attempts": [
+    {
+      "name": "baseline",
+      "status": "completed",
+      "error": null,
+      "webSearches": 3
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "error": null,
+      "webSearches": 2
+    }
+  ],
+  "model": "gpt-6-astra",
+  "codexVersion": "0.154.0"
+}

@@ -1,0 +1,2 @@
+/ideaquest-project-workflow
+I want a browser tool to plan watering for my houseplants. I enter a plant name and a watering interval, then mark when I watered it. I want to see what needs watering next. It should work on my Windows laptop and an Android phone. I have two evenings and no budget. I haven't chosen tools.
