@@ -28,7 +28,7 @@
         </h1>
       </div>
       <div class="room-tools">
-        <button type="button" class="collection-launch" id="libraryOpen" disabled>All projects</button>
+        <button type="button" class="collection-launch" id="libraryOpen" disabled>Projects</button>
         <button type="button" class="collection-launch" id="newProject" disabled>+ New idea</button>
         <span class="live-mark" id="connection" role="status">Opening your vault…</span>
         <button type="button" class="sound-button" id="soundButton" aria-label="Enable workshop sounds" aria-pressed="false" title="Enable workshop sounds">
@@ -38,7 +38,7 @@
       </div>
     </header>
     <div class="resume-control" aria-label="Return to your work">
-      <button type="button" id="resumeProject" disabled><span class="resume-verb">Continue</span> <span id="resumeTitle">your project</span> <span aria-hidden="true">↗</span></button>
+      <button type="button" id="resumeProject" disabled><span class="resume-copy"><strong id="resumeTitle">Your project</strong><span id="roomNextStep">Choose your next step</span></span><span class="room-progress" id="roomProgress"></span><span class="resume-arrow" aria-hidden="true">↗</span></button>
       <span id="focusClock" role="timer" aria-label="Focus time remaining" hidden></span>
     </div>
 
@@ -81,15 +81,17 @@
       </div>
       <div class="detail-seal" id="detailSeal" aria-hidden="true">✦</div>
       <h2 id="detailTitle"></h2>
+      <div class="journal-status"><span id="detailTrailState" class="trail-state"></span><span id="detailProgressCount"></span></div>
+      <div class="next-card"><span class="eyebrow" id="detailNextLabel">Next step</span><p id="detailNext"></p><button id="workshopNext" class="focus-open" type="button" hidden>Open in Workshop</button></div>
+      <details class="journal-progress"><summary>Progress</summary><div class="quest-journey"><div id="detailProgress"></div><p class="trail-legend"><span>✦ Finished</span><span>◆ Current</span><span>◇ Ahead</span></p></div></details>
+      <details class="journal-about"><summary>Project details</summary>
       <p class="detail-pitch" id="detailPitch"></p>
       <p class="detail-placement" id="detailPlacement"></p>
       <nav class="project-links" id="projectLinks" aria-label="Project destinations"></nav>
       <div class="last-checkpoint"><span class="eyebrow">LAST TIME</span><p id="lastChanged"></p></div>
-      <div class="quest-journey"><div id="detailProgress"></div><p id="detailTrailState" class="trail-state"></p><p class="trail-legend"><span>✦ Finished</span><span>◆ Current</span><span>◇ Ahead</span></p></div>
-      <div class="next-card"><span class="eyebrow">NEXT SMALL STEP</span><p id="detailNext"></p></div>
-      <p class="edition-note" id="editionNote" hidden></p>
+      <p class="edition-note" id="editionNote" hidden></p></details>
       <button class="focus-open" id="setFocus" type="button">Make this my focus</button>
-      <button class="journal-focus quiet-button" id="projectFocus" type="button">Start 15-minute focus</button>
+      <details class="journal-focus-tools"><summary>Focus session</summary><button class="journal-focus quiet-button" id="projectFocus" type="button">Start 15-minute focus</button></details>
       <div id="milestoneActions" class="milestone-actions"></div>
       <details class="checkpoint-panel"><summary>Save where you stopped</summary>
         <form id="checkpointForm" class="journal-form">
@@ -142,7 +144,7 @@
       <div id="libraryGrid" class="library-grid"></div>
       <details id="discoveryPanel" class="discovery-panel"><summary id="discoverySummary">Found in your vault</summary><p>Link an existing project folder once. Its notes will then appear in its journal.</p><div id="discoveryList"></div></details>
       <button id="libraryAdd" class="back" type="button">+ Add an idea or existing project</button>
-      <p id="syncNotes" class="library-summary"></p>
+      <details class="library-sync"><summary>Connection details</summary><p id="syncNotes" class="library-summary"></p></details>
     </div>
     <form id="createProjectForm" class="journal-form" hidden>
       <p>Start with a name. Add a repository, live link, or vault folder whenever you have one.</p>

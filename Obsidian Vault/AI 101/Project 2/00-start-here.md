@@ -16,6 +16,20 @@ Use this workflow to turn a non-technical designer's build idea into a small, te
 5. Consult [[source-verification-log]] when relying on a research claim.
 6. Work through the steps in order: [[AI 101/Project 2/01-define-the-goal.md]], then use [[AI 101/Project 2/agents/Technologist|the Technologist agent]] in place of [[AI 101/Project 2/02-check-feasibility.md]], followed by [[AI 101/Project 2/03-build-a-small-prototype.md]], [[AI 101/Project 2/04-human-check.md]], and [[AI 101/Project 2/05-iterate-or-stop.md]]. For visual projects, use [[AI 101/Project 2/agents/Pip|Pip]] first when I request references. Keep its results beside the feasibility evidence for my review; the Technologist needs my approval to read an extra file. Pip does not approve a route or complete Step 2. The Technologist must stop for my route and test approval before the build. Do not skip a step's check before moving on.
 
+
+## Connected roles
+
+- [[AI 101/Project-03/agents/chief-of-staff|Chief of Staff]] coordinates the goal and next step.
+- [[AI 101/Project 2/agents/Pip|Pip (Design Shelf)]] finds assets within Step 2. Review the board and approve its snapshot before Creative Partner uses it.
+- [[AI 101/Project-03/agents/creative-partner|Creative Partner]] proposes directions within Step 2. I choose the direction.
+- [[AI 101/Project 2/agents/Technologist|Technologist]] handles technical feasibility. I choose the route and approve the small test.
+- After that approval, [[AI 101/Project-03/agents/programmer|Programmer]] stages the Step 3 prototype. I review files and Apply, then try and accept the result.
+- [[AI 101/Project-03/agents/auditor|Auditor]] reviews technical evidence within Step 3. It never replaces [[AI 101/Project 2/04-human-check|my human check]]. Failures stop progress until I request a fix or revisit the plan.
+
+Each role uses the shared [[AI 101/Project-03/vault-agent/AGENTS|vault identity]], voice, rules and IdeaQuest skill in Workshop. It receives the selected project's approved context. The standalone Technologist still keeps its narrower input list.
+
+Minor work can continue within the approved step. Major approvals stay mine. Workshop cycles are separate from the original class records; do not reset those records or use old approvals for new work.
+
 ## Visual check-in for every project
 
 Start each project update with a small progress strip, not a long recap. Reset it for each new project:
@@ -26,7 +40,7 @@ Use **■ / ✅** only for a gate I approved, **▶** for the one currently bein
 
 Below the strip, use a compact three-part check-in: **Now** (one sentence), **Evidence or change** (up to two bullets, linking the detailed note), and **Your decision** (one clear question or action). Show a small visual comparison, screenshot, diagram, or example when it materially helps; avoid repeating the whole research and file history in chat. Keep the detailed reasoning in the step file. Stop at my decision gate before advancing.
 
-Update the local [[AI 101/Project 2/progress-arcade/README.md|idea.quest registry]] whenever a new project starts, the active project changes, or I approve/reject a gate; its site controls save these decisions directly. If editing projects.json outside the site, run progress-arcade/sync-progress.mjs to regenerate [[AI 101/Project 2/progress.md]]. Mirror the active project's strip in the chat check-in. The Canvas shows that live progress note above the five compact step cards; keep the human-check card visually distinct. Never claim the local site is remotely shareable or automatically reads every note.
+Update the local [[AI 101/Project 2/progress-arcade/README.md|idea.quest registry]] whenever a new project starts, the active project changes, or I approve/reject a gate; its site controls save these decisions directly. If editing projects.json outside the site, run progress-arcade/sync-progress.mjs to regenerate [[AI 101/Project 2/progress.md]]. Mirror the active project's strip in the chat check-in. The Canvas links the saved class progress separately from the current Workshop cycle; keep the human-check card visually distinct. Never claim the local site is remotely shareable or automatically reads every note.
 
 ## If I don't understand
 

@@ -1,0 +1,82 @@
+{
+  "startedAt": "2026-10-27T03:48:13.012Z",
+  "kind": "New controlled role comparisons and real-model functionality checks. Not historical Project 2 runs.",
+  "fixtureOnly": true,
+  "actualProjectsTouched": false,
+  "records": [
+    {
+      "role": "chief",
+      "variant": "baseline",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "chief",
+      "variant": "agent",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "pip",
+      "variant": "baseline",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "pip",
+      "variant": "agent",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "creative",
+      "variant": "agent",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "creative",
+      "variant": "baseline",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "tech",
+      "variant": "agent",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "programmer",
+      "variant": "baseline",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "programmer",
+      "variant": "agent",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "auditor",
+      "variant": "baseline",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "auditor",
+      "variant": "agent",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    },
+    {
+      "role": "auditor",
+      "variant": "failed-check",
+      "status": "completed",
+      "model": "gpt-6-astra"
+    }
+  ],
+  "model": "gpt-6-astra",
+  "finishedAt": "2026-10-27T03:50:27.976Z"
+}

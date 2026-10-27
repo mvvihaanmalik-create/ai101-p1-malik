@@ -6,7 +6,7 @@ This is the Technologist comparison. Pip has a separate [source-check comparison
 
 | | Project 2 run | Technologist rerun |
 |---|---|---|
-| Saved output | `outputs/p2-run.md` | `outputs/agent-run-claudian.md` |
+| Saved output | `outputs/p2-run.md` | `outputs/agent-run.md` |
 | Input | `Project 2/outputs/idea-quest/01-define-the-goal.md` | Same goal file |
 | Step | `Project 2/02-check-feasibility.md` | `Project 2/agents/Technologist.md` |
 
@@ -23,3 +23,5 @@ The original run gave more project-specific route advice because it included app
 ## What I would change next
 
 Allow the agent to read a short, current app data-flow note when a task needs implementation context. Keep the goal file as the shared input, and require the agent to flag conflicts instead of silently choosing a value.
+
+The compared agent output also remains at `outputs/agent-run-claudian.md`. The earlier, different run is preserved as `outputs/agent-run-earlier.md`. Both compared files are copied together into `Project 2/outputs/`; no new run is implied by those copies.

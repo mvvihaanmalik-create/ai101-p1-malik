@@ -1,0 +1,29 @@
+{
+  "role": "tech",
+  "variant": "agent",
+  "startedAt": "2026-10-27T03:48:53.728Z",
+  "inputHash": "1e46e14a5968ed2f52575acd98750b7f58b388f519e8429f8fe131b945f90d07",
+  "instructionHash": "282c880b3e1c935d5aa5b13e0efe9213e493e54c92ad878c64324cddd98941f4",
+  "output": {
+    "reply": "Recommend route 1 for the supplied direction. Both proposals use one self-contained HTML file, native buttons and JavaScript, with no external assets. Native buttons support keyboard activation ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)). Browser/version, available tools and time remain unknown; effort is unmeasured. No test has run. Fixture records are not actual approval. Select a route and approve its test through the UI.",
+    "options": [
+      {
+        "title": "1. Soft glass with fallback",
+        "detail": "Use CSS blur with a readable solid fallback. Blur support varies in older browsers ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter)).",
+        "test": "Increment twice: 2; reset: 0. Repeat with Tab and Enter, then Space. Disable blur and check readability."
+      },
+      {
+        "title": "2. Plain counter, simpler option",
+        "detail": "Same behavior with solid styling and no motion. This proposes simplifying the supplied direction.",
+        "test": "Increment twice: 2; reset: 0. Repeat with Tab and Enter, then Space; verify visible focus."
+      }
+    ],
+    "referenceIds": [],
+    "sources": [],
+    "files": [],
+    "checks": [],
+    "model": "gpt-6-astra"
+  },
+  "status": "completed",
+  "finishedAt": "2026-10-27T03:49:12.305Z"
+}

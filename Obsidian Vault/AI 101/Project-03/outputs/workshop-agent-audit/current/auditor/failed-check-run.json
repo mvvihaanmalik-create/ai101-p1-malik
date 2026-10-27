@@ -1,0 +1,49 @@
+{
+  "role": "auditor",
+  "variant": "failed-check",
+  "startedAt": "2026-10-27T03:50:14.604Z",
+  "inputHash": "5c50a449a0ce4c5ceb29f940faa01e257ce3c5992a7a04470208c7f4199cd411",
+  "instructionHash": "462c18fe227e65865d8c57b501d90b2d009569d250edf99ae2c5fb4110c49392",
+  "output": {
+    "reply": "Source review identifies a blocking failure: Increment does nothing, and Reset is missing. Recommend implementing both handlers and adding Reset. No fixes or browser interactions were performed. Fixture decisions are not actual approvals. Progress pauses; human review must address unknowns before acceptance.",
+    "options": [],
+    "referenceIds": [],
+    "sources": [],
+    "files": [],
+    "checks": [
+      {
+        "name": "Approved test: source review",
+        "status": "fail",
+        "evidence": "app.js assigns an empty Increment handler, so two clicks leave the output at 0. index.html has no Reset button."
+      },
+      {
+        "name": "JavaScript syntax",
+        "status": "pass",
+        "evidence": "Supplied evidence says Node parsed app.js; behavior was not executed."
+      },
+      {
+        "name": "Scope and privacy: source review",
+        "status": "pass",
+        "evidence": "One counter; no dependencies, external resources, storage, or network calls appear."
+      },
+      {
+        "name": "Direction: source review",
+        "status": "fail",
+        "evidence": "No glass styling or second button exists."
+      },
+      {
+        "name": "Accessibility and hands-on test",
+        "status": "unknown",
+        "evidence": "Native Increment button exists. Human review must check keyboard operation, focus, readability, and count announcements after fixes, and repeat the specified click test."
+      },
+      {
+        "name": "Error handling: source review",
+        "status": "pass",
+        "evidence": "The queried button precedes the script; no fallible external operations appear."
+      }
+    ],
+    "model": "gpt-6-astra"
+  },
+  "status": "completed",
+  "finishedAt": "2026-10-27T03:50:27.975Z"
+}

@@ -1,0 +1,2 @@
+/ideaquest-project-workflow
+I want a browser tool for keeping track of camera gear I lend to friends. I add an item, who has it, and when it should come back. I mark it returned and see what is still out. It should work on my Windows laptop and my Android phone. I have two evenings and no budget. I have not picked tools.

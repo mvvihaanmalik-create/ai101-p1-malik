@@ -1,29 +1,51 @@
-# Technologist agent run — idea.quest redesign
+[ESF: no PS for agent-run-claudian.md; note one?]
 
-**Comparison input:** `Project 2/outputs/idea-quest/01-define-the-goal.md` (same approved goal used for `p2-run.md`). I also read `Project 2/00-start-here.md`, as allowed by the agent file. I did not use other vault files.
+# Technologist rerun — original idea.quest feasibility
 
-## Goal and missing facts
+**Rerun:** October 20, 2026. **Frame:** Reassess the original Step 2 question from the accepted October 11 Step 1 goal, before choosing a rendering route. This is a retrospective feasibility exercise, not a new build or a reversal of a later decision.
 
-Build a readable, interactive potion-room view for idea.quest with three jars whose fill reflects approved gate counts (0/5, 2/5, 5/5). Users must be able to open real project details and return to the table. Keep the public site read-only, preserve all project records, and support the Windows review setup, public link, narrow layouts, keyboard, touch, and reduced motion.
+[■□□□□] **Historical starting point:** 1/5 gates approved · 01 Goal ✅  02 Route ▶  03 Prototype ○  04 Human check ○  05 Decide ○
 
-The goal does not specify an effort/budget ceiling, the actual phone/browser for testing, or a visual-quality threshold for the first prototype. The target is a web page, and Windows is the primary review computer. I will not assume that narrow-layout support proves real-phone performance.
+**Now:** Choose the smallest rendering approach that can make the three-jar potion room a *working tracker*, not merely an illustration.
 
-## Route options
+**Evidence or change**
+- The independent Technologist run used only [[AI 101/Project 2/00-start-here.md]] and [[AI 101/Project 2/outputs/idea-quest/01-define-the-goal.md]], the two inputs listed in [[AI 101/Project 2/agents/Technologist.md]]. It did not inspect app code or the earlier Step 2 answer.
+- After that run, I separately cross-checked its claims against [[AI 101/Project-03/outputs/p2-run.md|the saved original feasibility evidence]]. That cross-check is marked below so the agent's input boundary remains visible. The saved copy matches [[AI 101/Project 2/outputs/idea-quest/02-check-feasibility.md|the Project 2 Step 2 note]] byte-for-byte.
 
-| Route | Fit | Main cost or risk |
-|---|---|---|
-| Layered HTML/CSS and SVG jars (recommended) | Can bind jar fill to gate data and use ordinary labelled buttons and HTML details. Smallest first interaction to build. | Layered art may not meet the desired 3D look; responsive composition still needs review. |
-| Canvas 2D with HTML controls | One drawn scene with data-linked jars. | Custom hit-testing and accessible fallback need care. |
-| Three.js scene | Real 3D depth and object picking fit a fully dimensional room. Three.js documents raycasting for picking and responsive renderer sizing. | More rendering and interaction work, plus greater phone-performance uncertainty. |
+**Count audit by the coordinator · 2026-10-20 (not an agent input):** I compared [[AI 101/Project 2/progress-arcade/projects.json|the local project record]], [[AI 101/Project 2/progress.md|the generated progress note]], the public `projects.json`, and the live journal's accessible progress values. All current gate counts agreed: idea.quest **5/5**, Gaze **2/5**, Image Palette Studio **5/5**. Project 1 has **no five-gate score** and appeared as a released keepsake, not a progress bar. The **1/5 strip above is historical**, from the Step 1 point. The **0/5, 2/5, 5/5 examples in this rerun and the archived [[AI 101/Project-03/outputs/p2-run.md|Project 2 run]] and [[AI 101/Project-03/outputs/agent-run.md|agent run]] are test fixtures**, not today's three live jar values; those archival copies remain unchanged. No live count conflict was found; the agent did not perform this later verification.
 
-Official Three.js references: [picking](https://threejs.org/manual/pages/picking.html) and [responsive design](https://threejs.org/manual/pages/responsive.html). These document available approaches; they do not establish how this specific scene will perform on the user's phone.
+## Goal, data contract, and missing facts
 
-## Recommendation and smallest test
+The first test needs one table, one original cat witch, and three selectable project jars. Each jar must show a legible name and numeric approved-gate count, with liquid height derived from the same registry count—not painted into the background. Choosing a jar should bring that project forward and open its real title, approved gates, current/next step, and dated updates. Return or Escape closes details; selecting never approves a gate. Preserve the whole registry, including Project 1 as an artifact rather than a fabricated 5/5 workflow, Image Palette Studio's pending accent side quest, the local explicit-decision and `progress.md` sync path, and the hosted read-only boundary.
 
-Start with layered HTML/CSS and SVG jars while keeping the interface and data rules in the approved goal. Render only the three jars and a simple table. Use a copied fixture with 0/5, 2/5, and 5/5 counts. Check that each fill and numeric label match; selecting a jar opens the matching details; keyboard activation also works; returning does not change any gate. Try desktop and a narrow viewport. If a convincing 3D look is essential to the user's success criteria, compare the Three.js version against this small slice before expanding the room.
+**Important inconsistency in the Step 1 input:** It calls idea.quest 0/5 in the three-jar prototype but also says its Goal gate is approved (1/5). A 0/5, 2/5, 5/5 *fixture* can demonstrate all fill levels, but a real project jar must use the registry's actual approved count. Do not hard-code an attractive empty jar or alter accepted records to make the illustration match.
 
-**Human check:** Review the evidence and choose the visual route and test scope. No route approval or new build is claimed in this run.
+The permitted inputs do not establish a time/budget ceiling, the user's phone/browser, exact art-quality threshold, registry schema, existing build tool, or current deployment mechanics. Those are unknown, not permission to guess.
 
-## Limits of this run
+## Route comparison
 
-The agent's listed inputs excluded the existing Project 2 feasibility research, implementation details, and earlier route decision. This recommendation therefore uses the approved goal plus current Three.js documentation; it cannot compare the proposal against the existing app's code or reproduce every fact in the Project 2 feasibility output.
+| Route | Fit and main tradeoff | Rough effort for an unpolished functional slice* |
+| --- | --- | --- |
+| **A. Layered 2.5D SVG/CSS + HTML controls — recommended** | SVG shapes and a clipped liquid layer can respond to data; HTML buttons and details keep labels, focus, and text usable. Best fit for a fixed storybook table. Depth is illustrated rather than freely navigable; original layered art and narrow layout still need work. | Agent estimate: **1–3 developer days**, with art polish additional and unknown. |
+| **B. Canvas 2D + HTML overlay** | Allows one cohesive painted scene and motion, but jar hit-testing, redraw, resizing, focus, and matching HTML controls add plumbing for only three jars. | Agent estimate: **2–5 developer days**. |
+| **C. Three.js real-time 3D + HTML overlay** | Real depth, camera motion, light, and dimensional jars. Requires geometry/assets, renderer/camera, picking, responsive layout, WebGL fallback, and phone-performance checks. | Agent estimate: **5–12+ developer days**, highly dependent on art ambitions. |
+
+*Planning judgments, not measured timings or cost promises. Assumes an experienced developer and reuse of existing data/actions. A still simpler **three-card HTML/CSS view** could validate the data and navigation contract before producing room art.
+
+The browser mechanisms are documented: SVG [`<clipPath>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/clipPath) restricts a drawing area; [native buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button) provide a keyboard-activatable control; [Canvas guidance](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage) calls for useful fallback content; [Three.js installation guidance](https://threejs.org/manual/pages/installation.html) describes npm/build-tool or CDN setup; its [WebGL utility](https://threejs.org/docs/pages/WebGL.html) can test WebGL 2 availability. [Reduced-motion preference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media/prefers-reduced-motion) can suppress nonessential zoom, bobbing, and flicker. These sources establish available techniques, **not** that any route is already accessible, beautiful, or fast on this user's phone.
+
+## Recommendation and smallest falsifying test
+
+**Recommend A for the original first prototype:** keep the existing registry/actions, make the table and cat restrained layers, draw simple SVG jars, and put the interactive target and detail text in HTML. This minimizes new dependencies and tests the room as a tracker before investing in scenery. It is a recommendation, **not** route approval.
+
+**Test only after human approval:** Start with **one** minimally styled jar connected to one actual registry record, not a pre-painted liquid level. Confirm its numeric label and SVG fill agree; activate its native button by pointer and keyboard; read the correct HTML details; close with Return/Escape; and confirm that no gate changed. Deliberately change or refetch a *copied/test* record through the existing authorized path and check the level updates. Test on the Windows review browser and a narrow viewport, including focus order and reduced motion. If data cannot safely drive even one jar, stop before drawing the full room. A physical-phone usability check remains separate.
+
+**Historical human check:** At this original Step 2 point, the Technologist would ask Vihaan to choose A, B, or C and approve or revise this small test. It must not advance the gate on its own.
+
+## Separate cross-check against existing Project 2 feasibility evidence
+
+The original [[AI 101/Project-03/outputs/p2-run.md|Project 2 run]] likewise recommended layered 2.5D SVG/CSS first, compared Canvas and Three.js, preserved the four records and approval boundary, and proposed a small data-driven interaction before visual polish. Unlike the restricted agent, that run recorded local app/server inspection, Node/npm availability, and public polling behavior as **October 11 evidence**. This rerun did not reproduce those checks, so they are not presented here as fresh verification.
+
+The effort estimates differ materially: the original note guessed **3–6 hours** for a very simple Route A spike, while this agent guessed **1–3 developer days** for an unpolished functional slice. Their scope and art assumptions are not identical, and neither figure was measured; do not use the difference as proof that one route became easier or harder.
+
+The original Step 2 note later records Vihaan choosing **Route C, Three.js**, and approving an isolated side-build while the older public site stayed live. That historical choice is not undone by this rerun's Route A recommendation. No new route approval, prototype, or progress-gate change is claimed here.

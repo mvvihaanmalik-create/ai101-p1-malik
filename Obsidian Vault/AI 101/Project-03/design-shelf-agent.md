@@ -1,46 +1,35 @@
-# Design Shelf agent
+# Pip: reusable assets
 
-## Role
+## Role and workflow step
 
-Pip helps me find design references for what I am making. It keeps them in a visual collection instead of a long report.
+Find free reusable assets for the selected project. Handle the asset search within Step 2. The Technologist still checks technical feasibility and waits for route and test approval.
 
-## Inputs it may read
+## Inputs
 
-- The selected project's approved summary: title, goal, current focus, tags, platform, gates, and note link.
-- The Design Shelf library, saved reference IDs, and source guide.
-- My request and Pip's own conversation history.
-- Original public sources. X and LinkedIn only when accessible.
-
-Full note bodies, private feeds, other chats, credentials, and unrelated files are outside its scope.
-
-## Step it takes over
-
-For visual projects, Pip handles the design-source check within Step 2, `02-check-feasibility.md`. The Technologist still checks technical feasibility, compares routes, and stops for route and test approval. Pip cannot finish that step on its own.
-
-The coordinator supplies the allowed inputs as JSON. The runtime instructions are `design-shelf/agent/pip.md`; the source guide is `design-shelf/config/update-guide.json`. For the Part A comparison, the exact shared input is saved in `outputs/pip/input.json`. Pip itself does not browse vault files.
+The selected project's approved summary, current goal, platform, stage, constraints, saved asset IDs, public library, source guide, request, and Pip conversation. The coordinator supplies these as JSON. No full note bodies, passwords, private feeds, unrelated files, or other chats.
 
 ## What it does
 
-1. Match references to the selected project. Search for specific things when I ask.
-2. Check source links, dates, and real previews. Put undated finds in Archive.
-3. Add useful references to the private shelf. Keep replies short and link to the results.
+1. Match licensed assets to the project. Give a small visual shortlist with source links and a short reason.
+2. Check original license evidence and actual previews. Deduplicate packs and repositories. Keep original dates; unknown dates stay unknown.
+3. Support a specific search or requested refresh. New links stay candidates until source, license, and preview checks pass.
 
-## What it may not decide
+## Limits and human check
 
-- My goal, final design, budget, or acceptable risk.
-- A workflow gate, source-note edit, public post, or sharing change.
-- Whether a popular example is usable. One example is not proof of a trend.
+Pip cannot choose the design, route, budget, or gate. Saving a card is not approval. Review the project board, then choose **Approve references & hand off**. Only that approved snapshot goes to Creative Partner. Changing the shortlist clears its approval.
 
-## Human check
+The human chooses what to use before design or code changes. Research permission does not approve a build. Stop cancels the current request.
 
-I choose the project and send the request. A refresh click approves research and library additions for that request. Pip shows the references and original sources. I decide what to use before any project design or code changes. I can stop a queued or running request.
+## Current app
 
-## Where it runs
+[Open Workshop and Shelf](https://ideaquest-workshop.vercel.app/). Switching apps keeps the selected project. Pip and the other agents use Codex on the PC. Sunday cloud collection runs separately, even when the PC is off.
 
-[Open Design Shelf](https://design-shelf-vihaan.mv-vihaanmalik.chatgpt.site). The small Pip button opens its Codex conversation. The local bridge uses my existing Codex login; my PC must be online. A separate desktop chat, **Pip · Design Shelf**, is available for follow-ups. The two conversations do not mirror each other.
+Shelf starts with 10 assets in each of eight categories. Up to five new picks replace the five oldest each Sunday at 15:00 UTC. Keep existing picks if fewer good replacements pass. Older assets stay in Full collection and saved boards. Each asset has one home category. A collection date is not a publication date.
 
-This is an extra Project 3 agent. It does not replace the Technologist agent or its approval check.
+Sources: Kenney, Poly Haven, Google Fonts, reviewed original repositories, and topic-filtered GitHub discovery. Social posts can help find an original asset; they are not proof of its license. No private social feeds are connected.
 
-## Part A evidence
+## Evidence
 
-The comparison at `outputs/pip/run-comparison.md` uses a new baseline of the original Step 2 source-check instruction and a separate run with Pip's role. It checks this smaller task only. There is no historical Project 2 Pip run.
+The saved October 22 comparison in `Project-03/outputs/pip/run-comparison.md` is a new controlled source-check pair, not a historical Project 2 Pip run. It predates the assets-only library and cloud collector. It does not test the current end-to-end handoff.
+
+Runtime instructions: `Project-03/design-shelf/agent/pip.md`.

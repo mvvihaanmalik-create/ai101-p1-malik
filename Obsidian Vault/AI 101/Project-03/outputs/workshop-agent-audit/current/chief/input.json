@@ -1,0 +1,51 @@
+{
+  "project": {
+    "id": "evidence-counter",
+    "title": "Evidence counter fixture",
+    "goal": "A small browser counter with increment and reset.",
+    "pitch": "A synthetic browser prototype for checking agent roles.",
+    "next": "Confirm the small test",
+    "types": [
+      "apps"
+    ],
+    "tags": [
+      "interface",
+      "motion"
+    ],
+    "platform": [
+      "Windows browser"
+    ],
+    "constraints": [
+      "No budget",
+      "No dependencies or external resources",
+      "One counter only"
+    ],
+    "gates": {
+      "known": true,
+      "approved": 0,
+      "total": 5
+    }
+  },
+  "fixtureOnly": true,
+  "run": {
+    "cycle": "evidence-fixture-only",
+    "goal": "",
+    "direction": "Soft glass, a clear count, two readable buttons, restrained motion.",
+    "route": "A self-contained HTML/CSS/JavaScript prototype",
+    "test": "Click increment twice, expect 2; click reset, expect 0. Repeat using keyboard.",
+    "approvals": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "refs": [],
+    "referenceApproval": null,
+    "failedChecks": [],
+    "fixAuthorized": false
+  },
+  "conversation": [],
+  "handoffs": {},
+  "request": "Identify the next major stop for this fixture. Offer a concrete next step without approving anything."
+}

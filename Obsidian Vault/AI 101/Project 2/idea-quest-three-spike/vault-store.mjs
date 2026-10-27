@@ -50,7 +50,7 @@ function atomicWrite(file, value) {
   try { fs.renameSync(temporary, file); } finally { if (fs.existsSync(temporary)) fs.unlinkSync(temporary); }
 }
 
-export function createVaultStore({ vaultRoot, dataFile }) {
+export function createVaultStore({ vaultRoot, dataFile, includeCompanionProjects = false }) {
   const root = fs.realpathSync(vaultRoot);
   const home = path.join(root, 'Project 2', 'Workshop Projects');
   function relative(file) { return path.relative(root, file).split(path.sep).join('/'); }
@@ -103,7 +103,7 @@ export function createVaultStore({ vaultRoot, dataFile }) {
     const files = scan(), projects = [], warnings = [], seen = new Set();
     for (const file of files) {
       let source = fs.readFileSync(file, 'utf8'); const note = parse(source);
-      if (note?.data.ideaquest !== true) continue;
+      if (note?.data.ideaquest !== true && !(includeCompanionProjects && note?.data.id === 'design-shelf' && path.resolve(file) === path.join(home, 'design-shelf.md'))) continue;
       const d = note.data;
       let normalized = false;
       if (!d.id && typeof d.title === 'string' && d.title.trim()) {

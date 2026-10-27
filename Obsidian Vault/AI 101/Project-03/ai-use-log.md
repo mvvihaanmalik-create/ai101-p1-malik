@@ -1,8 +1,6 @@
-[ESF: no PS for idea.quest release log; note one?]
 
 # ai-use-log.md
 
-*Log every prompt and every output, in order. An entry takes one minute. A missing entry reads as a missing run. Delete the italic guidance lines before you submit.*
 
 | Date | What I asked the model to do | What it produced | What I kept, changed, or rejected |
 |------|------------------------------|------------------|------------------------------------|
@@ -19,7 +17,6 @@
 | 2026-10-20 | Check displayed project progress against the record, label sample values as test fixtures, and stop if a live count disagrees. | Compared the local registry, generated idea.quest progress note, public JSON, and live journals: idea.quest 5/5, Gaze 2/5, Image Palette Studio 5/5; Project 1 has no five-gate score. No count conflict appeared. Added dated fixture clarifications to the historical Step 1 goal and `outputs/agent-run-claudian.md`; archived run snapshots were left unchanged. Separately noticed that the live collection labels idea.quest “Building” while the registry phase says complete. | Kept the live counts and did not alter any gate or phase. The 0/5, 2/5, 5/5 prototype examples are test fixtures, not today's three live statuses; the separate phase-label mismatch awaits direction. |
 | 2026-10-20 | Make the live idea.quest status label follow the Project 2 record and record this change in `audit-note.md`. | Made registry phase authoritative for existing workflow projects while keeping new projects' phases note-owned; added a regression test. All 26 workshop and four tracker tests passed. The status-only publisher verified staged and live hashes; public data now matches the registry at idea.quest complete 5/5, Gaze active 2/5, Image Palette Studio revisiting 5/5, and Project 1 unscored. Integrated the discrepancy, correction, evidence, and limits into the existing audit sections. | Kept the bounded phase correction. No gate counts, visual assets, or Project 3 workflow approval changed. A post-verification temporary-stage cleanup `EPERM` warning remains to review separately. |
 
-*Best practice: log the run before you fix anything. The first run's flaws are the material for your testing log.*
 
 | 2026-10-20 | Add a way for the vault agent to find current UX/UI, interaction, and motion design ideas from LinkedIn, X, and other sources. | Added an optional `ux-trend-scout` skill that uses accessible public sources, dates and links findings, separates repeated signals from opinions, and proposes a small test. | Kept it separate from the Technologist agent. Did not add social account access or API credentials; blocked posts must be reported as inaccessible. |
 
@@ -73,3 +70,61 @@
 |---|---|---|
 | Finish the audit fix and same-input rerun first, then short defense notes. | Ran the Project 2 start rules and reusable original Step 2 prose in isolated Claude safe mode. The baseline picked tools by default despite confusion. Added an explicit teaching/approval stop to `Project 2/00-start-here.md`, lines 31–35, then reran the exact input. | Both outputs are saved in `outputs/workflow-audit/`. Same prompt, model, original step, and harness; only the start file changed. The rerun explained the check and waited. This is late October 22 evidence, not a retroactive Class 9 run. No real gate or project data changed. |
 | Reflection: “I noticed more guardrails, more emphasis on slowing down and thinking it out instead of rushing.” | Used that reflection in the audit and replaced the defense-note placeholders with short talking points tied to actual rules and test records. Archived the earlier website/status audit without rewriting it. | Vihaan supplied the reflection; AI drafted the rest of the notes from saved evidence. No unsupported personal surprise or new test result was invented. Replies are still long; full builds and the Claudian menu were not checked. |
+
+## October 23 — connected workshop
+
+| What was requested | What AI produced | Decision and limits |
+|---|---|---|
+| “Looks fine lets build this and connect it to my actual projects and agents. Keep switching seamless and make sure it stops for my approval at the right points.” | Built the accepted workshop interface as a local app. Connected five actual project summaries, existing agent instructions, local Shelf records, and Codex login. Added Creative Partner, Programmer, and Auditor definitions, durable run state, human approval gates, explicit fix requests, and separate prototype folders. | Vihaan approved implementation of the concept. No project or coursework gate was inferred from that approval. Original class records remain unchanged. |
+| Check switching and approval stops. | Seven fixture integration tests passed. Browser checks covered draft isolation, a sandboxed counter preview, prototype acceptance, audit, and written human evidence. One real Codex reply identified IdeaQuest Final and its unapproved new goal. | Fixture approvals are test evidence only. No live model benchmark for all roles, native builds, original-source edits, publication, or hosted Shelf sync is claimed. See [verification](workshop/verification.md). |
+
+## October 26: later work recorded from this chat
+
+These entries reconstruct grouped requests after the October 23 record. Exact dates and individual assistant outputs were not all saved. They are not a verbatim transcript or a backdated sequence. Historical test files remain unchanged.
+
+| Request | Recorded work | Decision and limits |
+|---|---|---|
+| Polish spacing, type, glass, dark and light modes; keep the app playful. | Revised the shared interface and retained the room artwork and personalities. | Kept the green palette and reduced redundant text. No claim that appearance proves agent quality. |
+| Keep Workshop, idea.quest and Shelf in one app, with project selection synced from any view. | Added embedded app switching, shared selection and theme messages, and persistent per-project work. | Kept original apps accessible. No approval is passed through selection messages. |
+| Make the agents and desks real 3D, larger and more expressive, keeping their colors. | Built Three.js character meshes, desks and role props, gradients, cursor reactions, blinks and idle loops. | Rejected generic flat shapes, the Chief bump, the owl direction and the Auditor's oversized eye. Later requested consistent loops instead of a one-at-a-time sequence. |
+| Show workflow flow and human approval clearly; remove the broken selection outline. | Added directional dotted connections and amber paused approval states, with a smaller active treatment. | Kept the human gate separate from agent activity. Removed redundant small status text. |
+| Make Pip use project context and pass approved references to Creative Partner. | Added project-scoped saved boards, a separate reference approval, server-owned snapshots, and a prepared handoff. | Saving is not approval. The October 23 fixture audit remains bounded; a real user-approved handoff still needs a live demo. |
+| Collect more free open-source assets, remove duplicate category overlap, show real previews, simplify Shelf and the other apps. | Added original-source license checks, one home category per asset, cached previews, font specimens, interactive samples, and simpler controls. | Dropped inspiration from the current Shelf. Older source research and comparisons remain historical. |
+| Keep the site on Vercel; keep agents using PC Codex. | Published the protected Workshop with an allowlisted UI bundle, a PC connection and a local update publisher. | Vihaan explicitly approved this site's selected-project PC connection. Raw note bodies and credentials stay local. Agents still need the PC. |
+| Run weekly asset collection in the cloud while the PC is off. | Created the approved private free-plan Blob store, connected production, enabled Sunday 15:00 UTC collection and persisted public metadata and previews. | Initial resource creation was blocked pending exact destination approval; Vihaan then approved it. Removed the PC weekly automation after cloud success. No paid upgrade or cloud LLM. |
+| Verify the Project 3 microsite rules before the defense. | Read the brief, supplements, week pages and rubric; checked files and saved evidence. | Found the late audit, missing Part A output copy, stale Pip docs, incomplete logs, own-rule wording gap and unobserved Claudian menu. Vihaan said defense and submission have not happened. |
+
+## October 26: final fixes
+
+| Request | Output | Keep, change or reject |
+|---|---|---|
+| Start Shelf with 10 assets in every category, then replace five weekly. | Added 45 original licensed sources, giving 220 assets and 80 distinct featured picks. Added a persisted edition, topic-filtered discovery, five-out/five-in rotation, preview checks and full-collection retention. | Kept original dates and saved boards. All eight local and hosted categories showed 10; no repeated featured IDs. Functional rotation retained five and added five. A live source check found five new licensed plugin candidates. The future Sunday run is not yet observed. |
+| Give an honest assessment; the professor accepted the wider systems-design direction. | Separated agent roles and approval limits from the reusable skill and Workshop interface. | Professor acceptance is reported by Vihaan. No grade was predicted. A larger app does not replace required behavior evidence. |
+| Update logs, disclosure, Pip docs and missing files. | Updated current role/source docs; copied the actual compared runs into Project 2/outputs; preserved the earlier distinct agent run. Labelled the complex step and matched runnable skill copies. | Kept historical outputs and the audit's late timing. No old run was rewritten into a new pass. |
+| Supply five rules in my words. | Split Vihaan's two chat replies into five numbered rules, preserving his wording. | Replaced the AI rule draft. Minor decisions can proceed inside the task; major approvals stay with Vihaan. Voice formatting and earlier AI wording remain disclosed. |
+| Check the new rules rather than assume old tests still apply. | Saved new pressure and fresh-input CLI exchanges with current instruction snapshots. Revision 3 stopped but invented user/success details and was wordy. Revision 4 shortened replies but still claimed shared data required an account/server. | Rejected those unsupported additions. Added an explicit short goal stop with no premature architecture or effort claims. Preserved both revisions before the next rerun. |
+| Rerun the scope/claim fixes. | Revision 4 still introduced an account/server requirement, so the short goal stop was tightened. Revision 5 withheld that claim and stopped for an answer. Full exchanges, raw streams and current snapshots are saved. | Kept the approval stops and explicit unknowns. A casual timing phrase remains unmeasured. These read-only first turns do not prove later research, builds or permissions. |
+| Rename Pip on the website to Pip (Design Shelf). | Updated visible Workshop and Shelf labels while keeping internal role IDs. | Kept the same role, project selection and handoff behavior. |
+
+## October 27: all-role check and current diagram
+
+| Request | Output | Keep, change or reject |
+|---|---|---|
+| Check all created agents, Part A and B, and update the diagram. | Found that Workshop supplied voice and rules but omitted the skill. Added shared vault identity and skill to every role, explicit role contracts, and start-file calls. | Kept the five-step human approval model. Auditor supports technical review and never replaces the human check. |
+| Run each role and preserve comparisons. | All six roles returned real Codex replies. Five extra controlled baseline/role pairs hold the shared Part B context constant. Programmer returned valid allowed files; its actual counter worked by mouse and keyboard. Auditor failed a broken-counter fixture. | Controlled pairs are new evidence, not historical runs. No real projects or class approvals changed. Technologist's historical comparison remains the required Part A pair. |
+| Fix problems found in the live checks. | Added Pip preview-verification fields and required Technologist's sources array. Reruns showed a conditional compatible asset shortlist and three source cards. | Kept honest dependency limits and unknown effort. Did not force a second asset that conflicts with the fixture. |
+| Check switching and approval protections. | Existing suite first had four harness failures from an omitted progress helper. Included the actual shipped helper and harmless UI doubles; all 15 checks passed. | Fixed the harness instead of weakening production behavior. These remain fixture checks. |
+| Check native Claudian too. | CLI discovery works and copies match. Computer Use could not open Obsidian before its app-approval timeout. | Native menu and identity observation remain a user step. No UI pass was invented. |
+| Explain why the shared-list question matters. | Supplied a short practice explanation about syncing, storage and offline needs. | User asked AI to explain it. Did not record the explanation as the user's own reflection. |
+| Update the diagram to current work. | Updated Mermaid and Canvas with all roles, Sunday cloud collection, reference approval, Apply, five gates, failure/fix loops and saved class progress kept separate. | Progress is read from each selected cycle, not hardcoded as complete. |
+
+[Visible chat record](outputs/visible-chat-record.json) preserves user and assistant text from this assignment chat, excluding reasoning, tools and attachment binaries. It is a recorded snapshot; the open turn is partial. Earlier summaries should be read with the actual completed-turn messages, not treated as a new verification of every old claim.
+
+## Native provider and final review
+
+| Request | Output | Decision |
+|---|---|---|
+| Follow up after Obsidian opens. | Observed the current skill document and the Codex-based Claudian panel. Added matching `.agents/skills` copies and scoped Codex AGENTS loaders alongside the existing Claude copies. | Kept the existing ESF instructions. Native Codex-extension input is prohibited by the Computer Use guidance, so the user was asked to type the menu/identity check. No fresh native pass is claimed. |
+| Finish runtime and source checks. | Confirmed six roles in the running PC server, no active real-project jobs, the live Pip (Design Shelf) labels and blocked-before-goal popup, and the current 10-item Shelf. Opened the three primary sources from the Technologist rerun. | Source support does not prove universal accessibility or compatibility. Packaged review copies exclude private runtime data and have not been submitted. |
+| Complete the native check manually. | Vihaan pasted the new-chat identity reply and separately confirmed that `/ideaquest-project-workflow` appeared in the menu. Saved the prompt, reply and provenance in the testing log and native result. | Kept as user-reported native evidence. The reply matches the approval rules and does not carry old class approvals into a new run. Defense, personal rehearsal and instructor submission remain open. |
+| Check current status and rehearse A and B. | Confirmed all three local apps returned 200 and six roles were available. Prepared a short walkthrough from the saved role, comparison, skill and failure records. This workspace is not a Git checkout; no GitHub push was made. | Keep the rehearsal focused on agent versus skill, actual failure/fix evidence and human approvals. The guide is preparation, not a completed defense or ownership pass. |

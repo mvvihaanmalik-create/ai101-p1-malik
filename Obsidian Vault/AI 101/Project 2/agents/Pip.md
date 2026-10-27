@@ -1,37 +1,37 @@
-# Pip — design references
+# Pip: reusable assets
 
-## Role and replaced task
+## Role and workflow step
 
-Find useful design references for the selected project. Take over the design-source check within Step 2, `02-check-feasibility.md`, when Vihaan asks for visual research. This keeps source checking separate from the Technologist's technical route comparison.
+Find free reusable assets for the selected project. Handle the asset search within Step 2. The Technologist still checks technical feasibility and waits for route and test approval.
 
-Pip is an extra workflow role. The Technologist still owns the full feasibility check and approval stop.
+## Inputs
 
-## Exact inputs
-
-The coordinator supplies one JSON payload containing:
-
-- Vihaan's request and the selected project's approved summary.
-- The current Design Shelf references and saved reference IDs.
-- The public source guide, access limits, today's date, and 90-day window.
-
-For the saved comparison, use `Project-03/outputs/pip/input.json`. The runtime role is `Project-03/design-shelf/agent/pip.md`. No full notes, private feeds, other chats, credentials, or unrelated files.
+The selected project's approved summary, current goal, platform, stage, constraints, saved asset IDs, public library, source guide, request, and Pip conversation. The coordinator supplies these as JSON. No full note bodies, passwords, private feeds, unrelated files, or other chats.
 
 ## What it does
 
-1. Return up to four close matches for a search, or six for a requested refresh.
-2. Check original links and dates. Use existing reference IDs where possible. Put unverified dates in Archive; say when access fails.
-3. Show a small visual collection and a short reply. The bridge validates new records before saving them. One example is not proof of a trend.
+1. Match licensed assets to the project. Give a small visual shortlist with source links and a short reason.
+2. Check original license evidence and actual previews. Deduplicate packs and repositories. Keep original dates; unknown dates stay unknown.
+3. Support a specific search or requested refresh. New links stay candidates until source, license, and preview checks pass.
 
-## What it may not decide
+## Limits and human check
 
-- The project's goal, design, budget, or acceptable risk.
-- A gate, build, note edit, release, or sharing change.
-- That a reference is current just because it was recently collected.
+Pip cannot choose the design, route, budget, or gate. Saving a card is not approval. Review the project board, then choose **Approve references & hand off**. Only that approved snapshot goes to Creative Partner. Changing the shortlist clears its approval.
 
-## Human check
+The human chooses what to use before design or code changes. Research permission does not approve a build. Stop cancels the current request.
 
-Stop after showing the references and sources. Vihaan chooses what to use. Research permission does not approve design or code changes. The Technologist must still compare routes and wait for route and test approval.
+## Current app
+
+[Open Workshop and Shelf](https://ideaquest-workshop.vercel.app/). Switching apps keeps the selected project. Pip and the other agents use Codex on the PC. Sunday cloud collection runs separately, even when the PC is off.
+
+Shelf starts with 10 assets in each of eight categories. Up to five new picks replace the five oldest each Sunday at 15:00 UTC. Keep existing picks if fewer good replacements pass. Older assets stay in Full collection and saved boards. Each asset has one home category. A collection date is not a publication date.
+
+Sources: Kenney, Poly Haven, Google Fonts, reviewed original repositories, and topic-filtered GitHub discovery. Social posts can help find an original asset; they are not proof of its license. No private social feeds are connected.
 
 ## Evidence
 
-See `Project-03/outputs/pip/run-comparison.md`. Its baseline is a new source-check run, not an original Project 2 output. The Technologist's historical comparison remains `Project-03/run-comparison.md`.
+The saved October 22 comparison in `Project-03/outputs/pip/run-comparison.md` is a new controlled source-check pair, not a historical Project 2 Pip run. It predates the assets-only library and cloud collector. It does not test the current end-to-end handoff.
+
+For the paired input, see `Project-03/outputs/pip/input.json`.
+
+Runtime instructions: `Project-03/design-shelf/agent/pip.md`.

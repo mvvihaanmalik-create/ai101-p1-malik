@@ -1,6 +1,6 @@
 # Step 2 output — Check feasibility
 
-## Feasible route for this workflow
+## Feasible route for this [[AI 101/Project 2/outputs/02-check-feasibility]]workflow
 
 Keep the workflow a /Markdown process with a Canvas map. The map and direction files already exist in the vault; this route needs no application code or extra runtime to use as a planning aid. The current authoring environment is Windows with Obsidian, but the target environment for any future coding project is still unknown, and could be anything.
 

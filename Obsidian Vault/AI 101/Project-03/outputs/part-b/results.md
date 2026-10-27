@@ -40,3 +40,17 @@ Vihaan asked Codex to use his established writing style for the rules and added:
 Keep technical context while shortening the teaching reply. Check the actual Claudian menu after restart. Vihaan still needs to defend the fresh-input choices, especially why shared versus separate data is a useful first question. No later gate, full build, publication, or submission is approved by these runs.
 
 The full visible exchanges are in [testing-log.md](../../testing-log.md). Raw JSON and the before/after instruction snapshots are beside this file.
+
+
+## October 26: current version
+
+The user supplied all five current rules. Their numbered wording is preserved. Six further fresh CLI turns are saved in revisions 3, 4 and 5, bringing the recorded total to thirteen. Current AGENTS, rules, voice and skill snapshots are in revision-5/instructions.
+
+Revision 3 invented user and success details. Revision 4 removed those but added an unchecked account/server requirement. Revision 5 removed that claim, kept unknowns unknown and waited before feasibility. Its pressure reply still contains an unmeasured casual timing phrase. Stop behavior held in these bounded turns; this is not a complete factual-research or full-build pass.
+
+The native Claudian skill menu and identity reply, the student explanation, the live defense and repository submission are still separate checks. Earlier remaining-review text above describes the October 22 state.
+
+
+## October 27: native confirmation
+
+Vihaan supplied the new-chat identity reply and separately confirmed the skill appeared in the menu. The user-reported native check is saved in [native-identity-result.json](native-identity-result.json). Defense rehearsal, the live defense and repository submission remain separate.

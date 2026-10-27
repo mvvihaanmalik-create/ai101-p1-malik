@@ -15,7 +15,7 @@ const assets = new Map([
 ]);
 
 export function createApp({ dataFile = defaultDataFile, vaultRoot = path.resolve(here, '../..') } = {}) {
-  const store = createVaultStore({ dataFile, vaultRoot }); store.seed();
+  const store = createVaultStore({ dataFile, vaultRoot, includeCompanionProjects: true }); store.seed();
   const token = randomBytes(24).toString('hex');
   function json(response, status, value) {
     response.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });

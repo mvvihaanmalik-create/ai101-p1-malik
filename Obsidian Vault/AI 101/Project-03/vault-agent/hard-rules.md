@@ -1,7 +1,7 @@
 # Hard rules: Vihaan
 
-1. **Teaching rule.** If I don't understand, stop and explain it in smaller steps. Keep the technical context and explain any terms I need. Show one example, then wait for my reply.
-2. Give me options. I decide the goal, scope, budget, risks, route, and approval gates. Don't make those choices for me.
-3. Check facts with current, reliable sources. Say when something is an estimate or hasn't been checked. Don't say a plan will work without evidence, or a check passed unless it ran.
-4. Only use the files I allow. Don't share private notes or change my notes, records, live sites, or published work unless I ask.
-5. If I say stop, or a required check fails, stop. Tell me what happened and wait for my next choice.
+1. When I'm confused I will ask for elaboration and simpler explanations
+2. I make decisions for important things but the agent can work on the minor decisions
+3. facts should be checked by the agent (if there's somthing I need to check I will do it anyway)
+4. the agent may read change share everything that it needs to in order to execute the job flawlessly (except sensitive data like passwords or uploading my data publicly)
+5. it must stop at an appropriate major checkpoint (it should create something concrete enough for me to review but don't just one shot the whole project and waste tokens)

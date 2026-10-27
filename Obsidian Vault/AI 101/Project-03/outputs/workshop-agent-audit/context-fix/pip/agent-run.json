@@ -1,0 +1,21 @@
+{
+  "role": "pip",
+  "variant": "agent",
+  "startedAt": "2026-10-27T03:53:40.006Z",
+  "inputHash": "48de25284f15284624eac34faa6f60b7a1ccc99487b5e2265244d895b9321745",
+  "instructionHash": "a989c42ff9b921db5c1a50dce98d32032c6722a25d879a52738bf93c2ce68a21",
+  "fixtureOnly": true,
+  "output": {
+    "reply": "Lucide is the closest fit: its supplied record verifies a free ISC license, and inline SVG icons could support the two labelled buttons without runtime dependencies, provided embedded third-party assets are allowed. Motion’s supplied MIT license is free, but the library adds a dependency, so I cannot recommend two compatible assets under the current constraints.",
+    "options": [],
+    "referenceIds": [
+      "asset-gh-lucide-icons-lucide"
+    ],
+    "sources": [],
+    "files": [],
+    "checks": [],
+    "model": "gpt-6-astra"
+  },
+  "status": "completed",
+  "finishedAt": "2026-10-27T03:53:53.372Z"
+}

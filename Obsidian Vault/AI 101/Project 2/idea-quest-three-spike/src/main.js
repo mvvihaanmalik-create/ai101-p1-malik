@@ -15,6 +15,12 @@ import { restoreFocus, FOCUS_DURATION } from './focus-session.js';
 const renderMonitor=createRenderMonitor();
 const frameBudget=createFrameBudget();
 
+const inSuite=location.origin==='http://127.0.0.1:4188'&&parent!==window&&new URLSearchParams(location.search).get('suite')==='1';
+let suiteActive=true,suiteReady=false,suitePending=null,suiteInspectPending=null;
+let suiteWorkflow=null,suiteProjectId=null;
+function withWorkshopProgress(project){const {workshopProgress,...note}=project;return inSuite&&project.id===suiteProjectId&&suiteWorkflow?{...note,workshopProgress:suiteWorkflow}:note;}
+function progressView(project){const workflow=project.workshopProgress;return workflow?{...project,gates:Array.from({length:workflow.total},(_,i)=>i<workflow.approved?'approved':i===workflow.approved?'active':'upcoming'),gateNames:['Goal','Route','Prototype','Human check','Decide']}:project;}
+function notifySuiteProject(id){if(inSuite&&suiteReady)parent.postMessage({type:'workshop:selected',projectId:id},'http://127.0.0.1:4190');}
 let IDS = ['idea-quest', 'obsidian-gaze', 'image-palette'];
 let vaultState=null, collectionUI=null, firstRegistry=true;
 const STEPS = ['Define the goal', 'Choose a route', 'Build a small prototype', 'Human check', 'Iterate or stop'];
@@ -22,7 +28,7 @@ const COLORS = { 'idea-quest': '#c68af1', 'obsidian-gaze': '#42e2cb', 'image-pal
 const LABELS = { 'idea-quest': 'IdeaQuest Final', 'obsidian-gaze': 'Gaze', 'image-palette': 'Image Palette' };
 const DEMO = new URLSearchParams(window.location.search).get('demo') === '1';
 const HOSTED = document.body.dataset.mode === 'hosted';
-function connectionLabel(){return HOSTED?`Shared collection · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}
+function connectionLabel(){if(document.body.dataset.bridge==='true')return window.WorkshopCloud?.online?`PC connected · ${records.size} projects`:'PC offline · start your local Workshop';return HOSTED?`Shared collection · ${records.size} projects`:DEMO?'Demo · simulated levels':`Vault connected · ${records.size} projects`;}
 const $ = (id) => document.getElementById(id);
 let audioStorage;try{audioStorage=localStorage;}catch{}
 const audio=createWorkshopAudio({storage:audioStorage,onChange:renderSoundState});
@@ -48,21 +54,31 @@ const QUESTS={
   'image-palette': {action:'Test the accent-color override',hint:'The original quest is complete. Check the new accent feature before accepting it.'}
 };
 function questFor(project){
+  if(project.workshopProgress){const w=project.workshopProgress,step=w.step;return {action:step.label,hint:step.note||'',status:step.tone==='approval'?'Waiting for your approval':step.tone==='decision'?'Waiting for your decision':step.tone==='complete'?'Cycle complete':step.tone==='working'?'Working':step.tone==='paused'?'Paused':'Next step',done:w.approved,tone:step.tone};}
   const done=approvedCount(project),revisit=project.phase==='revisiting';
   const knownNote={'idea-quest':/3D potion-room|workshop design/i,'obsidian-gaze':/film-frame UI/i,'image-palette':/manual accent override/i}[project.id];
   const summary=knownNote?.test(project.nextMove||'')?QUESTS[project.id]:null;
   return {...(summary||{action:project.nextMove?.split('. ')[0]||'Choose your next step',hint:project.pitch}),status:revisit?'Revisiting':project.phase==='complete'?'Released':project.phase==='resting'?'Resting':project.phase==='idea'?'New idea':project.phase==='review'||/\b(review|test|check)\b/i.test(project.nextMove||'')?'Ready for your review':'Building',done};
 }
 function renderFocus(){
-  focusId=nextTableFocus(organization,focusId,IDS);
+  if(!inSuite||!records.has(focusId))focusId=nextTableFocus(organization,focusId,IDS);
   const p=records.get(focusId);
   if(p){const q=questFor(p);$('focusTitle').textContent=p.title;$('focusNext').textContent=q.action;$('focusOpen').textContent=HOSTED?'View project →':'Resume project →';}
   else{$('focusTitle').textContent='A clear worktable';$('focusNext').textContent='Bring an artifact back when you’re ready.';$('focusOpen').textContent=collectionIds('shelf').length?'Browse the shelf →':'Browse retired artifacts →';}
   $('questTotal').textContent=`${collectionIds('table').length} on the table · ${collectionIds('shelf').length} on the shelf`;
-  const current=records.get(focusEnds?focusProjectId:focusId);
+  const current=records.get(inSuite?focusId:focusEnds?focusProjectId:focusId);
   $('resumeTitle').textContent=current?.title||'your collection';
   $('resumeProject').disabled=false;$('resumeProject').setAttribute('aria-label',current?`Continue ${current.title}`:'Browse all projects');
   $('resumeProject').title=current?.nextMove||'Browse all projects';
+  const q=current?questFor(current):null,progress=current?progressView(current):null;
+  $('roomNextStep').textContent=q?.action||'Choose a project';
+  $('roomProgress').textContent=progress?.gates.length?`${approvedCount(progress)}/${progress.gates.length}`:'';
+  $('roomProgress').hidden=!progress?.gates.length;
+  $('roomProgress').setAttribute('role','progressbar');$('roomProgress').setAttribute('aria-valuemin','0');$('roomProgress').setAttribute('aria-valuemax',String(progress?.gates.length||1));$('roomProgress').setAttribute('aria-valuenow',String(progress?approvedCount(progress):0));
+  $('roomProgress').setAttribute('aria-label',progress?.gates.length?`${approvedCount(progress)} of ${progress.gates.length} ${current.workshopProgress?'Workshop approvals this cycle':'milestones complete'}`:'');
+  document.querySelector('.resume-control').dataset.tone=q?.tone||'next';
+  $('resumeProject').setAttribute('aria-label',current?`${current.title}. ${q.status}. ${q.action}. Open journal.`:'Browse all projects');
+  $('resumeProject').title=q?`${q.status} · ${q.action}`:'Browse all projects';
 }
 function renderCollections(){
   for(const place of ['table','shelf','retired']){const button=$(place+'Tab');button.textContent=`${PLACE_LABELS[place]} (${collectionIds(place).length})`;button.setAttribute('aria-pressed',String(collection===place));}
@@ -323,7 +339,7 @@ async function setupScene() {
 function syncRoomLoop(){
   if(!renderer||!renderReady)return;
   const reading=selectedId&&!reveal&&performance.now()-lastInteraction>2800;
-  const run=!contextLost&&!reading&&shouldRunRoom({visible:document.visibilityState==='visible',inView:roomInView,collectionOpen:$('libraryDialog').open,still:reducedMotion.matches||roomPaused});
+  const run=!contextLost&&!reading&&shouldRunRoom({visible:suiteActive&&document.visibilityState==='visible',inView:roomInView,collectionOpen:$('libraryDialog').open,still:reducedMotion.matches||roomPaused});
   if(!run)renderMonitor.paused(reading?'reading the journal':$('libraryDialog').open?'browsing the collection':!roomInView?'room offscreen':document.visibilityState!=='visible'?'background tab':'quiet room');
   if(run===loopRunning)return;
   loopRunning=run;lastFrame=0;lastDraw=0;
@@ -353,7 +369,7 @@ function resize() {
   for(const jar of jars.values())if(!selectedId&&!jar.flight&&potionDrag?.id!==jar.id){const pose=jarRestPose(jar);jar.group.position.copy(pose.position);jar.group.scale.setScalar(pose.scale);}
 }
 function animate(scheduledTime) {
-  if(!renderer||!renderReady||contextLost||$('libraryDialog').open||document.visibilityState!=='visible'||!roomInView)return;
+  if(!suiteActive||!renderer||!renderReady||contextLost||$('libraryDialog').open||document.visibilityState!=='visible'||!roomInView)return;
   const now=performance.now();
   const scheduled=typeof scheduledTime==='number';
   if(!frameDue(now,lastDraw,scheduled,!!potionDrag?.active,scheduledTime===true))return;lastDraw=now;
@@ -534,6 +550,7 @@ function greetCat(kind='hello'){
 
 const TRAIL_STEPS=['Goal','Route','Build','Review','Refine'];
 function questTrail(project,labels=false){
+  project=progressView(project);
   const trail=document.createElement('span');trail.className='quest-trail'+(labels?' with-labels':'');
   const done=approvedCount(project),total=project.gates.length;
   if(!total){trail.className='project-state-seal';trail.textContent=project.phase==='complete'?'❖ Released keepsake':'✧ Your milestones, your pace';return trail;}
@@ -630,10 +647,15 @@ function renderDetails(project) {
   $('detailPitch').textContent = project.pitch;
   $('detailPlacement').textContent={table:'On your worktable',shelf:'In your collection · on the wall shelf',retired:'Retired · ready to restore'}[organization[project.id]];
   $('detailProgress').replaceChildren(questTrail(project,true));
-  $('detailTrailState').textContent=project.legacyWorkflow&&approvedCount(project)===5?(project.phase==='revisiting'?'Original milestones complete · revisiting':'Original milestones complete'):questFor(project).status;
+  $('detailTrailState').textContent=project.workshopProgress?questFor(project).status:project.legacyWorkflow&&approvedCount(project)===5?(project.phase==='revisiting'?'Original milestones complete · revisiting':'Original milestones complete'):questFor(project).status;
+  const progress=progressView(project);$('detailProgressCount').textContent=progress.gates.length?`${approvedCount(progress)}/${progress.gates.length} ${project.workshopProgress?'this cycle':'complete'}`:'';
   $('detailSeal').style.color = COLORS[project.id];
   const q=questFor(project);
   $('detailNext').textContent=q.action;
+  $('detailNextLabel').textContent=q.tone==='approval'?'Waiting for your approval':q.tone==='decision'?'Waiting for your decision':'Next step';
+  document.querySelector('.next-card').dataset.tone=q.tone||'next';
+  $('workshopNext').hidden=!inSuite||!project.workshopProgress||project.id!==suiteProjectId;
+  $('workshopNext').textContent=q.tone==='approval'||q.tone==='decision'?'Review in Workshop':'Continue in Workshop';
   $('fullNext').textContent=project.nextMove;
   $('setFocus').textContent=project.id===focusId?'Your current focus ✓':'Make this my focus';
   $('setFocus').disabled=project.id===focusId;
@@ -661,6 +683,7 @@ function renderDetails(project) {
 function setRoomModal(active){if(!active)document.body.classList.remove('artifact-inspection');for(const selector of ['.masthead','.resume-control','.intro','.keeper','.collection-controls','.jar-dock','.empty-collection','.footnote','.workshop-play','#moveToast']){const element=document.querySelector(selector);if(element)element.inert=active;}}
 function selectProject(id,playful=false,fromCollection=false) {
   const project=records.get(id);if(!project)return;
+  notifySuiteProject(id);
   if(potionDrag)finishPotionDrag(null);
   returnToCollection=fromCollection;
   clearTimeout(revealTimer);selectedId=id;setRoomModal(true);if(mobileLayout){window.scrollTo({top:0,behavior:'instant'});document.body.classList.add('artifact-inspection');}
@@ -726,7 +749,7 @@ function applyRegistry(state) {
   const wasFirst=firstRegistry;
   vaultState=state;
   primaryProjectId=state.activeProjectId||IDS[0];
-  records = new Map(state.projects.map((project) => [project.id, project]));
+  records = new Map(state.projects.map((project) => [project.id, withWorkshopProgress(project)]));
   IDS=state.projects.map(project=>project.id);
   if(firstRegistry){let saved={};try{saved=JSON.parse(storedOrganization)||{};}catch{}const parsed=parseOrganization(storedOrganization,IDS);for(const id of IDS)if(Object.prototype.hasOwnProperty.call(saved,id))organization[id]=parsed[id];firstRegistry=false;}
   for(const id of IDS){COLORS[id] ||= ['#c68af1','#42cbb3','#ffbd65','#cf8e8e'][IDS.indexOf(id)%4];jarSymbols[id] ||= '✧';if(!organization[id])organization[id]=collectionIds('table').length<3&&records.get(id).phase!=='complete'?'table':'shelf';}
@@ -775,11 +798,12 @@ function interactRoom(action){
   lastInteraction=performance.now();if(renderer)animate();
 }
 async function boot() {
-  collectionUI=createCollectionUI({getState:()=>vaultState,onVisibilityChange:syncRoomLoop,refresh:loadRegistry,openProject:(id,fromCollection=false)=>{lastFocusedId=id;selectProject(id,false,fromCollection);},onSound:chime,save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime(created||released?'complete':'place');animate();syncRoomLoop();}});
+  collectionUI=createCollectionUI({getState:()=>vaultState?({...vaultState,projects:vaultState.projects.map(withWorkshopProgress)}):null,onVisibilityChange:syncRoomLoop,refresh:loadRegistry,openProject:(id,fromCollection=false)=>{lastFocusedId=id;selectProject(id,false,fromCollection);},onSound:chime,save:async(input,id)=>{if(HOSTED)throw new Error('Use the local workshop to save to your vault.');if(DEMO)throw new Error('Leave demo mode to save to your vault.');const response=await fetch(id?`/api/projects/${encodeURIComponent(id)}`:'/api/projects',{method:'POST',headers:{'Content-Type':'application/json','X-Workshop-Token':vaultState.token},body:JSON.stringify(input)});const result=await response.json();if(!response.ok){const error=new Error(result.error||'Could not save. Your draft is still here.');error.status=response.status;throw error;}applyRegistry(result);lastRegistryText='';return result;},onCheckpoint:(project,created,released)=>{catMood=created||project.phase==='complete'?'celebrate':'hello';greetingUntil=performance.now()+4000;lastInteraction=performance.now();say(released?`${project.title} is released. A keepsake worth keeping.`:created?`A new home for ${project.title}. Let’s begin.`:'Saved your place. Next: '+project.nextMove);chime(created||released?'complete':'place');animate();syncRoomLoop();}});
   const tools=document.createElement('div');tools.className='workshop-play';tools.setAttribute('aria-label','Workshop interactions');
   tools.innerHTML='<details class="room-rituals"><summary>Room extras <span aria-hidden="true">✧</span></summary><div class="ritual-list"><button id="shelfView" aria-pressed="false">Explore shelf</button><button id="stokeFire">Stoke fire</button><button id="lanternToggle" aria-pressed="true">Lantern</button><button id="pauseRoom" aria-pressed="false">Pause room motion</button><button id="focusSession">Start 15-minute focus</button></div></details>';
   $('room').append(tools);
   tools.querySelector('.ritual-list').insertAdjacentHTML('beforeend','<fieldset class="sound-settings"><legend>Workshop sound</legend><label for="soundVolume">Volume <output id="soundVolumeValue">35%</output></label><input id="soundVolume" type="range" min="0" max="100" step="5" value="35"><label class="ambience-option"><input id="hearthAmbience" type="checkbox" checked> Fireplace ambience</label><p>Sound starts after you switch it on. Your choice is remembered.</p></fieldset>');
+  for(const id of ['greetButton','retiredTab','newProject','connection'])tools.querySelector('.ritual-list').append($(id));
   renderSoundState();
   document.addEventListener('pointerdown',()=>{void audio.unlock();},{capture:true});
   document.addEventListener('keydown',()=>{void audio.unlock();},{capture:true});
@@ -787,6 +811,7 @@ async function boot() {
   $('soundVolume').addEventListener('input',event=>audio.setVolume(event.target.value/100));
   $('hearthAmbience').addEventListener('change',event=>audio.setAmbience(event.target.checked));
   $('projectFocus').addEventListener('click',()=>toggleFocus(selectedId));
+  $('workshopNext').addEventListener('click',()=>{if(!selectedId||!inSuite)return;notifySuiteProject(selectedId);parent.postMessage({type:'workshop:open-step',projectId:selectedId},'http://127.0.0.1:4190');});
   $('resumeProject').addEventListener('click',()=>{const id=focusEnds?focusProjectId:focusId;if(records.has(id)){lastFocusedId=id;selectProject(id);}else collectionUI.show();});
   $('pauseRoom').setAttribute('aria-pressed',String(roomPaused));$('pauseRoom').textContent=roomPaused?'Resume room motion':'Pause room motion';
   window.setInterval(updateFocusClock,1000);
@@ -837,7 +862,34 @@ async function boot() {
     if (document.visibilityState === 'visible') loadRegistry().catch((error) => {$('connection').textContent=HOSTED?'Collection unavailable · retrying':'Vault unavailable · retrying';showError(error.message);});
   }, HOSTED?60000:5000);
 }
-boot();
+let lastBridgeContext='',suiteContextVersion=0;
+async function applySuiteContext(data){
+  if(!suiteReady){suitePending=data;return;}
+  suiteProjectId=data.projectId;
+  const w=data.workflow;suiteWorkflow=w&&Number.isInteger(w.approved)&&w.approved>=0&&w.approved<=5&&w.total===5&&typeof w.step?.label==='string'?w:null;
+  const contextVersion=++suiteContextVersion;
+  if(document.body.dataset.bridge==='true'){
+    const key=JSON.stringify([data.projectId,data.workflow]);
+    if(key!==lastBridgeContext){lastBridgeContext=key;try{await loadRegistry();}catch{}}
+    if(contextVersion!==suiteContextVersion)return;
+  }
+  if(['light','dark'].includes(data.theme))document.documentElement.dataset.theme=data.theme;
+  suiteActive=data.active!==false;audio.setVisible(suiteActive&&document.visibilityState==='visible');
+  if(typeof data.projectId==='string'&&records.has(data.projectId)){
+    records=new Map([...records].map(([id,project])=>[id,withWorkshopProgress(project)]));
+    if(focusId!==data.projectId||selectedId&&selectedId!==data.projectId){
+      const wasInspecting=!!selectedId;focusId=data.projectId;try{localStorage.setItem('ideaQuest.focus',focusId);}catch{}
+      renderFocus();renderDock();if(wasInspecting)suiteInspectPending=data.projectId;
+    }
+    renderFocus();if(selectedId===data.projectId)renderDetails(records.get(selectedId));
+    const artifactButton=[...$('jarDock').querySelectorAll('[data-project-id]')].find(button=>button.dataset.projectId===data.projectId),currentProject=records.get(data.projectId);
+    if(artifactButton)artifactButton.setAttribute('aria-label',`${currentProject.title}: ${questFor(currentProject).status}. Open project.`);
+    parent.postMessage({type:'workshop:applied'},'http://127.0.0.1:4190');
+  }else if(data.projectId)parent.postMessage({type:'workshop:missing'},'http://127.0.0.1:4190');
+  if(suiteActive){if(suiteInspectPending){const next=suiteInspectPending;suiteInspectPending=null;selectProject(next);}lastFrame=0;lastDraw=0;animate(true);}syncRoomLoop();
+}
+if(inSuite)window.addEventListener('message',e=>{if(e.origin==='http://127.0.0.1:4190'&&e.source===parent&&e.data?.type==='workshop:context')applySuiteContext(e.data);});
+boot().then(()=>{if(inSuite){suiteReady=true;if(suitePending)applySuiteContext(suitePending);parent.postMessage({type:'workshop:ready'},'http://127.0.0.1:4190');}});
 
 // Narrow, read-only hooks for automated checks of the prototype; no write action exists.
 window.__ideaQuestTest = { levelFor, selectProject, getSelected: () => selectedId, getLevels: () =>

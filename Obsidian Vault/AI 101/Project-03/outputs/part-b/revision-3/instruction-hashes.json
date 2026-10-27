@@ -1,0 +1,18 @@
+[
+  {
+    "file": "AGENTS.md",
+    "sha256": "586bcb7d0ced8a5530ab3fd59167b528cd14c30ec69915572d502b81ab7f7906"
+  },
+  {
+    "file": "hard-rules.md",
+    "sha256": "228f831de8bc938e88284613c7e3548ae9535776ccaaed58a03b1622865e99c6"
+  },
+  {
+    "file": "voice-profile.md",
+    "sha256": "a4c1db6c43855b9cdc6b35f1572ebe99653b17b32968a2be647aea01992f320b"
+  },
+  {
+    "file": "SKILL.md",
+    "sha256": "8f28aaf40254a2fc06783cd0979acb5fa2680e8e8ad4a68f4705e949d7eb532f"
+  }
+]

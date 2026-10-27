@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence counter fixture</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="counter" aria-labelledby="title">
+    <p class="eyebrow">Disposable prototype</p>
+    <h1 id="title">A little progress</h1>
+    <p class="description">One counter. One step at a time.</p>
+    <div class="readout">
+      <span id="count-label">Current count</span>
+      <output id="count" aria-labelledby="count-label" aria-live="polite" aria-atomic="true">0</output>
+    </div>
+    <div class="controls">
+      <button id="increment" type="button">Increment</button>
+      <button id="reset" class="secondary" type="button">Reset</button>
+    </div>
+    <p class="hint">Use Tab to focus a button, then Enter or Space.</p>
+    <noscript><p>Enable JavaScript to use this counter.</p></noscript>
+  </main>
+</body>
+</html>

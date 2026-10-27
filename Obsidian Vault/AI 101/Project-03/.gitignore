@@ -1,0 +1,6 @@
+**/.local/
+workshop-runs/
+submission-draft/
+**/node_modules/
+workshop/cloud/
+design-shelf/data/projects.json

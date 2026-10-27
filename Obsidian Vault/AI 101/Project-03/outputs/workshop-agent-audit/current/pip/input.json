@@ -1,0 +1,889 @@
+{
+  "project": {
+    "id": "evidence-counter",
+    "title": "Evidence counter fixture",
+    "goal": "A small browser counter with increment and reset.",
+    "pitch": "A synthetic browser prototype for checking agent roles.",
+    "next": "Confirm the small test",
+    "types": [
+      "apps"
+    ],
+    "tags": [
+      "interface",
+      "motion"
+    ],
+    "platform": [
+      "Windows browser"
+    ],
+    "constraints": [
+      "No budget",
+      "No dependencies or external resources",
+      "One counter only"
+    ],
+    "gates": {
+      "known": true,
+      "approved": 0,
+      "total": 5
+    }
+  },
+  "fixtureOnly": true,
+  "run": {
+    "cycle": "evidence-fixture-only",
+    "goal": "A small browser counter with increment and reset.",
+    "direction": "Soft glass, a clear count, two readable buttons, restrained motion.",
+    "route": "A self-contained HTML/CSS/JavaScript prototype",
+    "test": "Click increment twice, expect 2; click reset, expect 0. Repeat using keyboard.",
+    "approvals": [
+      {
+        "at": "2026-10-27T03:48:13.012Z",
+        "note": "Disposable fixture decision, not an actual user or class approval"
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "refs": [
+      {
+        "id": "asset-gh-lucide-icons-lucide",
+        "title": "Lucide",
+        "publisher": "lucide-icons",
+        "url": "https://github.com/lucide-icons/lucide",
+        "publishedAt": null,
+        "evergreen": true,
+        "categories": [
+          "apps",
+          "plugins",
+          "websites"
+        ],
+        "focus": [
+          "UI",
+          "Interaction"
+        ],
+        "tags": [
+          "icons",
+          "svg",
+          "react",
+          "vue",
+          "feather-icons",
+          "figma",
+          "svg-icons",
+          "svgs",
+          "ui-components",
+          "ui-design"
+        ],
+        "summary": "Consistent interface icons with a broad, searchable set.",
+        "preview": {
+          "type": "none",
+          "url": null,
+          "poster": null,
+          "alt": "Lucide"
+        },
+        "evidenceUrl": "https://lucide.dev/license",
+        "liveUrl": "https://lucide.dev/",
+        "dateType": "published",
+        "previewNote": "",
+        "checkedAt": "2026-10-26T22:16:31.516Z",
+        "addedAt": "2026-10-24T00:58:00.035Z",
+        "kind": "asset",
+        "assetType": "icons",
+        "formats": [
+          "SVG",
+          "React",
+          "Vue"
+        ],
+        "downloadUrl": "https://github.com/lucide-icons/lucide",
+        "license": {
+          "id": "ISC",
+          "url": "https://lucide.dev/license",
+          "free": true,
+          "openSource": true,
+          "commercial": true,
+          "attribution": true,
+          "verified": true,
+          "checkedAt": "2026-10-26T22:16:31.516Z"
+        },
+        "aliases": [],
+        "relatedUrls": [],
+        "updatedAt": "2026-10-26T17:20:36Z"
+      },
+      {
+        "id": "asset-gh-motiondivision-motion",
+        "title": "Motion",
+        "publisher": "motiondivision",
+        "url": "https://github.com/motiondivision/motion",
+        "publishedAt": null,
+        "evergreen": true,
+        "categories": [
+          "apps",
+          "websites",
+          "creative"
+        ],
+        "focus": [
+          "Interaction",
+          "Motion"
+        ],
+        "tags": [
+          "motion",
+          "javascript",
+          "react",
+          "animation",
+          "animation-js",
+          "reactanimations",
+          "spring"
+        ],
+        "summary": "Animation and gesture primitives. This card covers the open source library.",
+        "preview": {
+          "type": "none",
+          "url": null,
+          "poster": null,
+          "alt": "Motion"
+        },
+        "evidenceUrl": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+        "liveUrl": "https://motion.dev/",
+        "dateType": "published",
+        "previewNote": "",
+        "checkedAt": "2026-10-26T22:16:31.516Z",
+        "addedAt": "2026-10-24T00:58:00.035Z",
+        "kind": "asset",
+        "assetType": "motion",
+        "formats": [
+          "JavaScript",
+          "React"
+        ],
+        "downloadUrl": "https://github.com/motiondivision/motion",
+        "license": {
+          "id": "MIT",
+          "url": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+          "free": true,
+          "openSource": true,
+          "commercial": true,
+          "attribution": true,
+          "verified": true,
+          "checkedAt": "2026-10-26T22:16:31.516Z"
+        },
+        "aliases": [],
+        "relatedUrls": [],
+        "updatedAt": "2026-10-26T21:59:51Z"
+      }
+    ],
+    "referenceApproval": {
+      "at": "2026-10-27T03:48:13.012Z",
+      "ids": [
+        "asset-gh-lucide-icons-lucide",
+        "asset-gh-motiondivision-motion"
+      ],
+      "fixtureOnly": true
+    },
+    "failedChecks": [],
+    "fixAuthorized": false
+  },
+  "conversation": [],
+  "handoffs": {},
+  "request": "Find two suitable free reusable assets from this supplied library for the counter UI. Explain fit briefly. Keep the source IDs. Do not invent new links.",
+  "library": [
+    {
+      "id": "asset-gh-lucide-icons-lucide",
+      "title": "Lucide",
+      "publisher": "lucide-icons",
+      "url": "https://github.com/lucide-icons/lucide",
+      "publishedAt": null,
+      "evergreen": true,
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "focus": [
+        "UI",
+        "Interaction"
+      ],
+      "tags": [
+        "icons",
+        "svg",
+        "react",
+        "vue",
+        "feather-icons",
+        "figma",
+        "svg-icons",
+        "svgs",
+        "ui-components",
+        "ui-design"
+      ],
+      "summary": "Consistent interface icons with a broad, searchable set.",
+      "preview": {
+        "type": "none",
+        "url": null,
+        "poster": null,
+        "alt": "Lucide"
+      },
+      "evidenceUrl": "https://lucide.dev/license",
+      "liveUrl": "https://lucide.dev/",
+      "dateType": "published",
+      "previewNote": "",
+      "checkedAt": "2026-10-26T22:16:31.516Z",
+      "addedAt": "2026-10-24T00:58:00.035Z",
+      "kind": "asset",
+      "assetType": "icons",
+      "formats": [
+        "SVG",
+        "React",
+        "Vue"
+      ],
+      "downloadUrl": "https://github.com/lucide-icons/lucide",
+      "license": {
+        "id": "ISC",
+        "url": "https://lucide.dev/license",
+        "free": true,
+        "openSource": true,
+        "commercial": true,
+        "attribution": true,
+        "verified": true,
+        "checkedAt": "2026-10-26T22:16:31.516Z"
+      },
+      "aliases": [],
+      "relatedUrls": [],
+      "updatedAt": "2026-10-26T17:20:36Z"
+    },
+    {
+      "id": "asset-gh-motiondivision-motion",
+      "title": "Motion",
+      "publisher": "motiondivision",
+      "url": "https://github.com/motiondivision/motion",
+      "publishedAt": null,
+      "evergreen": true,
+      "categories": [
+        "apps",
+        "websites",
+        "creative"
+      ],
+      "focus": [
+        "Interaction",
+        "Motion"
+      ],
+      "tags": [
+        "motion",
+        "javascript",
+        "react",
+        "animation",
+        "animation-js",
+        "reactanimations",
+        "spring"
+      ],
+      "summary": "Animation and gesture primitives. This card covers the open source library.",
+      "preview": {
+        "type": "none",
+        "url": null,
+        "poster": null,
+        "alt": "Motion"
+      },
+      "evidenceUrl": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+      "liveUrl": "https://motion.dev/",
+      "dateType": "published",
+      "previewNote": "",
+      "checkedAt": "2026-10-26T22:16:31.516Z",
+      "addedAt": "2026-10-24T00:58:00.035Z",
+      "kind": "asset",
+      "assetType": "motion",
+      "formats": [
+        "JavaScript",
+        "React"
+      ],
+      "downloadUrl": "https://github.com/motiondivision/motion",
+      "license": {
+        "id": "MIT",
+        "url": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+        "free": true,
+        "openSource": true,
+        "commercial": true,
+        "attribution": true,
+        "verified": true,
+        "checkedAt": "2026-10-26T22:16:31.516Z"
+      },
+      "aliases": [],
+      "relatedUrls": [],
+      "updatedAt": "2026-10-26T21:59:51Z"
+    }
+  ],
+  "savedReferenceIds": [],
+  "sourceGuide": {
+    "schemaVersion": 2,
+    "windowDays": 14,
+    "sources": [
+      {
+        "id": "meng-to",
+        "name": "Meng To / DesignCode",
+        "url": "https://designcode.io/",
+        "kind": "creator",
+        "priority": 1,
+        "areas": [
+          "websites",
+          "apps",
+          "creative",
+          "motion",
+          "agents"
+        ],
+        "pull": "AI-assisted visual builds, Three.js scenes, interface prompts, and source-backed design-to-code walkthroughs.",
+        "channels": [
+          {
+            "platform": "YouTube",
+            "url": "https://www.youtube.com/@DesignCodeTeam",
+            "verification": "channel-page-and-public-creator-profile",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "X",
+            "url": "https://twitter.com/MengTo",
+            "verification": "linked-from-public-creator-LinkedIn",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "LinkedIn",
+            "url": "https://sg.linkedin.com/in/mengto",
+            "verification": "public-profile",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Instagram",
+            "url": "https://instagram.com/mengto",
+            "verification": "linked-from-public-creator-LinkedIn",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Prefer inspectable live builds and original code. Treat product/course promotion and speed claims as creator claims, not independent validation.",
+        "identityEvidence": [
+          "https://designcode.io/",
+          "https://sg.linkedin.com/in/mengto",
+          "https://www.youtube.com/@DesignCodeTeam"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "janus-tiu",
+        "name": "Janus Tiu",
+        "url": "https://janustiu.com/",
+        "kind": "creator",
+        "priority": 1,
+        "areas": [
+          "apps",
+          "websites",
+          "agents"
+        ],
+        "pull": "UX explanations, product breakdowns, and accessible AI-workflow demonstrations. Skip unrelated career advice for the visual shelf.",
+        "channels": [
+          {
+            "platform": "LinkedIn",
+            "url": "https://ca.linkedin.com/in/janustiu",
+            "verification": "public-profile",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Instagram",
+            "url": null,
+            "discoveryPage": "https://janustiu.com/",
+            "verification": "Creator homepage links Instagram; exact destination not recovered in this pass."
+          },
+          {
+            "platform": "YouTube",
+            "url": null,
+            "discoveryPage": "https://janustiu.com/",
+            "verification": "Creator homepage links YouTube; exact destination not recovered in this pass."
+          }
+        ],
+        "qualityNotes": "Follow the profile links on her own homepage before ingesting. Do not guess handles. The homepage blog examples are from 2024; check every item date rather than treating the whole source as recent.",
+        "identityEvidence": [
+          "https://janustiu.com/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "felix-lee",
+        "name": "Felix Lee / ADPList",
+        "url": "https://felixlee.dev/",
+        "kind": "creator",
+        "priority": 2,
+        "areas": [
+          "apps",
+          "websites",
+          "agents",
+          "creative"
+        ],
+        "pull": "Original product experiments and useful discoveries with a traceable original creator.",
+        "channels": [
+          {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/felixleezd",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Instagram",
+            "url": "https://www.instagram.com/felixleezd/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "X",
+            "url": "https://x.com/felixleezd",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Creator and curator: follow credited links to the original maker. A repost is a discovery lead, not a second independent signal. Skip generic motivation and unsupported performance claims.",
+        "identityEvidence": [
+          "https://felixlee.dev/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "emil-kowalski",
+        "name": "Emil Kowalski",
+        "url": "https://emilkowal.ski/",
+        "kind": "creator",
+        "priority": 1,
+        "areas": [
+          "apps",
+          "plugins",
+          "websites",
+          "motion"
+        ],
+        "pull": "UI behavior, animation decisions, component implementations, and transferring design judgment into AI workflows.",
+        "channels": [
+          {
+            "platform": "X",
+            "url": "https://twitter.com/emilkowalski",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Writing",
+            "url": "https://emilkowal.ski/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Course previews",
+            "url": "https://animations.dev/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "AI course previews",
+            "url": "https://aiforui.dev/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Use public demos and writing; do not ingest paid course material. Evaluate animation purpose and reduced-motion support.",
+        "identityEvidence": [
+          "https://emilkowal.ski/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "rauno-freiberg",
+        "name": "Rauno Freiberg",
+        "url": "https://rauno.me/",
+        "kind": "creator",
+        "priority": 1,
+        "areas": [
+          "apps",
+          "websites",
+          "creative",
+          "motion"
+        ],
+        "pull": "Interaction details, polished interface behavior, and original craft examples.",
+        "channels": [
+          {
+            "platform": "X",
+            "url": "https://x.com/raunofreiberg",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Craft",
+            "url": "https://rauno.me/craft",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Public course pages",
+            "url": "https://www.devouringdetails.com/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Strong craft reference; not a general AI news source. Older work remains evergreen unless a specific new publication date is verified.",
+        "identityEvidence": [
+          "https://rauno.me/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "paco-coursey",
+        "name": "Paco Coursey",
+        "url": "https://paco.me/",
+        "kind": "creator",
+        "priority": 1,
+        "areas": [
+          "apps",
+          "plugins",
+          "websites",
+          "motion"
+        ],
+        "pull": "Small interaction details, command menus, themes, and original component code.",
+        "channels": [
+          {
+            "platform": "X",
+            "url": "https://twitter.com/pacocoursey",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Craft",
+            "url": "https://paco.me/craft",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Code",
+            "url": "https://github.com/dip/cmdk",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Prefer live examples and implementation. The YouTube playlists on his homepage are music, not design tutorials; exclude them.",
+        "identityEvidence": [
+          "https://paco.me/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "mizko",
+        "name": "Mizko",
+        "url": "https://www.mizko.net/",
+        "kind": "creator",
+        "priority": 2,
+        "areas": [
+          "apps",
+          "websites",
+          "agents"
+        ],
+        "pull": "UI and UX tutorials, design reasoning, and design-to-build demonstrations when a public result is shown.",
+        "channels": [
+          {
+            "platform": "YouTube",
+            "url": "https://youtube.com/mizko",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/mizko/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "X",
+            "url": "https://x.com/mizko",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Instagram",
+            "url": "https://instagram.com/themizko",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Choose concrete walkthroughs over general business advice. Keep public previews separate from paid Designership material.",
+        "identityEvidence": [
+          "https://www.mizko.net/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "jesse-showalter",
+        "name": "Jesse Showalter",
+        "url": "https://www.jesseshowalter.com/",
+        "kind": "creator",
+        "priority": 2,
+        "areas": [
+          "apps",
+          "websites",
+          "creative",
+          "agents"
+        ],
+        "pull": "UI design, prototyping, web builds, and complete design-to-deployment walkthroughs.",
+        "channels": [
+          {
+            "platform": "YouTube",
+            "url": "https://www.youtube.com/jesseshowalter",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Instagram",
+            "url": "https://www.instagram.com/imjesseshow/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "X",
+            "url": "https://x.com/imjesseshow",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Prefer public videos with inspectable outputs; record the relevant timestamp. Tool promotions need their own capability check.",
+        "identityEvidence": [
+          "https://www.jesseshowalter.com/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "simon-willison",
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/",
+        "kind": "creator",
+        "priority": 1,
+        "areas": [
+          "agents",
+          "apps",
+          "games",
+          "plugins"
+        ],
+        "pull": "First-hand AI coding experiments, working small tools and games, and documented agent workflows.",
+        "channels": [
+          {
+            "platform": "Blog",
+            "url": "https://simonwillison.net/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "AI coding index",
+            "url": "https://simonwillison.net/tags/vibe-coding/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "X",
+            "url": "https://twitter.com/simonw",
+            "verification": "linked-from-author-blog",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "Patterns",
+            "url": "https://simonwillison.net/guides/agentic-engineering-patterns/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Use his original experiments and code as evidence. Follow external link posts to their original author. Select visual tools or games for shelf cards, not every AI commentary post.",
+        "identityEvidence": [
+          "https://simonwillison.net/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "id": "addy-osmani",
+        "name": "Addy Osmani",
+        "url": "https://addyosmani.com/",
+        "kind": "creator",
+        "priority": 2,
+        "areas": [
+          "agents",
+          "apps",
+          "plugins",
+          "websites"
+        ],
+        "pull": "AI coding workflows, engineering tradeoffs, code quality, and practical agent patterns.",
+        "channels": [
+          {
+            "platform": "Blog",
+            "url": "https://addyosmani.com/blog/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/in/addyosmani/",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          },
+          {
+            "platform": "X",
+            "url": "https://twitter.com/addyosmani",
+            "verification": "linked-from-creator-site",
+            "access": "Public items only; profile identity does not establish readable feed coverage."
+          }
+        ],
+        "qualityNotes": "Use for implementation confidence and workflow context; not every article belongs in the visual gallery. Verify vendor capability claims against original product documentation.",
+        "identityEvidence": [
+          "https://addyosmani.com/"
+        ],
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "name": "Codrops",
+        "url": "https://tympanus.net/codrops/",
+        "areas": [
+          "websites",
+          "games",
+          "creative",
+          "motion"
+        ],
+        "kind": "publisher",
+        "priority": 1
+      },
+      {
+        "name": "Linear changelog",
+        "url": "https://linear.app/changelog",
+        "areas": [
+          "apps",
+          "agents",
+          "interaction"
+        ],
+        "kind": "publisher",
+        "priority": 1
+      },
+      {
+        "name": "Framer updates",
+        "url": "https://www.framer.com/updates/",
+        "areas": [
+          "websites",
+          "plugins",
+          "creative"
+        ],
+        "kind": "publisher",
+        "priority": 1
+      },
+      {
+        "name": "Raycast changelog",
+        "url": "https://www.raycast.com/changelog",
+        "areas": [
+          "plugins",
+          "apps",
+          "agents"
+        ],
+        "kind": "publisher",
+        "priority": 1
+      },
+      {
+        "name": "Figma release notes",
+        "url": "https://www.figma.com/release-notes/",
+        "areas": [
+          "plugins",
+          "apps",
+          "motion"
+        ],
+        "kind": "publisher",
+        "priority": 1
+      },
+      {
+        "name": "Apple design",
+        "url": "https://developer.apple.com/design/whats-new/",
+        "areas": [
+          "apps",
+          "interaction",
+          "motion"
+        ],
+        "kind": "publisher",
+        "priority": 1
+      },
+      {
+        "name": "Anthropic engineering",
+        "url": "https://www.anthropic.com/engineering",
+        "areas": [
+          "agents",
+          "apps",
+          "plugins"
+        ],
+        "pull": "Original agent engineering writeups; use for tool/workflow claims.",
+        "kind": "product-primary",
+        "priority": 2,
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "name": "Cursor blog",
+        "url": "https://cursor.com/blog",
+        "areas": [
+          "agents",
+          "apps",
+          "plugins"
+        ],
+        "pull": "Original product releases and implementation details for Cursor workflows.",
+        "kind": "product-primary",
+        "priority": 2,
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "name": "Replit blog",
+        "url": "https://replit.com/blog",
+        "areas": [
+          "agents",
+          "apps",
+          "websites",
+          "games"
+        ],
+        "pull": "Original product changes and build examples; distinguish demos from production evidence.",
+        "kind": "product-primary",
+        "priority": 2,
+        "identityCheckedAt": "2026-10-20"
+      },
+      {
+        "name": "OpenAI developers",
+        "url": "https://developers.openai.com/",
+        "areas": [
+          "agents",
+          "apps",
+          "plugins"
+        ],
+        "pull": "Official Codex and API capabilities; use documentation for technical claims.",
+        "kind": "product-primary",
+        "priority": 2,
+        "identityCheckedAt": "2026-10-20"
+      }
+    ],
+    "workflow": "Assets only. Start with 10 verified picks per category. Every Sunday, replace up to five oldest picks with five new, useful assets. Keep existing picks if fewer replacements pass source, license and preview checks. Never repeat an asset across categories or reset its dates. Older assets remain in saved boards and Full collection. Match the selected project and hand off only the user-approved snapshot to Creative Partner.",
+    "sourceDirectoryCheckedAt": "2026-10-20",
+    "selection": {
+      "strategy": "Use the selected project and verified reusable asset catalog. Prefer a small compatible set with actual previews. Keep publication dates separate from weekly picks. No inspiration posts.",
+      "maxSourcesPerRun": 8,
+      "maxItemsPerCreator": 2,
+      "requestedCreators": [
+        "meng-to",
+        "janus-tiu",
+        "felix-lee"
+      ],
+      "balance": "Prefer original live demos, code, or a narrated walkthrough over announcements. Match type and feature, not follower count. Include at least two independent creators/publishers when possible.",
+      "attribution": "Credit the original maker and link the original artifact. Keep a curator post only as discovery context. Deduplicate the same work across X, Instagram, LinkedIn, and YouTube.",
+      "technicalClaims": "Check current tool behavior against its own documentation. An influencer recommendation is not capability evidence.",
+      "commercial": "Keep sponsorship or creator-owned-product claims distinguishable from independent examples; do not automatically reject useful public demos."
+    },
+    "platformAccess": {
+      "YouTube": "Use verified creator channels and public video pages. Record original publication date and useful timestamps. Use accessible captions/transcripts only; never invent the contents of an unseen video. Do not download videos.",
+      "Instagram": "Use accessible original public Reels or carousels. If blocked, use a creator-owned article, YouTube walkthrough, or user-supplied link. No login automation or private feed coverage.",
+      "X": "Use accessible original posts or approved APIs. Do not assume a recent-only search endpoint covers the full 90-day window.",
+      "LinkedIn": "Use accessible original public posts. Search snippets can discover a post but do not establish full content, date, or media. No private feed coverage."
+    },
+    "assetCollection": {
+      "schedule": "Sunday 15:00 UTC on Vercel; public assets only, independent of the PC",
+      "sources": [
+        "https://kenney.nl/assets",
+        "https://polyhaven.com/our-api",
+        "https://github.com/google/fonts",
+        "https://github.com/lucide-icons/lucide",
+        "https://github.com/phosphor-icons/core",
+        "https://github.com/tailwindlabs/heroicons",
+        "https://github.com/shadcn-ui/ui",
+        "https://github.com/motiondivision/motion"
+      ],
+      "policy": "Assets only. Start with 10 verified picks per category. Every Sunday, replace up to five oldest picks with five new, useful assets. Keep existing picks if fewer replacements pass source, license and preview checks. Never repeat an asset across categories or reset its dates. Older assets remain in saved boards and Full collection. Match the selected project and hand off only the user-approved snapshot to Creative Partner.",
+      "editionSize": 10,
+      "weeklyReplacements": 5
+    }
+  },
+  "today": "2026-10-27"
+}

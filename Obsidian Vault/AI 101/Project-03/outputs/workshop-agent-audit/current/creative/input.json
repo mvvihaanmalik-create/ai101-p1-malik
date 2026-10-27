@@ -1,0 +1,184 @@
+{
+  "project": {
+    "id": "evidence-counter",
+    "title": "Evidence counter fixture",
+    "goal": "A small browser counter with increment and reset.",
+    "pitch": "A synthetic browser prototype for checking agent roles.",
+    "next": "Confirm the small test",
+    "types": [
+      "apps"
+    ],
+    "tags": [
+      "interface",
+      "motion"
+    ],
+    "platform": [
+      "Windows browser"
+    ],
+    "constraints": [
+      "No budget",
+      "No dependencies or external resources",
+      "One counter only"
+    ],
+    "gates": {
+      "known": true,
+      "approved": 0,
+      "total": 5
+    }
+  },
+  "fixtureOnly": true,
+  "run": {
+    "cycle": "evidence-fixture-only",
+    "goal": "A small browser counter with increment and reset.",
+    "direction": "Soft glass, a clear count, two readable buttons, restrained motion.",
+    "route": "A self-contained HTML/CSS/JavaScript prototype",
+    "test": "Click increment twice, expect 2; click reset, expect 0. Repeat using keyboard.",
+    "approvals": [
+      {
+        "at": "2026-10-27T03:48:13.012Z",
+        "note": "Disposable fixture decision, not an actual user or class approval"
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "refs": [
+      {
+        "id": "asset-gh-lucide-icons-lucide",
+        "title": "Lucide",
+        "publisher": "lucide-icons",
+        "url": "https://github.com/lucide-icons/lucide",
+        "publishedAt": null,
+        "evergreen": true,
+        "categories": [
+          "apps",
+          "plugins",
+          "websites"
+        ],
+        "focus": [
+          "UI",
+          "Interaction"
+        ],
+        "tags": [
+          "icons",
+          "svg",
+          "react",
+          "vue",
+          "feather-icons",
+          "figma",
+          "svg-icons",
+          "svgs",
+          "ui-components",
+          "ui-design"
+        ],
+        "summary": "Consistent interface icons with a broad, searchable set.",
+        "preview": {
+          "type": "none",
+          "url": null,
+          "poster": null,
+          "alt": "Lucide"
+        },
+        "evidenceUrl": "https://lucide.dev/license",
+        "liveUrl": "https://lucide.dev/",
+        "dateType": "published",
+        "previewNote": "",
+        "checkedAt": "2026-10-26T22:16:31.516Z",
+        "addedAt": "2026-10-24T00:58:00.035Z",
+        "kind": "asset",
+        "assetType": "icons",
+        "formats": [
+          "SVG",
+          "React",
+          "Vue"
+        ],
+        "downloadUrl": "https://github.com/lucide-icons/lucide",
+        "license": {
+          "id": "ISC",
+          "url": "https://lucide.dev/license",
+          "free": true,
+          "openSource": true,
+          "commercial": true,
+          "attribution": true,
+          "verified": true,
+          "checkedAt": "2026-10-26T22:16:31.516Z"
+        },
+        "aliases": [],
+        "relatedUrls": [],
+        "updatedAt": "2026-10-26T17:20:36Z"
+      },
+      {
+        "id": "asset-gh-motiondivision-motion",
+        "title": "Motion",
+        "publisher": "motiondivision",
+        "url": "https://github.com/motiondivision/motion",
+        "publishedAt": null,
+        "evergreen": true,
+        "categories": [
+          "apps",
+          "websites",
+          "creative"
+        ],
+        "focus": [
+          "Interaction",
+          "Motion"
+        ],
+        "tags": [
+          "motion",
+          "javascript",
+          "react",
+          "animation",
+          "animation-js",
+          "reactanimations",
+          "spring"
+        ],
+        "summary": "Animation and gesture primitives. This card covers the open source library.",
+        "preview": {
+          "type": "none",
+          "url": null,
+          "poster": null,
+          "alt": "Motion"
+        },
+        "evidenceUrl": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+        "liveUrl": "https://motion.dev/",
+        "dateType": "published",
+        "previewNote": "",
+        "checkedAt": "2026-10-26T22:16:31.516Z",
+        "addedAt": "2026-10-24T00:58:00.035Z",
+        "kind": "asset",
+        "assetType": "motion",
+        "formats": [
+          "JavaScript",
+          "React"
+        ],
+        "downloadUrl": "https://github.com/motiondivision/motion",
+        "license": {
+          "id": "MIT",
+          "url": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+          "free": true,
+          "openSource": true,
+          "commercial": true,
+          "attribution": true,
+          "verified": true,
+          "checkedAt": "2026-10-26T22:16:31.516Z"
+        },
+        "aliases": [],
+        "relatedUrls": [],
+        "updatedAt": "2026-10-26T21:59:51Z"
+      }
+    ],
+    "referenceApproval": {
+      "at": "2026-10-27T03:48:13.012Z",
+      "ids": [
+        "asset-gh-lucide-icons-lucide",
+        "asset-gh-motiondivision-motion"
+      ],
+      "fixtureOnly": true
+    },
+    "failedChecks": [],
+    "fixAuthorized": false
+  },
+  "conversation": [],
+  "handoffs": {},
+  "request": "Propose two distinct directions from the approved fixture references. Say what each borrows and one small interaction test. Do not choose a direction for the user."
+}

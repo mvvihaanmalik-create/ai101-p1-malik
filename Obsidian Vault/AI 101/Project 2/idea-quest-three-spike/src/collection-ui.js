@@ -1,5 +1,6 @@
 const $ = id => document.getElementById(id);
-const HOSTED = document.body.dataset.mode === 'hosted';
+const BRIDGE = document.body.dataset.bridge === 'true';
+const HOSTED = document.body.dataset.mode === 'hosted' || BRIDGE;
 const states = { idea:'Idea', active:'Building', review:'Reviewing', complete:'Released', resting:'Resting', revisiting:'Revisiting' };
 const symbols = { idea:'✧', active:'⚗', review:'≋', complete:'❖', resting:'☾', revisiting:'✦' };
 function element(tag, className, text) { const node = document.createElement(tag); node.className = className; if (text !== undefined) node.textContent = text; return node; }
@@ -24,11 +25,11 @@ export function createCollectionUI({ getState, save, refresh, openProject, onChe
     const search = $('librarySearch').value.trim().toLowerCase(), filter = $('libraryFilter').value;
     $('clearLibraryFilters').hidden=!search&&filter==='all';
     const projects = state.projects.filter(p => (!search || [p.title,p.pitch,p.nextMove,p.changed,p.repository,p.live].join(' ').toLowerCase().includes(search)) && (filter === 'all' || p.phase === filter || filter === 'complete' && p.released || filter === 'active' && p.phase === 'revisiting'));
-    $('librarySummary').textContent = `${projects.length} of ${state.projects.length} projects · ${HOSTED?'published '+new Date(state.sync.asOf).toLocaleDateString():'saved in '+state.sync.root}`;
+    $('librarySummary').textContent = projects.length===state.projects.length?`${projects.length} projects`:`${projects.length} of ${state.projects.length} projects`;
     const grid = $('libraryGrid'); grid.replaceChildren();
     for (const project of projects) {
       const card = element('button', 'collection-card'); card.type = 'button';
-      card.append(element('span', 'collection-emblem', project.released ? '❖' : symbols[project.phase] || '✧'), element('h3','',project.title), element('span','collection-state',(project.released && project.phase !== 'complete' ? 'Released · ' : '') + (states[project.phase] || 'Idea')), element('p','',project.pitch || 'A little project with a place in your collection.'), element('p','collection-next',project.nextMove || (project.phase === 'complete' ? 'Open the result and its story →' : 'Choose your next small step →')));
+      card.append(element('span', 'collection-emblem', project.released ? '❖' : symbols[project.phase] || '✧'), element('h3','',project.title), element('span','collection-state',(project.released && project.phase !== 'complete' ? 'Released · ' : '') + (states[project.phase] || 'Idea')), element('p','',project.pitch || 'A little project with a place in your collection.'), element('p','collection-next',project.workshopProgress?.step.label || project.nextMove || (project.phase === 'complete' ? 'Open the result and its story →' : 'Choose your next small step →')));
       card.addEventListener('click', () => { close(); openProject(project.id,true); }); grid.append(card);
     }
     if (!projects.length) grid.append(element('p','collection-empty',HOSTED?'No matching projects. Clear the filters to see the collection.':'No matching projects. Clear the filters or add a new idea.'));
@@ -108,5 +109,6 @@ export function createCollectionUI({ getState, save, refresh, openProject, onChe
   dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)close();}});
   dialog.addEventListener('close',()=>onVisibilityChange?.());
   if(HOSTED){document.querySelector('.project-activity').hidden=true;document.querySelector('.journey > summary').textContent='Project milestones';$('focusLabel').textContent='FEATURED PROJECT';$('newProject').hidden=true;$('libraryAdd').hidden=true;checkpoint.closest('details').hidden=true;settings.closest('details').hidden=true;$('discoveryPanel').hidden=true;$('editionNote').hidden=false;$('editionNote').textContent='You’re viewing the shared collection. Project updates and session notes are saved in the local workshop.';document.querySelector('.footnote span:first-child').textContent='IDEA.QUEST · SHARED WORKSHOP';document.querySelector('.footnote span:last-child').textContent='A published snapshot. Explore the room or open All projects.';}
+  if(BRIDGE){$('editionNote').textContent='Live from your PC. Review agent work and approve steps in Workshop. Edit notes in the local app.';document.querySelector('.footnote span:last-child').textContent='Connected to your PC · selected project stays with you.';}
   return { render, renderProject, show, rememberDraft };
 }

@@ -1,0 +1,31 @@
+{
+  "role": "programmer",
+  "variant": "baseline",
+  "startedAt": "2026-10-27T03:49:12.309Z",
+  "inputHash": "554c36cd8673a5376f2a85d767b5e36fdf1028c2c4921a6af8396aa32059290e",
+  "instructionHash": "e39f18d83e75062492a4c0f753718ee37b9d0c3dfd0d5cda09c72ee8a6f5d756",
+  "output": {
+    "reply": "Proposed disposable fixture using the supplied IdeaQuest prototype step. The three files are index.html, styles.css, and script.js. They use native browser features with no dependencies, remote assets, network calls, or commands. Files have not been applied.\n\nTo test, place them together and open index.html in a browser. Click Increment twice: expect 2. Click Reset: expect 0. Then use Tab to focus the controls and Enter or Space to repeat. Keyboard focus should remain visible and count changes should be announced by a screen reader.\n\nActual result: not run in this runtime. Fixture decisions do not represent actual user approval; prototype acceptance remains pending in the UI.",
+    "options": [],
+    "referenceIds": [],
+    "sources": [],
+    "files": [
+      {
+        "path": "index.html",
+        "content": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Evidence counter</title>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n  <script src=\"script.js\" defer></script>\n</head>\n<body>\n  <main class=\"counter\">\n    <h1>Counter</h1>\n    <p id=\"count-label\">Current count</p>\n    <output id=\"count\" aria-labelledby=\"count-label\" aria-live=\"polite\" aria-atomic=\"true\">0</output>\n    <div class=\"controls\">\n      <button id=\"increment\" type=\"button\">Increment</button>\n      <button id=\"reset\" type=\"button\">Reset</button>\n    </div>\n    <noscript>Enable JavaScript to use the counter.</noscript>\n  </main>\n</body>\n</html>\n"
+      },
+      {
+        "path": "styles.css",
+        "content": "* { box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  min-height: 100vh;\n  display: grid;\n  place-items: center;\n  padding: 24px;\n  font-family: system-ui, sans-serif;\n  color: #172b42;\n  background: radial-gradient(circle at 20% 20%, #c5e9ef, transparent 65%), #e6e7f4;\n}\n\n.counter {\n  width: min(100%, 360px);\n  padding: 32px;\n  text-align: center;\n  background: rgba(255, 255, 255, 0.82);\n  border: 1px solid #fff;\n  border-radius: 24px;\n  box-shadow: 0 16px 48px rgba(23, 43, 66, 0.12);\n  backdrop-filter: blur(12px);\n}\n\nh1 { margin: 0 0 24px; font-size: 1.5rem; }\np { margin: 0; }\noutput {\n  display: block;\n  margin: 12px 0 28px;\n  font-size: 4rem;\n  font-weight: 700;\n  font-variant-numeric: tabular-nums;\n  overflow-wrap: anywhere;\n}\n\n.controls { display: flex; flex-wrap: wrap; gap: 12px; }\nbutton {\n  flex: 1 1 110px;\n  min-height: 48px;\n  padding: 12px 16px;\n  border: 2px solid #234b70;\n  border-radius: 12px;\n  background: #234b70;\n  color: #fff;\n  font: inherit;\n  font-weight: 600;\n  cursor: pointer;\n  transition: transform 120ms ease;\n}\n#reset { background: #fff; color: #234b70; }\nbutton:hover { transform: translateY(-2px); }\nbutton:active { transform: translateY(0); }\nbutton:focus-visible { outline: 3px solid #172b42; outline-offset: 4px; }\nnoscript { display: block; margin-top: 20px; }\n\n@media (prefers-reduced-motion: reduce) {\n  button { transition: none; }\n  button:hover { transform: none; }\n}\n"
+      },
+      {
+        "path": "script.js",
+        "content": "'use strict';\n\nlet count = 0;\nconst display = document.getElementById('count');\n\nfunction render() {\n  display.textContent = String(count);\n}\n\ndocument.getElementById('increment').addEventListener('click', () => {\n  count += 1;\n  render();\n});\n\ndocument.getElementById('reset').addEventListener('click', () => {\n  count = 0;\n  render();\n});\n"
+      }
+    ],
+    "checks": [],
+    "model": "gpt-6-astra"
+  },
+  "status": "completed",
+  "finishedAt": "2026-10-27T03:49:41.941Z"
+}

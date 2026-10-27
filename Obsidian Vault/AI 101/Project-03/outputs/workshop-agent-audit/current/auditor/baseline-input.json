@@ -1,0 +1,213 @@
+{
+  "project": {
+    "id": "evidence-counter",
+    "title": "Evidence counter fixture",
+    "goal": "A small browser counter with increment and reset.",
+    "pitch": "A synthetic browser prototype for checking agent roles.",
+    "next": "Confirm the small test",
+    "types": [
+      "apps"
+    ],
+    "tags": [
+      "interface",
+      "motion"
+    ],
+    "platform": [
+      "Windows browser"
+    ],
+    "constraints": [
+      "No budget",
+      "No dependencies or external resources",
+      "One counter only"
+    ],
+    "gates": {
+      "known": true,
+      "approved": 0,
+      "total": 5
+    }
+  },
+  "fixtureOnly": true,
+  "run": {
+    "cycle": "evidence-fixture-only",
+    "goal": "A small browser counter with increment and reset.",
+    "direction": "Soft glass, a clear count, two readable buttons, restrained motion.",
+    "route": "A self-contained HTML/CSS/JavaScript prototype",
+    "test": "Click increment twice, expect 2; click reset, expect 0. Repeat using keyboard.",
+    "approvals": [
+      {
+        "at": "2026-10-27T03:48:13.012Z",
+        "note": "Disposable fixture decision, not an actual user or class approval"
+      },
+      {
+        "at": "2026-10-27T03:48:13.012Z",
+        "note": "Disposable fixture decision, not an actual user or class approval"
+      },
+      {
+        "at": "2026-10-27T03:48:13.012Z",
+        "note": "Disposable fixture decision, not an actual user or class approval"
+      },
+      null,
+      null
+    ],
+    "refs": [
+      {
+        "id": "asset-gh-lucide-icons-lucide",
+        "title": "Lucide",
+        "publisher": "lucide-icons",
+        "url": "https://github.com/lucide-icons/lucide",
+        "publishedAt": null,
+        "evergreen": true,
+        "categories": [
+          "apps",
+          "plugins",
+          "websites"
+        ],
+        "focus": [
+          "UI",
+          "Interaction"
+        ],
+        "tags": [
+          "icons",
+          "svg",
+          "react",
+          "vue",
+          "feather-icons",
+          "figma",
+          "svg-icons",
+          "svgs",
+          "ui-components",
+          "ui-design"
+        ],
+        "summary": "Consistent interface icons with a broad, searchable set.",
+        "preview": {
+          "type": "none",
+          "url": null,
+          "poster": null,
+          "alt": "Lucide"
+        },
+        "evidenceUrl": "https://lucide.dev/license",
+        "liveUrl": "https://lucide.dev/",
+        "dateType": "published",
+        "previewNote": "",
+        "checkedAt": "2026-10-26T22:16:31.516Z",
+        "addedAt": "2026-10-24T00:58:00.035Z",
+        "kind": "asset",
+        "assetType": "icons",
+        "formats": [
+          "SVG",
+          "React",
+          "Vue"
+        ],
+        "downloadUrl": "https://github.com/lucide-icons/lucide",
+        "license": {
+          "id": "ISC",
+          "url": "https://lucide.dev/license",
+          "free": true,
+          "openSource": true,
+          "commercial": true,
+          "attribution": true,
+          "verified": true,
+          "checkedAt": "2026-10-26T22:16:31.516Z"
+        },
+        "aliases": [],
+        "relatedUrls": [],
+        "updatedAt": "2026-10-26T17:20:36Z"
+      },
+      {
+        "id": "asset-gh-motiondivision-motion",
+        "title": "Motion",
+        "publisher": "motiondivision",
+        "url": "https://github.com/motiondivision/motion",
+        "publishedAt": null,
+        "evergreen": true,
+        "categories": [
+          "apps",
+          "websites",
+          "creative"
+        ],
+        "focus": [
+          "Interaction",
+          "Motion"
+        ],
+        "tags": [
+          "motion",
+          "javascript",
+          "react",
+          "animation",
+          "animation-js",
+          "reactanimations",
+          "spring"
+        ],
+        "summary": "Animation and gesture primitives. This card covers the open source library.",
+        "preview": {
+          "type": "none",
+          "url": null,
+          "poster": null,
+          "alt": "Motion"
+        },
+        "evidenceUrl": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+        "liveUrl": "https://motion.dev/",
+        "dateType": "published",
+        "previewNote": "",
+        "checkedAt": "2026-10-26T22:16:31.516Z",
+        "addedAt": "2026-10-24T00:58:00.035Z",
+        "kind": "asset",
+        "assetType": "motion",
+        "formats": [
+          "JavaScript",
+          "React"
+        ],
+        "downloadUrl": "https://github.com/motiondivision/motion",
+        "license": {
+          "id": "MIT",
+          "url": "https://github.com/motiondivision/motion/blob/main/LICENSE",
+          "free": true,
+          "openSource": true,
+          "commercial": true,
+          "attribution": true,
+          "verified": true,
+          "checkedAt": "2026-10-26T22:16:31.516Z"
+        },
+        "aliases": [],
+        "relatedUrls": [],
+        "updatedAt": "2026-10-26T21:59:51Z"
+      }
+    ],
+    "referenceApproval": {
+      "at": "2026-10-27T03:48:13.012Z",
+      "ids": [
+        "asset-gh-lucide-icons-lucide",
+        "asset-gh-motiondivision-motion"
+      ],
+      "fixtureOnly": true
+    },
+    "failedChecks": [],
+    "fixAuthorized": false
+  },
+  "conversation": [],
+  "handoffs": {},
+  "request": "Review the actual supplied prototype and syntax evidence against the approved fixture test. Distinguish source review from browser interaction. Leave unrun interaction checks unknown.",
+  "prototype": {
+    "files": [
+      {
+        "path": "index.html",
+        "content": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Evidence counter fixture</title>\n  <link rel=\"stylesheet\" href=\"./styles.css\">\n  <script src=\"./app.js\" defer></script>\n</head>\n<body>\n  <main class=\"counter\" aria-labelledby=\"title\">\n    <p class=\"eyebrow\">Disposable prototype</p>\n    <h1 id=\"title\">A little progress</h1>\n    <p class=\"description\">One counter. One step at a time.</p>\n    <div class=\"readout\">\n      <span id=\"count-label\">Current count</span>\n      <output id=\"count\" aria-labelledby=\"count-label\" aria-live=\"polite\" aria-atomic=\"true\">0</output>\n    </div>\n    <div class=\"controls\">\n      <button id=\"increment\" type=\"button\">Increment</button>\n      <button id=\"reset\" class=\"secondary\" type=\"button\">Reset</button>\n    </div>\n    <p class=\"hint\">Use Tab to focus a button, then Enter or Space.</p>\n    <noscript><p>Enable JavaScript to use this counter.</p></noscript>\n  </main>\n</body>\n</html>\n"
+      },
+      {
+        "path": "styles.css",
+        "content": ":root {\n  color-scheme: light;\n  font-family: system-ui, sans-serif;\n  color: #183a38;\n  background: #e8f1ef;\n}\n\n* { box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  min-height: 100vh;\n  min-height: 100svh;\n  display: grid;\n  place-items: center;\n  padding: 24px;\n  background:\n    radial-gradient(ellipse at 15% 15%, #c3e3da, transparent 60%),\n    radial-gradient(ellipse at 90% 85%, #d4dcef, transparent 60%),\n    #e8f1ef;\n}\n\n.counter {\n  width: min(100%, 440px);\n  padding: clamp(24px, 6vw, 44px);\n  border: 1px solid #ffffff;\n  border-radius: 28px;\n  background: rgba(255, 255, 255, .8);\n  backdrop-filter: blur(18px);\n  box-shadow: 0 20px 60px rgba(24, 58, 56, .1);\n  text-align: center;\n}\n\n.eyebrow {\n  margin: 0 0 16px;\n  font-size: .75rem;\n  font-weight: 700;\n  letter-spacing: .12em;\n  text-transform: uppercase;\n}\n\nh1 { margin: 0; font-size: clamp(1.6rem, 5vw, 2rem); }\n.description, .hint { color: #49615f; line-height: 1.6; }\n.description { margin: 12px 0 28px; }\n.readout { padding: 20px 0 30px; }\n#count-label { display: block; font-size: .875rem; }\n#count {\n  display: block;\n  margin-top: 8px;\n  font-size: clamp(3rem, 15vw, 5rem);\n  font-weight: 650;\n  font-variant-numeric: tabular-nums;\n  line-height: 1.2;\n  overflow-wrap: anywhere;\n}\n\n.controls { display: flex; flex-wrap: wrap; gap: 12px; }\nbutton {\n  flex: 1 1 120px;\n  min-height: 48px;\n  border: 1px solid #245c53;\n  border-radius: 14px;\n  padding: 12px 18px;\n  background: #245c53;\n  color: #fff;\n  font: inherit;\n  font-weight: 650;\n  cursor: pointer;\n  transition: background-color 140ms ease, transform 140ms ease;\n}\nbutton:hover { background: #19473f; }\nbutton:active { transform: translateY(1px); }\nbutton.secondary { background: #f4f8f7; color: #245c53; }\nbutton.secondary:hover { background: #e2eeea; }\nbutton:focus-visible { outline: 3px solid #6048a0; outline-offset: 4px; }\n.hint { margin: 24px 0 0; font-size: .8rem; }\n\n@media (prefers-reduced-motion: reduce) {\n  button { transition: none; }\n  button:active { transform: none; }\n}\n"
+      },
+      {
+        "path": "app.js",
+        "content": "'use strict';\n\nconst countOutput = document.getElementById('count');\nconst incrementButton = document.getElementById('increment');\nconst resetButton = document.getElementById('reset');\nlet count = 0n;\n\nfunction renderCount() {\n  countOutput.textContent = count.toString();\n}\n\nincrementButton.addEventListener('click', () => {\n  count += 1n;\n  renderCount();\n});\n\nresetButton.addEventListener('click', () => {\n  count = 0n;\n  renderCount();\n});\n"
+      }
+    ],
+    "checks": [
+      {
+        "name": "JavaScript syntax: app.js",
+        "status": "pass",
+        "evidence": "Node parsed this script. Behavior was not executed."
+      }
+    ]
+  }
+}

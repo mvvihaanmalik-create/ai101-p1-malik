@@ -1,15 +1,11 @@
-# disclosure.md
+# AI disclosure
 
-## What AI contributed
+AI drafted and revised agent instructions, the skill, earlier rule drafts, coursework notes, and logs. It built the Workshop, Shelf and idea.quest changes, including code, glass styling, icons, 3D characters and animation. It researched asset sources and implemented the Vercel collector, previews and PC connection.
 
-AI drafted the agent, skill, rules, and first voice profile. It built and revised Design Shelf, researched public sources, ran the logged demos, and wrote the test notes.
+I directed the workflow, roles, source choices, visual style and revisions. I supplied my voice preferences, all five current hard rules, and my reflection about slowing down instead of rushing. AI split my rule wording into a numbered list. The current voice profile was shortened and formatted from my wording.
 
-## What I decided
+Codex coordinated the work. The recorded model demos used Claude Code CLI. Their synthetic fresh-input briefs were written by the coordinating assistant. Vihaan later performed the native Claudian menu and identity check and supplied the reply. The full workflow and pressure demonstrations remain separate CLI or fixture records. Current Codex role comparisons use disposable fixture inputs and simulated fixture decisions; none approves a real project. Failed replies and instruction snapshots are preserved.
 
-I chose the ideas, use case, source suggestions, categories, structure, visual style, and changes. I supplied my voice preferences and the teaching rule: smaller steps without losing technical context. I asked AI to word the other rules in my style. Design, route, risk, and gate approvals stay with me.
+The workflow audit was completed after the agents were built. Pip's October 22 baseline was newly created. Neither is presented as earlier historical evidence. The later AI-use log reconstructs grouped work from this chat. A separate visible-message snapshot supports the record; the open turn is partial.
 
-## Tools used
-
-Codex, Claudian, Claude Code, and ESF Companion. The Part B demos were run through Claude Code, not recorded in the Claudian interface. Research used public websites and accessible public posts.
-
-The [testing log](testing-log.md) keeps failed replies and reruns. A completed response is not proof that every rule or workflow step passed.
+Cloud storage contains public asset metadata and thumbnails. Project summaries, saved boards and agent requests use the approved PC connection. Raw note bodies and passwords are excluded. No live defense, instructor submission, or universal test pass is claimed.
