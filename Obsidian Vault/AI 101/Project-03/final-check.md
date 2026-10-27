@@ -19,9 +19,9 @@ Native menu and identity checks are recorded from Vihaan’s new chat. [Saved re
 1. Rehearse without reading the notes: role versus skill, the caught violation, why context was limited, and why your five rules matter.
 2. Try one real Pip board approval and Creative Partner handoff on a project when you are ready. Fixture checks already cover the boundary; they do not count as your real approval.
 
-## Do before submission
+## Repository
 
-Review the disclosure and named copies, then submit Project 2 and Project 3 to the instructor's shared GitHub repository. No submission has been made. Exclude private runtime data, secrets and personal note caches.
+Project 2 and Project 3 are uploaded to [Vihaan's repository](https://github.com/mvvihaanmalik-create/ai101-p1-malik). Named review copies are included. Confirm this meets the instructor's submission process. Live defense and instructor acceptance are not recorded yet.
 
 ## Honest limits
 

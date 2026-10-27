@@ -1,0 +1,1264 @@
+{
+  "schemaVersion": 1,
+  "schedule": {
+    "weekday": "Sunday",
+    "hour": 10,
+    "timezone": "America/New_York",
+    "catchUpOnStart": true
+  },
+  "policy": {
+    "requireLicenseEvidence": true,
+    "skipArchivedRepositories": true,
+    "skipUnknownLicenses": true,
+    "oneCardPerRepository": true,
+    "preserveOnSourceFailure": true
+  },
+  "github": [
+    {
+      "repo": "lucide-icons/lucide",
+      "title": "Lucide",
+      "assetType": "icons",
+      "formats": [
+        "SVG",
+        "React",
+        "Vue"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "Consistent interface icons with a broad, searchable set.",
+      "licenseOverride": {
+        "id": "ISC",
+        "url": "https://lucide.dev/license"
+      }
+    },
+    {
+      "repo": "phosphor-icons/core",
+      "title": "Phosphor",
+      "assetType": "icons",
+      "formats": [
+        "SVG"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "Flexible icon weights, including filled and duotone styles."
+    },
+    {
+      "repo": "tailwindlabs/heroicons",
+      "title": "Heroicons",
+      "assetType": "icons",
+      "formats": [
+        "SVG",
+        "React",
+        "Vue"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "Solid and outline interface icons in a consistent family."
+    },
+    {
+      "repo": "tabler/tabler-icons",
+      "title": "Tabler Icons",
+      "assetType": "icons",
+      "formats": [
+        "SVG",
+        "React"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "A large consistent interface icon family."
+    },
+    {
+      "repo": "feathericons/feather",
+      "title": "Feather",
+      "assetType": "icons",
+      "formats": [
+        "SVG"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "A compact, simple SVG icon family."
+    },
+    {
+      "repo": "iconoir-icons/iconoir",
+      "title": "Iconoir",
+      "assetType": "icons",
+      "formats": [
+        "SVG",
+        "React"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "A distinct lightweight interface icon family."
+    },
+    {
+      "repo": "twbs/icons",
+      "title": "Bootstrap Icons",
+      "assetType": "icons",
+      "formats": [
+        "SVG"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "Filled and outline icons with practical UI coverage."
+    },
+    {
+      "repo": "radix-ui/icons",
+      "title": "Radix Icons",
+      "assetType": "icons",
+      "formats": [
+        "SVG",
+        "React"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "Small, crisp icons for dense interface controls."
+    },
+    {
+      "repo": "shadcn-ui/ui",
+      "title": "shadcn/ui",
+      "assetType": "components",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "apps",
+        "websites",
+        "agents"
+      ],
+      "reason": "Editable component source for building your own UI system."
+    },
+    {
+      "repo": "radix-ui/primitives",
+      "title": "Radix Primitives",
+      "assetType": "components",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "websites"
+      ],
+      "reason": "Unstyled accessible interaction primitives."
+    },
+    {
+      "repo": "tailwindlabs/headlessui",
+      "title": "Headless UI",
+      "assetType": "components",
+      "formats": [
+        "React",
+        "Vue"
+      ],
+      "categories": [
+        "apps",
+        "websites"
+      ],
+      "reason": "Accessible unstyled menus, dialogs, and other UI controls."
+    },
+    {
+      "repo": "adobe/react-spectrum",
+      "title": "React Aria",
+      "assetType": "components",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "apps",
+        "websites",
+        "plugins"
+      ],
+      "reason": "Accessible behavior and components for complex interfaces."
+    },
+    {
+      "repo": "pacocoursey/cmdk",
+      "title": "cmdk",
+      "assetType": "components",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "apps",
+        "plugins",
+        "agents"
+      ],
+      "reason": "A composable command menu for keyboard driven interfaces."
+    },
+    {
+      "repo": "emilkowalski/vaul",
+      "title": "Vaul",
+      "assetType": "components",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "apps",
+        "websites"
+      ],
+      "reason": "A drawer primitive with touch interactions."
+    },
+    {
+      "repo": "motiondivision/motion",
+      "title": "Motion",
+      "assetType": "motion",
+      "formats": [
+        "JavaScript",
+        "React"
+      ],
+      "categories": [
+        "apps",
+        "websites",
+        "creative"
+      ],
+      "reason": "Animation and gesture primitives. This card covers the open source library."
+    },
+    {
+      "repo": "juliangarnier/anime",
+      "title": "Anime.js",
+      "assetType": "motion",
+      "formats": [
+        "JavaScript",
+        "SVG"
+      ],
+      "categories": [
+        "apps",
+        "websites",
+        "creative"
+      ],
+      "reason": "Timeline, SVG and interface animation tools."
+    },
+    {
+      "repo": "pmndrs/react-spring",
+      "title": "React Spring",
+      "assetType": "motion",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "apps",
+        "websites",
+        "creative"
+      ],
+      "reason": "Spring based animation for interactive interfaces."
+    },
+    {
+      "repo": "formkit/auto-animate",
+      "title": "AutoAnimate",
+      "assetType": "motion",
+      "formats": [
+        "JavaScript",
+        "React",
+        "Vue"
+      ],
+      "categories": [
+        "apps",
+        "websites"
+      ],
+      "reason": "Automatic transitions for lists and layout changes."
+    },
+    {
+      "repo": "pmndrs/use-gesture",
+      "title": "Use Gesture",
+      "assetType": "motion",
+      "formats": [
+        "React",
+        "JavaScript"
+      ],
+      "categories": [
+        "apps",
+        "websites",
+        "creative"
+      ],
+      "reason": "Drag, pinch and gesture inputs for interactive tools."
+    },
+    {
+      "repo": "pmndrs/drei",
+      "title": "Drei",
+      "assetType": "3d-tools",
+      "formats": [
+        "React",
+        "Three.js"
+      ],
+      "categories": [
+        "games",
+        "creative",
+        "websites"
+      ],
+      "reason": "Reusable camera, text, environment and scene helpers."
+    },
+    {
+      "repo": "pmndrs/react-three-fiber",
+      "title": "React Three Fiber",
+      "assetType": "3d-tools",
+      "formats": [
+        "React",
+        "Three.js"
+      ],
+      "categories": [
+        "games",
+        "creative",
+        "websites"
+      ],
+      "reason": "A React renderer for interactive Three.js scenes."
+    },
+    {
+      "repo": "mrdoob/three.js",
+      "title": "Three.js",
+      "assetType": "3d-tools",
+      "formats": [
+        "JavaScript",
+        "WebGL"
+      ],
+      "categories": [
+        "games",
+        "creative",
+        "websites"
+      ],
+      "reason": "The core rendering library for browser based 3D."
+    },
+    {
+      "repo": "pmndrs/react-three-rapier",
+      "title": "React Three Rapier",
+      "assetType": "3d-tools",
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "games",
+        "creative"
+      ],
+      "reason": "Physics integration for React Three Fiber scenes."
+    },
+    {
+      "repo": "barvian/number-flow",
+      "title": "NumberFlow",
+      "reason": "Animated, accessible number transitions.",
+      "assetType": "motion",
+      "primaryCategory": "motion",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "React",
+        "JavaScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/barvian/number-flow/HEAD/LICENSE.md"
+      },
+      "demoUrl": "https://number-flow.barvian.me/"
+    },
+    {
+      "repo": "michalsnik/aos",
+      "title": "AOS",
+      "reason": "Animate elements as they enter the viewport.",
+      "assetType": "motion",
+      "primaryCategory": "motion",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "CSS",
+        "JavaScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/michalsnik/aos/HEAD/LICENSE"
+      },
+      "demoUrl": "https://michalsnik.github.io/aos/"
+    },
+    {
+      "repo": "dixonandmoe/rellax",
+      "title": "Rellax",
+      "reason": "Lightweight parallax scrolling for layered pages.",
+      "assetType": "motion",
+      "primaryCategory": "motion",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "JavaScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/dixonandmoe/rellax/HEAD/LICENSE"
+      },
+      "demoUrl": "https://dixonandmoe.com/rellax/"
+    },
+    {
+      "repo": "maxwellito/vivus",
+      "title": "Vivus",
+      "reason": "Draw SVG strokes with configurable timing.",
+      "assetType": "motion",
+      "primaryCategory": "motion",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "SVG",
+        "JavaScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/maxwellito/vivus/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.github.com/maxwellito/vivus/master/assets/delayed.png"
+    },
+    {
+      "repo": "micku7zu/vanilla-tilt.js",
+      "title": "Vanilla Tilt",
+      "reason": "Pointer-driven 3D tilt for cards and artwork.",
+      "assetType": "motion",
+      "primaryCategory": "motion",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "JavaScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/HEAD/LICENSE"
+      },
+      "demoUrl": "https://micku7zu.github.io/vanilla-tilt.js/"
+    },
+    {
+      "repo": "figma/plugin-samples",
+      "title": "Figma plugin samples",
+      "reason": "Runnable Figma plugin examples, including shapes and connectors.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "Figma",
+        "TypeScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/figma/plugin-samples/HEAD/LICENSE.md"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/figma/plugin-samples/HEAD/_screenshots/create-shapes-connectors.png"
+    },
+    {
+      "repo": "liamcain/obsidian-calendar-plugin",
+      "title": "Obsidian Calendar",
+      "reason": "Calendar navigation and daily-note templates.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/liamcain/obsidian-calendar-plugin/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/liamcain/obsidian-calendar-plugin/master/images/screenshot-full.png"
+    },
+    {
+      "repo": "blacksmithgu/obsidian-dataview",
+      "title": "Dataview",
+      "reason": "Reusable queries and project views for an Obsidian vault.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/blacksmithgu/obsidian-dataview/HEAD/LICENSE.txt"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/blacksmithgu/obsidian-dataview/HEAD/docs/docs/assets/project-task.png"
+    },
+    {
+      "repo": "valentine195/obsidian-admonition",
+      "title": "Admonition",
+      "reason": "Configurable callouts and reusable note blocks.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/valentine195/obsidian-admonition/HEAD/LICENSE"
+      },
+      "demoUrl": "https://github.com/valentine195/obsidian-admonition",
+      "previewUrl": "https://raw.githubusercontent.com/ebullient/obsidian-admonition/main/docs/images/default.png"
+    },
+    {
+      "repo": "aidenlx/obsidian-icon-shortcodes",
+      "title": "Icon Shortcodes",
+      "reason": "Insert icons and emoji into notes with shortcodes.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/aidenlx/obsidian-icon-shortcodes/HEAD/LICENSE"
+      },
+      "previewUrl": "https://user-images.githubusercontent.com/31102694/143665662-76ed8478-2e81-4006-a8a9-696258a268ce.png"
+    },
+    {
+      "repo": "kepano/obsidian-minimal-settings",
+      "title": "Minimal Theme Settings",
+      "reason": "Adjust Minimal theme typography, spacing and note styles.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/kepano/obsidian-minimal-settings/HEAD/LICENSE"
+      },
+      "demoUrl": "https://minimal.guide/",
+      "previewUrl": "https://publish-01.obsidian.md/access/342b33803baa5ad0055c9141648edad3/Images/minimal-variants.png"
+    },
+    {
+      "repo": "argenos/nldates-obsidian",
+      "title": "Natural Language Dates",
+      "reason": "Turn phrases into linked dates and date-picker actions.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/argenos/nldates-obsidian/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/argenos/nldates-obsidian/HEAD/assets/date-picker.png"
+    },
+    {
+      "repo": "chhoumann/quickadd",
+      "title": "QuickAdd",
+      "reason": "Capture notes and run reusable vault macros.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/chhoumann/quickadd/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/chhoumann/quickadd/HEAD/assets/readme-hero.gif"
+    },
+    {
+      "repo": "liamcain/obsidian-periodic-notes",
+      "title": "Periodic Notes",
+      "reason": "Weekly, monthly and yearly note templates.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/liamcain/obsidian-periodic-notes/HEAD/LICENSE"
+      },
+      "previewUrl": "https://user-images.githubusercontent.com/693981/111852801-c1cd8e00-88ee-11eb-9542-b7d840239037.png"
+    },
+    {
+      "repo": "Vinzent03/obsidian-advanced-uri",
+      "title": "Advanced URI",
+      "reason": "Deep links to vault navigation, search and writing actions.",
+      "assetType": "plugin",
+      "primaryCategory": "plugins",
+      "categories": [
+        "plugins"
+      ],
+      "formats": [
+        "TypeScript",
+        "Obsidian"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/Vinzent03/obsidian-advanced-uri/HEAD/LICENSE"
+      },
+      "demoUrl": "https://publish.obsidian.md/advanced-uri-doc"
+    },
+    {
+      "repo": "onwidget/astrowind",
+      "title": "AstroWind",
+      "reason": "Responsive Astro and Tailwind website starter.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Astro",
+        "Tailwind"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/onwidget/astrowind/HEAD/LICENSE.md"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/screenshot-astrowind-readme-def-v1.png"
+    },
+    {
+      "repo": "withastro/starlight",
+      "title": "Starlight",
+      "reason": "Accessible documentation website with navigation and search.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Astro",
+        "Markdown"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/HEAD/LICENSE"
+      },
+      "demoUrl": "https://starlight.astro.build/"
+    },
+    {
+      "repo": "manuelernestog/astrofy",
+      "title": "Astrofy",
+      "reason": "Personal portfolio and resume template for Astro.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Astro",
+        "Tailwind"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/manuelernestog/astrofy/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/manuelernestog/astrofy/HEAD/public/social_img.webp"
+    },
+    {
+      "repo": "shuding/nextra",
+      "title": "Nextra",
+      "reason": "Content-first documentation and blog framework.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Next.js",
+        "MDX"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/HEAD/LICENSE"
+      },
+      "demoUrl": "https://nextra.site/"
+    },
+    {
+      "repo": "just-the-docs/just-the-docs",
+      "title": "Just the Docs",
+      "reason": "Searchable Jekyll documentation theme.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Jekyll",
+        "Markdown"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/just-the-docs/just-the-docs/HEAD/LICENSE.txt"
+      },
+      "demoUrl": "https://just-the-docs.com/"
+    },
+    {
+      "repo": "tailwindtoolbox/Landing-Page",
+      "title": "Tailwind Landing Page",
+      "reason": "Responsive landing page source with reusable sections.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "HTML",
+        "Tailwind"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/tailwindtoolbox/Landing-Page/HEAD/LICENSE"
+      },
+      "previewUrl": "https://www.tailwindtoolbox.com/templates/landing-page.png"
+    },
+    {
+      "repo": "jekyll/minima",
+      "title": "Minima",
+      "reason": "Simple Jekyll blog theme with a readable layout.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Jekyll",
+        "SCSS"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/jekyll/minima/HEAD/LICENSE.txt"
+      },
+      "demoUrl": "https://jekyll.github.io/minima/"
+    },
+    {
+      "repo": "themefisher/bookworm-light-astro",
+      "title": "Bookworm Light",
+      "reason": "Astro blog template with article and category layouts.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Astro",
+        "Tailwind"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/themefisher/bookworm-light-astro/HEAD/LICENSE"
+      },
+      "previewUrl": "https://assets.teamosis.com/thumbs/bookworm-light.png"
+    },
+    {
+      "repo": "satnaing/astro-paper",
+      "title": "AstroPaper",
+      "reason": "Accessible Astro blog starter with search and theme switching.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Astro",
+        "Markdown"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/satnaing/astro-paper/HEAD/LICENSE"
+      },
+      "demoUrl": "https://astro-paper.pages.dev/"
+    },
+    {
+      "repo": "BartoszJarocki/cv",
+      "title": "Minimal Resume",
+      "reason": "A compact resume site built with React and Next.js.",
+      "assetType": "template",
+      "primaryCategory": "websites",
+      "categories": [
+        "websites"
+      ],
+      "formats": [
+        "Next.js",
+        "React"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/BartoszJarocki/cv/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/BartoszJarocki/cv/HEAD/.github/screenshot.png"
+    },
+    {
+      "repo": "marmelab/react-admin",
+      "title": "React Admin",
+      "reason": "Reusable CRUD views, forms and data-provider patterns.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "React"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/marmelab/react-admin/HEAD/LICENSE.md"
+      },
+      "previewUrl": "https://marmelab.com/react-admin/img/react-admin-demo-still.png"
+    },
+    {
+      "repo": "refinedev/refine",
+      "title": "Refine",
+      "reason": "React framework for dashboards and internal tools.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "React",
+        "TypeScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/refinedev/refine/HEAD/LICENSE"
+      },
+      "demoUrl": "https://refine.dev/core/"
+    },
+    {
+      "repo": "fastapi/full-stack-fastapi-template",
+      "title": "Full Stack FastAPI",
+      "reason": "App starter with accounts, database and dashboard.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "Python",
+        "React"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/HEAD/img/dashboard.png"
+    },
+    {
+      "repo": "wasp-lang/open-saas",
+      "title": "Open SaaS",
+      "reason": "Full-stack SaaS starter with auth and billing integration.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "Wasp",
+        "React",
+        "Node.js"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/wasp-lang/open-saas/HEAD/LICENSE"
+      },
+      "demoUrl": "https://opensaas.sh/"
+    },
+    {
+      "repo": "ixartz/SaaS-Boilerplate",
+      "title": "SaaS Boilerplate",
+      "reason": "Next.js app starter with accounts and team features.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "Next.js",
+        "TypeScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/ixartz/SaaS-Boilerplate/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/ixartz/SaaS-Boilerplate/HEAD/public/assets/images/nextjs-starter-banner.png?raw=true"
+    },
+    {
+      "repo": "coreui/coreui-free-react-admin-template",
+      "title": "CoreUI React Free",
+      "reason": "Free React admin template and dashboard components.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "React"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/coreui/coreui-free-react-admin-template/HEAD/LICENSE"
+      },
+      "previewUrl": "https://assets.coreui.io/products/coreui-free-bootstrap-admin-template-light-dark.webp"
+    },
+    {
+      "repo": "tabler/tabler",
+      "title": "Tabler",
+      "reason": "Responsive admin layouts and UI components.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "HTML",
+        "Bootstrap"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/tabler/tabler/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/tabler/tabler/dev/shared/static/tabler-preview@2x.png"
+    },
+    {
+      "repo": "electron-react-boilerplate/electron-react-boilerplate",
+      "title": "Electron React Boilerplate",
+      "reason": "Desktop app starter using Electron and React.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "Electron",
+        "React"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/electron-react-boilerplate/electron-react-boilerplate/HEAD/LICENSE"
+      },
+      "demoUrl": "https://electron-react-boilerplate.js.org/"
+    },
+    {
+      "repo": "flatlogic/react-material-admin",
+      "title": "React Material Admin",
+      "reason": "Free Material-style dashboard and app layouts.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "React",
+        "Material UI"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/flatlogic/react-material-admin/HEAD/LICENSE.txt"
+      },
+      "previewUrl": "https://user-images.githubusercontent.com/24964748/55800639-df780300-5adc-11e9-84b7-7c2437088516.png"
+    },
+    {
+      "repo": "remult/remult",
+      "title": "Remult",
+      "reason": "Full-stack TypeScript data and admin UI toolkit.",
+      "assetType": "app-starter",
+      "primaryCategory": "apps",
+      "categories": [
+        "apps"
+      ],
+      "formats": [
+        "TypeScript"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/remult/remult/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/remult/remult/main/static/images/admin-ui.gif"
+    },
+    {
+      "repo": "openai/openai-agents-python",
+      "title": "OpenAI Agents SDK",
+      "reason": "Tools, handoffs and guardrails for Python agents.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/openai/openai-agents-python/HEAD/LICENSE"
+      },
+      "previewUrl": "https://cdn.openai.com/API/docs/images/orchestration.png"
+    },
+    {
+      "repo": "langchain-ai/langgraph",
+      "title": "LangGraph",
+      "reason": "Stateful agent graphs with pause and resume.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/langchain-ai/langgraph/HEAD/LICENSE"
+      },
+      "demoUrl": "https://docs.langchain.com/oss/python/langgraph/overview"
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "title": "CrewAI",
+      "reason": "Role-based agent orchestration and task flows.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/crewAIInc/crewAI/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/crewAIInc/crewAI/HEAD/docs/images/asset.png"
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "title": "smolagents",
+      "reason": "Small code agents with tool-use examples.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/huggingface/smolagents/HEAD/LICENSE"
+      },
+      "previewUrl": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/smolagents/smolagents.png"
+    },
+    {
+      "repo": "pydantic/pydantic-ai",
+      "title": "Pydantic AI",
+      "reason": "Typed agent responses, tools and validation.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/HEAD/LICENSE"
+      },
+      "demoUrl": "https://ai.pydantic.dev/"
+    },
+    {
+      "repo": "agno-agi/agno",
+      "title": "Agno",
+      "reason": "Agent toolkit with memory, tools and workflows.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/agno-agi/agno/HEAD/LICENSE"
+      },
+      "demoUrl": "https://docs.agno.com/"
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "title": "Mastra",
+      "reason": "TypeScript agents, workflows and memory.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "TypeScript"
+      ],
+      "licenseEvidence": {
+        "id": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/LICENSE.md"
+      },
+      "demoUrl": "https://mastra.ai/"
+    },
+    {
+      "repo": "bytedance/deer-flow",
+      "title": "DeerFlow",
+      "reason": "Research agent workflow with inspectable steps.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/bytedance/deer-flow/HEAD/LICENSE"
+      },
+      "previewUrl": "https://sf16-sg.tiktokcdn.com/obj/eden-sg/hubseh7bsbps/20251208-160108.png"
+    },
+    {
+      "repo": "langflow-ai/langflow",
+      "title": "Langflow",
+      "reason": "Visual editor for agent and retrieval workflows.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "Python",
+        "React"
+      ],
+      "licenseEvidence": {
+        "id": "MIT",
+        "url": "https://raw.githubusercontent.com/langflow-ai/langflow/HEAD/LICENSE"
+      },
+      "previewUrl": "https://github.com/user-attachments/assets/03168b17-a11d-4b2a-b0f7-c1cce69e5a2c"
+    },
+    {
+      "repo": "simstudioai/sim",
+      "title": "Sim",
+      "reason": "Visual workspace for building agent workflows.",
+      "assetType": "agent-toolkit",
+      "primaryCategory": "agents",
+      "categories": [
+        "agents"
+      ],
+      "formats": [
+        "TypeScript"
+      ],
+      "licenseEvidence": {
+        "id": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/simstudioai/sim/HEAD/LICENSE"
+      },
+      "previewUrl": "https://raw.githubusercontent.com/simstudioai/sim/HEAD/apps/sim/public/static/readme-platform.png"
+    }
+  ],
+  "fonts": [
+    "manrope",
+    "dmsans",
+    "nunito",
+    "outfit",
+    "plusjakartasans",
+    "spacegrotesk",
+    "geist",
+    "lora",
+    "newsreader",
+    "fraunces"
+  ],
+  "polyhaven": {
+    "models": 36,
+    "textures": 24,
+    "hdris": 18
+  },
+  "kenneyPages": 4,
+  "shelf": {
+    "initialPerCategory": 10,
+    "targetPerCategoryPerWeek": 5,
+    "replaceOldest": true,
+    "requireVerifiedThumbnail": true,
+    "fullCollectionPreserved": true
+  },
+  "discovery": [
+    {
+      "category": "plugins",
+      "assetType": "plugin",
+      "query": "topic:obsidian-plugin"
+    },
+    {
+      "category": "websites",
+      "assetType": "template",
+      "query": "topic:website-template"
+    },
+    {
+      "category": "apps",
+      "assetType": "app-starter",
+      "query": "topic:saas-boilerplate"
+    },
+    {
+      "category": "agents",
+      "assetType": "agent-toolkit",
+      "query": "topic:ai-agents"
+    },
+    {
+      "category": "motion",
+      "assetType": "motion",
+      "query": "topic:animation-library"
+    },
+    {
+      "category": "ux-ui",
+      "assetType": "components",
+      "query": "topic:component-library"
+    }
+  ]
+}

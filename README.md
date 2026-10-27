@@ -2,6 +2,15 @@
 
 The complete coursework folder is under [Obsidian Vault / AI 101](Obsidian%20Vault/AI%20101). This repository is public; the instructor account `nmadrid27` also has collaborator access.
 
+## Project 3 · Extend and Encode
+
+**[Open IdeaQuest Workshop](https://ideaquest-workshop.vercel.app/)**
+
+- [Start here](Obsidian%20Vault/AI%20101/Project-03/00-start-here.md) · [A and B overview](Obsidian%20Vault/AI%20101/Project-03/README.md)
+- [Agent status and evidence](Obsidian%20Vault/AI%20101/Project-03/agent-status.md) · [Workflow diagram](Obsidian%20Vault/AI%20101/Project%202/diagram.md)
+- [AI-use log](Obsidian%20Vault/AI%20101/Project-03/ai-use-log.md) · [Disclosure](Obsidian%20Vault/AI%20101/Project-03/disclosure.md)
+- [Named review files](Obsidian%20Vault/AI101_P3_Malik_Vihaan_START.md)
+
 ## IdeaQuest Final
 
 **[Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/)**

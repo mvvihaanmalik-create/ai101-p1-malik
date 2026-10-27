@@ -33,6 +33,6 @@ The menu and identity observations were supplied by Vihaan, not independently ca
 
 ## Still yours
 1. Rehearse the caught violation, context choices and five rules in your own words. The shared-list explanation in the defense notes is an AI practice aid, not your recorded reflection.
-2. Review the disclosure, do the live defense and submit both coursework folders to the instructor repository.
+2. Review the disclosure, do the live defense and confirm the uploaded coursework meets the instructor's submission process. [Repository](https://github.com/mvvihaanmalik-create/ai101-p1-malik).
 
 The late workflow audit remains labelled honestly. No retrospective edit can change its order.

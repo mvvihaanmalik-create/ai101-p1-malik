@@ -1,6 +1,8 @@
 # Project 3: Extend and Encode
 
-[Course brief](https://ai-101-v4.vercel.app/projects/project-3) · [Live Workshop](https://ideaquest-workshop.vercel.app/) · [Final check](final-check.md)
+**[Open IdeaQuest Workshop](https://ideaquest-workshop.vercel.app/)**
+
+[Start here](00-start-here.md) · [Course brief](https://ai-101-v4.vercel.app/projects/project-3) · [Final check](final-check.md)
 
 ## The assignment
 
@@ -19,7 +21,7 @@ An agent owns a role and its boundaries. A skill is a reusable procedure the age
 | [Pip comparison](outputs/pip/run-comparison.md) | A new controlled source-check pair from October 22. It predates the current asset pipeline. |
 | [Testing log](testing-log.md) | Full failed replies, fixes, reruns, instruction snapshots and limits. |
 | [Intent](intent-statement.md) | Purpose, scope and the later Pip confirmation. |
-| [AI-use log](ai-use-log.md) | Prompts, outputs, decisions, corrections and gaps in the older record. |
+| [AI-use log](ai-use-log.md) | Brief progress record, with the detailed log linked. |
 | [Disclosure](disclosure.md) | What AI made and what Vihaan supplied. |
 | [Defense notes](defense-notes.md) | Short practice notes and file links. |
 
@@ -37,4 +39,4 @@ Both Claude and Codex have matching runnable skill copies and scoped loaders. [N
 
 Check the remaining items in [final-check.md](final-check.md). Use the named copies in `submission-draft/` after those items are complete. Runtime files such as AGENTS.md and SKILL.md keep their required names. Do not rename the working vault files or upload private runtime folders.
 
-The live defense and instructor-repository submission have not happened yet.
+Coursework is in [Vihaan's repository](https://github.com/mvvihaanmalik-create/ai101-p1-malik). Live defense and instructor acceptance are not recorded yet.

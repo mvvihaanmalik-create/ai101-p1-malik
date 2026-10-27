@@ -1,6 +1,6 @@
 ## IdeaQuest Final
 
-[Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/) · [Professor review guide](IdeaQuest%20Final.md) · [Source and verification](idea-quest-three-spike/README.md)
+[Open IdeaQuest Workshop](https://ideaquest-workshop.vercel.app/) · [Open IdeaQuest Final](https://idea-quest-ai101.vercel.app/) · [Professor review guide](IdeaQuest%20Final.md) · [Source and verification](idea-quest-three-spike/README.md)
 
 ## Goal
 

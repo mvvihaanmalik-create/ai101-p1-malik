@@ -47,3 +47,7 @@ If the first content-producing action arrives before the activation status line 
 Wrap-up offer fires on any of: 4+ substantive exchanges in Make or Reflect without a continuation signal; 12+ substantive exchanges in any phase; user says "done for today," "wrap up," "save this session," or equivalent. On user confirmation, generate the AI Use Log from buffer entries only (do not fabricate), write the session log to `esf/[context]/logs/session-[ISO-date].md` with a "Next Session" section, update companion-state.md, and append a final buffer entry.
 
 Full spec: the `esf-project` skill (`references/companion.md`).
+
+## AI 101 Project 3 identity and skill
+
+For work in `AI 101`, or when the active ESF project is Project 3, read `AI 101/Project-03/vault-agent/AGENTS.md` and its voice and hard-rule files before answering. This loads Vihaan's stewardship identity. The runnable Codex skill is `.agents/skills/ideaquest-project-workflow/SKILL.md`; the graded copy is under `AI 101/Project-03/vault-agent/skills/`. Use it when requested. Preserve the ESF rules above, narrow task inputs, and human approval stops. Do not use old class gate approvals for a new Workshop cycle or apply this course identity to unrelated projects.

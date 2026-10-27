@@ -8,4 +8,4 @@ Codex coordinated the work. The recorded model demos used Claude Code CLI. Their
 
 The workflow audit was completed after the agents were built. Pip's October 22 baseline was newly created. Neither is presented as earlier historical evidence. The later AI-use log reconstructs grouped work from this chat. A separate visible-message snapshot supports the record; the open turn is partial.
 
-Cloud storage contains public asset metadata and thumbnails. Project summaries, saved boards and agent requests use the approved PC connection. Raw note bodies and passwords are excluded. No live defense, instructor submission, or universal test pass is claimed.
+Cloud storage contains public asset metadata and thumbnails. Project summaries, saved boards and agent requests use the approved PC connection. Raw note bodies and passwords are excluded. Coursework is uploaded to Vihaan's repository. Live defense, instructor acceptance and universal test passes are not claimed.
