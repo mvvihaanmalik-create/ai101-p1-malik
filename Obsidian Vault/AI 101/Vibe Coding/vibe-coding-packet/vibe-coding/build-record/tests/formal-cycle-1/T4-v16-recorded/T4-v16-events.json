@@ -1,0 +1,37 @@
+{
+  "url": "https://room-zero-6nvnkqfcq-vihaanmalik.vercel.app/?review=1",
+  "operator": "Codex",
+  "capturedFrames": 116,
+  "audio": false,
+  "errors": [],
+  "events": [
+    {
+      "seconds": 0,
+      "event": "Continuous game-window capture started"
+    },
+    {
+      "seconds": 1.228,
+      "event": "Entered, selected normal butler, resumed"
+    },
+    {
+      "seconds": 11.41,
+      "event": "Stopped before decision line"
+    },
+    {
+      "seconds": 14.424,
+      "event": "Held F for three seconds"
+    },
+    {
+      "seconds": 15.112,
+      "event": "Pressed Space three times"
+    },
+    {
+      "seconds": 16.156,
+      "event": "Clicked ordinary butler three times"
+    },
+    {
+      "seconds": 20.304,
+      "event": "Walked backward two seconds and paused"
+    }
+  ]
+}

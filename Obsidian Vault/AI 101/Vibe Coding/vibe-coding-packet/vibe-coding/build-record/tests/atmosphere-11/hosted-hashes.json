@@ -1,0 +1,26 @@
+[
+  {
+    "file": "index.html",
+    "match": true
+  },
+  {
+    "file": "src/main.js",
+    "match": true
+  },
+  {
+    "file": "src/character-encounters.js",
+    "match": true
+  },
+  {
+    "file": "src/encounter-catalogue.js",
+    "match": true
+  },
+  {
+    "file": "src/music-score.js",
+    "match": true
+  },
+  {
+    "file": "vendor/three/addons/objects/Reflector.js",
+    "match": true
+  }
+]

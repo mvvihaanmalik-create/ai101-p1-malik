@@ -1,0 +1,61 @@
+[
+  {
+    "label": "escaped with one floor",
+    "room": "stairs",
+    "detail": null,
+    "progress": 1,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "contact reset and explanation",
+    "room": "landing",
+    "detail": null,
+    "progress": 0,
+    "orientation": false,
+    "focus": "E3",
+    "branch": null,
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "C1"
+      },
+      {
+        "kind": "contact",
+        "choice": "contact",
+        "correct": false,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 1,
+    "errors": []
+  }
+]

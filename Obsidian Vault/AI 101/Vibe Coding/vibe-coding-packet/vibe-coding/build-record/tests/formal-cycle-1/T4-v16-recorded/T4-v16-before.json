@@ -1,0 +1,80 @@
+{
+  "build": "v16",
+  "branch": "hall",
+  "stairKind": "watch",
+  "focus": "C1",
+  "butlerVisible": true,
+  "music": {
+    "mode": "hotel",
+    "paused": false,
+    "enabled": true,
+    "volume": 0.55,
+    "context": "running",
+    "tracks": {
+      "hotel": {
+        "paused": true,
+        "time": 0,
+        "ready": 4,
+        "duration": 173.95,
+        "gain": 0.026,
+        "error": false
+      },
+      "ending": {
+        "paused": true,
+        "time": 0,
+        "ready": 4,
+        "duration": 32,
+        "gain": 0,
+        "error": false
+      }
+    }
+  },
+  "ending": null,
+  "encounterMetrics": {},
+  "visibleCast": [],
+  "vignette": "C1",
+  "detail": null,
+  "time": 9.96,
+  "seed": 575034290,
+  "passage": 2,
+  "orientation": false,
+  "anomaly": null,
+  "progress": 0,
+  "unlocked": false,
+  "resolved": false,
+  "history": [],
+  "pending": null,
+  "mode": "playing",
+  "room": "corridor",
+  "view": 1,
+  "guestX": -0.32,
+  "guestY": 14.22,
+  "elevation": 0.02,
+  "butlerY": 18.6,
+  "distance": 4.43,
+  "active": false,
+  "repel": 0,
+  "cooldown": 0,
+  "contacts": 0,
+  "casts": 0,
+  "frameMs": 16.7,
+  "renderCpuMs": 1.05,
+  "scheduler": "raf",
+  "stalls": 1,
+  "triangles": 162288,
+  "drawCalls": 54,
+  "locomotion": {
+    "vx": 0,
+    "vz": 0,
+    "phase": 8.861014999999968,
+    "gait": 0,
+    "weights": {
+      "Walk": 1,
+      "WalkBack": 0,
+      "StepLeft": 0,
+      "StepRight": 0
+    }
+  },
+  "walkPhase": 1.062,
+  "errors": []
+}

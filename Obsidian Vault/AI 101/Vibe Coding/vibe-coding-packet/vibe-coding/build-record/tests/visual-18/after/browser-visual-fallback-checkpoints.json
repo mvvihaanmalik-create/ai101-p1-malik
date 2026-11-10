@@ -1,0 +1,17 @@
+[
+  {
+    "label": "blocked landing master kept controls; reception recovered native art",
+    "room": "reception",
+    "detail": null,
+    "progress": 0,
+    "orientation": true,
+    "focus": null,
+    "branch": null,
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": []
+  }
+]

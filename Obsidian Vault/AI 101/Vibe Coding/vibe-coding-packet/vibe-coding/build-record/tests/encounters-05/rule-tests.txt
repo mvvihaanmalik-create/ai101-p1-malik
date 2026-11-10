@@ -1,0 +1,21 @@
+
+> room-zero-visual-prototype@0.1.0 test
+> node --test tools/test-loop.mjs
+
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (1.2755ms)
+✔ four consecutive correct decisions unlock, both choices are valid (1.2936ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (1.1933ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.0873ms)
+✔ anomaly bags have no repeats and survive resets; distribution is approximately half (4.4232ms)
+✔ same seed reproduces order; different seeds produce different orders (0.2096ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.121ms)
+✔ all twelve approved anomalies and all six ordinary character vignettes are reachable (1.7173ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.273ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 74.1722

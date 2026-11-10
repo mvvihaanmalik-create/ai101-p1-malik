@@ -1,0 +1,1521 @@
+{
+  "asset-gh-lucide-icons-lucide": {
+    "kind": "icons",
+    "file": "asset-gh-lucide-icons-lucide.svg",
+    "licenseFile": "licenses/asset-gh-lucide-icons-lucide.txt",
+    "sourceUrl": "https://github.com/lucide-icons/lucide",
+    "label": "Lucide original icons",
+    "thumbnailFile": "asset-gh-lucide-icons-lucide.svg",
+    "thumbnailSource": "local:asset-gh-lucide-icons-lucide.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.595Z"
+  },
+  "asset-gh-phosphor-icons-core": {
+    "kind": "icons",
+    "file": "asset-gh-phosphor-icons-core.svg",
+    "licenseFile": "licenses/asset-gh-phosphor-icons-core.txt",
+    "sourceUrl": "https://github.com/phosphor-icons/core",
+    "label": "Phosphor original icons",
+    "thumbnailFile": "asset-gh-phosphor-icons-core.svg",
+    "thumbnailSource": "local:asset-gh-phosphor-icons-core.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.595Z"
+  },
+  "asset-gh-tailwindlabs-heroicons": {
+    "kind": "icons",
+    "file": "asset-gh-tailwindlabs-heroicons.svg",
+    "licenseFile": "licenses/asset-gh-tailwindlabs-heroicons.txt",
+    "sourceUrl": "https://github.com/tailwindlabs/heroicons",
+    "label": "Heroicons original icons",
+    "thumbnailFile": "asset-gh-tailwindlabs-heroicons.svg",
+    "thumbnailSource": "local:asset-gh-tailwindlabs-heroicons.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.595Z"
+  },
+  "asset-gh-tabler-tabler-icons": {
+    "kind": "icons",
+    "file": "asset-gh-tabler-tabler-icons.svg",
+    "licenseFile": "licenses/asset-gh-tabler-tabler-icons.txt",
+    "sourceUrl": "https://github.com/tabler/tabler-icons",
+    "label": "Tabler Icons original icons",
+    "thumbnailFile": "asset-gh-tabler-tabler-icons.svg",
+    "thumbnailSource": "local:asset-gh-tabler-tabler-icons.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.595Z"
+  },
+  "asset-gh-feathericons-feather": {
+    "kind": "icons",
+    "file": "asset-gh-feathericons-feather.svg",
+    "licenseFile": "licenses/asset-gh-feathericons-feather.txt",
+    "sourceUrl": "https://github.com/feathericons/feather",
+    "label": "Feather original icons",
+    "thumbnailFile": "asset-gh-feathericons-feather.svg",
+    "thumbnailSource": "local:asset-gh-feathericons-feather.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.595Z"
+  },
+  "asset-gh-iconoir-icons-iconoir": {
+    "kind": "icons",
+    "file": "asset-gh-iconoir-icons-iconoir.svg",
+    "licenseFile": "licenses/asset-gh-iconoir-icons-iconoir.txt",
+    "sourceUrl": "https://github.com/iconoir-icons/iconoir",
+    "label": "Iconoir original icons",
+    "thumbnailFile": "asset-gh-iconoir-icons-iconoir.svg",
+    "thumbnailSource": "local:asset-gh-iconoir-icons-iconoir.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.595Z"
+  },
+  "asset-gh-twbs-icons": {
+    "kind": "icons",
+    "file": "asset-gh-twbs-icons.svg",
+    "licenseFile": "licenses/asset-gh-twbs-icons.txt",
+    "sourceUrl": "https://github.com/twbs/icons",
+    "label": "Bootstrap Icons original icons",
+    "thumbnailFile": "asset-gh-twbs-icons.svg",
+    "thumbnailSource": "local:asset-gh-twbs-icons.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.596Z"
+  },
+  "asset-gh-radix-ui-icons": {
+    "kind": "icons",
+    "file": "asset-gh-radix-ui-icons.svg",
+    "licenseFile": "licenses/asset-gh-radix-ui-icons.txt",
+    "sourceUrl": "https://github.com/radix-ui/icons",
+    "label": "Radix Icons original icons",
+    "thumbnailFile": "asset-gh-radix-ui-icons.svg",
+    "thumbnailSource": "local:asset-gh-radix-ui-icons.svg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.596Z"
+  },
+  "asset-font-manrope": {
+    "kind": "font",
+    "file": "asset-font-manrope.woff2",
+    "licenseFile": "licenses/asset-font-manrope.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Manrope",
+    "family": "Manrope",
+    "label": "Manrope font specimen",
+    "thumbnailSource": "local:asset-font-manrope.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-font-dmsans": {
+    "kind": "font",
+    "file": "asset-font-dmsans.woff2",
+    "licenseFile": "licenses/asset-font-dmsans.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/DM+Sans",
+    "family": "DM Sans",
+    "label": "DM Sans font specimen",
+    "thumbnailSource": "local:asset-font-dmsans.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-font-nunito": {
+    "kind": "font",
+    "file": "asset-font-nunito.woff2",
+    "licenseFile": "licenses/asset-font-nunito.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Nunito",
+    "family": "Nunito",
+    "label": "Nunito font specimen",
+    "thumbnailSource": "local:asset-font-nunito.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-outfit": {
+    "kind": "font",
+    "file": "asset-font-outfit.woff2",
+    "licenseFile": "licenses/asset-font-outfit.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Outfit",
+    "family": "Outfit",
+    "label": "Outfit font specimen",
+    "thumbnailSource": "local:asset-font-outfit.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-plusjakartasans": {
+    "kind": "font",
+    "file": "asset-font-plusjakartasans.woff2",
+    "licenseFile": "licenses/asset-font-plusjakartasans.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Plus+Jakarta+Sans",
+    "family": "Plus Jakarta Sans",
+    "label": "Plus Jakarta Sans font specimen",
+    "thumbnailSource": "local:asset-font-plusjakartasans.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-spacegrotesk": {
+    "kind": "font",
+    "file": "asset-font-spacegrotesk.woff2",
+    "licenseFile": "licenses/asset-font-spacegrotesk.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Space+Grotesk",
+    "family": "Space Grotesk",
+    "label": "Space Grotesk font specimen",
+    "thumbnailSource": "local:asset-font-spacegrotesk.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-geist": {
+    "kind": "font",
+    "file": "asset-font-geist.woff2",
+    "licenseFile": "licenses/asset-font-geist.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Geist",
+    "family": "Geist",
+    "label": "Geist font specimen",
+    "thumbnailSource": "local:asset-font-geist.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-lora": {
+    "kind": "font",
+    "file": "asset-font-lora.woff2",
+    "licenseFile": "licenses/asset-font-lora.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Lora",
+    "family": "Lora",
+    "label": "Lora font specimen",
+    "thumbnailSource": "local:asset-font-lora.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-newsreader": {
+    "kind": "font",
+    "file": "asset-font-newsreader.woff2",
+    "licenseFile": "licenses/asset-font-newsreader.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Newsreader",
+    "family": "Newsreader",
+    "label": "Newsreader font specimen",
+    "thumbnailSource": "local:asset-font-newsreader.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.599Z"
+  },
+  "asset-font-fraunces": {
+    "kind": "font",
+    "file": "asset-font-fraunces.woff2",
+    "licenseFile": "licenses/asset-font-fraunces.txt",
+    "sourceUrl": "https://fonts.google.com/specimen/Fraunces",
+    "family": "Fraunces",
+    "label": "Fraunces font specimen",
+    "thumbnailSource": "local:asset-font-fraunces.woff2",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.600Z"
+  },
+  "asset-gh-shadcn-ui-ui": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/public/opengraph-image.png",
+    "poster": null,
+    "sourceUrl": "https://ui.shadcn.com/",
+    "label": "shadcn/ui example from the original source",
+    "thumbnailFile": "asset-gh-shadcn-ui-ui-7325d2fa24.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/public/opengraph-image.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.596Z"
+  },
+  "asset-gh-radix-ui-primitives": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/radix-ui/primitives/main/primitives.png",
+    "poster": null,
+    "sourceUrl": "https://radix-ui.com/primitives",
+    "label": "Radix Primitives example from the original source",
+    "thumbnailFile": "asset-gh-radix-ui-primitives-18ad624010.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/radix-ui/primitives/main/primitives.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-tailwindlabs-headlessui": {
+    "kind": "image",
+    "url": "https://headlessui.com/_next/static/media/social-card.46834755.jpg",
+    "poster": null,
+    "sourceUrl": "https://headlessui.com/",
+    "label": "Headless UI example from the original source",
+    "thumbnailFile": "asset-gh-tailwindlabs-headlessui-03fa79abf1.jpg",
+    "thumbnailSource": "https://headlessui.com/_next/static/media/social-card.46834755.jpg",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-pacocoursey-cmdk": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/dip/cmdk/main/website/public/og.png",
+    "poster": null,
+    "sourceUrl": "https://cmdk.paco.me/",
+    "label": "cmdk example from the original source",
+    "thumbnailFile": "asset-gh-pacocoursey-cmdk-fe9691ec8a.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/dip/cmdk/main/website/public/og.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-motiondivision-motion": {
+    "kind": "video",
+    "url": "https://images.motion.dev/examples/previews/svelte/animate/v-3163b15c394c/preview.mp4",
+    "poster": "https://motion.dev/brand-lab/home-og.png",
+    "sourceUrl": "https://motion.dev/",
+    "label": "Motion example from the original source",
+    "tryPoster": "try-motion.png",
+    "thumbnailFile": "try-motion.png",
+    "thumbnailSource": "local:try-motion.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-juliangarnier-anime": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/juliangarnier/anime/master/assets/images/usage-example-result.gif",
+    "poster": "https://animejs.com/media/pages/home/066c76f87b-1787698629/generated-og-image.en.png",
+    "sourceUrl": "https://animejs.com/",
+    "label": "Anime.js example from the original source",
+    "tryPoster": "try-anime.png",
+    "thumbnailFile": "try-anime.png",
+    "thumbnailSource": "local:try-anime.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-formkit-auto-animate": {
+    "kind": "image",
+    "url": "https://cdn.formk.it/web-assets/motion.gif",
+    "poster": "https://cdn.formk.it/web-assets/auto-animate-og.png",
+    "sourceUrl": "https://auto-animate.formkit.com/",
+    "label": "AutoAnimate example from the original source",
+    "tryPoster": "try-auto.png",
+    "thumbnailFile": "try-auto.png",
+    "thumbnailSource": "local:try-auto.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-pmndrs-use-gesture": {
+    "kind": "image",
+    "url": "https://i.imgur.com/qLKJod3.gif",
+    "poster": null,
+    "sourceUrl": "https://use-gesture.netlify.app/",
+    "label": "Use Gesture example from the original source",
+    "tryPoster": "try-gesture.png",
+    "thumbnailFile": "try-gesture.png",
+    "thumbnailSource": "local:try-gesture.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-gh-pmndrs-drei": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/pmndrs/drei/master/docs/logo.jpg",
+    "poster": null,
+    "sourceUrl": "https://docs.pmnd.rs/drei",
+    "label": "Drei example from the original source",
+    "tryPoster": "try-drei.png",
+    "thumbnailFile": "try-drei.png",
+    "thumbnailSource": "local:try-drei.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-gh-pmndrs-react-three-fiber": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/pmndrs/react-three-fiber/master/docs/banner-r3f.jpg",
+    "poster": null,
+    "sourceUrl": "https://docs.pmnd.rs/react-three-fiber",
+    "label": "React Three Fiber example from the original source",
+    "tryPoster": "try-fiber.png",
+    "thumbnailFile": "try-fiber.png",
+    "thumbnailSource": "local:try-fiber.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-gh-mrdoob-three.js": {
+    "kind": "image",
+    "url": "https://threejs.org/examples/screenshots/webgl_materials_physical_transmission.jpg",
+    "poster": "https://threejs.org/files/share.png",
+    "sourceUrl": "https://threejs.org/",
+    "label": "Three.js example from the original source",
+    "tryPoster": "try-three.png",
+    "thumbnailFile": "try-three.png",
+    "thumbnailSource": "local:try-three.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-gh-pmndrs-react-three-rapier": {
+    "kind": "image",
+    "url": "https://raw.githubusercontent.com/pmndrs/react-three-rapier/HEAD/packages/react-three-rapier/misc/example-auto-colliders.jpg",
+    "poster": null,
+    "sourceUrl": "https://react-three-rapier.pmnd.rs/",
+    "label": "React Three Rapier example from the original source",
+    "tryPoster": "try-rapier.png",
+    "thumbnailFile": "try-rapier.png",
+    "thumbnailSource": "local:try-rapier.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.598Z"
+  },
+  "asset-gh-adobe-react-spectrum": {
+    "kind": "image",
+    "file": "asset-gh-adobe-react-spectrum.png",
+    "sourceUrl": "https://react-aria.adobe.com/",
+    "label": "React Aria original interface example",
+    "thumbnailFile": "asset-gh-adobe-react-spectrum.png",
+    "thumbnailSource": "local:asset-gh-adobe-react-spectrum.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-emilkowalski-vaul": {
+    "kind": "video",
+    "url": "https://emilkowal.ski/vaul-post/background.mp4",
+    "poster": "https://vaul.emilkowal.ski/opengraph-image.png",
+    "sourceUrl": "https://emilkowal.ski/ui/building-a-drawer-component",
+    "label": "Vaul example from the original source",
+    "thumbnailFile": "asset-gh-emilkowalski-vaul-2ae46d6a70.png",
+    "thumbnailSource": "https://vaul.emilkowal.ski/opengraph-image.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-gh-pmndrs-react-spring": {
+    "kind": "image",
+    "url": "https://www.react-spring.dev/assets/thumbnail-CcOI_jYz.png",
+    "poster": null,
+    "sourceUrl": "https://www.react-spring.dev/examples",
+    "label": "React Spring example from the original source",
+    "tryPoster": "try-spring.png",
+    "thumbnailFile": "try-spring.png",
+    "thumbnailSource": "local:try-spring.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.597Z"
+  },
+  "asset-poly-ceramic_pot": {
+    "thumbnailFile": "asset-poly-ceramic_pot-12dc19f831.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/ceramic_pot.png?format=webp&height=256&v=2b85aca4&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.600Z",
+    "label": "Ceramic Pot — Poly Haven asset preview"
+  },
+  "asset-poly-cigarette_pack": {
+    "thumbnailFile": "asset-poly-cigarette_pack-e0aae0bf28.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/cigarette_pack.png?format=webp&height=256&v=b67f48d2&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.600Z",
+    "label": "Cigarette Pack — Poly Haven asset preview"
+  },
+  "asset-poly-dining_table": {
+    "thumbnailFile": "asset-poly-dining_table-efef54679e.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/dining_table.png?format=webp&height=256&v=1e739968&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.600Z",
+    "label": "Dining Table — Poly Haven asset preview"
+  },
+  "asset-poly-long_life_food": {
+    "thumbnailFile": "asset-poly-long_life_food-8aa81db102.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/long_life_food.png?format=webp&height=256&v=55d90ccc&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.601Z",
+    "label": "Long Life Food — Poly Haven asset preview"
+  },
+  "asset-poly-combination_wrench": {
+    "thumbnailFile": "asset-poly-combination_wrench-3267667a9d.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/combination_wrench.png?format=webp&height=256&v=8564fe7b&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.600Z",
+    "label": "Combination Wrench — Poly Haven asset preview"
+  },
+  "asset-poly-medical_tape": {
+    "thumbnailFile": "asset-poly-medical_tape-8d5202570b.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/medical_tape.png?format=webp&height=256&v=1d995d96&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.601Z",
+    "label": "Medical Tape — Poly Haven asset preview"
+  },
+  "asset-poly-old_gas_mask": {
+    "thumbnailFile": "asset-poly-old_gas_mask-f940162e1c.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/old_gas_mask.png?format=webp&height=256&v=36d18b1d&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.601Z",
+    "label": "Old Gas Mask — Poly Haven asset preview"
+  },
+  "asset-poly-old_drill_press": {
+    "thumbnailFile": "asset-poly-old_drill_press-1642200b09.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/old_drill_press.png?format=webp&height=256&v=35e4e204&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.601Z",
+    "label": "Old Drill Press — Poly Haven asset preview"
+  },
+  "asset-poly-overhead_crane": {
+    "thumbnailFile": "asset-poly-overhead_crane-de4899b946.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/overhead_crane.png?format=webp&height=256&v=fe2fb591&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.602Z",
+    "label": "Overhead Crane — Poly Haven asset preview"
+  },
+  "asset-poly-pastic_torch_6v": {
+    "thumbnailFile": "asset-poly-pastic_torch_6v-dff72f995c.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/pastic_torch_6v.png?format=webp&height=256&v=0ddecf2c&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.602Z",
+    "label": "Plastic Torch 6V — Poly Haven asset preview"
+  },
+  "asset-poly-plastic_crate_03": {
+    "thumbnailFile": "asset-poly-plastic_crate_03-9363a9dc6e.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/plastic_crate_03.png?format=webp&height=256&v=ae86e3d5&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.602Z",
+    "label": "Plastic Crate 03 — Poly Haven asset preview"
+  },
+  "asset-poly-old_military_compressor": {
+    "thumbnailFile": "asset-poly-old_military_compressor-655cf23093.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/old_military_compressor.png?format=webp&height=256&v=3e9d721d&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.601Z",
+    "label": "Old Military Compressor — Poly Haven asset preview"
+  },
+  "asset-poly-grass_medium_01": {
+    "thumbnailFile": "asset-poly-grass_medium_01-20e42ceda6.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/grass_medium_01.png?format=webp&height=256&v=dbbb23c5&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.602Z",
+    "label": "Grass Medium 01 — Poly Haven asset preview"
+  },
+  "asset-poly-Camera_01": {
+    "thumbnailFile": "asset-poly-Camera_01-6749a47f23.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/Camera_01.png?format=webp&height=256&v=534c7d69&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.603Z",
+    "label": "Camera 01 — Poly Haven asset preview"
+  },
+  "asset-poly-tree_small_02": {
+    "thumbnailFile": "asset-poly-tree_small_02-c3a33dc0ac.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/tree_small_02.png?format=webp&height=256&v=3743831d&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.603Z",
+    "label": "Tree Small 02 — Poly Haven asset preview"
+  },
+  "asset-poly-rock_moss_set_02": {
+    "thumbnailFile": "asset-poly-rock_moss_set_02-b1227554d6.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/rock_moss_set_02.png?format=webp&height=256&v=2acc6bcd&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.603Z",
+    "label": "Rock Moss Set 02 — Poly Haven asset preview"
+  },
+  "asset-poly-potted_plant_02": {
+    "thumbnailFile": "asset-poly-potted_plant_02-203b93907f.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/potted_plant_02.png?format=webp&height=256&v=24e1bc4c&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.603Z",
+    "label": "Potted Plant 02 — Poly Haven asset preview"
+  },
+  "asset-poly-fern_02": {
+    "thumbnailFile": "asset-poly-fern_02-059600fbc8.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/fern_02.png?format=webp&height=256&v=334ce7aa&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.604Z",
+    "label": "Fern 02 — Poly Haven asset preview"
+  },
+  "asset-poly-sofa_02": {
+    "thumbnailFile": "asset-poly-sofa_02-7a81786e6f.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/sofa_02.png?format=webp&height=256&v=5c7e6c29&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.603Z",
+    "label": "Sofa 02 — Poly Haven asset preview"
+  },
+  "asset-poly-CoffeeCart_01": {
+    "thumbnailFile": "asset-poly-CoffeeCart_01-52751a4ef6.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/CoffeeCart_01.png?format=webp&height=256&v=fd89d2cb&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.605Z",
+    "label": "Coffee Cart 01 — Poly Haven asset preview"
+  },
+  "asset-poly-modular_fort_01": {
+    "thumbnailFile": "asset-poly-modular_fort_01-0dba2156a5.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/modular_fort_01.png?format=webp&height=256&v=6516dca5&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.605Z",
+    "label": "Modular Fort 01 — Poly Haven asset preview"
+  },
+  "asset-poly-Barrel_01": {
+    "thumbnailFile": "asset-poly-Barrel_01-06e8590c7a.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/Barrel_01.png?format=webp&height=256&v=29e315a9&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.604Z",
+    "label": "Barrel_01 — Poly Haven asset preview"
+  },
+  "asset-poly-ship_pinnace": {
+    "thumbnailFile": "asset-poly-ship_pinnace-aaa3ed33fd.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/ship_pinnace.png?format=webp&height=256&v=0aa6385f&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.605Z",
+    "label": "Ship Pinnace — Poly Haven asset preview"
+  },
+  "asset-poly-Chandelier_03": {
+    "thumbnailFile": "asset-poly-Chandelier_03-25c29f2109.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/Chandelier_03.png?format=webp&height=256&v=acd7de4e&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.605Z",
+    "label": "Chandelier 03 — Poly Haven asset preview"
+  },
+  "asset-poly-food_apple_01": {
+    "thumbnailFile": "asset-poly-food_apple_01-91f74e95f4.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/food_apple_01.png?format=webp&height=256&v=e64be072&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.604Z",
+    "label": "Food Apple 01 — Poly Haven asset preview"
+  },
+  "asset-poly-security_camera_01": {
+    "thumbnailFile": "asset-poly-security_camera_01-1e15cb442d.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/security_camera_01.png?format=webp&height=256&v=24e2e342&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.606Z",
+    "label": "Security Camera 01 — Poly Haven asset preview"
+  },
+  "asset-poly-wooden_stool_02": {
+    "thumbnailFile": "asset-poly-wooden_stool_02-c14dd1cd1c.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/wooden_stool_02.png?format=webp&height=256&v=947892d3&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.606Z",
+    "label": "Wooden Stool 02 — Poly Haven asset preview"
+  },
+  "asset-poly-brass_vase_03": {
+    "thumbnailFile": "asset-poly-brass_vase_03-26b0fd28ab.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/brass_vase_03.png?format=webp&height=256&v=7a6b1182&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.606Z",
+    "label": "Brass Vase 03 — Poly Haven asset preview"
+  },
+  "asset-poly-chinese_tea_table": {
+    "thumbnailFile": "asset-poly-chinese_tea_table-e3d7ad6175.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/chinese_tea_table.png?format=webp&height=256&v=b95c9fc9&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.607Z",
+    "label": "Chinese Tea Table — Poly Haven asset preview"
+  },
+  "asset-poly-ceramic_vase_01": {
+    "thumbnailFile": "asset-poly-ceramic_vase_01-3cb348bbd3.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/ceramic_vase_01.png?format=webp&height=256&v=ff07fd46&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.606Z",
+    "label": "Ceramic Vase 01 — Poly Haven asset preview"
+  },
+  "asset-poly-namaqualand_boulder_05": {
+    "thumbnailFile": "asset-poly-namaqualand_boulder_05-a28cd83c41.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/namaqualand_boulder_05.png?format=webp&height=256&v=cef661c5&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.607Z",
+    "label": "Namaqualand Boulder 05 — Poly Haven asset preview"
+  },
+  "asset-poly-steel_frame_shelves_03": {
+    "thumbnailFile": "asset-poly-steel_frame_shelves_03-c1ca939641.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/steel_frame_shelves_03.png?format=webp&height=256&v=7a0923d3&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.607Z",
+    "label": "Steel Frame Shelves 03 — Poly Haven asset preview"
+  },
+  "asset-poly-metal_office_desk": {
+    "thumbnailFile": "asset-poly-metal_office_desk-8865f21901.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/metal_office_desk.png?format=webp&height=256&v=fd98b58d&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.607Z",
+    "label": "Metal Office Desk — Poly Haven asset preview"
+  },
+  "asset-poly-modular_urban_apartments_facade": {
+    "thumbnailFile": "asset-poly-modular_urban_apartments_facade-4448052855.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/modular_urban_apartments_facade.png?format=webp&height=256&v=674719ca&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.608Z",
+    "label": "Modular Urban Apartments Facade — Poly Haven asset preview"
+  },
+  "asset-poly-rusted_spade_01": {
+    "thumbnailFile": "asset-poly-rusted_spade_01-4d879f137e.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/rusted_spade_01.png?format=webp&height=256&v=f41221f7&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.607Z",
+    "label": "Rusted Spade 01 — Poly Haven asset preview"
+  },
+  "asset-poly-hanging_picture_frame_03": {
+    "thumbnailFile": "asset-poly-hanging_picture_frame_03-40bd9c356f.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/hanging_picture_frame_03.png?format=webp&height=256&v=ee373210&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.607Z",
+    "label": "Hanging Picture Frame 03 — Poly Haven asset preview"
+  },
+  "asset-poly-raw_wooden_floor_01": {
+    "thumbnailFile": "asset-poly-raw_wooden_floor_01-c2dca3459a.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/raw_wooden_floor_01.png?format=webp&height=256&v=4321d3fd&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.608Z",
+    "label": "Raw Wooden Floor 01 — Poly Haven asset preview"
+  },
+  "asset-poly-herringbone_concrete_tile_03": {
+    "thumbnailFile": "asset-poly-herringbone_concrete_tile_03-1519a8fe3b.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/herringbone_concrete_tile_03.png?format=webp&height=256&v=2e04f8a3&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.608Z",
+    "label": "Herringbone Concrete Tile 03 — Poly Haven asset preview"
+  },
+  "asset-poly-square_pavers": {
+    "thumbnailFile": "asset-poly-square_pavers-2431089843.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/square_pavers.png?format=webp&height=256&v=75b9825e&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.608Z",
+    "label": "Square Pavers — Poly Haven asset preview"
+  },
+  "asset-poly-gravel_embedded_concrete_02": {
+    "thumbnailFile": "asset-poly-gravel_embedded_concrete_02-9b2ece2085.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/gravel_embedded_concrete_02.png?format=webp&height=256&v=2478380d&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.608Z",
+    "label": "Gravel Embedded Concrete 02 — Poly Haven asset preview"
+  },
+  "asset-poly-white_stucco_02": {
+    "thumbnailFile": "asset-poly-white_stucco_02-8a55b73ffe.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/white_stucco_02.png?format=webp&height=256&v=eb848324&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.609Z",
+    "label": "White Stucco 02 — Poly Haven asset preview"
+  },
+  "asset-poly-multicolored_pebble_floor": {
+    "thumbnailFile": "asset-poly-multicolored_pebble_floor-99f7135e31.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/multicolored_pebble_floor.png?format=webp&height=256&v=8fa4cf50&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.609Z",
+    "label": "Multicolored Pebble Floor — Poly Haven asset preview"
+  },
+  "asset-poly-leaf_scattered_gravel": {
+    "thumbnailFile": "asset-poly-leaf_scattered_gravel-b50e535672.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/leaf_scattered_gravel.png?format=webp&height=256&v=a9811e8b&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.609Z",
+    "label": "Leaf Scattered Gravel — Poly Haven asset preview"
+  },
+  "asset-poly-grass_ground": {
+    "thumbnailFile": "asset-poly-grass_ground-29ab30f015.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/grass_ground.png?format=webp&height=256&v=6fb7fdcf&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.609Z",
+    "label": "Grass Ground — Poly Haven asset preview"
+  },
+  "asset-poly-coast_sand_rocks_02": {
+    "thumbnailFile": "asset-poly-coast_sand_rocks_02-36863cfaca.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/coast_sand_rocks_02.png?format=webp&height=256&v=63f92b86&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.609Z",
+    "label": "Coast Sand Rocks 02 — Poly Haven asset preview"
+  },
+  "asset-poly-plywood": {
+    "thumbnailFile": "asset-poly-plywood-b291e76636.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/plywood.png?format=webp&height=256&v=4fd30a5c&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.609Z",
+    "label": "Plywood — Poly Haven asset preview"
+  },
+  "asset-poly-brown_mud_leaves_01": {
+    "thumbnailFile": "asset-poly-brown_mud_leaves_01-ea01b32bbf.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/brown_mud_leaves_01.png?format=webp&height=256&v=ce084bc9&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.610Z",
+    "label": "Brown Mud Leaves 01 — Poly Haven asset preview"
+  },
+  "asset-poly-laminate_floor_02": {
+    "thumbnailFile": "asset-poly-laminate_floor_02-42d678eaae.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/laminate_floor_02.png?format=webp&height=256&v=ac2f3a73&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.610Z",
+    "label": "Laminate Floor 02 — Poly Haven asset preview"
+  },
+  "asset-poly-metal_plate": {
+    "thumbnailFile": "asset-poly-metal_plate-55dc216745.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/metal_plate.png?format=webp&height=256&v=23925522&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.611Z",
+    "label": "Metal Plate — Poly Haven asset preview"
+  },
+  "asset-poly-painted_plaster_wall": {
+    "thumbnailFile": "asset-poly-painted_plaster_wall-8ade9727c7.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/painted_plaster_wall.png?format=webp&height=256&v=13b70c43&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.611Z",
+    "label": "Painted Plaster Wall — Poly Haven asset preview"
+  },
+  "asset-poly-white_plaster_02": {
+    "thumbnailFile": "asset-poly-white_plaster_02-bae91c7d10.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/white_plaster_02.png?format=webp&height=256&v=fa5c48d2&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.611Z",
+    "label": "White Plaster 02 — Poly Haven asset preview"
+  },
+  "asset-poly-concrete_floor_02": {
+    "thumbnailFile": "asset-poly-concrete_floor_02-fc4071b314.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/concrete_floor_02.png?format=webp&height=256&v=18eb52c0&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.611Z",
+    "label": "Concrete Floor 02 — Poly Haven asset preview"
+  },
+  "asset-poly-beige_wall_001": {
+    "thumbnailFile": "asset-poly-beige_wall_001-6a9af706e0.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/beige_wall_001.png?format=webp&height=256&v=3c72ed3c&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.610Z",
+    "label": "Beige Wall 001 — Poly Haven asset preview"
+  },
+  "asset-poly-rock_face_03": {
+    "thumbnailFile": "asset-poly-rock_face_03-3005ba011b.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/rock_face_03.png?format=webp&height=256&v=83c5ed9e&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.611Z",
+    "label": "Rock Face 03 — Poly Haven asset preview"
+  },
+  "asset-poly-grey_plaster": {
+    "thumbnailFile": "asset-poly-grey_plaster-c88d2045f2.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/grey_plaster.png?format=webp&height=256&v=367870e9&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.612Z",
+    "label": "Grey Plaster — Poly Haven asset preview"
+  },
+  "asset-poly-aerial_asphalt_01": {
+    "thumbnailFile": "asset-poly-aerial_asphalt_01-692d412802.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/aerial_asphalt_01.png?format=webp&height=256&v=151f24f1&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.611Z",
+    "label": "Aerial Asphalt 01 — Poly Haven asset preview"
+  },
+  "asset-poly-roof_09": {
+    "thumbnailFile": "asset-poly-roof_09-0a9966d5f5.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/roof_09.png?format=webp&height=256&v=847771cd&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.612Z",
+    "label": "Roof 09 — Poly Haven asset preview"
+  },
+  "asset-poly-highway_bridge_sunset": {
+    "thumbnailFile": "asset-poly-highway_bridge_sunset-18e2e22301.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/highway_bridge_sunset.png?format=webp&height=256&v=add4b2f0&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.612Z",
+    "label": "Highway Bridge Sunset — Poly Haven asset preview"
+  },
+  "asset-poly-rock_boulder_dry": {
+    "thumbnailFile": "asset-poly-rock_boulder_dry-34c63b2b16.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/rock_boulder_dry.png?format=webp&height=256&v=5a624d4f&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.612Z",
+    "label": "Rock Boulder Dry — Poly Haven asset preview"
+  },
+  "asset-poly-aarfontein_dawn_2": {
+    "thumbnailFile": "asset-poly-aarfontein_dawn_2-4edb03307a.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/aarfontein_dawn_2.png?format=webp&height=256&v=9f3e0257&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.612Z",
+    "label": "Aarfontein Dawn 2 — Poly Haven asset preview"
+  },
+  "asset-poly-fabric_pattern_07": {
+    "thumbnailFile": "asset-poly-fabric_pattern_07-e18b9e6655.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/fabric_pattern_07.png?format=webp&height=256&v=8bf5bc82&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.610Z",
+    "label": "Fabric Pattern 07 — Poly Haven asset preview"
+  },
+  "asset-poly-aarfontein_sunrise": {
+    "thumbnailFile": "asset-poly-aarfontein_sunrise-8eff3e8ae0.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/aarfontein_sunrise.png?format=webp&height=256&v=0e7704fe&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.613Z",
+    "label": "Aarfontein Sunrise — Poly Haven asset preview"
+  },
+  "asset-poly-castle_brick_02_red": {
+    "thumbnailFile": "asset-poly-castle_brick_02_red-e286a0ef18.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/castle_brick_02_red.png?format=webp&height=256&v=fd920d58&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.612Z",
+    "label": "Castle Brick 02 Red — Poly Haven asset preview"
+  },
+  "asset-poly-aarfontein_pan": {
+    "thumbnailFile": "asset-poly-aarfontein_pan-eeb4d2251b.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/aarfontein_pan.png?format=webp&height=256&v=9a0aa2ae&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.613Z",
+    "label": "Aarfontein Pan — Poly Haven asset preview"
+  },
+  "asset-poly-nqweba_dawn": {
+    "thumbnailFile": "asset-poly-nqweba_dawn-c6c68a276b.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/nqweba_dawn.png?format=webp&height=256&v=9f75b432&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.613Z",
+    "label": "Nqweba Dawn — Poly Haven asset preview"
+  },
+  "asset-poly-nowhere_road": {
+    "thumbnailFile": "asset-poly-nowhere_road-bec3a258f1.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/nowhere_road.png?format=webp&height=256&v=fab26fbf&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.613Z",
+    "label": "Nowhere Road — Poly Haven asset preview"
+  },
+  "asset-poly-kloofendal_48d_partly_cloudy_puresky": {
+    "thumbnailFile": "asset-poly-kloofendal_48d_partly_cloudy_puresky-8723dd85a3.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/kloofendal_48d_partly_cloudy_puresky.png?format=webp&height=256&v=691edf4f&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.613Z",
+    "label": "Kloofendal 48d Partly Cloudy (Pure Sky) — Poly Haven asset preview"
+  },
+  "asset-poly-brown_photostudio_02": {
+    "thumbnailFile": "asset-poly-brown_photostudio_02-4544c8d7e1.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/brown_photostudio_02.png?format=webp&height=256&v=4542fee3&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.613Z",
+    "label": "Brown Photostudio 02 — Poly Haven asset preview"
+  },
+  "asset-poly-studio_small_03": {
+    "thumbnailFile": "asset-poly-studio_small_03-6371d820cc.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/studio_small_03.png?format=webp&height=256&v=389b153c&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.614Z",
+    "label": "Studio Small 03 — Poly Haven asset preview"
+  },
+  "asset-poly-studio_small_09": {
+    "thumbnailFile": "asset-poly-studio_small_09-12aacefae9.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/studio_small_09.png?format=webp&height=256&v=54291356&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.614Z",
+    "label": "Studio Small 09 — Poly Haven asset preview"
+  },
+  "asset-poly-belfast_sunset_puresky": {
+    "thumbnailFile": "asset-poly-belfast_sunset_puresky-20ce755127.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/belfast_sunset_puresky.png?format=webp&height=256&v=b632c40f&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.614Z",
+    "label": "Belfast Sunset (Pure Sky) — Poly Haven asset preview"
+  },
+  "asset-poly-pretoria_gardens": {
+    "thumbnailFile": "asset-poly-pretoria_gardens-19d96e8893.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/pretoria_gardens.png?format=webp&height=256&v=57cecde1&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.614Z",
+    "label": "Pretoria Gardens — Poly Haven asset preview"
+  },
+  "asset-poly-blue_photo_studio": {
+    "thumbnailFile": "asset-poly-blue_photo_studio-2fe3178f44.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/blue_photo_studio.png?format=webp&height=256&v=d6972885&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.614Z",
+    "label": "Blue Photo Studio — Poly Haven asset preview"
+  },
+  "asset-poly-studio_small_08": {
+    "thumbnailFile": "asset-poly-studio_small_08-20de660b6d.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/studio_small_08.png?format=webp&height=256&v=7e0dab4f&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.614Z",
+    "label": "Studio Small 08 — Poly Haven asset preview"
+  },
+  "asset-poly-christmas_photo_studio_07": {
+    "thumbnailFile": "asset-poly-christmas_photo_studio_07-be18fc8c3d.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/christmas_photo_studio_07.png?format=webp&height=256&v=69a15ec5&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.615Z",
+    "label": "Christmas Photo Studio 07 — Poly Haven asset preview"
+  },
+  "asset-poly-derelict_highway_midday": {
+    "thumbnailFile": "asset-poly-derelict_highway_midday-4991c82aab.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/derelict_highway_midday.png?format=webp&height=256&v=5844decf&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.615Z",
+    "label": "Derelict Highway Midday — Poly Haven asset preview"
+  },
+  "asset-poly-dam_bridge": {
+    "thumbnailFile": "asset-poly-dam_bridge-4fb79d8d48.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/dam_bridge.png?format=webp&height=256&v=6533a010&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.615Z",
+    "label": "Dam Bridge — Poly Haven asset preview"
+  },
+  "asset-poly-brick_factory_02": {
+    "thumbnailFile": "asset-poly-brick_factory_02-1b0c8e0574.webp",
+    "thumbnailSource": "https://cdn.polyhaven.com/asset_img/thumbs/brick_factory_02.png?format=webp&height=256&v=d53f7232&width=256",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.615Z",
+    "label": "Brick Factory 02 — Poly Haven asset preview"
+  },
+  "asset-kenney-tiny-city": {
+    "thumbnailFile": "asset-kenney-tiny-city-d87a55056c.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/tiny-city/75846f7f9d-1791720761/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.615Z",
+    "label": "Tiny City — Kenney asset pack preview"
+  },
+  "asset-kenney-mini-skate": {
+    "thumbnailFile": "asset-kenney-mini-skate-69c8dad6cd.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mini-skate/f6068b9ce8-1791798662/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.615Z",
+    "label": "Mini Skate — Kenney asset pack preview"
+  },
+  "asset-kenney-city-kit-roads": {
+    "thumbnailFile": "asset-kenney-city-kit-roads-9611766c67.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/city-kit-roads/8021370415-1787042780/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.616Z",
+    "label": "City Kit (Roads) — Kenney asset pack preview"
+  },
+  "asset-kenney-scribble-platformer-expansion": {
+    "thumbnailFile": "asset-kenney-scribble-platformer-expansion-19d086c318.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/scribble-platformer-expansion/d99897f3c7-1787574403/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.616Z",
+    "label": "Scribble Platformer Expansion — Kenney asset pack preview"
+  },
+  "asset-kenney-city-kit-industrial": {
+    "thumbnailFile": "asset-kenney-city-kit-industrial-298024f95b.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/city-kit-industrial/18dcc5d6ce-1788171818/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.616Z",
+    "label": "City Kit (Industrial) — Kenney asset pack preview"
+  },
+  "asset-kenney-skyboxes-space": {
+    "thumbnailFile": "asset-kenney-skyboxes-space-f4e36dd7fe.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/skyboxes-space/ca125d51be-1790850365/sample-galaxy-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.616Z",
+    "label": "Skyboxes Space — Kenney asset pack preview"
+  },
+  "asset-kenney-pattern-pack-extra": {
+    "thumbnailFile": "asset-kenney-pattern-pack-extra-587cb23ea9.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/pattern-pack-extra/f17ae7862d-1786358091/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.616Z",
+    "label": "Pattern Pack Extra — Kenney asset pack preview"
+  },
+  "asset-kenney-crosshair-pack": {
+    "thumbnailFile": "asset-kenney-crosshair-pack-b1ee8ee849.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/crosshair-pack/6aac591d3a-1677697135/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.617Z",
+    "label": "Crosshair Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-tiny-factory": {
+    "thumbnailFile": "asset-kenney-tiny-factory-abf4d6b4ac.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/tiny-factory/367deb9f42-1788860854/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.616Z",
+    "label": "Tiny Factory — Kenney asset pack preview"
+  },
+  "asset-kenney-domino-pack": {
+    "thumbnailFile": "asset-kenney-domino-pack-e0b7abe675.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/domino-pack/eb1f762289-1785701503/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.617Z",
+    "label": "Domino Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-skyboxes": {
+    "thumbnailFile": "asset-kenney-skyboxes-98528840cf.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/skyboxes/d32d55b81b-1784123468/sample-day-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.617Z",
+    "label": "Skyboxes — Kenney asset pack preview"
+  },
+  "asset-kenney-input-prompts": {
+    "thumbnailFile": "asset-kenney-input-prompts-3d1210aa11.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/input-prompts/147fa257f7-1709558167/preview-steam-deck-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.617Z",
+    "label": "Input Prompts — Kenney asset pack preview"
+  },
+  "asset-kenney-mini-dungeon": {
+    "thumbnailFile": "asset-kenney-mini-dungeon-12817e2961.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mini-dungeon/5b23e91c6e-1785314288/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.617Z",
+    "label": "Mini Dungeon — Kenney asset pack preview"
+  },
+  "asset-kenney-modular-cave-kit": {
+    "thumbnailFile": "asset-kenney-modular-cave-kit-7848dea9a1.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/modular-cave-kit/ced1b74dc1-1783667089/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.618Z",
+    "label": "Modular Cave Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-mini-forest": {
+    "thumbnailFile": "asset-kenney-mini-forest-049fe5cd32.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mini-forest/cb98284e11-1784024076/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.617Z",
+    "label": "Mini Forest — Kenney asset pack preview"
+  },
+  "asset-kenney-flag-pack": {
+    "thumbnailFile": "asset-kenney-flag-pack-3a7dffe539.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/flag-pack/5e6ac1ed7c-1780995503/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.618Z",
+    "label": "Flag Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-tiny-farm": {
+    "thumbnailFile": "asset-kenney-tiny-farm-c23f976979.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/tiny-farm/6a39809886-1782913585/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.618Z",
+    "label": "Tiny Farm — Kenney asset pack preview"
+  },
+  "asset-kenney-light-masks": {
+    "thumbnailFile": "asset-kenney-light-masks-5fadf4d8db.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/light-masks/718ab296a1-1775631590/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.618Z",
+    "label": "Light Masks — Kenney asset pack preview"
+  },
+  "asset-kenney-car-kit": {
+    "thumbnailFile": "asset-kenney-car-kit-f867983b7a.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/car-kit/81f9d77bc7-1775131953/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.618Z",
+    "label": "Car Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-factory-kit": {
+    "thumbnailFile": "asset-kenney-factory-kit-822ca1b8f1.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/factory-kit/7e1e831724-1777639590/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.618Z",
+    "label": "Factory Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-platformer-kit": {
+    "thumbnailFile": "asset-kenney-platformer-kit-7a8c057770.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/platformer-kit/12fa6cafde-1775122247/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.619Z",
+    "label": "Platformer Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-cube-pets": {
+    "thumbnailFile": "asset-kenney-cube-pets-3be6b8e4ca.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/cube-pets/c97e02d815-1774520248/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.619Z",
+    "label": "Cube Pets — Kenney asset pack preview"
+  },
+  "asset-kenney-modular-dungeon-kit": {
+    "thumbnailFile": "asset-kenney-modular-dungeon-kit-0ac584e481.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/modular-dungeon-kit/fe4b7d1cba-1771926047/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.622Z",
+    "label": "Modular Dungeon Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-pirate-kit": {
+    "thumbnailFile": "asset-kenney-pirate-kit-1959f5830d.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/pirate-kit/ae3180d290-1771333077/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.622Z",
+    "label": "Pirate Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-retro-textures-fantasy": {
+    "thumbnailFile": "asset-kenney-retro-textures-fantasy-1734cbba9b.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/retro-textures-fantasy/1ac0cad8d6-1768475452/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.623Z",
+    "label": "Retro Textures Fantasy — Kenney asset pack preview"
+  },
+  "asset-kenney-development-essentials": {
+    "thumbnailFile": "asset-kenney-development-essentials-8ce69198ed.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/development-essentials/87174ad548-1767593444/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.623Z",
+    "label": "Development Essentials — Kenney asset pack preview"
+  },
+  "asset-kenney-new-platformer-pack": {
+    "thumbnailFile": "asset-kenney-new-platformer-pack-f03c0b01fa.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/new-platformer-pack/3547f2c9bb-1746559490/sample-b-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.623Z",
+    "label": "New Platformer Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-modular-space-kit": {
+    "thumbnailFile": "asset-kenney-modular-space-kit-54a92ad7cc.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/modular-space-kit/0d6aef3da9-1771146082/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.623Z",
+    "label": "Modular Space Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-graveyard-kit": {
+    "thumbnailFile": "asset-kenney-graveyard-kit-9378dc70d6.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/graveyard-kit/9f3be82eb6-1760691801/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.623Z",
+    "label": "Graveyard Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-desert-shooter-pack": {
+    "thumbnailFile": "asset-kenney-desert-shooter-pack-d102d758ef.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/desert-shooter-pack/a6ead20778-1758814237/sample-a-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.624Z",
+    "label": "Desert Shooter Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-mobile-controls": {
+    "thumbnailFile": "asset-kenney-mobile-controls-bfc340fb73.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mobile-controls/90787b1c18-1754738442/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.624Z",
+    "label": "Mobile Controls — Kenney asset pack preview"
+  },
+  "asset-kenney-fantasy-town-kit": {
+    "thumbnailFile": "asset-kenney-fantasy-town-kit-cd10df2a3e.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/fantasy-town-kit/c13eafebab-1754222363/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.624Z",
+    "label": "Fantasy Town Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-blaster-kit": {
+    "thumbnailFile": "asset-kenney-blaster-kit-c94ce16177.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/blaster-kit/7f0e90a313-1753959516/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.624Z",
+    "label": "Blaster Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-city-kit-commercial": {
+    "thumbnailFile": "asset-kenney-city-kit-commercial-e2cde20484.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/city-kit-commercial/ca60ea54ef-1747481474/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.624Z",
+    "label": "City Kit (Commercial) — Kenney asset pack preview"
+  },
+  "asset-kenney-blocky-characters": {
+    "thumbnailFile": "asset-kenney-blocky-characters-0fc67e4db3.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/blocky-characters/4ace046751-1749547441/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.625Z",
+    "label": "Blocky Characters — Kenney asset pack preview"
+  },
+  "asset-kenney-fish-pack": {
+    "thumbnailFile": "asset-kenney-fish-pack-5b6f15c7cc.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/fish-pack/d45432eddb-1747237954/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.625Z",
+    "label": "Fish Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-city-kit-suburban": {
+    "thumbnailFile": "asset-kenney-city-kit-suburban-25fd0de46b.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/city-kit-suburban/8c3d4e93a3-1745479402/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.625Z",
+    "label": "City Kit (Suburban) — Kenney asset pack preview"
+  },
+  "asset-kenney-minigolf-kit": {
+    "thumbnailFile": "asset-kenney-minigolf-kit-c5adf8c5dd.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/minigolf-kit/9a6e436dbb-1741163831/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.625Z",
+    "label": "Minigolf Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-retro-fantasy-kit": {
+    "thumbnailFile": "asset-kenney-retro-fantasy-kit-c3f87f83f5.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/retro-fantasy-kit/624944f6df-1739977943/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.626Z",
+    "label": "Retro Fantasy Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-retro-urban-kit": {
+    "thumbnailFile": "asset-kenney-retro-urban-kit-68929aec33.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/retro-urban-kit/b9c649752d-1738147501/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.626Z",
+    "label": "Retro Urban Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-toy-car-kit": {
+    "thumbnailFile": "asset-kenney-toy-car-kit-8e6df493cc.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/toy-car-kit/17be15ec2b-1736346119/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.626Z",
+    "label": "Toy Car Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-tiny-town": {
+    "thumbnailFile": "asset-kenney-tiny-town-1d4cd9b272.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/tiny-town/e241a9f6c0-1674742338/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.626Z",
+    "label": "Tiny Town — Kenney asset pack preview"
+  },
+  "asset-kenney-holiday-kit": {
+    "thumbnailFile": "asset-kenney-holiday-kit-c24a9e5488.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/holiday-kit/2e8f59c1ab-1733923964/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.626Z",
+    "label": "Holiday Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-coaster-kit": {
+    "thumbnailFile": "asset-kenney-coaster-kit-8f731985b1.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/coaster-kit/d7d410aef4-1731487879/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.626Z",
+    "label": "Coaster Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-mini-market": {
+    "thumbnailFile": "asset-kenney-mini-market-b4b3338de4.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mini-market/0d36e77964-1729865129/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.627Z",
+    "label": "Mini Market — Kenney asset pack preview"
+  },
+  "asset-kenney-minimap-pack": {
+    "thumbnailFile": "asset-kenney-minimap-pack-a133ec077f.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/minimap-pack/a9ddfeb545-1730884731/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.627Z",
+    "label": "Minimap Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-roguelike-characters": {
+    "thumbnailFile": "asset-kenney-roguelike-characters-964dd909b8.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/roguelike-characters/da661e4fb3-1677694932/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.627Z",
+    "label": "Roguelike Characters — Kenney asset pack preview"
+  },
+  "asset-kenney-train-kit": {
+    "thumbnailFile": "asset-kenney-train-kit-d67aa1bd79.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/train-kit/625675b011-1722429699/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.628Z",
+    "label": "Train Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-tower-defense-kit": {
+    "thumbnailFile": "asset-kenney-tower-defense-kit-eb96d12904.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/tower-defense-kit/1f419ba88f-1726042030/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.628Z",
+    "label": "Tower Defense Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-ui-pack-pixel-adventure": {
+    "thumbnailFile": "asset-kenney-ui-pack-pixel-adventure-81a1f1fc0c.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/ui-pack-pixel-adventure/07714c9849-1725434429/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.628Z",
+    "label": "UI Pack - Pixel Adventure — Kenney asset pack preview"
+  },
+  "asset-kenney-prototype-kit": {
+    "thumbnailFile": "asset-kenney-prototype-kit-ff616a7182.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/prototype-kit/6ed928c9d0-1724832070/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.628Z",
+    "label": "Prototype Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-ui-pack-sci-fi": {
+    "thumbnailFile": "asset-kenney-ui-pack-sci-fi-639ea09804.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/ui-pack-sci-fi/00227142e5-1724181103/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.629Z",
+    "label": "UI Pack - Sci-Fi — Kenney asset pack preview"
+  },
+  "asset-kenney-ui-pack-adventure": {
+    "thumbnailFile": "asset-kenney-ui-pack-adventure-b3f0058196.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/ui-pack-adventure/6ee19514ca-1723597272/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.628Z",
+    "label": "UI Pack - Adventure — Kenney asset pack preview"
+  },
+  "asset-kenney-pico-8-platformer": {
+    "thumbnailFile": "asset-kenney-pico-8-platformer-1047cffdd1.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/pico-8-platformer/2abfa71aef-1723028951/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.630Z",
+    "label": "Pico-8 Platformer — Kenney asset pack preview"
+  },
+  "asset-kenney-pattern-pack": {
+    "thumbnailFile": "asset-kenney-pattern-pack-046276cb05.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/pattern-pack/3b80483303-1677484337/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.630Z",
+    "label": "Pattern Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-brick-pack": {
+    "thumbnailFile": "asset-kenney-brick-pack-151875b0f8.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/brick-pack/9cebe2fff0-1721806549/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.630Z",
+    "label": "Brick Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-board-game-icons": {
+    "thumbnailFile": "asset-kenney-board-game-icons-a647aeb945.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/board-game-icons/d5c5bd2f28-1674933139/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.630Z",
+    "label": "Board Game Icons — Kenney asset pack preview"
+  },
+  "asset-kenney-casino-audio": {
+    "thumbnailFile": "asset-kenney-casino-audio-b74ad86cb4.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/casino-audio/225669dbea-1677590184/preview-2-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.631Z",
+    "label": "Casino Audio — Kenney asset pack preview"
+  },
+  "asset-kenney-mini-arcade": {
+    "thumbnailFile": "asset-kenney-mini-arcade-38f4f82c01.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mini-arcade/a766ceba5b-1720210169/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.631Z",
+    "label": "Mini Arcade — Kenney asset pack preview"
+  },
+  "asset-kenney-pattern-pack-pixel": {
+    "thumbnailFile": "asset-kenney-pattern-pack-pixel-0f2c8a89f0.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/pattern-pack-pixel/481a61c702-1721639978/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.631Z",
+    "label": "Pattern Pack Pixel — Kenney asset pack preview"
+  },
+  "asset-kenney-mini-characters": {
+    "thumbnailFile": "asset-kenney-mini-characters-ec917e87a0.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/mini-characters/357d1a9452-1721210569/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.632Z",
+    "label": "Mini Characters — Kenney asset pack preview"
+  },
+  "asset-kenney-cursor-pixel-pack": {
+    "thumbnailFile": "asset-kenney-cursor-pixel-pack-9617cd86e9.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/cursor-pixel-pack/c79ea7ecd0-1720601327/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.632Z",
+    "label": "Cursor Pixel Pack — Kenney asset pack preview"
+  },
+  "asset-kenney-food-kit": {
+    "thumbnailFile": "asset-kenney-food-kit-d6e13a24fa.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/food-kit/7a37477a9c-1719418523/preview-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.632Z",
+    "label": "Food Kit — Kenney asset pack preview"
+  },
+  "asset-kenney-building-kit": {
+    "thumbnailFile": "asset-kenney-building-kit-331a3408c0.png",
+    "thumbnailSource": "https://kenney.nl/media/pages/assets/building-kit/617be3e07b-1718801879/sample-400x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.632Z",
+    "label": "Building Kit — Kenney asset pack preview"
+  },
+  "asset-gh-barvian-number-flow": {
+    "kind": "image",
+    "file": "asset-gh-barvian-number-flow-source.png",
+    "label": "NumberFlow original demo or documentation preview",
+    "captureSource": "https://number-flow.barvian.me/",
+    "thumbnailFile": "asset-gh-barvian-number-flow-source.png",
+    "thumbnailSource": "local:asset-gh-barvian-number-flow-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.514Z"
+  },
+  "asset-gh-michalsnik-aos": {
+    "kind": "image",
+    "file": "asset-gh-michalsnik-aos-source.png",
+    "label": "AOS original demo or documentation preview",
+    "captureSource": "https://michalsnik.github.io/aos/",
+    "thumbnailFile": "asset-gh-michalsnik-aos-source.png",
+    "thumbnailSource": "local:asset-gh-michalsnik-aos-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.577Z"
+  },
+  "asset-gh-dixonandmoe-rellax": {
+    "kind": "image",
+    "file": "asset-gh-dixonandmoe-rellax-source.png",
+    "label": "Rellax original demo or documentation preview",
+    "captureSource": "https://dixonandmoe.com/rellax/",
+    "thumbnailFile": "asset-gh-dixonandmoe-rellax-source.png",
+    "thumbnailSource": "local:asset-gh-dixonandmoe-rellax-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.516Z"
+  },
+  "asset-gh-micku7zu-vanilla-tilt.js": {
+    "kind": "image",
+    "file": "asset-gh-micku7zu-vanilla-tilt.js-source.png",
+    "label": "Vanilla Tilt original demo or documentation preview",
+    "captureSource": "https://micku7zu.github.io/vanilla-tilt.js/",
+    "thumbnailFile": "asset-gh-micku7zu-vanilla-tilt.js-source.png",
+    "thumbnailSource": "local:asset-gh-micku7zu-vanilla-tilt.js-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.516Z"
+  },
+  "asset-gh-valentine195-obsidian-admonition": {
+    "url": "https://raw.githubusercontent.com/ebullient/obsidian-admonition/main/docs/images/default.png",
+    "label": "Admonition original example screenshot",
+    "thumbnailFile": "asset-gh-valentine195-obsidian-admonition-911e8250eb.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/ebullient/obsidian-admonition/main/docs/images/default.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.848Z"
+  },
+  "asset-gh-kepano-obsidian-minimal-settings": {
+    "url": "https://publish-01.obsidian.md/access/342b33803baa5ad0055c9141648edad3/Images/minimal-variants.png",
+    "label": "Minimal Theme Settings original example screenshot",
+    "thumbnailFile": "asset-gh-kepano-obsidian-minimal-settings-e7a7065591.png",
+    "thumbnailSource": "https://publish-01.obsidian.md/access/342b33803baa5ad0055c9141648edad3/Images/minimal-variants.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.875Z"
+  },
+  "asset-gh-Vinzent03-obsidian-advanced-uri": {
+    "kind": "image",
+    "file": "asset-gh-Vinzent03-obsidian-advanced-uri-source.png",
+    "label": "Advanced URI original demo or documentation preview",
+    "captureSource": "https://publish.obsidian.md/advanced-uri-doc",
+    "thumbnailFile": "asset-gh-Vinzent03-obsidian-advanced-uri-source.png",
+    "thumbnailSource": "local:asset-gh-Vinzent03-obsidian-advanced-uri-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.584Z"
+  },
+  "asset-gh-withastro-starlight": {
+    "kind": "image",
+    "file": "asset-gh-withastro-starlight-source.png",
+    "label": "Starlight original demo or documentation preview",
+    "captureSource": "https://starlight.astro.build/",
+    "thumbnailFile": "asset-gh-withastro-starlight-source.png",
+    "thumbnailSource": "local:asset-gh-withastro-starlight-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.584Z"
+  },
+  "asset-gh-shuding-nextra": {
+    "kind": "image",
+    "file": "asset-gh-shuding-nextra-source.png",
+    "label": "Nextra original demo or documentation preview",
+    "captureSource": "https://nextra.site/",
+    "thumbnailFile": "asset-gh-shuding-nextra-source.png",
+    "thumbnailSource": "local:asset-gh-shuding-nextra-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.585Z"
+  },
+  "asset-gh-just-the-docs-just-the-docs": {
+    "kind": "image",
+    "file": "asset-gh-just-the-docs-just-the-docs-source.png",
+    "label": "Just the Docs original demo or documentation preview",
+    "captureSource": "https://just-the-docs.com/",
+    "thumbnailFile": "asset-gh-just-the-docs-just-the-docs-source.png",
+    "thumbnailSource": "local:asset-gh-just-the-docs-just-the-docs-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.585Z"
+  },
+  "asset-gh-jekyll-minima": {
+    "kind": "image",
+    "file": "asset-gh-jekyll-minima-source.png",
+    "label": "Minima original demo or documentation preview",
+    "captureSource": "https://jekyll.github.io/minima/",
+    "thumbnailFile": "asset-gh-jekyll-minima-source.png",
+    "thumbnailSource": "local:asset-gh-jekyll-minima-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.586Z"
+  },
+  "asset-gh-satnaing-astro-paper": {
+    "kind": "image",
+    "file": "asset-gh-satnaing-astro-paper-source.png",
+    "label": "AstroPaper original demo or documentation preview",
+    "captureSource": "https://astro-paper.pages.dev/",
+    "thumbnailFile": "asset-gh-satnaing-astro-paper-source.png",
+    "thumbnailSource": "local:asset-gh-satnaing-astro-paper-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.587Z"
+  },
+  "asset-gh-refinedev-refine": {
+    "kind": "image",
+    "file": "asset-gh-refinedev-refine-source.png",
+    "label": "Refine original demo or documentation preview",
+    "captureSource": "https://refine.dev/",
+    "thumbnailFile": "asset-gh-refinedev-refine-source.png",
+    "thumbnailSource": "local:asset-gh-refinedev-refine-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.589Z"
+  },
+  "asset-gh-wasp-lang-open-saas": {
+    "kind": "image",
+    "file": "asset-gh-wasp-lang-open-saas-source.png",
+    "label": "Open SaaS original demo or documentation preview",
+    "captureSource": "https://opensaas.sh/",
+    "thumbnailFile": "asset-gh-wasp-lang-open-saas-source.png",
+    "thumbnailSource": "local:asset-gh-wasp-lang-open-saas-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.590Z"
+  },
+  "asset-gh-electron-react-boilerplate-electron-react-boilerplate": {
+    "kind": "image",
+    "file": "asset-gh-electron-react-boilerplate-electron-react-boilerplate-source.png",
+    "label": "Electron React Boilerplate original demo or documentation preview",
+    "captureSource": "https://electron-react-boilerplate.js.org/",
+    "thumbnailFile": "asset-gh-electron-react-boilerplate-electron-react-boilerplate-source.png",
+    "thumbnailSource": "local:asset-gh-electron-react-boilerplate-electron-react-boilerplate-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.590Z"
+  },
+  "asset-gh-langchain-ai-langgraph": {
+    "kind": "image",
+    "file": "asset-gh-langchain-ai-langgraph-source.png",
+    "label": "LangGraph original demo or documentation preview",
+    "captureSource": "https://docs.langchain.com/oss/python/langgraph/overview",
+    "thumbnailFile": "asset-gh-langchain-ai-langgraph-source.png",
+    "thumbnailSource": "local:asset-gh-langchain-ai-langgraph-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.592Z"
+  },
+  "asset-gh-pydantic-pydantic-ai": {
+    "kind": "image",
+    "file": "asset-gh-pydantic-pydantic-ai-source.png",
+    "label": "Pydantic AI original demo or documentation preview",
+    "captureSource": "https://ai.pydantic.dev/",
+    "thumbnailFile": "asset-gh-pydantic-pydantic-ai-source.png",
+    "thumbnailSource": "local:asset-gh-pydantic-pydantic-ai-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.593Z"
+  },
+  "asset-gh-agno-agi-agno": {
+    "kind": "image",
+    "file": "asset-gh-agno-agi-agno-source.png",
+    "label": "Agno original demo or documentation preview",
+    "captureSource": "https://docs.agno.com/",
+    "thumbnailFile": "asset-gh-agno-agi-agno-source.png",
+    "thumbnailSource": "local:asset-gh-agno-agi-agno-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.593Z"
+  },
+  "asset-gh-mastra-ai-mastra": {
+    "kind": "image",
+    "file": "asset-gh-mastra-ai-mastra-source.png",
+    "label": "Mastra original demo or documentation preview",
+    "captureSource": "https://mastra.ai/",
+    "thumbnailFile": "asset-gh-mastra-ai-mastra-source.png",
+    "thumbnailSource": "local:asset-gh-mastra-ai-mastra-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.593Z"
+  },
+  "asset-gh-blacksmithgu-obsidian-dataview": {
+    "thumbnailFile": "asset-gh-blacksmithgu-obsidian-dataview-b5ff15006f.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/blacksmithgu/obsidian-dataview/HEAD/docs/docs/assets/project-task.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.579Z",
+    "label": "Dataview original asset preview"
+  },
+  "asset-gh-figma-plugin-samples": {
+    "thumbnailFile": "asset-gh-figma-plugin-samples-6351ed31cc.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/figma/plugin-samples/HEAD/_screenshots/create-shapes-connectors.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.577Z",
+    "label": "Figma plugin samples original asset preview"
+  },
+  "asset-gh-aidenlx-obsidian-icon-shortcodes": {
+    "thumbnailFile": "asset-gh-aidenlx-obsidian-icon-shortcodes-5c26a7c3b2.png",
+    "thumbnailSource": "https://user-images.githubusercontent.com/31102694/143665662-76ed8478-2e81-4006-a8a9-696258a268ce.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.579Z",
+    "label": "Icon Shortcodes original asset preview"
+  },
+  "asset-gh-liamcain-obsidian-calendar-plugin": {
+    "thumbnailFile": "asset-gh-liamcain-obsidian-calendar-plugin-2c93e565cd.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/liamcain/obsidian-calendar-plugin/master/images/screenshot-full.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.581Z",
+    "label": "Obsidian Calendar original asset preview"
+  },
+  "asset-gh-maxwellito-vivus": {
+    "thumbnailFile": "asset-gh-maxwellito-vivus-5e7cd9d3b5.png",
+    "thumbnailSource": "https://raw.github.com/maxwellito/vivus/master/assets/delayed.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.516Z",
+    "label": "Vivus original asset preview"
+  },
+  "asset-gh-chhoumann-quickadd": {
+    "thumbnailFile": "asset-gh-chhoumann-quickadd-8831d5c7c3.gif",
+    "thumbnailSource": "https://raw.githubusercontent.com/chhoumann/quickadd/HEAD/assets/readme-hero.gif",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.582Z",
+    "label": "QuickAdd original asset preview"
+  },
+  "asset-gh-argenos-nldates-obsidian": {
+    "thumbnailFile": "asset-gh-argenos-nldates-obsidian-3730b26930.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/argenos/nldates-obsidian/HEAD/assets/date-picker.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.581Z",
+    "label": "Natural Language Dates original asset preview"
+  },
+  "asset-gh-manuelernestog-astrofy": {
+    "thumbnailFile": "asset-gh-manuelernestog-astrofy-2e9780004c.webp",
+    "thumbnailSource": "https://raw.githubusercontent.com/manuelernestog/astrofy/HEAD/public/social_img.webp",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.585Z",
+    "label": "Astrofy original asset preview"
+  },
+  "asset-gh-liamcain-obsidian-periodic-notes": {
+    "thumbnailFile": "asset-gh-liamcain-obsidian-periodic-notes-227a698bd9.png",
+    "thumbnailSource": "https://user-images.githubusercontent.com/693981/111852801-c1cd8e00-88ee-11eb-9542-b7d840239037.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.582Z",
+    "label": "Periodic Notes original asset preview"
+  },
+  "asset-gh-onwidget-astrowind": {
+    "thumbnailFile": "asset-gh-onwidget-astrowind-ea75f0a236.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/screenshot-astrowind-readme-def-v1.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.589Z",
+    "label": "AstroWind original asset preview"
+  },
+  "asset-gh-BartoszJarocki-cv": {
+    "thumbnailFile": "asset-gh-BartoszJarocki-cv-6f93afbe73.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/BartoszJarocki/cv/HEAD/.github/screenshot.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.589Z",
+    "label": "Minimal Resume original asset preview"
+  },
+  "asset-gh-fastapi-full-stack-fastapi-template": {
+    "thumbnailFile": "asset-gh-fastapi-full-stack-fastapi-template-34181ccd00.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/HEAD/img/dashboard.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.589Z",
+    "label": "Full Stack FastAPI original asset preview"
+  },
+  "asset-gh-ixartz-SaaS-Boilerplate": {
+    "thumbnailFile": "asset-gh-ixartz-SaaS-Boilerplate-96c17aedde.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/ixartz/SaaS-Boilerplate/HEAD/public/assets/images/nextjs-starter-banner.png?raw=true",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.590Z",
+    "label": "SaaS Boilerplate original asset preview"
+  },
+  "asset-gh-tabler-tabler": {
+    "thumbnailFile": "asset-gh-tabler-tabler-cf0959b592.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/tabler/tabler/dev/shared/static/tabler-preview@2x.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.590Z",
+    "label": "Tabler original asset preview"
+  },
+  "asset-gh-tailwindtoolbox-Landing-Page": {
+    "thumbnailFile": "asset-gh-tailwindtoolbox-Landing-Page-66ef301907.png",
+    "thumbnailSource": "https://www.tailwindtoolbox.com/templates/landing-page.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.585Z",
+    "label": "Tailwind Landing Page original asset preview"
+  },
+  "asset-gh-themefisher-bookworm-light-astro": {
+    "thumbnailFile": "asset-gh-themefisher-bookworm-light-astro-1d5552869e.png",
+    "thumbnailSource": "https://assets.teamosis.com/thumbs/bookworm-light.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.586Z",
+    "label": "Bookworm Light original asset preview"
+  },
+  "asset-gh-marmelab-react-admin": {
+    "thumbnailFile": "asset-gh-marmelab-react-admin-52180eb158.png",
+    "thumbnailSource": "https://marmelab.com/react-admin/img/react-admin-demo-still.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.589Z",
+    "label": "React Admin original asset preview"
+  },
+  "asset-gh-crewAIInc-crewAI": {
+    "thumbnailFile": "asset-gh-crewAIInc-crewAI-211211050a.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/crewAIInc/crewAI/HEAD/docs/images/asset.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.592Z",
+    "label": "CrewAI original asset preview"
+  },
+  "asset-gh-remult-remult": {
+    "thumbnailFile": "asset-gh-remult-remult-dccd59d0b7.gif",
+    "thumbnailSource": "https://raw.githubusercontent.com/remult/remult/main/static/images/admin-ui.gif",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.593Z",
+    "label": "Remult original asset preview"
+  },
+  "asset-gh-flatlogic-react-material-admin": {
+    "thumbnailFile": "asset-gh-flatlogic-react-material-admin-53cef3f954.png",
+    "thumbnailSource": "https://user-images.githubusercontent.com/24964748/55800639-df780300-5adc-11e9-84b7-7c2437088516.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.591Z",
+    "label": "React Material Admin original asset preview"
+  },
+  "asset-gh-bytedance-deer-flow": {
+    "thumbnailFile": "asset-gh-bytedance-deer-flow-a25353432b.png",
+    "thumbnailSource": "https://sf16-sg.tiktokcdn.com/obj/eden-sg/hubseh7bsbps/20251208-160108.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.594Z",
+    "label": "DeerFlow original asset preview"
+  },
+  "asset-gh-huggingface-smolagents": {
+    "kind": "image",
+    "file": "asset-gh-huggingface-smolagents-source.png",
+    "captureSource": "https://huggingface.co/docs/smolagents/index",
+    "label": "smolagents original documentation preview",
+    "thumbnailFile": "asset-gh-huggingface-smolagents-source.png",
+    "thumbnailSource": "local:asset-gh-huggingface-smolagents-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.592Z"
+  },
+  "asset-gh-simstudioai-sim": {
+    "thumbnailFile": "asset-gh-simstudioai-sim-28fd3bf6f6.png",
+    "thumbnailSource": "https://raw.githubusercontent.com/simstudioai/sim/HEAD/apps/sim/public/static/readme-platform.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.594Z",
+    "label": "Sim original asset preview"
+  },
+  "asset-gh-openai-openai-agents-python": {
+    "thumbnailFile": "asset-gh-openai-openai-agents-python-aec4a05ed7.png",
+    "thumbnailSource": "https://cdn.openai.com/API/docs/images/orchestration.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.592Z",
+    "label": "OpenAI Agents SDK original asset preview"
+  },
+  "asset-gh-coreui-coreui-free-react-admin-template": {
+    "thumbnailFile": "asset-gh-coreui-coreui-free-react-admin-template-80f15a1fdb.webp",
+    "thumbnailSource": "https://assets.coreui.io/products/coreui-free-bootstrap-admin-template-light-dark.webp",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.590Z",
+    "label": "CoreUI React Free original asset preview"
+  },
+  "asset-gh-langflow-ai-langflow": {
+    "kind": "image",
+    "file": "asset-gh-langflow-ai-langflow-source.png",
+    "captureSource": "https://docs.langflow.org/",
+    "label": "Langflow original documentation preview",
+    "thumbnailFile": "asset-gh-langflow-ai-langflow-source.png",
+    "thumbnailSource": "local:asset-gh-langflow-ai-langflow-source.png",
+    "thumbnailVerifiedAt": "2026-10-27T02:59:59.594Z"
+  }
+}

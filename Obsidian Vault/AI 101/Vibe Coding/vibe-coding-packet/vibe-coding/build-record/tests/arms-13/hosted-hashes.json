@@ -1,0 +1,14 @@
+[
+  {
+    "file": "src/arm-kinematics.js",
+    "match": true
+  },
+  {
+    "file": "src/character-encounters.js",
+    "match": true
+  },
+  {
+    "file": "src/main.js",
+    "match": true
+  }
+]

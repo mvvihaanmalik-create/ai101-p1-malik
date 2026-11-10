@@ -1,0 +1,16 @@
+{
+  "file": "T1-main-path.mp4",
+  "durationSeconds": 682.933333,
+  "bytes": 62302142,
+  "width": 1280,
+  "height": 720,
+  "fps": 15,
+  "videoCodec": "h264",
+  "audioStreams": 0,
+  "roles": {
+    "observer": "Vihaan",
+    "operatorAndRecorder": "Codex"
+  },
+  "baseline": "v13 / dpl_GdzBSACzQAqwRTPJHPAiH6wMSqrZ",
+  "sha256": "779edd79bd9cbea2b93185fecf954259488642ec17ad7428b20d490aca38e59b"
+}

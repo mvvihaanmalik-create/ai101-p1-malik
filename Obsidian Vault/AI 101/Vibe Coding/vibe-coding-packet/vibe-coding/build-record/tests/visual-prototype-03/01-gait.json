@@ -1,0 +1,14 @@
+{
+  "Guest": {
+    "stanceAnkleDriftMetres": 0.0,
+    "stanceAnkleHeightVariationMetres": 0.0,
+    "cycleMetres": 1.0746666666666669,
+    "samples": 17
+  },
+  "Butler": {
+    "stanceAnkleDriftMetres": 0.0,
+    "stanceAnkleHeightVariationMetres": 0.0,
+    "cycleMetres": 0.7133333333333335,
+    "samples": 31
+  }
+}

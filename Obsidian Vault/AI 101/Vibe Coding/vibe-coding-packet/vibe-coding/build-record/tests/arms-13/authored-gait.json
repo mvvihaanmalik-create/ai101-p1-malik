@@ -1,0 +1,38 @@
+{
+  "Walk": {
+    "stanceWorldAnkleRangeMetres": [
+      5.21540641784668e-07,
+      7.748603820800781e-07,
+      4.917383193969727e-07
+    ],
+    "cycleMetres": 1.04,
+    "samples": 19
+  },
+  "WalkBack": {
+    "stanceWorldAnkleRangeMetres": [
+      3.948807716369629e-07,
+      4.6193599700927734e-07,
+      4.3213367462158203e-07
+    ],
+    "cycleMetres": 0.7626666666666667,
+    "samples": 19
+  },
+  "StepLeft": {
+    "stanceWorldAnkleRangeMetres": [
+      2.980232238769531e-07,
+      5.550682544708252e-07,
+      2.7567148208618164e-07
+    ],
+    "cycleMetres": 0.52,
+    "samples": 19
+  },
+  "StepRight": {
+    "stanceWorldAnkleRangeMetres": [
+      3.203749656677246e-07,
+      5.811452865600586e-07,
+      3.3527612686157227e-07
+    ],
+    "cycleMetres": 0.52,
+    "samples": 19
+  }
+}

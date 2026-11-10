@@ -1,0 +1,80 @@
+[
+  {
+    "label": "desk",
+    "view": 3,
+    "room": "reception",
+    "frameMs": 16.7
+  },
+  {
+    "label": "lift-wide",
+    "view": 4,
+    "room": "landing",
+    "frameMs": 16.7
+  },
+  {
+    "label": "gallery",
+    "view": 0,
+    "room": "corridor",
+    "frameMs": 16.7
+  },
+  {
+    "label": "stairs",
+    "view": 5,
+    "room": "stairs",
+    "frameMs": 16.7
+  },
+  {
+    "label": "suite-door",
+    "view": 7,
+    "room": "suite",
+    "frameMs": 19.1
+  },
+  {
+    "label": "night-bar",
+    "view": 8,
+    "room": "lounge",
+    "frameMs": 18.5
+  },
+  {
+    "label": "dog",
+    "view": 20,
+    "room": "stairs",
+    "frameMs": 22
+  },
+  {
+    "label": "bell",
+    "view": 21,
+    "room": "corridor",
+    "frameMs": 20
+  },
+  {
+    "label": "luggage",
+    "view": 19,
+    "room": "corridor",
+    "frameMs": 78.2
+  },
+  {
+    "label": "mirror",
+    "view": 11,
+    "room": "corridor",
+    "frameMs": 19.9
+  },
+  {
+    "label": "children",
+    "view": 20,
+    "room": "stairs",
+    "frameMs": 16.7
+  },
+  {
+    "label": "bones",
+    "view": 7,
+    "room": "suite",
+    "frameMs": 16.7
+  },
+  {
+    "label": "surround",
+    "view": 7,
+    "room": "suite",
+    "frameMs": 29.3
+  }
+]

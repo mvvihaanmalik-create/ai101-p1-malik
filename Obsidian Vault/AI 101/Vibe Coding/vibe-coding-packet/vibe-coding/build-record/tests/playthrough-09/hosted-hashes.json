@@ -1,0 +1,47 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "C6FB5C35D491CE1F7D235BFCA15F5EA8655954A5FF964A031864904F8918E6C1",
+    "match": true
+  },
+  {
+    "file": "src/main.js",
+    "sha256": "3222EF740E691331E0BB6EB469D51A593A21CA621AD254169FE3149DEBB89A18",
+    "match": true
+  },
+  {
+    "file": "src/style.css",
+    "sha256": "2EB365E605AB4A9BCFE4D7FE3C41CC79FAC0F62654C52A91AA9AF98A96C984AE",
+    "match": true
+  },
+  {
+    "file": "src/passage-loop.js",
+    "sha256": "DDFFD3BEB37C9EEB61E1AFAA55F26B6357D6895DC3203AFE1AFD3F0A85E49484",
+    "match": true
+  },
+  {
+    "file": "src/character-encounters.js",
+    "sha256": "251D692BDD53C6196D8B5602426429ED9C7351A6072C9C429F05498858DFFCB3",
+    "match": true
+  },
+  {
+    "file": "src/guest-locomotion.js",
+    "sha256": "C92E1982CBBCDC9F868258D76716F29280A51E02F8C1E3566267B28B0FA9C36D",
+    "match": true
+  },
+  {
+    "file": "assets/hotel-v9.json",
+    "sha256": "AD35C5A2DD04A1E4F75BD39848439BAA0FF6E2913B77AF7E2DFD705D0523CB7C",
+    "match": true
+  },
+  {
+    "file": "assets/inspect-luggage-v9.webp",
+    "sha256": "1F9319EECB8A163570EDB425C042CDE60BADEE4FE45F3EA5597C19C226BAB1EF",
+    "match": true
+  },
+  {
+    "file": "assets/suite-v9.webp",
+    "sha256": "54DEFED9DC8F1455CB1D3B17DFECD81B72AD957DDF0BBBAB17D1CB089253DF8D",
+    "match": true
+  }
+]

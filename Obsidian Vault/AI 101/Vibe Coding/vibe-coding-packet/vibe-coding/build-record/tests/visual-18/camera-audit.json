@@ -1,0 +1,268 @@
+{
+  "expected": 38,
+  "rendered": 32,
+  "missing": [
+    "route-19-normal-v15.webp",
+    "inspect-stair-v15.webp",
+    "route-21-normal-v15.webp",
+    "route-22-normal-v15.webp",
+    "ending-butler-v6.webp",
+    "ending-surround-v6.webp"
+  ],
+  "shots": [
+    {
+      "file": "route-0-normal-v15.webp",
+      "bytes": 455334,
+      "meanAbsRGB": 0.57,
+      "lumaShift": -0.11
+    },
+    {
+      "file": "route-1-normal-v15.webp",
+      "bytes": 366134,
+      "meanAbsRGB": 0.6,
+      "lumaShift": -0.1
+    },
+    {
+      "file": "route-2-normal-v15.webp",
+      "bytes": 337338,
+      "meanAbsRGB": 0.57,
+      "lumaShift": -0.12
+    },
+    {
+      "file": "reception-v3-v14.webp",
+      "bytes": 284736,
+      "meanAbsRGB": 0.32,
+      "lumaShift": -0.08
+    },
+    {
+      "file": "route-4-normal-v15.webp",
+      "bytes": 305662,
+      "meanAbsRGB": 0.3,
+      "lumaShift": -0.06
+    },
+    {
+      "file": "route-5-normal-v15.webp",
+      "bytes": 297868,
+      "meanAbsRGB": 0.3,
+      "lumaShift": -0.07
+    },
+    {
+      "file": "route-6-normal-v15.webp",
+      "bytes": 158656,
+      "meanAbsRGB": 0.25,
+      "lumaShift": -0.05
+    },
+    {
+      "file": "suite-v9-v14.webp",
+      "bytes": 274636,
+      "meanAbsRGB": 0.31,
+      "lumaShift": -0.06
+    },
+    {
+      "file": "lounge-v3-v14.webp",
+      "bytes": 274250,
+      "meanAbsRGB": 0.3,
+      "lumaShift": -0.08
+    },
+    {
+      "file": "route-9-normal-v15.webp",
+      "bytes": 367834,
+      "meanAbsRGB": 0.49,
+      "lumaShift": -0.07
+    },
+    {
+      "file": "inspect-portrait-v5-v14.webp",
+      "bytes": 431632,
+      "meanAbsRGB": 0.51,
+      "lumaShift": -0.15
+    },
+    {
+      "file": "inspect-mirror-v5-v14.webp",
+      "bytes": 377150,
+      "meanAbsRGB": 0.52,
+      "lumaShift": -0.17
+    },
+    {
+      "file": "route-12-normal-v15.webp",
+      "bytes": 394928,
+      "meanAbsRGB": 0.45,
+      "lumaShift": -0.08
+    },
+    {
+      "file": "route-13-normal-v15.webp",
+      "bytes": 279658,
+      "meanAbsRGB": 0.32,
+      "lumaShift": -0.08
+    },
+    {
+      "file": "inspect-rain-v5-v14.webp",
+      "bytes": 127198,
+      "meanAbsRGB": 0.42,
+      "lumaShift": -0.12
+    },
+    {
+      "file": "route-15-normal-v15.webp",
+      "bytes": 366872,
+      "meanAbsRGB": 0.45,
+      "lumaShift": -0.04
+    },
+    {
+      "file": "inspect-dog-v5-v14.webp",
+      "bytes": 344420,
+      "meanAbsRGB": 0.39,
+      "lumaShift": -0.06
+    },
+    {
+      "file": "route-17-normal-v15.webp",
+      "bytes": 413832,
+      "meanAbsRGB": 0.52,
+      "lumaShift": -0.07
+    },
+    {
+      "file": "route-18-normal-v15.webp",
+      "bytes": 297320,
+      "meanAbsRGB": 0.44,
+      "lumaShift": -0.02
+    },
+    {
+      "file": "route-0-E1-v15.webp",
+      "bytes": 453576,
+      "meanAbsRGB": 0.57,
+      "lumaShift": -0.11
+    },
+    {
+      "file": "route-1-E1-v15.webp",
+      "bytes": 366146,
+      "meanAbsRGB": 0.6,
+      "lumaShift": -0.1
+    },
+    {
+      "file": "route-2-E1-v15.webp",
+      "bytes": 337442,
+      "meanAbsRGB": 0.57,
+      "lumaShift": -0.11
+    },
+    {
+      "file": "inspect-portrait-E1-v5-v14.webp",
+      "bytes": 405158,
+      "meanAbsRGB": 0.51,
+      "lumaShift": -0.13
+    },
+    {
+      "file": "route-17-E1-v15.webp",
+      "bytes": 413598,
+      "meanAbsRGB": 0.52,
+      "lumaShift": -0.07
+    },
+    {
+      "file": "route-4-E3-v15.webp",
+      "bytes": 313352,
+      "meanAbsRGB": 0.3,
+      "lumaShift": -0.07
+    },
+    {
+      "file": "route-13-E3-v15.webp",
+      "bytes": 301398,
+      "meanAbsRGB": 0.32,
+      "lumaShift": -0.09
+    },
+    {
+      "file": "route-0-E4-v15.webp",
+      "bytes": 464054,
+      "meanAbsRGB": 0.56,
+      "lumaShift": -0.11
+    },
+    {
+      "file": "route-1-E4-v15.webp",
+      "bytes": 360552,
+      "meanAbsRGB": 0.59,
+      "lumaShift": -0.11
+    },
+    {
+      "file": "route-2-E4-v15.webp",
+      "bytes": 327438,
+      "meanAbsRGB": 0.53,
+      "lumaShift": -0.11
+    },
+    {
+      "file": "inspect-mirror-E4-v5-v14.webp",
+      "bytes": 378458,
+      "meanAbsRGB": 0.5,
+      "lumaShift": -0.18
+    },
+    {
+      "file": "route-12-E4-v15.webp",
+      "bytes": 391634,
+      "meanAbsRGB": 0.45,
+      "lumaShift": -0.09
+    },
+    {
+      "file": "route-18-E4-v15.webp",
+      "bytes": 289058,
+      "meanAbsRGB": 0.4,
+      "lumaShift": -0.04
+    }
+  ],
+  "variants": [
+    {
+      "variant": "E1",
+      "shot": "0",
+      "activePixels": 82,
+      "agreement": 0.999
+    },
+    {
+      "variant": "E1",
+      "shot": "10",
+      "activePixels": 697,
+      "agreement": 1.0
+    },
+    {
+      "variant": "E3",
+      "shot": "4",
+      "activePixels": 343,
+      "agreement": 0.999
+    },
+    {
+      "variant": "E3",
+      "shot": "13",
+      "activePixels": 1512,
+      "agreement": 1.0
+    },
+    {
+      "variant": "E4",
+      "shot": "0",
+      "activePixels": 47,
+      "agreement": 0.994
+    },
+    {
+      "variant": "E4",
+      "shot": "1",
+      "activePixels": 59,
+      "agreement": 0.998
+    },
+    {
+      "variant": "E4",
+      "shot": "2",
+      "activePixels": 63,
+      "agreement": 0.998
+    },
+    {
+      "variant": "E4",
+      "shot": "11",
+      "activePixels": 375,
+      "agreement": 1.0
+    },
+    {
+      "variant": "E4",
+      "shot": "12",
+      "activePixels": 18,
+      "agreement": 0.998
+    },
+    {
+      "variant": "E4",
+      "shot": "18",
+      "activePixels": 139,
+      "agreement": 0.997
+    }
+  ]
+}

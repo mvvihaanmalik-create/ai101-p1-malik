@@ -1,0 +1,21 @@
+✔ only the unlocked suite during gameplay can start the ending (1.5939ms)
+✔ the greeting repeats verbatim before the skeleton and surrounding cast (0.4504ms)
+✔ the finite ending freezes at its terminal image and never loops into play (2.7009ms)
+✔ reveal and enclosure are bounded and monotonic with no flashing fade (11.2455ms)
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (3.0678ms)
+✔ four consecutive correct decisions unlock, both choices are valid (3.2584ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (2.1547ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.1969ms)
+✔ anomaly bags have no repeats and survive resets; distribution is approximately half (11.0186ms)
+✔ same seed reproduces order; different seeds produce different orders (0.3835ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.2184ms)
+✔ all twelve approved anomalies and all six ordinary character vignettes are reachable (3.8091ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.4197ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 175.9817

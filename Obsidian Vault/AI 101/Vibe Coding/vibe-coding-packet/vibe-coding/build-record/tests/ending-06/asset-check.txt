@@ -1,0 +1,38 @@
+200 src/ending-timeline.js
+200 src/reception-ending.js
+200 assets/ending-v6.json
+200 assets/butler-skeleton-v6.glb
+200 assets/ending-butler-v6.webp
+200 assets/ending-surround-v6.webp
+200 index.html
+200 src/main.js
+200 src/style.css
+200 assets/hotel-v5.json
+200 assets/hotel-occlusion-v3.glb
+200 assets/guest-v3.glb
+200 assets/butler-v3.glb
+200 src/benchmark.js
+200 assets/occlusion.glb
+200 vendor/three/three.module.js
+200 vendor/three/three.core.js
+200 vendor/three/addons/loaders/GLTFLoader.js
+200 vendor/three/addons/utils/BufferGeometryUtils.js
+200 vendor/three/addons/utils/SkeletonUtils.js
+200 src/character-encounters.js
+200 src/encounter-catalogue.js
+200 assets/child-v5.glb
+200 assets/attendant-v5.glb
+200 assets/porter-v5.glb
+200 assets/encounter-props-v5.glb
+200 vendor/three/addons/geometries/RoundedBoxGeometry.js
+200 src/passage-loop.js
+200 src/encounter-art.js
+200 assets/textures/carpet.png
+Runtime routes, 17 matched cameras, 28 plates and six locations passed.
+guest: 7 meshes, 53 bones, three animation clips, 2.93 MB
+butler: 12 meshes, 53 bones, three animation clips, 2.79 MB
+child: 7 meshes, 53 bones, three animation clips, 2.96 MB
+attendant: 7 meshes, 53 bones, three animation clips, 2.88 MB
+porter: 7 meshes, 53 bones, three animation clips, 2.52 MB
+Original dog stand/sit silhouettes, articulated heads and adapted empty coat passed.
+Ending: two matched reception shots and weighted 53-bone anatomical skeleton passed.

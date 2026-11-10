@@ -1,0 +1,6 @@
+dist/
+site.tar.gz
+.local/
+*.log
+node_modules/
+data/projects.json

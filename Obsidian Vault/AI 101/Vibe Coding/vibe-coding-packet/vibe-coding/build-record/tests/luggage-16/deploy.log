@@ -1,0 +1,20 @@
+Vercel CLI 60.1.1 (Node.js 24.15.0)
+Deploying room-zero
+Uploading [--------------------] (0.0B/84KB)
+Uploading [=======-------------] (33.4KB/84KB)
+Uploading [=============-------] (55.5KB/84KB)
+Uploading [=================---] (71.5KB/84KB)
+Uploading [====================] (84.0KB/84KB)
+  Inspect         https://vercel.com/vihaanmalik/room-zero/A5g9Qpq6XWgZEobRWkyLi1NQNb3S
+▲ Production      https://room-zero-6nvnkqfcq-vihaanmalik.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Previous build caches not available.
+Downloading 93 deployment files...
+Running "vercel build"
+Vercel CLI 65.11.0
+[2K[1A[2K[G▲ Production      https://room-zero-6nvnkqfcq-vihaanmalik.vercel.app
+Completing…

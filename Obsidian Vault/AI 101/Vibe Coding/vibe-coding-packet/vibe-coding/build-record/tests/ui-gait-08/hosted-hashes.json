@@ -1,0 +1,37 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "3168981a6c7aef9fca6bb41f2c7a14055792f3534d3bf8067f15d1ab616f0c07",
+    "match": true
+  },
+  {
+    "file": "src/main.js",
+    "sha256": "87c3efb375365c0be2c0222a83d14161e01756628b3a27a3a995a3d69c6cbcc3",
+    "match": true
+  },
+  {
+    "file": "src/style.css",
+    "sha256": "da7574632a9380991403229aa00ab5dea01b658915d9a0e72df057c6920dee12",
+    "match": true
+  },
+  {
+    "file": "src/guest-locomotion.js",
+    "sha256": "e740b293c3635548ad096ea29a7a07152cfa7d7890405ea95baffbbdaed2113a",
+    "match": true
+  },
+  {
+    "file": "assets/guest-v8.glb",
+    "sha256": "baf75329f44fd2b76741b51845677dfb8020fdae5ad31c29c6faf14386b45138",
+    "match": true
+  },
+  {
+    "file": "assets/fonts/cinzel-600.ttf",
+    "sha256": "5150b3609eeaaa9c6d7e093cb9b16ab8ec2f7110ddf0cbe751887e6f158398af",
+    "match": true
+  },
+  {
+    "file": "assets/fonts/ibm-plex-sans-400.ttf",
+    "sha256": "6dbe082463cf749cfa057d45c3048c90f4df031496498e5b5bdfd0b6babb9d16",
+    "match": true
+  }
+]

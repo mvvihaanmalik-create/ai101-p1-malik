@@ -1,0 +1,14 @@
+[
+  {
+    "file": "src/main.js",
+    "match": true
+  },
+  {
+    "file": "src/character-encounters.js",
+    "match": true
+  },
+  {
+    "file": "src/benchmark.js",
+    "match": true
+  }
+]

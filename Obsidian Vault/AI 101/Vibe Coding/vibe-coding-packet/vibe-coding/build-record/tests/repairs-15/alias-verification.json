@@ -1,0 +1,83 @@
+{
+  "base": "https://room-zero-ashy.vercel.app/",
+  "results": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "c07a0fb88bc9204bcfeff05f439b8087db4ef5ee1dce78e9a5c47e01d920a323"
+    },
+    {
+      "file": "src/main.js",
+      "status": 200,
+      "matches": true,
+      "sha256": "29fbd10b8da33f5388a9f26cbc7f64ce49a32cda96d6f3ca9e4ad2fd9e3213a6"
+    },
+    {
+      "file": "src/character-encounters.js",
+      "status": 200,
+      "matches": true,
+      "sha256": "52fd0e91cb4e3575395cf900e7471d76e4318311f234d33318a9e042c7f42865"
+    },
+    {
+      "file": "src/passage-loop.js",
+      "status": 200,
+      "matches": true,
+      "sha256": "eb13fb2c675905e370f81ee1bfeac5638615c33df8db3853f3becb9cabe3c627"
+    },
+    {
+      "file": "src/night-route.js",
+      "status": 200,
+      "matches": true,
+      "sha256": "c35d9e3f76d82250bdeb8e72768abddf751f02efb3b3ff7e6a54850dc82b1c86"
+    },
+    {
+      "file": "assets/hotel-v15.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "a2420adf56cf9412710b0cbeda376ddb07e371b004116348ca5e2e778e150dfa"
+    },
+    {
+      "file": "assets/porcelain-v15.glb",
+      "status": 200,
+      "matches": true,
+      "sha256": "251677453cf23b8a8917fd6035095b3bf54ca4783425ce551edecc74d92a3596"
+    },
+    {
+      "file": "assets/route-2-normal-v15.webp",
+      "status": 200,
+      "matches": true,
+      "sha256": "25bcb2f6f0e8378bcc3e6c2951fce258a93aa08fe197313bd62668c595d72838"
+    },
+    {
+      "file": "assets/route-4-normal-v15.webp",
+      "status": 200,
+      "matches": true,
+      "sha256": "70e4ca2713544030b8ea3590d737b7391b08a9e49a3c8a631a951d5e89ba8bba"
+    },
+    {
+      "file": "assets/route-6-normal-v15.webp",
+      "status": 200,
+      "matches": true,
+      "sha256": "f7bd405b8c8dc7e2d51aef19baf6f73b57aad0d5785218e2e2aee3f6be435555"
+    },
+    {
+      "file": "assets/inspect-stair-v15.webp",
+      "status": 200,
+      "matches": true,
+      "sha256": "7782d66d379fb4d04e025caecdd2928e0133c78c86dbb567d53fdde3d1d44bd6"
+    },
+    {
+      "file": "assets/route-21-normal-v15.webp",
+      "status": 200,
+      "matches": true,
+      "sha256": "d6a424dea190918bd7460ab77c54836948fb64a23f2795431d1eabb002783ef2"
+    },
+    {
+      "file": "assets/route-22-normal-v15.webp",
+      "status": 200,
+      "matches": true,
+      "sha256": "29dcd0839fd72ed4ab8ade66034cc6f5497a909ce7dcf1d9c8797536c6290de3"
+    }
+  ]
+}

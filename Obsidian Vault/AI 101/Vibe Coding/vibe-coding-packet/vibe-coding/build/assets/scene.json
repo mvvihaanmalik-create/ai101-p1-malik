@@ -1,0 +1,37 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "cameras": [
+    {
+      "name": "arrival",
+      "position": [
+        1.05,
+        2.55,
+        0.7
+      ],
+      "target": [
+        -0.3,
+        1.22,
+        -9.2
+      ],
+      "fov": 44.09589492712077,
+      "plate": "arrival.png"
+    },
+    {
+      "name": "passage",
+      "position": [
+        -1.47,
+        2.65,
+        -8.0
+      ],
+      "target": [
+        0.35,
+        1.2,
+        -20
+      ],
+      "fov": 41.11209043916693,
+      "plate": "passage.png"
+    }
+  ],
+  "coordinates": "Three: x = Blender x, y = Blender z, z = -Blender y"
+}

@@ -1,0 +1,34 @@
+{
+  "boundaryState": {
+    "mode": "playing",
+    "view": 0,
+    "guestX": -1.37,
+    "guestY": 2.9,
+    "butlerY": 18.2,
+    "distance": 15.34,
+    "active": false,
+    "repel": 0,
+    "cooldown": 0,
+    "contacts": 0,
+    "casts": 0,
+    "frameMs": 16.7,
+    "triangles": 144782,
+    "errors": []
+  },
+  "afterUnknown": {
+    "mode": "paused",
+    "view": 0,
+    "guestX": -1.37,
+    "guestY": 2.9,
+    "butlerY": 18.2,
+    "distance": 15.34,
+    "active": false,
+    "repel": 0,
+    "cooldown": 0,
+    "contacts": 0,
+    "casts": 0,
+    "frameMs": 16.7,
+    "triangles": 144782,
+    "errors": []
+  }
+}

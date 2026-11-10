@@ -1,0 +1,28 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+16:34:09 | INFO: Data are loaded, start creating Blender stuff
+16:34:09 | INFO: Blender create Mesh node eyebrow001
+16:34:09 | INFO: Blender create Mesh node eyelashes01
+16:34:09 | INFO: Blender create Mesh node high-poly
+16:34:09 | INFO: Blender create Mesh node male_elegantsuit01
+16:34:09 | INFO: Blender create Mesh node shoes03
+16:34:09 | INFO: Blender create Mesh node short01
+16:34:09 | INFO: Blender create Mesh node base.001
+16:34:10 | INFO: glTF import finished in 0.23s
+INFO Draco mesh compression is available, use library at C:\Program Files\Blender Foundation\Blender 4.3\4.3\python\lib\site-packages\extern_draco.dll
+16:34:10 | INFO: Starting glTF 2.0 export
+16:34:10 | INFO: Extracting primitive: eyebrow001.001
+16:34:10 | INFO: Primitives created: 1
+16:34:10 | INFO: Extracting primitive: eyelashes01.001
+16:34:10 | INFO: Primitives created: 1
+16:34:10 | INFO: Extracting primitive: high-poly.001
+16:34:10 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+16:34:10 | INFO: Primitives created: 1
+16:34:10 | INFO: Extracting primitive: short01.001
+16:34:10 | INFO: Primitives created: 1
+16:34:10 | INFO: Extracting primitive: base.002
+16:34:10 | INFO: Primitives created: 1
+16:34:10 | INFO: Finished glTF 2.0 export in 0.10953807830810547 s
+
+CAST COMPLETE (-0.07744195312261581, -0.044774267822504044, 0.9276268482208252) (0.07642470300197601, 0.1411423236131668, 1.107720971107483)
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 03:35:23)

@@ -1,0 +1,19 @@
+{
+  "state": {
+    "mode": "playing",
+    "view": 0,
+    "guestX": -0.37,
+    "guestY": 4.18,
+    "butlerY": 18.2,
+    "distance": 14.02,
+    "active": false,
+    "repel": 0,
+    "cooldown": 4.82,
+    "contacts": 0,
+    "casts": 2,
+    "frameMs": 395.9,
+    "triangles": 444828,
+    "errors": []
+  },
+  "console": []
+}

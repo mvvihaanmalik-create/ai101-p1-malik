@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><title>Room 0 hand repair study</title>
+<style>body{margin:0;background:#151719;color:#ddd;font:16px Georgia}nav{padding:14px;display:flex;gap:12px;align-items:center}button,select{padding:8px;font:inherit}canvas{display:block;width:100%;height:65vh}pre{padding:16px;white-space:pre-wrap}</style>
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<nav><select aria-label="Study"><option value="C5">Glass handoff</option><option value="C6">Luggage grip</option><option value="C4">Dog</option></select><label><input id="changed" type="checkbox">Anomaly</label><button id="play">Play</button><button id="step">Next second</button><button id="reset">Reset time</button><button id="sweep">Check handoff cycle</button></nav><canvas></canvas><pre id="status">Loading models</pre>
+<script type="module">
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {createCharacterEncounters} from '../src/character-encounters.js';
+const canvas=document.querySelector('canvas'),status=document.querySelector('#status'),renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#22272a');const camera=new THREE.PerspectiveCamera(30,1,.01,100);
+scene.add(new THREE.HemisphereLight(0xd8e5ee,0x4a3230,2));for(const [color,x] of [[0xffd7ae,-2],[0xa5cbff,3]]){const l=new THREE.DirectionalLight(color,2);l.position.set(x,3,-10);scene.add(l);}
+const loader=new GLTFLoader();const [adult,child,props,staff,porter,dog]=await Promise.all(['guest-v8','child-v5','encounter-props-v5','attendant-v5','porter-v5','dog-v14'].map(n=>loader.loadAsync('../assets/'+n+'.glb')));
+const cast=createCharacterEncounters(scene,{adult,child,props,staff,porter,dog});let time=0,playing=false,last=performance.now();
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'Pause':'Play';};document.querySelector('#step').onclick=()=>time+=1;document.querySelector('#reset').onclick=()=>time=0;
+let sweep=null;document.querySelector('#sweep').onclick=()=>{sweep=[];for(let t=0;t<=7;t+=.5){cast.update(t,0,'corridor',{vignette:'C5',anomaly:null,serial:1});sweep.push({...cast.metrics});}};
+function render(now){const dt=Math.min((now-last)/1000,.05);last=now;if(playing)time+=dt;const id=document.querySelector('select').value;cast.update(time,playing?dt:0,'corridor',{vignette:id,anomaly:document.querySelector('#changed').checked?id:null,serial:1});
+ const dogShot=id==='C4';camera.position.set(dogShot?2.2:.65,dogShot?.8:1.36,dogShot?-12:-12.35);camera.lookAt(dogShot?.8:.65,dogShot?.45:1.18,-13.95);
+ const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();renderer.render(scene,camera);
+ status.textContent=JSON.stringify({time:+time.toFixed(2),...cast.metrics,sweep},null,2);requestAnimationFrame(render);
+}requestAnimationFrame(render);
+</script>

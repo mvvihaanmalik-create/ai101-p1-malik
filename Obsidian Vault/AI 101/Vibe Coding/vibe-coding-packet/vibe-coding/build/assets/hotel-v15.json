@@ -1,0 +1,553 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "rooms": {
+    "corridor": {
+      "origin": 0,
+      "bounds": [
+        -1.37,
+        1.2,
+        3.8,
+        22.5
+      ],
+      "entry": [
+        -0.32,
+        5
+      ],
+      "exit": 22.3,
+      "views": [
+        0,
+        1,
+        2
+      ]
+    },
+    "reception": {
+      "origin": 30,
+      "bounds": [
+        -1.7,
+        0.2,
+        2.7,
+        8.6
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 8.5,
+      "views": [
+        3
+      ]
+    },
+    "landing": {
+      "origin": 60,
+      "bounds": [
+        -1.5,
+        1.1,
+        2.7,
+        8.6
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 8.5,
+      "views": [
+        4
+      ]
+    },
+    "stairs": {
+      "origin": 90,
+      "bounds": [
+        -0.7,
+        0.7,
+        2.7,
+        9.7
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 9.5,
+      "views": [
+        5,
+        6
+      ]
+    },
+    "suite": {
+      "origin": 120,
+      "bounds": [
+        -1.5,
+        1.1,
+        2.7,
+        7.6
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 7.3,
+      "views": [
+        7
+      ]
+    },
+    "lounge": {
+      "origin": 150,
+      "bounds": [
+        -1.3,
+        0.2,
+        2.7,
+        5.7
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 5.5,
+      "views": [
+        8
+      ]
+    }
+  },
+  "cameras": [
+    {
+      "name": "corridor-near",
+      "room": "corridor",
+      "position": [
+        0.95,
+        2.13,
+        -0.5
+      ],
+      "target": [
+        -0.15,
+        1.32,
+        -8.5
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-0-normal-v15.webp",
+      "minY": 0
+    },
+    {
+      "name": "corridor-middle",
+      "room": "corridor",
+      "position": [
+        -1.15,
+        2.15,
+        -6.1
+      ],
+      "target": [
+        0.1,
+        1.3,
+        -16
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-1-normal-v15.webp",
+      "minY": 9
+    },
+    {
+      "name": "corridor-far",
+      "room": "corridor",
+      "position": [
+        0.95,
+        2.12,
+        -12.5
+      ],
+      "target": [
+        -0.1,
+        1.4,
+        -24
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-2-normal-v15.webp",
+      "minY": 15.4
+    },
+    {
+      "name": "reception",
+      "room": "reception",
+      "position": [
+        31.1,
+        2.15,
+        0.4
+      ],
+      "target": [
+        29.8,
+        1.45,
+        -7.3
+      ],
+      "fov": 36.1754118516725,
+      "plate": "reception-v3-v14.webp",
+      "minY": 0
+    },
+    {
+      "name": "landing",
+      "room": "landing",
+      "position": [
+        61.1,
+        2.15,
+        0.2
+      ],
+      "target": [
+        59.9,
+        1.5,
+        -8
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-4-normal-v15.webp",
+      "minY": 0
+    },
+    {
+      "name": "stairs-low",
+      "room": "stairs",
+      "position": [
+        91.05,
+        2.15,
+        -0.3
+      ],
+      "target": [
+        89.9,
+        2.05,
+        -7
+      ],
+      "fov": 37.29907750810282,
+      "plate": "route-5-normal-v15.webp",
+      "minY": 0
+    },
+    {
+      "name": "stairs-high",
+      "room": "stairs",
+      "position": [
+        90.95,
+        3.72,
+        -4.5
+      ],
+      "target": [
+        89.8,
+        3.1,
+        -10.5
+      ],
+      "fov": 37.29907750810282,
+      "plate": "route-6-normal-v15.webp",
+      "minY": 6.8
+    },
+    {
+      "name": "suite",
+      "room": "suite",
+      "position": [
+        120.85,
+        2.04,
+        -0.3
+      ],
+      "target": [
+        120,
+        1.75,
+        -8.4
+      ],
+      "fov": 33.166443778689654,
+      "plate": "suite-v9-v14.webp",
+      "minY": 0
+    },
+    {
+      "name": "lounge",
+      "room": "lounge",
+      "position": [
+        151,
+        2.1,
+        0.4
+      ],
+      "target": [
+        149.8,
+        1.5,
+        -8
+      ],
+      "fov": 36.1754118516725,
+      "plate": "lounge-v3-v14.webp",
+      "minY": 0
+    },
+    {
+      "name": "inspect-guests",
+      "room": "corridor",
+      "position": [
+        -0.65,
+        1.62,
+        -10.1
+      ],
+      "target": [
+        0.7,
+        1.05,
+        -14.0
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-9-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-portrait",
+      "room": "corridor",
+      "position": [
+        0.5,
+        2.05,
+        -5.8
+      ],
+      "target": [
+        -2.16,
+        1.85,
+        -7.7
+      ],
+      "fov": 39.760704729285294,
+      "plate": "inspect-portrait-v5-v14.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-mirror",
+      "room": "corridor",
+      "position": [
+        0.5,
+        2.0,
+        -13.8
+      ],
+      "target": [
+        -2.16,
+        1.95,
+        -15.8
+      ],
+      "fov": 39.760704729285294,
+      "plate": "inspect-mirror-v5-v14.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-coat",
+      "room": "corridor",
+      "position": [
+        0.45,
+        1.85,
+        -10.1
+      ],
+      "target": [
+        -1.55,
+        1.45,
+        -12.8
+      ],
+      "fov": 39.760704729285294,
+      "plate": "route-12-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-lift",
+      "room": "landing",
+      "position": [
+        60.1,
+        1.95,
+        -5.5
+      ],
+      "target": [
+        58.5,
+        1.6,
+        -9.5
+      ],
+      "fov": 39.760704729285294,
+      "plate": "route-13-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-rain",
+      "room": "corridor",
+      "position": [
+        0.1,
+        1.85,
+        -11.5
+      ],
+      "target": [
+        2.15,
+        2.1,
+        -12.9
+      ],
+      "fov": 29.83937171142973,
+      "plate": "inspect-rain-v5-v14.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-children-v9",
+      "room": "corridor",
+      "position": [
+        -0.65,
+        1.45,
+        -7.050000000000001
+      ],
+      "target": [
+        0.75,
+        0.7,
+        -10.8
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-15-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-dog",
+      "room": "corridor",
+      "position": [
+        -0.7,
+        1.4,
+        -11.0
+      ],
+      "target": [
+        0.85,
+        0.38,
+        -14.1
+      ],
+      "fov": 37.29907750810282,
+      "plate": "inspect-dog-v5-v14.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-service-v9",
+      "room": "corridor",
+      "position": [
+        -0.65,
+        1.62,
+        -3.6999999999999993
+      ],
+      "target": [
+        0.7,
+        1.05,
+        -7.6
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-17-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-bar-v9",
+      "room": "corridor",
+      "position": [
+        -0.65,
+        1.62,
+        -13.8
+      ],
+      "target": [
+        0.7,
+        1.05,
+        -17.7
+      ],
+      "fov": 35.115393689697434,
+      "plate": "route-18-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-luggage-v9",
+      "room": "corridor",
+      "position": [
+        1.8,
+        1.55,
+        -18.3
+      ],
+      "target": [
+        0.85,
+        0.85,
+        -20.3
+      ],
+      "fov": 56.10583741181154,
+      "plate": "route-19-normal-v15.webp",
+      "minY": 0,
+      "detail": true
+    },
+    {
+      "name": "inspect-stair-v15",
+      "room": "stairs",
+      "position": [
+        90.35,
+        3.08,
+        -6.38
+      ],
+      "target": [
+        90.04,
+        2.52,
+        -8.95
+      ],
+      "fov": 39,
+      "minY": 0,
+      "plate": "inspect-stair-v15.webp"
+    },
+    {
+      "name": "inspect-bell-v15",
+      "room": "corridor",
+      "position": [
+        -0.17,
+        1.52,
+        -16.02
+      ],
+      "target": [
+        -0.98,
+        1.28,
+        -18.6
+      ],
+      "fov": 32,
+      "minY": 0,
+      "plate": "route-21-normal-v15.webp"
+    },
+    {
+      "name": "inspect-runner-v15",
+      "room": "corridor",
+      "position": [
+        0.46,
+        1.15,
+        -9.3
+      ],
+      "target": [
+        0,
+        0.16,
+        -13.25
+      ],
+      "fov": 39,
+      "minY": 0,
+      "plate": "route-22-normal-v15.webp"
+    }
+  ],
+  "version": 15,
+  "variants": {
+    "E1": {
+      "0": "route-0-E1-v15.webp",
+      "1": "route-1-E1-v15.webp",
+      "2": "route-2-E1-v15.webp",
+      "10": "inspect-portrait-E1-v5-v14.webp",
+      "17": "route-17-E1-v15.webp"
+    },
+    "E3": {
+      "4": "route-4-E3-v15.webp",
+      "13": "route-13-E3-v15.webp"
+    },
+    "E4": {
+      "0": "route-0-E4-v15.webp",
+      "1": "route-1-E4-v15.webp",
+      "2": "route-2-E4-v15.webp",
+      "11": "inspect-mirror-E4-v5-v14.webp",
+      "12": "route-12-E4-v15.webp",
+      "18": "route-18-E4-v15.webp"
+    }
+  },
+  "details": {
+    "vignette": 9,
+    "portrait": 10,
+    "mirror": 11,
+    "coat": 12,
+    "lift": 13,
+    "rain": 14,
+    "children": 15,
+    "dog": 16,
+    "service": 17,
+    "bar": 18,
+    "luggage": 19,
+    "stair": 20,
+    "bell": 21,
+    "runner": 22
+  }
+}

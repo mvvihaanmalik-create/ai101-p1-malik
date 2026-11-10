@@ -1,0 +1,18 @@
+BlenderMCP addon registered
+Warning: File written by newer Blender binary (405.88), expect loss of data!
+INFO Draco mesh compression is available, use library at C:\Program Files\Blender Foundation\Blender 4.3\4.3\python\lib\site-packages\extern_draco.dll
+12:32:55 | INFO: Starting glTF 2.0 export
+12:32:55 | INFO: Extracting primitive: GermanShepherd_Geometry.001
+12:32:56 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:32:56 | INFO: Primitives created: 1
+12:32:56 | INFO: Extracting primitive: GermanShepherd_Geometry
+12:32:56 | INFO: Primitives created: 1
+12:32:56 | INFO: Finished glTF 2.0 export in 1.2568097114562988 s
+
+Info: Saved "dog-v14.blend"
+DOG V14 EXPORTED
+BlenderMCP addon unregistered
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 03:35:23)
+Read blend: "C:\Users\91982\Documents\Obsidian Vault\AI 101\Vibe Coding\vibe-coding-packet\vibe-coding\sources\assets\german-shepherd\unpacked\german-shepherd-free\Files\001_German_Shepherd_Rigged.blend"
+
+Blender quit

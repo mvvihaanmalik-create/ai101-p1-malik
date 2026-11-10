@@ -1,0 +1,267 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "rooms": {
+    "corridor": {
+      "origin": 0,
+      "bounds": [
+        -1.37,
+        1.2,
+        3.8,
+        22.5
+      ],
+      "entry": [
+        -0.32,
+        4.1
+      ],
+      "exit": 22.3,
+      "views": [
+        0,
+        1,
+        2
+      ]
+    },
+    "reception": {
+      "origin": 30,
+      "bounds": [
+        -1.7,
+        0.2,
+        2.7,
+        8.6
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 8.5,
+      "views": [
+        3
+      ]
+    },
+    "landing": {
+      "origin": 60,
+      "bounds": [
+        -1.5,
+        1.1,
+        2.7,
+        8.6
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 8.5,
+      "views": [
+        4
+      ]
+    },
+    "stairs": {
+      "origin": 90,
+      "bounds": [
+        -0.7,
+        0.7,
+        2.7,
+        9.7
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 9.5,
+      "views": [
+        5,
+        6
+      ]
+    },
+    "suite": {
+      "origin": 120,
+      "bounds": [
+        -1.5,
+        1.1,
+        2.7,
+        7.6
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 7.3,
+      "views": [
+        7
+      ]
+    },
+    "lounge": {
+      "origin": 150,
+      "bounds": [
+        -1.3,
+        0.2,
+        2.7,
+        5.7
+      ],
+      "entry": [
+        -0.45,
+        3.0
+      ],
+      "exit": 5.5,
+      "views": [
+        8
+      ]
+    }
+  },
+  "cameras": [
+    {
+      "name": "corridor-near",
+      "room": "corridor",
+      "position": [
+        0.95,
+        2.13,
+        -0.5
+      ],
+      "target": [
+        -0.15,
+        1.32,
+        -8.5
+      ],
+      "fov": 35.115393689697434,
+      "plate": "corridor-near-v3.webp",
+      "minY": 0
+    },
+    {
+      "name": "corridor-middle",
+      "room": "corridor",
+      "position": [
+        -1.15,
+        2.15,
+        -6.1
+      ],
+      "target": [
+        0.1,
+        1.3,
+        -16
+      ],
+      "fov": 35.115393689697434,
+      "plate": "corridor-middle-v3.webp",
+      "minY": 9
+    },
+    {
+      "name": "corridor-far",
+      "room": "corridor",
+      "position": [
+        0.95,
+        2.12,
+        -12.5
+      ],
+      "target": [
+        -0.1,
+        1.4,
+        -24
+      ],
+      "fov": 35.115393689697434,
+      "plate": "corridor-far-v3.webp",
+      "minY": 15.4
+    },
+    {
+      "name": "reception",
+      "room": "reception",
+      "position": [
+        31.1,
+        2.15,
+        0.4
+      ],
+      "target": [
+        29.8,
+        1.45,
+        -7.3
+      ],
+      "fov": 36.1754118516725,
+      "plate": "reception-v3.webp",
+      "minY": 0
+    },
+    {
+      "name": "landing",
+      "room": "landing",
+      "position": [
+        61.1,
+        2.15,
+        0.2
+      ],
+      "target": [
+        59.9,
+        1.5,
+        -8
+      ],
+      "fov": 35.115393689697434,
+      "plate": "landing-v3.webp",
+      "minY": 0
+    },
+    {
+      "name": "stairs-low",
+      "room": "stairs",
+      "position": [
+        91.05,
+        2.15,
+        -0.3
+      ],
+      "target": [
+        89.9,
+        2.05,
+        -7
+      ],
+      "fov": 37.29907750810282,
+      "plate": "stairs-low-v3.webp",
+      "minY": 0
+    },
+    {
+      "name": "stairs-high",
+      "room": "stairs",
+      "position": [
+        90.95,
+        3.72,
+        -4.5
+      ],
+      "target": [
+        89.8,
+        3.1,
+        -10.5
+      ],
+      "fov": 37.29907750810282,
+      "plate": "stairs-high-v3.webp",
+      "minY": 6.8
+    },
+    {
+      "name": "suite",
+      "room": "suite",
+      "position": [
+        120.85,
+        2.04,
+        -0.3
+      ],
+      "target": [
+        120,
+        1.75,
+        -8.4
+      ],
+      "fov": 33.166443778689654,
+      "plate": "suite-v3.webp",
+      "minY": 0
+    },
+    {
+      "name": "lounge",
+      "room": "lounge",
+      "position": [
+        151,
+        2.1,
+        0.4
+      ],
+      "target": [
+        149.8,
+        1.5,
+        -8
+      ],
+      "fov": 36.1754118516725,
+      "plate": "lounge-v3.webp",
+      "minY": 0
+    }
+  ],
+  "version": 3
+}

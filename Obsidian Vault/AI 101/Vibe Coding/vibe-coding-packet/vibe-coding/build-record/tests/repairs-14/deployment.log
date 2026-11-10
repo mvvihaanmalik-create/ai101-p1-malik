@@ -1,0 +1,47 @@
+Vercel CLI 60.1.1 (Node.js 24.15.0)
+Deploying room-zero
+Uploading [--------------------] (0.0B/7.2MB)
+Uploading [=====---------------] (1.8MB/7.2MB)
+Uploading [==========----------] (3.6MB/7.2MB)
+Uploading [===============-----] (5.4MB/7.2MB)
+Uploading [====================] (7.2MB/7.2MB)
+  Inspect         https://vercel.com/vihaanmalik/room-zero/9GTyWEQWNnv8Mb6HsJP5YsiFSiAP
+  Production      https://room-zero-b0a3c3w9d-vihaanmalik.vercel.app
+Building…
+Building…
+[2K[1A[2K[G  Production      https://room-zero-b0a3c3w9d-vihaanmalik.vercel.app
+Completing…
+▲ Aliased         https://room-zero-ashy.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_9GTyWEQWNnv8Mb6HsJP5YsiFSiAP",
+    "url": "https://room-zero-b0a3c3w9d-vihaanmalik.vercel.app",
+    "inspectorUrl": "https://vercel.com/vihaanmalik/room-zero/9GTyWEQWNnv8Mb6HsJP5YsiFSiAP",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_9GTyWEQWNnv8Mb6HsJP5YsiFSiAP",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    }
+  },
+  "message": "Deployment room-zero-b0a3c3w9d-vihaanmalik.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://room-zero-b0a3c3w9d-vihaanmalik.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect room-zero-b0a3c3w9d-vihaanmalik.vercel.app --scope vihaanmalik --non-interactive --cwd .deploy/room-zero-v6",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope vihaanmalik --non-interactive --cwd .deploy/room-zero-v6",
+      "when": "Promote to production"
+    }
+  ]
+}

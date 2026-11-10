@@ -1,0 +1,115 @@
+{
+  "time": 0,
+  "glassPhase": 0,
+  "glassHandGap": 0,
+  "handoffSeparation": 0.537,
+  "serverReachError": 0,
+  "receiverReachError": 0,
+  "sweep": [
+    {
+      "glassPhase": 0,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.537,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 0.5,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.537,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 1,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.537,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 1.5,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.593,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 2,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.695,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 2.5,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.734,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 3,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.587,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 3.5,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.12,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 4,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.331,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 4.5,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.544,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 5,
+      "glassHandGap": 0.002,
+      "handoffSeparation": 0.521,
+      "serverReachError": 0,
+      "receiverReachError": 0.002
+    },
+    {
+      "glassPhase": 5.5,
+      "glassHandGap": 0.305,
+      "handoffSeparation": 0.756,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 6,
+      "glassHandGap": 0.428,
+      "handoffSeparation": 0.88,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 6.5,
+      "glassHandGap": 0.214,
+      "handoffSeparation": 0.697,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    },
+    {
+      "glassPhase": 0,
+      "glassHandGap": 0,
+      "handoffSeparation": 0.537,
+      "serverReachError": 0,
+      "receiverReachError": 0
+    }
+  ]
+}

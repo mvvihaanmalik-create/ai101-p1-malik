@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {createApp} from '../server.mjs';
+test('Saved runs retain replies, approvals and prototype without changing the active run or exposing history through the hosted bridge',async t=>{
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'workshop-history-'));
+ const p={id:'demo',title:'Demo',goal:'Counter',tags:[],platform:[],gates:{}};
+ const app=createApp({root:process.cwd(),local:path.join(temp,'state'),runs:path.join(temp,'runs'),runner:{connected:true,close(){}},shelf:{},projectLoader:async()=>({projects:[p],activeProjectId:p.id})});
+ t.after(async()=>{await new Promise(r=>app.server.close(r));assert.equal(path.dirname(temp),os.tmpdir());assert.ok(path.basename(temp).startsWith('workshop-history-'));fs.rmSync(temp,{recursive:true,force:true});});
+ let s=app.store.get(p);s.goal='Show 0 and count clicks';s.messages={chief:[{role:'assistant',text:'Saved reply'}]};s.approvals[0]={at:new Date().toISOString(),note:'Goal approved'};s.artifact={id:'11111111-1111-4111-8111-111111111111',files:[{path:'index.html',content:'<button onclick="this.textContent=1">0</button>'}],checks:[]};s=app.store.save(s,'Recorded demo');
+ const archived=s.cycle;app.store.mutate(p,{action:'new-cycle',revision:s.revision});const before=app.store.get(p);
+ await new Promise(r=>app.server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+app.server.address().port;
+ const list=await(await fetch(base+'/api/project/demo/history')).json();assert.ok(list.runs.some(r=>r.cycle===archived&&r.hasPrototype));
+ const saved=await(await fetch(base+'/api/project/demo/history/'+archived)).json();assert.equal(saved.run.messages.chief[0].text,'Saved reply');assert.equal(saved.run.approvals[0].note,'Goal approved');assert.equal(saved.run.sourceSnapshot,undefined);
+ const preview=await fetch(base+'/prototype/demo/'+archived+'/11111111-1111-4111-8111-111111111111/index.html');assert.equal(preview.status,200);assert.match(await preview.text(),/onclick/);assert.match(preview.headers.get('content-security-policy'),/sandbox allow-scripts/);
+ assert.throws(()=>app.store.history({...p,id:'other'},archived),/not found/);assert.throws(()=>app.store.history(p,'../outside'),/Invalid saved run/);
+ assert.equal((await fetch(base+'/bridge/project/demo/history',{headers:{origin:'https://ideaquest-workshop.vercel.app'}})).status,404);
+ assert.deepEqual(app.store.get(p),before);
+});

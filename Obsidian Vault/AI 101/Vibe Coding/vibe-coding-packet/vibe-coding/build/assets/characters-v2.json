@@ -1,0 +1,13 @@
+{
+  "generator": "MakeHuman MPFB 2.0.18",
+  "license": "CC0 assets; GPL-3.0 tooling retained in tools/vendor/mpfb2",
+  "characters": [
+    "guest-v2.glb",
+    "butler-v2.glb"
+  ],
+  "clips": [
+    "Idle",
+    "Walk",
+    "Raise"
+  ]
+}

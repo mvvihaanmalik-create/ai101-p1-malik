@@ -1,0 +1,8 @@
+Syntax OK: benchmark.js
+Syntax OK: character-encounters.js
+Syntax OK: encounter-art.js
+Syntax OK: encounter-catalogue.js
+Syntax OK: ending-timeline.js
+Syntax OK: main.js
+Syntax OK: passage-loop.js
+Syntax OK: reception-ending.js

@@ -1,0 +1,11 @@
+{
+  "generator": "MPFB 2.0.18",
+  "guestCycleMetres": 1.0746666666666669,
+  "butlerCycleMetres": 0.7133333333333335,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Raise"
+  ],
+  "bones": 53
+}

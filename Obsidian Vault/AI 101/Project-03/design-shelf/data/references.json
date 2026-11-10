@@ -1,0 +1,844 @@
+[
+  {
+    "id": "goodgrowth",
+    "title": "Goodgrowth",
+    "publisher": "Matt Stone",
+    "url": "https://tympanus.net/codrops/2026/08/27/goodgrowth-boot-sequences-spinning-discs-and-the-art-of-the-portfolio/",
+    "liveUrl": "https://goodgrowth.com/",
+    "publishedAt": "2026-08-27",
+    "evergreen": false,
+    "categories": [
+      "websites",
+      "creative"
+    ],
+    "focus": [
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "portfolio",
+      "3d",
+      "carousel",
+      "sound",
+      "navigation"
+    ],
+    "summary": "A console inspired globe carousel with deliberate swipe and sound feedback.",
+    "preview": {
+      "type": "image",
+      "url": "https://goodgrowth.com/share.jpg",
+      "poster": null,
+      "alt": "Goodgrowth — original publisher preview"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/27/goodgrowth-boot-sequences-spinning-discs-and-the-art-of-the-portfolio/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://goodgrowth.com/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/jpeg"
+  },
+  {
+    "id": "frontier",
+    "title": "FRONTIER",
+    "publisher": "Filip Zrnzevic",
+    "url": "https://tympanus.net/codrops/2026/08/22/sixty-frames-for-the-record-a-three-js-game-seven-fly-throughs-and-a-wall-of-crts/",
+    "liveUrl": "https://fffrontier.co/",
+    "publishedAt": "2026-08-22",
+    "evergreen": false,
+    "categories": [
+      "games",
+      "creative"
+    ],
+    "focus": [
+      "UI",
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "game",
+      "3d",
+      "feedback",
+      "upgrades",
+      "sound"
+    ],
+    "summary": "Upgrade choices become gates inside the arena. Useful for keeping decisions inside play.",
+    "preview": {
+      "type": "image",
+      "url": "https://fffrontier.co/og/frontier-next-sector.jpg",
+      "poster": null,
+      "alt": "FRONTIER — original publisher preview"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/22/sixty-frames-for-the-record-a-three-js-game-seven-fly-throughs-and-a-wall-of-crts/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://fffrontier.co/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 200,
+    "previewContentType": "image/jpeg"
+  },
+  {
+    "id": "run-rob-run",
+    "title": "Run Rob Run",
+    "publisher": "Robert Aperios",
+    "url": "https://tympanus.net/codrops/2026/08/20/run-rob-run-building-a-music-reactive-goo-with-three-js-and-webgpu/",
+    "liveUrl": "https://www.runrobrun.com/",
+    "publishedAt": "2026-08-20",
+    "evergreen": false,
+    "categories": [
+      "creative",
+      "websites"
+    ],
+    "focus": [
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "glass",
+      "audio",
+      "3d",
+      "scroll",
+      "simulation"
+    ],
+    "summary": "A glass shell reacts to music and scroll. Study damping and restraint.",
+    "preview": {
+      "type": "none",
+      "url": null,
+      "poster": null,
+      "alt": "Run Rob Run"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/20/run-rob-run-building-a-music-reactive-goo-with-three-js-and-webgpu/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewVerifiedAt": null,
+    "previewStatus": "none",
+    "previewContentType": null
+  },
+  {
+    "id": "haoqi",
+    "title": "HAOQI.DESIGN",
+    "publisher": "Haoqi Wen",
+    "url": "https://tympanus.net/codrops/2026/08/15/inside-haoqi-design-letting-dom-and-webgl-share-a-retro-futurist-stage/",
+    "liveUrl": "https://haoqi.design/",
+    "publishedAt": "2026-08-15",
+    "evergreen": false,
+    "categories": [
+      "creative",
+      "websites"
+    ],
+    "focus": [
+      "UI",
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "glass",
+      "portfolio",
+      "3d",
+      "scroll",
+      "reduced-motion"
+    ],
+    "summary": "Glass, image reveals, and scroll share one visual rhythm, with reduced motion support.",
+    "preview": {
+      "type": "none",
+      "url": null,
+      "poster": null,
+      "alt": "HAOQI.DESIGN"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/15/inside-haoqi-design-letting-dom-and-webgl-share-a-retro-futurist-stage/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewVerifiedAt": null,
+    "previewStatus": "none",
+    "previewContentType": null
+  },
+  {
+    "id": "chems",
+    "title": "Chems Studio",
+    "publisher": "Nicolas Leuliet",
+    "url": "https://tympanus.net/codrops/2026/08/08/designing-a-flexible-digital-archive-for-chems-studios-creative-practice/",
+    "liveUrl": "https://www.chems.studio/",
+    "publishedAt": "2026-08-08",
+    "evergreen": false,
+    "categories": [
+      "websites",
+      "creative"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Motion"
+    ],
+    "tags": [
+      "gallery",
+      "archive",
+      "film",
+      "navigation",
+      "minimal"
+    ],
+    "summary": "A quiet film archive with one grid adapted across browsing and project views.",
+    "preview": {
+      "type": "image",
+      "url": "https://cdn.prod.website-files.com/69808d2cb1da9efc3ba0c01d/69d4ab4379b26b1c57a9cb99_JOLIE%20COVER%201.jpeg",
+      "poster": null,
+      "alt": "A Bath in Chinatown — original Chems Studio project cover"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/08/designing-a-flexible-digital-archive-for-chems-studios-creative-practice/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.chems.studio/",
+    "previewNote": "Original collection artwork; open the source to inspect the archive interface.",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/jpeg"
+  },
+  {
+    "id": "px-push",
+    "title": "PX PUSH",
+    "publisher": "Lewis Webber / Stud Creative House",
+    "url": "https://tympanus.net/codrops/2026/08/07/the-department-is-open-building-the-px-push-website/",
+    "liveUrl": "https://pxpush.com/",
+    "publishedAt": "2026-08-07",
+    "evergreen": false,
+    "categories": [
+      "websites",
+      "creative"
+    ],
+    "focus": [
+      "UI",
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "typography",
+      "3d",
+      "identity",
+      "navigation"
+    ],
+    "summary": "A studio site carries a single machine metaphor through typography and interaction.",
+    "preview": {
+      "type": "image",
+      "url": "https://pxpush.com/img/og/index.jpg",
+      "poster": null,
+      "alt": "PX PUSH — original publisher preview"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/07/the-department-is-open-building-the-px-push-website/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://pxpush.com/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/jpeg"
+  },
+  {
+    "id": "cerebrium",
+    "title": "Cerebrium",
+    "publisher": "Célia Lopez and Mathis Biabiany",
+    "url": "https://tympanus.net/codrops/2026/07/23/building-cerebrium-making-serverless-infrastructure-tangible/",
+    "liveUrl": "https://cerebrium.ai/",
+    "publishedAt": "2026-07-23",
+    "evergreen": false,
+    "categories": [
+      "websites",
+      "agents"
+    ],
+    "focus": [
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "3d",
+      "particles",
+      "infrastructure",
+      "feedback"
+    ],
+    "summary": "Interactive 3D makes an abstract infrastructure service easier to explore.",
+    "preview": {
+      "type": "image",
+      "url": "https://www.datocms-assets.com/180613/1774904124-og-image.png?auto=format&fit=max&w=1200",
+      "poster": null,
+      "alt": "Cerebrium — original publisher preview"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/07/23/building-cerebrium-making-serverless-infrastructure-tangible/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://cerebrium.ai/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/png"
+  },
+  {
+    "id": "punk-drive",
+    "title": "Threejs-Punk Drive",
+    "publisher": "Anderson Mancini and Sunag",
+    "url": "https://threejspunk.vercel.app/",
+    "liveUrl": "https://threejspunk.vercel.app/",
+    "publishedAt": null,
+    "evergreen": true,
+    "categories": [
+      "games",
+      "creative"
+    ],
+    "focus": [
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "game",
+      "driving",
+      "3d",
+      "webgpu"
+    ],
+    "summary": "A playable browser driving scene for camera, atmosphere, and control feedback.",
+    "preview": {
+      "type": "image",
+      "url": "https://threejspunkdrive.vercel.app/preview.jpg",
+      "poster": null,
+      "alt": "Threejs-Punk Drive — original publisher preview"
+    },
+    "evidenceUrl": "https://threejspunk.vercel.app/",
+    "dateType": "unknown",
+    "checkedAt": "2026-10-20",
+    "featuredAt": "2026-07-25",
+    "dateEvidenceUrl": "https://tympanus.net/codrops/hub/all/",
+    "previewEvidenceUrl": "https://threejspunk.vercel.app/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/jpeg"
+  },
+  {
+    "id": "plinkopinball",
+    "title": "Plinkopinball",
+    "publisher": "Andrew Woan",
+    "url": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+    "liveUrl": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+    "publishedAt": null,
+    "evergreen": true,
+    "categories": [
+      "games",
+      "creative"
+    ],
+    "focus": [
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "game",
+      "physics",
+      "3d",
+      "play"
+    ],
+    "summary": "A small playable physics experience for studying playful input and response.",
+    "preview": {
+      "type": "image",
+      "url": "https://codrops-demo-for-threejs-conference-ten.vercel.app/media/og-image.webp",
+      "poster": null,
+      "alt": "Plinkopinball — original publisher preview"
+    },
+    "evidenceUrl": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+    "dateType": "unknown",
+    "checkedAt": "2026-10-20",
+    "featuredAt": "2026-08-24",
+    "dateEvidenceUrl": "https://tympanus.net/codrops/hub/all/",
+    "previewEvidenceUrl": "https://codrops-demo-for-threejs-conference-ten.vercel.app/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/webp"
+  },
+  {
+    "id": "linear-stacks",
+    "title": "Stacked reviews",
+    "publisher": "Linear",
+    "url": "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+    "liveUrl": null,
+    "publishedAt": "2026-10-08",
+    "evergreen": false,
+    "categories": [
+      "apps",
+      "agents"
+    ],
+    "focus": [
+      "UI",
+      "UX"
+    ],
+    "tags": [
+      "review",
+      "hierarchy",
+      "status",
+      "workflow"
+    ],
+    "summary": "Grouped review rows keep related changes and status readable.",
+    "preview": {
+      "type": "image",
+      "url": "https://webassets.linear.app/images/ornj730p/production/3770c67200a675f2ce42edef7405feb5a3b47bcd-3600x2098.png?q=95&auto=format&dpr=2",
+      "poster": null,
+      "alt": "Linear Diffs showing the current pull request within a four-part stack, with its position, related changes, and branch status."
+    },
+    "evidenceUrl": "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://linear.app/changelog/2026-10-08-stacked-pull-requests",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/avif"
+  },
+  {
+    "id": "linear-loops",
+    "title": "Loops",
+    "publisher": "Linear",
+    "url": "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+    "liveUrl": null,
+    "publishedAt": "2026-09-14",
+    "evergreen": false,
+    "categories": [
+      "agents",
+      "apps"
+    ],
+    "focus": [
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "automation",
+      "context",
+      "schedule",
+      "workflow"
+    ],
+    "summary": "Recurring agent work stays inspectable, and each run can continue as a conversation.",
+    "preview": {
+      "type": "video",
+      "url": "https://webassets.linear.app/files/ornj730p/production/80f59b063433c661b3aeae3f613f0cf2a58d3a35.mp4",
+      "poster": "https://webassets.linear.app/images/ornj730p/production/b3ef54a4552ef1ca313902a05ffba24c609bf33e-3840x2160.jpg?q=95&auto=format&dpr=2",
+      "alt": "Loops — publisher demo"
+    },
+    "evidenceUrl": "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://linear.app/changelog/2026-09-14-loops-for-product-management",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "video/mp4"
+  },
+  {
+    "id": "linear-mobile",
+    "title": "Mobile agent review",
+    "publisher": "Linear",
+    "url": "https://linear.app/changelog/2026-07-30-coding-sessions-on-mobile",
+    "liveUrl": null,
+    "publishedAt": "2026-07-30",
+    "evergreen": false,
+    "categories": [
+      "agents",
+      "apps"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "mobile",
+      "review",
+      "context",
+      "workflow"
+    ],
+    "summary": "Tap a changed line to give an agent precise context on mobile.",
+    "preview": {
+      "type": "video",
+      "url": "https://webassets.linear.app/files/ornj730p/production/8ea92634a2eaa8e2e1441da4fa69ccf0fad9c60e.mp4",
+      "poster": "https://webassets.linear.app/images/ornj730p/production/de5bfa7b44714eef4e54f0bb4c6bfab6841eb716-3600x2360.png?q=95&auto=format&dpr=2",
+      "alt": "Mobile agent review — publisher demo"
+    },
+    "evidenceUrl": "https://linear.app/changelog/2026-07-30-coding-sessions-on-mobile",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://linear.app/changelog/2026-07-30-coding-sessions-on-mobile",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "video/mp4"
+  },
+  {
+    "id": "linear-attribution",
+    "title": "Visible authorship",
+    "publisher": "Linear",
+    "url": "https://linear.app/changelog/2026-07-23-agent-assisted-editing",
+    "liveUrl": null,
+    "publishedAt": "2026-07-23",
+    "evergreen": false,
+    "categories": [
+      "agents",
+      "apps"
+    ],
+    "focus": [
+      "UI",
+      "UX"
+    ],
+    "tags": [
+      "editor",
+      "provenance",
+      "review",
+      "undo"
+    ],
+    "summary": "Author markers, highlighted agent edits, and checkpoints make changes easier to review.",
+    "preview": {
+      "type": "image",
+      "url": "https://webassets.linear.app/images/ornj730p/production/15b9a90d9ef28e617836383f0b295536c437b4b1-3600x2080.png?q=95&auto=format&dpr=2",
+      "poster": null,
+      "alt": "a document and an agent panel showing the prompt to edit "
+    },
+    "evidenceUrl": "https://linear.app/changelog/2026-07-23-agent-assisted-editing",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://linear.app/changelog/2026-07-23-agent-assisted-editing",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/avif"
+  },
+  {
+    "id": "framer-skills",
+    "title": "Project skills",
+    "publisher": "Framer",
+    "url": "https://www.framer.com/updates/skills",
+    "liveUrl": null,
+    "publishedAt": "2026-09-22",
+    "evergreen": false,
+    "categories": [
+      "agents",
+      "websites"
+    ],
+    "focus": [
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "context",
+      "design-system",
+      "agent",
+      "reuse"
+    ],
+    "summary": "Project instructions and canvas references help an agent follow an existing design direction.",
+    "preview": {
+      "type": "image",
+      "url": "https://i.ytimg.com/vi_webp/ibUWeTP2tzc/maxresdefault.webp",
+      "poster": null,
+      "alt": "Framer Skills — official demo thumbnail"
+    },
+    "evidenceUrl": "https://www.framer.com/updates/skills",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.framer.com/updates/skills",
+    "videoUrl": "https://www.youtube.com/watch?v=ibUWeTP2tzc",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/webp"
+  },
+  {
+    "id": "framer-pins",
+    "title": "Pinned projects",
+    "publisher": "Framer",
+    "url": "https://www.framer.com/updates/pinned-projects",
+    "liveUrl": null,
+    "publishedAt": "2026-09-14",
+    "evergreen": false,
+    "categories": [
+      "apps",
+      "websites"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "sidebar",
+      "projects",
+      "organization",
+      "navigation"
+    ],
+    "summary": "Pin and reorder frequent projects directly in the sidebar.",
+    "preview": {
+      "type": "image",
+      "url": "https://framerusercontent.com/images/daL1ZhpsiBWv7c7k3w9rUsO2no.png?width=1600&height=900",
+      "poster": null,
+      "alt": "Pinned projects — original publisher preview"
+    },
+    "evidenceUrl": "https://www.framer.com/updates/pinned-projects",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.framer.com/updates/pinned-projects",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 200,
+    "previewContentType": "image/png"
+  },
+  {
+    "id": "framer-lists",
+    "title": "Repeatable content",
+    "publisher": "Framer",
+    "url": "https://www.framer.com/updates/cms-list-field",
+    "liveUrl": null,
+    "publishedAt": "2026-09-08",
+    "evergreen": false,
+    "categories": [
+      "apps",
+      "websites"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "cms",
+      "lists",
+      "cards",
+      "content",
+      "reorder"
+    ],
+    "summary": "A list field lets editors add and reorder repeated content without duplicating fields.",
+    "preview": {
+      "type": "image",
+      "url": "https://i.ytimg.com/vi_webp/dla90ubwxV8/maxresdefault.webp",
+      "poster": null,
+      "alt": "Framer CMS List Field — official demo thumbnail"
+    },
+    "evidenceUrl": "https://www.framer.com/updates/cms-list-field",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.framer.com/updates/cms-list-field",
+    "videoUrl": "https://www.youtube.com/watch?v=dla90ubwxV8",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/webp"
+  },
+  {
+    "id": "figma-motion",
+    "title": "Reusable motion",
+    "publisher": "Figma",
+    "url": "https://www.figma.com/motion/",
+    "liveUrl": "https://www.figma.com/motion/",
+    "publishedAt": "2026-09-30",
+    "evergreen": false,
+    "categories": [
+      "apps",
+      "creative"
+    ],
+    "focus": [
+      "Motion",
+      "UX"
+    ],
+    "tags": [
+      "animation",
+      "easing",
+      "typography",
+      "lottie",
+      "design-system"
+    ],
+    "summary": "Reusable timing styles, editable text animation, and Lottie export connect design and handoff.",
+    "preview": {
+      "type": "image",
+      "url": "https://cdn.sanity.io/images/599r6htc/regionalized/a301b12d815816a505d6836b7ab1d30860df8b0b-2400x1260.jpg?w=1200&q=70&fit=max&auto=format",
+      "poster": null,
+      "alt": "Reusable motion — original publisher preview"
+    },
+    "evidenceUrl": "https://www.figma.com/release-notes/",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.figma.com/motion/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/jpeg"
+  },
+  {
+    "id": "figma-riffs",
+    "title": "Community riffs",
+    "publisher": "Figma",
+    "url": "https://help.figma.com/hc/en-us/articles/360038510693-Guide-to-the-Figma-Community#community-riffs",
+    "liveUrl": null,
+    "publishedAt": "2026-09-30",
+    "evergreen": false,
+    "categories": [
+      "apps",
+      "creative"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Motion"
+    ],
+    "tags": [
+      "gallery",
+      "portfolio",
+      "prototype",
+      "sharing"
+    ],
+    "summary": "A community format for sharing small animations, prototypes, and experiments.",
+    "preview": {
+      "type": "image",
+      "url": "https://cdn.sanity.io/images/599r6htc/regionalized/21b7948209125bb8a9d5ca0c30c0d56bf9ede8c7-1746x734.png?w=1746&h=734&q=75&fit=max&auto=format",
+      "poster": null,
+      "alt": "Figma Community riffs — official release illustration"
+    },
+    "evidenceUrl": "https://www.figma.com/release-notes/",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.figma.com/release-notes/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/png"
+  },
+  {
+    "id": "raycast-models",
+    "title": "Models through extensions",
+    "publisher": "Raycast",
+    "url": "https://www.raycast.com/changelog/windows",
+    "liveUrl": null,
+    "publishedAt": "2026-09-28",
+    "evergreen": false,
+    "categories": [
+      "plugins",
+      "agents",
+      "apps"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "extension",
+      "model-picker",
+      "setup",
+      "desktop",
+      "command"
+    ],
+    "summary": "Install a provider extension, finish setup, and select its models in chat.",
+    "preview": {
+      "type": "image",
+      "url": "https://misc-assets.raycast.com/releases/113d3edb0f2ab8ad7e0e8d14bb3a079fa7006263c74f876537d82dd048c01e4a.png",
+      "poster": null,
+      "alt": "image"
+    },
+    "evidenceUrl": "https://www.raycast.com/changelog/windows",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.raycast.com/changelog/windows",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "image/png"
+  },
+  {
+    "id": "depth",
+    "title": "Depth for Figma",
+    "publisher": "Aleksei Kipin",
+    "url": "https://tympanus.net/codrops/2026/09/13/building-depth-designing-and-developing-a-3d-renderer-inside-figma/",
+    "liveUrl": "https://depth.fyi/",
+    "publishedAt": "2026-09-13",
+    "evergreen": false,
+    "categories": [
+      "plugins",
+      "creative",
+      "apps"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "plugin",
+      "3d",
+      "inspector",
+      "export",
+      "materials"
+    ],
+    "summary": "A familiar inspector keeps model, light, and export controls inside Figma.",
+    "preview": {
+      "type": "video",
+      "url": "https://depth.fyi/media/hero-scrub-1080.mp4",
+      "poster": "https://depth.fyi/media/hero-intro-poster.webp",
+      "alt": "Depth interactive island scene"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/09/13/building-depth-designing-and-developing-a-3d-renderer-inside-figma/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://depth.fyi/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "video/mp4"
+  },
+  {
+    "id": "glass-xylophone",
+    "title": "Glass xylophone",
+    "publisher": "Sujen Phea",
+    "url": "https://tympanus.net/codrops/2026/08/04/building-an-endless-interactive-glass-xylophone-with-three-js/",
+    "liveUrl": "https://tympanus.net/Tutorials/Xylophone/",
+    "publishedAt": "2026-08-04",
+    "evergreen": false,
+    "categories": [
+      "creative",
+      "games"
+    ],
+    "focus": [
+      "Interaction",
+      "Motion"
+    ],
+    "tags": [
+      "glass",
+      "sound",
+      "scroll",
+      "physics",
+      "feedback"
+    ],
+    "summary": "Cursor movement plays notes and swings glass bars. A useful material and feedback study.",
+    "preview": {
+      "type": "none",
+      "url": null,
+      "poster": null,
+      "alt": "Glass xylophone"
+    },
+    "evidenceUrl": "https://tympanus.net/codrops/2026/08/04/building-an-endless-interactive-glass-xylophone-with-three-js/",
+    "dateType": "case-study",
+    "checkedAt": "2026-10-20",
+    "previewVerifiedAt": null,
+    "previewStatus": "none",
+    "previewContentType": null
+  },
+  {
+    "id": "apple-platforms",
+    "title": "Liquid Glass refinements",
+    "publisher": "Apple",
+    "url": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/",
+    "liveUrl": null,
+    "publishedAt": "2026-09-14",
+    "evergreen": false,
+    "categories": [
+      "apps",
+      "agents"
+    ],
+    "focus": [
+      "UI",
+      "UX",
+      "Interaction"
+    ],
+    "tags": [
+      "glass",
+      "apple",
+      "mobile",
+      "desktop",
+      "context"
+    ],
+    "summary": "Apple shows its latest Liquid Glass interface refinements across software platforms.",
+    "preview": {
+      "type": "video",
+      "url": "https://www.apple.com/newsroom/videos/2026/autoplay/09/apple-os-availability-liquid-glass/large_2x.mp4",
+      "poster": "https://www.apple.com/newsroom/videos/2026/autoplay/09/apple-os-availability-liquid-glass/posters/Apple-OS-availability-Liquid-Glass.jpg.large_2x.jpg",
+      "alt": "Apple Liquid Glass interface refinements"
+    },
+    "evidenceUrl": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/",
+    "dateType": "release",
+    "checkedAt": "2026-10-20",
+    "previewEvidenceUrl": "https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/",
+    "previewVerifiedAt": "2026-10-20",
+    "previewStatus": 206,
+    "previewContentType": "video/mp4"
+  }
+]

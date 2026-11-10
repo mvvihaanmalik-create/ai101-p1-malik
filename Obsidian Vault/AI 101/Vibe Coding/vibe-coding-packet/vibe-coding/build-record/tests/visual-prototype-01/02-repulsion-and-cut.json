@@ -1,0 +1,51 @@
+{
+  "afterCast": {
+    "mode": "paused",
+    "view": 1,
+    "guestX": -1.37,
+    "guestY": 12.04,
+    "butlerY": 16.24,
+    "distance": 4.3,
+    "active": true,
+    "repel": 2.62,
+    "cooldown": 4.62,
+    "contacts": 0,
+    "casts": 1,
+    "frameMs": 16.8,
+    "triangles": 144758,
+    "errors": []
+  },
+  "afterRetreat": {
+    "mode": "paused",
+    "view": 0,
+    "guestX": -1.37,
+    "guestY": 9.28,
+    "butlerY": 18.43,
+    "distance": 9.24,
+    "active": true,
+    "repel": 0.73,
+    "cooldown": 2.73,
+    "contacts": 0,
+    "casts": 1,
+    "frameMs": 16.7,
+    "triangles": 144782,
+    "errors": []
+  },
+  "pausedInput": {
+    "mode": "paused",
+    "view": 0,
+    "guestX": -1.37,
+    "guestY": 9.28,
+    "butlerY": 18.43,
+    "distance": 9.24,
+    "active": true,
+    "repel": 0.73,
+    "cooldown": 2.73,
+    "contacts": 0,
+    "casts": 1,
+    "frameMs": 16.7,
+    "triangles": 144782,
+    "errors": []
+  },
+  "browserErrors": []
+}

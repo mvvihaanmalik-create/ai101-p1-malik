@@ -1,0 +1,38 @@
+[
+  {
+    "file": "src/main.js",
+    "status": 200,
+    "sha256": "0e55e621a72c3f471944d21c963318857131b6ffd96a0d33770eb3f6810ac63b",
+    "matches": true
+  },
+  {
+    "file": "src/hand-pose.js",
+    "status": 200,
+    "sha256": "f53faef923a7c4cc973905a021f26b1d33ced342501f5a6b99edcd1b6ccbd541",
+    "matches": true
+  },
+  {
+    "file": "src/character-encounters.js",
+    "status": 200,
+    "sha256": "bb12bf863edfcf248efe216143a94dc5d55e29a0a9fd45307d747a132030e61b",
+    "matches": true
+  },
+  {
+    "file": "assets/hotel-v14.json",
+    "status": 200,
+    "sha256": "44a55ee98b10fd88f994058573c026f8025bd9b3493514dd8af4bd0270e6c282",
+    "matches": true
+  },
+  {
+    "file": "assets/dog-v14.glb",
+    "status": 200,
+    "sha256": "7ca236ab047c6b130819ab432938a808d8a9646d02f6329224c33bc2c7e648a3",
+    "matches": true
+  },
+  {
+    "file": "music-credits.html",
+    "status": 200,
+    "sha256": "88a5f4485dbd5c647e0f84e9747c9e65cd73eeb7a4c9d699410f14d765d63295",
+    "matches": true
+  }
+]

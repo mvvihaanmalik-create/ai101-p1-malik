@@ -1,0 +1,15 @@
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (1.43ms)
+✔ four consecutive correct decisions unlock, both choices are valid (4.8724ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (1.3484ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.1853ms)
+✔ anomaly bags have no repeats and survive resets; distribution is approximately half (9.2032ms)
+✔ same seed reproduces order; different seeds produce different orders (0.3839ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.217ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 139.8875

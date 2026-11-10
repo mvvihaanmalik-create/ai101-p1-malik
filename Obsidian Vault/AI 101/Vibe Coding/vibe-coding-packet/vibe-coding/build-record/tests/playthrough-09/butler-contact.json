@@ -1,0 +1,100 @@
+{
+  "build": "v9",
+  "music": {
+    "mode": "hotel",
+    "paused": false,
+    "enabled": true,
+    "volume": 0.55,
+    "context": "running",
+    "tracks": {
+      "hotel": {
+        "paused": false,
+        "time": 64.2,
+        "ready": 4,
+        "duration": 173.95,
+        "gain": 0.357,
+        "error": false
+      },
+      "ending": {
+        "paused": true,
+        "time": 0,
+        "ready": 4,
+        "duration": 32,
+        "gain": 0,
+        "error": false
+      }
+    }
+  },
+  "ending": null,
+  "encounterMetrics": {
+    "glassPhase": 0.61,
+    "glassHandGap": 0,
+    "handoffSeparation": 0.462,
+    "caseHandGap": 0
+  },
+  "visibleCast": [],
+  "vignette": "C1",
+  "detail": null,
+  "time": 59.81,
+  "seed": 1758565998,
+  "passage": 5,
+  "orientation": false,
+  "anomaly": "E1",
+  "progress": 0,
+  "unlocked": false,
+  "resolved": false,
+  "history": [
+    {
+      "kind": "correct",
+      "choice": "return",
+      "correct": true,
+      "progress": 1,
+      "unlocked": false,
+      "serial": 2,
+      "anomaly": "C1"
+    },
+    {
+      "kind": "contact",
+      "choice": "contact",
+      "correct": false,
+      "progress": 0,
+      "unlocked": false,
+      "serial": 4,
+      "anomaly": "C1"
+    }
+  ],
+  "pending": null,
+  "mode": "playing",
+  "room": "landing",
+  "view": 4,
+  "guestX": 60.35,
+  "guestY": 4.5,
+  "elevation": 0.02,
+  "butlerY": 18.2,
+  "distance": 62.16,
+  "active": false,
+  "repel": 0,
+  "cooldown": 0,
+  "contacts": 1,
+  "casts": 1,
+  "frameMs": 18.2,
+  "renderCpuMs": 1.06,
+  "scheduler": "timer",
+  "stalls": 51,
+  "triangles": 81714,
+  "drawCalls": 19,
+  "locomotion": {
+    "vx": 0,
+    "vz": 0,
+    "phase": 0,
+    "gait": 0,
+    "weights": {
+      "Walk": 1,
+      "WalkBack": 0,
+      "StepLeft": 0,
+      "StepRight": 0
+    }
+  },
+  "walkPhase": 0,
+  "errors": []
+}

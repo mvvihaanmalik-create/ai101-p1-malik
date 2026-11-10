@@ -1,0 +1,17 @@
+ordinary-children stairs stair C3 0
+porcelain-game stairs stair C3 0
+dog-on-the-stair stairs stair C4 0
+bell-study corridor bell C1 0
+runner-study corridor runner E6 0
+gallery-last-order corridor bar C5 0
+file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:16
+async function until(f,max=55000){const start=Date.now();for(;;){if(errors.length)throw Error(errors.join('\n'));const v=await f();if(v)return v;if(Date.now()-start>max)throw Error('Timed out: '+f+' '+JSON.stringify(await diag()));await sleep(110);}}
+                                                                                                                                                                               ^
+
+Error: Timed out: async()=>condition(await diag()) {"build":"v18","visual":{"file":"reception-v3-v14.webp","masterReady":true,"cached":3,"failed":["inspect-stair-v15.webp","route-21-normal-v15.webp","route-22-normal-v15.webp","route-18-normal-v15.webp"],"bufferWidth":1264},"arrival":null,"branch":null,"stairKind":"transfer","focus":null,"butlerVisible":false,"music":{"mode":"hotel","paused":false,"enabled":true,"volume":0.55,"context":"running","tracks":{"hotel":{"paused":true,"time":0,"ready":4,"duration":173.95,"gain":0.357,"error":false},"ending":{"paused":true,"time":0,"ready":4,"duration":32,"gain":0,"error":false}}},"ending":null,"encounterMetrics":{"childrenVisible":2,"plaything":"porcelain likeness","glassPhase":4.88,"glassHandGap":0,"handoffSeparation":0.736,"serverReachError":0,"receiverReachError":0},"visibleCast":[],"vignette":null,"detail":null,"time":65.54,"seed":3866061399,"passage":1,"orientation":true,"anomaly":null,"progress":0,"unlocked":false,"resolved":false,"history":[],"pending":null,"mode":"playing","room":"reception","view":3,"guestX":29.91,"guestY":5.92,"elevation":0.02,"butlerY":7.85,"distance":2.47,"active":false,"repel":0,"cooldown":0,"contacts":0,"casts":0,"frameMs":18.3,"renderCpuMs":2.14,"scheduler":"raf","stalls":14,"triangles":119916,"drawCalls":25,"locomotion":{"vx":0,"vz":0,"phase":3.495352567941996,"gait":0,"weights":{"Walk":0.8045977011490768,"WalkBack":0,"StepLeft":0,"StepRight":0.19540229885092306}},"walkPhase":0.611,"errors":[]}
+    at until (file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:16:176)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async walk (file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:20:56)
+    at async file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:127:2
+
+Node.js v24.15.0

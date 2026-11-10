@@ -1,0 +1,45 @@
+{
+  "recordingStartUtc": "2026-11-10T21:14:39.4980223+00:00",
+  "timezone": "America/New_York",
+  "roles": {
+    "operatorAndRecorder": "Codex",
+    "observer": "Vihaan Malik"
+  },
+  "capture": {
+    "audio": false,
+    "height": 854,
+    "fps": 15,
+    "y": 174,
+    "x": 880,
+    "width": 1020
+  },
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "r_frame_rate": "15/1"
+      }
+    ],
+    "format": {
+      "duration": "148.266000",
+      "size": "12070707"
+    }
+  },
+  "files": [
+    {
+      "file": "T2-edge-case-original.mkv",
+      "bytes": 12065956,
+      "sha256": "aaf706ffc142f49266939229ae0baae4cd46b9397c245a95e6409490eb81047c"
+    },
+    {
+      "file": "T2-edge-case.mp4",
+      "bytes": 12070707,
+      "sha256": "42b8ed92f8bbfdc1ef6886b85ec01695bab78bb15846d93a5513ea3808eeb9c4"
+    }
+  ]
+}

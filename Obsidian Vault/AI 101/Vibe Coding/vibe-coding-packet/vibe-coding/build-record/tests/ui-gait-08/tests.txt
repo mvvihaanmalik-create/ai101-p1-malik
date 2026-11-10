@@ -1,0 +1,32 @@
+
+> room-zero-visual-prototype@0.1.0 test
+> node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs
+
+✔ only the unlocked suite during gameplay can start the ending (0.9105ms)
+✔ the greeting repeats verbatim before the skeleton and surrounding cast (0.2139ms)
+✔ the finite ending freezes at its terminal image and never loops into play (1.7396ms)
+✔ reveal and enclosure are bounded and monotonic with no flashing fade (3.7949ms)
+✔ actual travel selects the right authored step, independent of input key (0.8989ms)
+✔ diagonal stance blend reproduces actual ground displacement (0.139ms)
+✔ blocked movement does not advance steps and settles into idle (0.7485ms)
+✔ release stops within 15 centimetres, without abrupt velocity changes (0.155ms)
+✔ 30 and 120 fps cover the same ground within three centimetres (1.8034ms)
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (1.1079ms)
+✔ four consecutive correct decisions unlock, both choices are valid (1.357ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (1.0652ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.0884ms)
+✔ anomaly bags have no repeats and survive resets; distribution is approximately half (4.5507ms)
+✔ same seed reproduces order; different seeds produce different orders (0.2423ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.1175ms)
+✔ all twelve approved anomalies and all six ordinary character vignettes are reachable (1.9321ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.283ms)
+✔ ending score hands off hotel music and becomes silent at the terminal image (2.3099ms)
+✔ pause, ending, replay and mute do not leave overlapping or advancing tracks (0.641ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.5171

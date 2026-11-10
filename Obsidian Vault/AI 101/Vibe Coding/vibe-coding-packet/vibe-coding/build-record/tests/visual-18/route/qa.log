@@ -1,0 +1,15 @@
+ordinary-children stairs stair C3 0
+porcelain-game stairs stair C3 0
+dog-on-the-stair stairs stair C4 0
+bell-study corridor bell C1 0
+runner-study corridor runner E6 0
+gallery-last-order corridor bar C5 0
+unscored tour to stair stairs null C3 0
+ground register after tour landing null null 0
+correct decision 1 stairs null null 1
+correct decision 2 corridor null E2 2
+claimed luggage and entered staff stair stairs null null 2
+correct decision 3 landing null null 3
+correct decision 4 corridor null C6 4
+suite reached on mixed routes suite null C6 4
+reception ending entered suite null C6 4

@@ -1,0 +1,36 @@
+
+> room-zero-visual-prototype@0.1.0 test
+> node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs tools/test-arms.mjs
+
+✔ arm solver preserves bone lengths and clamps unreachable targets without NaNs (0.7076ms)
+✔ reachable grip stays on target and elbow stays on its anatomical pole side (0.1177ms)
+✔ only the unlocked suite during gameplay can start the ending (0.9652ms)
+✔ the greeting repeats verbatim before the skeleton and surrounding cast (0.2185ms)
+✔ the finite ending freezes at its terminal image and never loops into play (1.8283ms)
+✔ reveal and enclosure are bounded and monotonic with no flashing fade (3.6098ms)
+✔ actual travel selects the right authored step, independent of input key (1.0012ms)
+✔ diagonal stance blend reproduces actual ground displacement (0.1365ms)
+✔ blocked movement does not advance steps and settles into idle (0.8422ms)
+✔ release stops within 15 centimetres, without abrupt velocity changes (0.1533ms)
+✔ 30 and 120 fps cover the same ground within three centimetres (1.1891ms)
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (1.2848ms)
+✔ four consecutive correct decisions unlock, both choices are valid (1.7113ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (0.6771ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.0841ms)
+✔ anomaly bags have no repeats and survive resets; distribution is approximately half (5.7462ms)
+✔ same seed reproduces order; different seeds produce different orders (0.1958ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.1224ms)
+✔ all twelve anomalies remain reachable against a fixed ordinary cast (2.1042ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.3296ms)
+✔ walking back through the corridor entrance scores exactly once without an E interaction (0.2678ms)
+✔ every ordinary floor keeps the learned cast even after a wrong decision (0.4141ms)
+✔ ending score hands off hotel music and becomes silent at the terminal image (2.1654ms)
+✔ pause, ending, replay and mute do not leave overlapping or advancing tracks (1.0011ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274.1519

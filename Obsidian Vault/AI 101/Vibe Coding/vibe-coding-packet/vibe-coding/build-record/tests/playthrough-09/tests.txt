@@ -1,0 +1,34 @@
+
+> room-zero-visual-prototype@0.1.0 test
+> node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs
+
+✔ only the unlocked suite during gameplay can start the ending (1.6468ms)
+✔ the greeting repeats verbatim before the skeleton and surrounding cast (0.4427ms)
+✔ the finite ending freezes at its terminal image and never loops into play (2.4612ms)
+✔ reveal and enclosure are bounded and monotonic with no flashing fade (8.0384ms)
+✔ actual travel selects the right authored step, independent of input key (1.3825ms)
+✔ diagonal stance blend reproduces actual ground displacement (0.3171ms)
+✔ blocked movement does not advance steps and settles into idle (1.942ms)
+✔ release stops within 15 centimetres, without abrupt velocity changes (0.3556ms)
+✔ 30 and 120 fps cover the same ground within three centimetres (2.7262ms)
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (3.4366ms)
+✔ four consecutive correct decisions unlock, both choices are valid (2.9775ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (1.4046ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.1753ms)
+✔ anomaly bags have no repeats and survive resets; distribution is approximately half (7.826ms)
+✔ same seed reproduces order; different seeds produce different orders (0.3758ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.27ms)
+✔ all twelve anomalies remain reachable against a fixed ordinary cast (3.5546ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.4361ms)
+✔ walking back through the corridor entrance scores exactly once without an E interaction (0.3325ms)
+✔ every ordinary floor keeps the learned cast even after a wrong decision (0.7045ms)
+✔ ending score hands off hotel music and becomes silent at the terminal image (4.3276ms)
+✔ pause, ending, replay and mute do not leave overlapping or advancing tracks (1.3462ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 191.0589

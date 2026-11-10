@@ -1,0 +1,10 @@
+
+> room-zero-visual-prototype@0.1.0 check
+> node tools/check-syntax.mjs
+
+Syntax OK: benchmark.js
+Syntax OK: character-encounters.js
+Syntax OK: encounter-art.js
+Syntax OK: encounter-catalogue.js
+Syntax OK: main.js
+Syntax OK: passage-loop.js

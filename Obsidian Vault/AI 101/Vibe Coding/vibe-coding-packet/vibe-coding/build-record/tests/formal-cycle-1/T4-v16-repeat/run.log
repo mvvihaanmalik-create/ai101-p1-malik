@@ -1,0 +1,6 @@
+Warning: Detected unsettled top-level await at file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build-record/tests/formal-cycle-1/record-T4-v16.mjs:64
+ capturing=false;if(recording)await recording;
+                              ^
+
+
+

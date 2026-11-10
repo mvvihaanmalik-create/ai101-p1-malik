@@ -1,0 +1,107 @@
+[
+  {
+    "label": "stair ordinary far exit",
+    "room": "landing",
+    "detail": null,
+    "progress": 1,
+    "orientation": false,
+    "focus": "E3",
+    "branch": null,
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "hall ordinary far exit",
+    "room": "stairs",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "shared lift return",
+    "room": "landing",
+    "detail": null,
+    "progress": 3,
+    "orientation": false,
+    "focus": "E3",
+    "branch": null,
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 6,
+        "anomaly": "E3"
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  }
+]

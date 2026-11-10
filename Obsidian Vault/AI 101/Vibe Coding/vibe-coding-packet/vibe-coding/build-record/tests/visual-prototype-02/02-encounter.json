@@ -1,0 +1,16 @@
+{
+  "mode": "playing",
+  "view": 1,
+  "guestX": -1.37,
+  "guestY": 12.12,
+  "butlerY": 16.25,
+  "distance": 4.23,
+  "active": true,
+  "repel": 2.57,
+  "cooldown": 4.57,
+  "contacts": 0,
+  "casts": 1,
+  "frameMs": 29.7,
+  "triangles": 565868,
+  "errors": []
+}

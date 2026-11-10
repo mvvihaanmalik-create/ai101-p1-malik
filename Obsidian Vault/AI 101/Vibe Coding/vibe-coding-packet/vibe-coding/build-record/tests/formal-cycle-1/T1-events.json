@@ -1,0 +1,118 @@
+[
+  {
+    "at": "2026-11-10T05:15:11.370Z",
+    "event": "Recording running, title screen; Vihaan observing, Codex operating."
+  },
+  {
+    "at": "2026-11-10T05:15:46.803Z",
+    "event": "Unscored orientation: room service inspection."
+  },
+  {
+    "at": "2026-11-10T05:15:56.682Z",
+    "event": "Unscored orientation: two children, rolling ball."
+  },
+  {
+    "at": "2026-11-10T05:16:08.100Z",
+    "event": "Unscored orientation: glass handoff inspected."
+  },
+  {
+    "at": "2026-11-10T05:16:15.811Z",
+    "event": "Unscored orientation: luggage mirror inspected."
+  },
+  {
+    "at": "2026-11-10T05:16:22.745Z",
+    "event": "Orientation complete: visible progress 0/4."
+  },
+  {
+    "at": "2026-11-10T05:17:33.047Z",
+    "event": "First scored floor: no clear anomaly identified after inspections; choosing continue. Luggage reflection very dark."
+  },
+  {
+    "at": "2026-11-10T05:17:44.719Z",
+    "event": "Continue was incorrect; visible reset to 0/4. Missed anomaly, identity not established from visible UI."
+  },
+  {
+    "at": "2026-11-10T05:18:03.203Z",
+    "event": "Second scored floor: founder faces viewer and human shadow outside frame. Choosing return."
+  },
+  {
+    "at": "2026-11-10T05:18:12.583Z",
+    "event": "Return correct: 1/4."
+  },
+  {
+    "at": "2026-11-10T05:18:54.762Z",
+    "event": "Vihaan live feedback: hand/finger movement unnatural/fake; dog extremely fake, suggests free open-source replacement; wall text unclear, needs stronger weight."
+  },
+  {
+    "at": "2026-11-10T05:19:03.400Z",
+    "event": "Third scored floor: no definite changed cue identified; choosing continue."
+  },
+  {
+    "at": "2026-11-10T05:19:10.884Z",
+    "event": "Continue correct: 2/4."
+  },
+  {
+    "at": "2026-11-10T05:19:45.691Z",
+    "event": "Fourth scored floor: choosing continue after comparison."
+  },
+  {
+    "at": "2026-11-10T05:20:10.106Z",
+    "event": "Continue incorrect; progress reset from 2/4 to 0/4. Second missed anomaly."
+  },
+  {
+    "at": "2026-11-10T05:20:39.121Z",
+    "event": "Fifth scored floor: portrait/coat/children appear ordinary; choosing continue."
+  },
+  {
+    "at": "2026-11-10T05:20:53.186Z",
+    "event": "Continue correct: 1/4."
+  },
+  {
+    "at": "2026-11-10T05:21:28.081Z",
+    "event": "Sixth scored floor: choosing continue; no definite visible anomaly."
+  },
+  {
+    "at": "2026-11-10T05:21:51.552Z",
+    "event": "Sixth decision incorrect; reset 1/4 to 0/4. Third missed change. Continuing same attempt."
+  },
+  {
+    "at": "2026-11-10T05:22:27.635Z",
+    "event": "Seventh scored floor: continue correct, 1/4."
+  },
+  {
+    "at": "2026-11-10T05:22:56.263Z",
+    "event": "Eighth scored floor: continue correct, 2/4."
+  },
+  {
+    "at": "2026-11-10T05:23:28.892Z",
+    "event": "Ninth scored floor: continue correct, 3/4."
+  },
+  {
+    "at": "2026-11-10T05:23:46.174Z",
+    "event": "Tenth scored floor: horizontal coat anomaly visible; choosing return at 3/4."
+  },
+  {
+    "at": "2026-11-10T05:24:02.224Z",
+    "event": "Tenth decision correct: 4/4 unlocked final stairs."
+  },
+  {
+    "at": "2026-11-10T05:24:18.964Z",
+    "event": "Opened suite door with E; reception ending triggered."
+  },
+  {
+    "at": "2026-11-10T05:24:26.395Z",
+    "event": "Paused reception reveal; five-second hold begins."
+  },
+  {
+    "at": "2026-11-10T05:24:39.701Z",
+    "event": "Resumed ending after pause; holding W for input-lock check."
+  },
+  {
+    "at": "2026-11-10T05:25:08.489Z",
+    "event": "Ending reached No departures / Begin again. W did not interrupt the reveal."
+  },
+  {
+    "at": "2026-11-10T05:25:09.330Z",
+    "event": "Begin again returned to reception with Find the east passage, no scored progress."
+  }
+]

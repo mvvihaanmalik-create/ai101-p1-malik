@@ -1,0 +1,7 @@
+# ADR-010: Give each encounter a room in the ascent
+
+- Date: November 10, 2026. Evidence: [Vihaan's Test 3 feedback](../build-record/tests/formal-cycle-1/T3-result.md). He described crowding, asked for stair and hallway encounters over several floors, and wanted more time with a disturbing detail. The unexpected-input procedure itself passed.
+- Decision: Stage one subject per scored route. The east stair hosts the children, dog or coat. The longer west gallery hosts the butler, trolley, last order, traveller, portrait, rain, gilt mirror or runner. The lift can change on the common landing. The hotel reuses its architecture and changes the numbered floor as the player earns the ascent. Keep the whole cast together for the ending.
+- A route choice cannot reroll the ordinary/changed state. The normal and changed subjects use the same close-ups. On the anomalous stair the two children roll a porcelain cast of a third child's head; the ordinary toy is a red ball. It settles between rolls and inspection lasts until E. No new third-party model was downloaded.
+- Tradeoff: Two routes break up the old fixed-cast reference. The unscored tour, ordinary night-register descriptions and matching shots supply a fair reference. These are four progress floors, not four bespoke hotel interiors.
+- Comparison limit: This is an expanded, user-requested revision during Cycle 1. It is additional to the three T1 repairs. Do not present the five repair decisions as a single original three-change course selection. The revised staging has not been accepted by a human retest.

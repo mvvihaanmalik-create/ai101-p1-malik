@@ -1,0 +1,26 @@
+{
+  "name": "design-shelf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "context": "node scripts/context.mjs",
+    "watch": "node scripts/context-watch.mjs"
+  },
+  "dependencies": {
+    "@formkit/auto-animate": "0.10.0",
+    "@react-spring/web": "10.1.2",
+    "@react-three/drei": "10.7.9",
+    "@react-three/fiber": "9.8.2",
+    "@react-three/rapier": "2.2.0",
+    "@use-gesture/react": "10.3.1",
+    "animejs": "4.5.0",
+    "motion": "14.6.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "three": "0.186.1"
+  }
+}

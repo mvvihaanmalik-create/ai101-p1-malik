@@ -1,0 +1,9 @@
+{
+  "prepared": "2026-11-10",
+  "status": "prepared, not executed",
+  "protocol": "../../formal-test-protocol.md",
+  "sha256": "111641c62f7739a17791d5d33f9a4bb0087b26981b11db8081234d0c8d326928",
+  "baseline": "v13",
+  "deployment": "dpl_GdzBSACzQAqwRTPJHPAiH6wMSqrZ",
+  "reference": "User-supplied course overview, 2026-11-10; wording aligned before any formal tests"
+}

@@ -1,0 +1,7 @@
+Mode: built-in image_gen, transparent background.
+Use case: stylized-concept / website brand icon.
+
+Create ONE finished 3D app icon for Design Shelf, a personal visual design-reference collection. Match the soft frosted-glass book/folder material of the supplied references, not a letter or monogram. A rounded translucent glass display pocket with TWO broad overlapping design cards rising behind it. A softly stepped folder lip, generously rounded bottom corners, and few broad surfaces. Thick frosted optical glass, luminous bevels, restrained refraction, contact shadows between layers, and delicate white edge highlights. Nearly frontal, centered, about 82% of a square canvas. Airy pearl, ice blue and cyan with a subtle peach glint; no green, brown or typical indigo gradient. Transparent background. No letters, text, tiny UI markings, app-tile frame, floor plane or large cast shadow. A physical-looking glass collection icon, not a flat vector drawing.
+
+Master: shelf-glass.png. Deployment exports: shelf-glass-256.png and shelf-glass-64.png.
+Exports preserve the generated alpha and composition; only dimensions are changed.

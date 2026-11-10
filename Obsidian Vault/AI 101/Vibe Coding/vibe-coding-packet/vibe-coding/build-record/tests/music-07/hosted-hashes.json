@@ -1,0 +1,22 @@
+[
+  {
+    "file": "hotel",
+    "sha256": "4304fb20074999400296290afce3c1762d8f273bc11bbbe230cfe21482d3915c",
+    "matches": true
+  },
+  {
+    "file": "ending",
+    "sha256": "6e65bbd450133b5e6be6af6ac5513391cbbd8389532fd0b862c0cb94de444a1e",
+    "matches": true
+  },
+  {
+    "file": "index",
+    "sha256": "56993873c28bbcd016587e51461b77ba25920395670731001379fc6e50ec1f51",
+    "matches": true
+  },
+  {
+    "file": "credits",
+    "sha256": "bc8b7382732a7d9758d67c41c13763bd5e24cfe324a5edfd8bfb32619091ec91",
+    "matches": true
+  }
+]

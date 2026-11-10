@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Room number",
+    "text": "102",
+    "size": 0.1770000010728836
+  },
+  {
+    "name": "Room number.001",
+    "text": "104",
+    "size": 0.1770000010728836
+  },
+  {
+    "name": "Room number.002",
+    "text": "106",
+    "size": 0.1770000010728836
+  },
+  {
+    "name": "Suite name",
+    "text": "HONEYMOON\nSUITE",
+    "size": 0.14499999582767487
+  },
+  {
+    "name": "Above the threshold",
+    "text": "0",
+    "size": 0.2831999957561493
+  },
+  {
+    "name": "Door lettering",
+    "text": "E A S T   W I N G",
+    "size": 0.10737999528646469
+  },
+  {
+    "name": "Register inscription",
+    "text": "G U E S T S",
+    "size": 0.0436599999666214
+  },
+  {
+    "name": "Hotel identity",
+    "text": "RECEPTION",
+    "size": 0.2549999952316284
+  },
+  {
+    "name": "Lift sign",
+    "text": "OUT OF ORDER",
+    "size": 0.11500000208616257
+  },
+  {
+    "name": "Lift dial",
+    "text": "I   II   III   IV",
+    "size": 0.14159999787807465
+  },
+  {
+    "name": "Door lettering.001",
+    "text": "T H E   E A S T   P A S S A G E",
+    "size": 0.10737999528646469
+  },
+  {
+    "name": "Door lettering.002",
+    "text": "H O N E Y M O O N",
+    "size": 0.10737999528646469
+  },
+  {
+    "name": "Door lettering.003",
+    "text": "H O N E Y M O O N\nS U I T E",
+    "size": 0.10737999528646469
+  },
+  {
+    "name": "Suite zero",
+    "text": "0",
+    "size": 0.36579999327659607
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "label": "ordinary-children",
+    "room": "stairs",
+    "detail": "stair",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C3",
+    "branch": "stair",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C3"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "porcelain-game",
+    "room": "stairs",
+    "detail": "stair",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C3",
+    "branch": "stair",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C3"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "dog-on-the-stair",
+    "room": "stairs",
+    "detail": "stair",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C4",
+    "branch": "stair",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C4"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "bell-study",
+    "room": "corridor",
+    "detail": "bell",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C1",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": true,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "runner-study",
+    "room": "corridor",
+    "detail": "runner",
+    "progress": 0,
+    "orientation": false,
+    "focus": "E6",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "gallery-last-order",
+    "room": "corridor",
+    "detail": "bar",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C5",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C5"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  }
+]

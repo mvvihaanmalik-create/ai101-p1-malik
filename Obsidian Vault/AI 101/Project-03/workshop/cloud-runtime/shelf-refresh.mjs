@@ -1,0 +1,2 @@
+import {cronAuthorized,refreshCatalog,sendJson} from './catalog.mjs';
+export default async function handler(req,res){if(req.method!=='GET')return sendJson(res,{error:'Method not allowed'},405);if(!cronAuthorized(req))return sendJson(res,{error:'Unauthorized'},401);try{return sendJson(res,await refreshCatalog());}catch(error){console.error('Shelf refresh failed:',error.name,error.message);return sendJson(res,{error:'Asset refresh failed. Previous catalog retained.'},503);}}

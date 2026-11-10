@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "notesDirectory": "Project 2/Workshop Projects",
+  "registry": "Project 2/progress-arcade/projects.json",
+  "output": "Project-03/design-shelf/data/projects.json",
+  "debounceMs": 450,
+  "pollIntervalMs": 4000
+}

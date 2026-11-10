@@ -1,0 +1,1 @@
+{"build":"v3","mode":"playing","room":"corridor","view":1,"guestX":-1.37,"guestY":12.57,"elevation":0.02,"butlerY":15.74,"distance":3.27,"active":true,"repel":2.85,"cooldown":4.85,"contacts":0,"casts":2,"frameMs":16.7,"renderCpuMs":0.48,"scheduler":"raf","stalls":35,"triangles":158928,"drawCalls":52,"walkPhase":0.98,"errors":[]}

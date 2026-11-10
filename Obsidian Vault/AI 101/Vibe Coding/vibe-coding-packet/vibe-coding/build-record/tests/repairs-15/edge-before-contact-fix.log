@@ -1,0 +1,12 @@
+escaped with one floor stairs null null 1
+file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:15
+async function until(f,max=55000){const start=Date.now();for(;;){if(errors.length)throw Error(errors.join('\n'));const v=await f();if(v)return v;if(Date.now()-start>max)throw Error('Timed out: '+f+' '+JSON.stringify(await diag()));await sleep(110);}}
+                                                                                                                                                                               ^
+
+Error: Timed out: async()=>condition(await diag()) {"build":"v15","branch":null,"stairKind":"watch","focus":null,"butlerVisible":false,"music":{"mode":"hotel","paused":false,"enabled":true,"volume":0.55,"context":"running","tracks":{"hotel":{"paused":true,"time":33.48,"ready":4,"duration":173.95,"gain":0,"error":false},"ending":{"paused":true,"time":0,"ready":4,"duration":32,"gain":0,"error":false}}},"ending":null,"encounterMetrics":{},"visibleCast":[],"vignette":null,"detail":null,"time":56.81,"seed":2094676277,"passage":4,"orientation":false,"anomaly":null,"progress":0,"unlocked":false,"resolved":false,"history":[{"kind":"correct","choice":"return","correct":true,"progress":1,"unlocked":false,"serial":2,"anomaly":"C1"},{"kind":"wrong","choice":"continue","correct":false,"progress":0,"unlocked":false,"serial":3,"anomaly":"C1"}],"pending":null,"mode":"playing","room":"landing","view":4,"guestX":60.35,"guestY":4.5,"elevation":0.02,"butlerY":18.2,"distance":62.16,"active":false,"repel":0,"cooldown":0,"contacts":0,"casts":0,"frameMs":8533.6,"renderCpuMs":1.02,"scheduler":"timer","stalls":5,"triangles":81726,"drawCalls":20,"locomotion":{"vx":0,"vz":0,"phase":0,"gait":0,"weights":{"Walk":1,"WalkBack":0,"StepLeft":0,"StepRight":0}},"walkPhase":0,"errors":[]}
+    at until (file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:15:176)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async walk (file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:19:56)
+    at async file:///C:/Users/91982/Documents/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding/build/tools/check-night-route.mjs:36:79
+
+Node.js v24.15.0
