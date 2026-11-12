@@ -1,5 +1,7 @@
 # Room 0: visual prototype 02
 
+**Asset/tool provenance:** Guest and butler use adapted CC0 MakeHuman components, generated with MPFB in headless Blender. [Sources, licences and scripts](../sources/assets-and-tools.md).
+
 November 8, 2026. Implemented and checked by Codex after Vihaan rejected the first characters as too blocky. The new appearance awaits Vihaan's review.
 
 ## What changed

@@ -1,0 +1,160 @@
+[
+  {
+    "label": "N-E4 scored in bathroom",
+    "room": "stairs",
+    "detail": null,
+    "progress": 1,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "E4 scored in bathroom",
+    "room": "claim",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": "E4",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "E4"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "N-C5 scored in lounge",
+    "room": "lounge",
+    "detail": null,
+    "progress": 3,
+    "orientation": false,
+    "focus": "C5",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [
+      "C5"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "E4"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "C5 scored in lounge",
+    "room": "lounge",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "C5",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [
+      "C5"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "E4"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": "C5"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  }
+]

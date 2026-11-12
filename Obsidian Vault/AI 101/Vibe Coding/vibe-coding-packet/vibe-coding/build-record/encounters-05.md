@@ -1,5 +1,7 @@
 # Room 0: encounter expansion 05
 
+**Asset/tool provenance:** Child, attendant and porter reuse the CC0 MakeHuman components. The dog described in this historical pass was procedural; the current v14+ dog is by 3dskillup.art (CC BY 4.0). [Sources, licences and scripts](../sources/assets-and-tools.md).
+
 **Later update:** The reception ending was implemented in [build 06](ending-06.md). Pending-ending statements below describe the v5 checkpoint.
 
 November 8, 2026. Vihaan requested the remaining anomalies, polished normal counterparts, and ongoing vault updates. All twelve approved IDs now have implemented normal/anomalous versions. The local build is ready for his visual review. The hostile reception ending is still pending.

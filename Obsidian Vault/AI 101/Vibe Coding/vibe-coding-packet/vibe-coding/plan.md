@@ -1,7 +1,6 @@
-# Room 0 plan
-
-1. **Option:** Browser game, Room 0.
-2. **User:** Vihaan Malik and his friends Tiffany, Katie, Aleela, Marie and Ornilla enjoy Exit 8 and weird horror. Vihaan wants to share a finished game with them that offers the anomaly-observation gameplay and unsettling atmosphere they enjoy.
-3. **Route** Learn the ordinary hotel, earn two floors, match one luggage ticket, then reach four correct decisions. Open the honeymoon suite to trigger the reception ending.
-4. **Scope** One hotel, four floors, twelve anomalies, one porter puzzle and one ending. Desktop keyboard controls.
-5. **Rejected alternatives and choice:** A Little Prince/book-chapter adaptation; an Edgar Allan Poe/The Tell-Tale Heart adaptation; the surreal cat adventure inspired by Van Gogh, Crayon Shin-chan and Cat Soup; Last Train Home; the Dune/Lynch-inspired desert rover; a Dali-inspired melting-world game; and a non-game interactive art piece. Vihaan chose Room 0 because he wanted to bring its hotel setting to life, drawing on Hokum, Twin Peaks and Exit 8 for aesthetics and gameplay, and share the finished game with his friends. His scope priority is one complete storyline with detailed polish within two weeks.
+# My plan
+1. **Idea:** I’m making Hotel of Horror, a browser horror game.
+2. **Who it’s for:** My friends Tiffany, Katie, Aleela, Marie and Ornilla and I love Exit 8 and strange horror. I want to give them a finished game to play.
+3. **Build:** When the player spots a change and turns back, or correctly continues through an ordinary passage, the game moves them one floor closer to the honeymoon suite.
+4. **Boundary:** One hotel, four correct decisions, twelve possible anomalies, one luggage puzzle and one ending. I want one complete, polished story within two weeks.
+5. **Why this idea:** I wanted to bring a hotel inspired by Hokum and Twin Peaks to life, using Exit 8’s observation mechanic. I considered a Little Prince chapter, Poe’s Tell-Tale Heart, a surreal cat adventure, Last Train Home, a Dune-inspired rover, a Dalí melting-world game and an interactive art piece. I chose to focus on Hotel of Horror.

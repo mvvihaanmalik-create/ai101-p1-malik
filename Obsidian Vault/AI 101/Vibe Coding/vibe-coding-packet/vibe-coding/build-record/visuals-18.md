@@ -1,14 +1,17 @@
-# Visual pass · v18
+# My latest visual pass · v18
+I asked for more polish across everything on screen: resolution, materials, characters and lighting.
 
-**Direction:** Keep the red reception, cold gallery and fixed cameras. Improve what the player can see within those shots: cloth, leather, reflected stamps, the porter’s face and the hotel’s lettering.
-
-| Where | Change |
+| Part | What changed |
 | --- | --- |
-| Hotel and ending | Re-render the existing Blender cameras at 2560 × 1440. Normal and changed views use the same lens, so the camera gives no hint about the answer. |
-| Cast and props | Woven uniforms, polished shoes, suitcase seams and clasps. The dog keeps its authored fur and normal maps. The close mirror uses a sharper reflection. |
-| Left luggage | Walnut grain, brass edging, velvet, contact shadows and reeded glass behind the guest. The stamp remains the puzzle clue. |
-| Display | Show a lightweight image immediately; load the full picture for the current view. Keep three large pictures at most. Reduce the drawing resolution if sustained slow frames would interrupt walking. |
+| Hotel and ending | 38 images re-rendered at 2560 × 1440 from the original Blender scenes |
+| Characters and props | More material detail in uniforms, shoes, leather and brass; clearer close reflections |
+| Luggage room | Walnut grain, velvet, contact shadows and a reflected reeded-glass window |
+| Loading | Smaller images appear first; the current view loads in full detail, with up to three large images kept in memory |
 
-**Evidence:** [Camera and anomaly comparisons](tests/visual-18/camera-audit.json) · [Missing-image check](tests/visual-18/after/browser-visual-fallback-result.json). These are developer checks. Formal Cycle 2 observations belong in the [test card](tests/formal-cycle-2/README.md).
+I used Codex to carry out this pass through headless Blender, Python and Three.js. The humans remain MakeHuman adaptations; the dog remains 3dskillup.art’s model. [Credits](../sources/assets-and-tools.md).
 
-**Later:** Vihaan wants to consider an API feature once the story is final. No feature or provider chosen; no key in the game.
+**Checked:** The route reached the suite and ending, all 38 images passed the camera check, and all 13 sampled views displayed their full-resolution image. These are developer checks; formal Cycle 2 feedback is still pending.
+
+[Compare before and after](tests/visual-18/compare.html) · [Game stills](tests/visual-18/hotel-stills.jpg) · [Route check](tests/visual-18/route/browser-route-result.json) · [Image check](tests/visual-18/camera-audit.json) · [Live-file verification](tests/visual-18/alias-verification.json).
+
+I’ll consider an API feature once the story is final. I have not chosen its purpose or provider.

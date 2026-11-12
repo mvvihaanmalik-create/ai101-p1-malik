@@ -22,8 +22,11 @@ export function calibrateHands(model){
   hand.userData.palmForward=forward.clone().applyQuaternion(inverse);hand.userData.palmNormal=normal.clone().applyQuaternion(inverse);
   for(const name of ['index','middle','ring','pinky','thumb'])for(let segment=1;segment<=3;segment++){
    const b=model.getObjectByName(`${name}_${String(segment).padStart(2,'0')}_${side}`);if(!b)continue;
-   const direction=new Vector3(0,1,0).applyQuaternion(b.getWorldQuaternion(new Quaternion()));
-   b.userData.flexAxis=new Vector3().crossVectors(direction,normal).normalize().applyQuaternion(b.getWorldQuaternion(new Quaternion()).invert());
+   const child=b.children.find(c=>c.isBone);
+   const origin=b.getWorldPosition(new Vector3()),rotation=b.getWorldQuaternion(new Quaternion());
+   const direction=child?child.getWorldPosition(new Vector3()).sub(origin).normalize():new Vector3(0,1,0).applyQuaternion(rotation);
+   const inward=name==='thumb'?index.getWorldPosition(new Vector3()).sub(origin).normalize():normal;
+   b.userData.flexAxis=new Vector3().crossVectors(direction,inward).normalize().applyQuaternion(rotation.invert());
   }
  }
 }
@@ -36,10 +39,10 @@ export function orientedPalm(hand,normal,forward){
 }
 export function applyFingerGrip(model,side,amount){
  const grip=MathUtils.clamp(amount,0,1);
- for(const [name,variation] of [['index',.85],['middle',1],['ring',1.04],['pinky',1.08],['thumb',.32]]){
+ for(const [name,variation] of [['index',.85],['middle',1],['ring',1.04],['pinky',1.08],['thumb',.56]]){
   for(let segment=1;segment<=3;segment++){
    const bone=model.getObjectByName(`${name}_${String(segment).padStart(2,'0')}_${side}`);
-   if(bone)bone.quaternion.multiply(turn.setFromAxisAngle(bone.userData.flexAxis||axis,[0,.45,.65,.35][segment]*grip*variation));
+   if(bone)bone.quaternion.multiply(turn.setFromAxisAngle(bone.userData.flexAxis||axis,[0,.53,.84,.43][segment]*grip*variation));
   }
  }
 }

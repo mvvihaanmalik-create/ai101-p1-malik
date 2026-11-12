@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_GaDUF2s3xwFpmuiSUvUqn8wLRU6n",
+    "url": "https://room-zero-btbhuv8x4-vihaanmalik.vercel.app",
+    "inspectorUrl": "https://vercel.com/vihaanmalik/room-zero/GaDUF2s3xwFpmuiSUvUqn8wLRU6n",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_GaDUF2s3xwFpmuiSUvUqn8wLRU6n",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    }
+  },
+  "message": "Deployment room-zero-btbhuv8x4-vihaanmalik.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://room-zero-btbhuv8x4-vihaanmalik.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect room-zero-btbhuv8x4-vihaanmalik.vercel.app --scope vihaanmalik --non-interactive --cwd .deploy/room-zero-v6",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope vihaanmalik --non-interactive --cwd .deploy/room-zero-v6",
+      "when": "Promote to production"
+    }
+  ]
+}

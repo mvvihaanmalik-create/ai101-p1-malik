@@ -73,6 +73,7 @@ footer{position:absolute;left:5%;bottom:5%;display:flex;align-items:center;font-
 #stage.claim #interaction{bottom:5%;left:15%;right:12%;background:#110e0cda;padding:.4em;font-family:var(--ui)}
 #stage.claim #caption{bottom:14%}
 #stage.inspecting #caption,#stage.inspecting #progress,#stage.inspecting header{visibility:hidden}
+#stage.inspecting #caption.show{visibility:visible;bottom:12%;max-width:min(80%,54rem);padding:.35em .75em;background:#100f10cf}
 #stage.inspecting #interaction{left:auto;right:4%;bottom:4%;padding:4px 9px;background:#090a0aa6;font:16px/1.4 var(--ui);text-align:right}
 #stage.inspecting #hud{opacity:.75}
 #register-note{max-width:46ch;border-left:2px solid #a48d64;padding-left:12px;margin:0 0 12px;color:#e0d4ba;font:italic clamp(15px,1.4vw,19px)/1.4 Georgia,serif}
@@ -118,3 +119,32 @@ footer{opacity:.65;font-size:14px}
  .instructions{margin-top:18px;font-size:14px;gap:8px 22px}#intro .instructions{margin-top:16px}#intro .credits{margin-top:14px}
  #pause .instructions{display:none}.audio-settings{margin-top:16px;padding-top:16px}#progress{top:6%;font-size:15px}#interaction{bottom:19%;font-size:18px}#caption{font-size:17px;bottom:8%}
 }
+
+/* The longer title keeps its own scale at every viewport. */
+#intro h1{font-size:clamp(30px,5.2vw,80px);line-height:1.12}
+header .wordmark{font-size:clamp(13px,1.4vw,20px);letter-spacing:.06em}
+
+#stage.on-road header,#stage.on-road #progress,#stage.on-road #hud,#stage.on-road #defense{visibility:hidden}
+#stage.on-road #interaction{left:auto;right:4%;bottom:5%;font:16px var(--ui)}
+
+#stage.ending header,#stage.ending #caption{display:none}
+#pause .premise:empty{display:none}
+
+#lyric{position:absolute;z-index:3;left:50%;bottom:8%;transform:translateX(-50%);max-width:90%;width:max-content;padding:.32em .8em;background:#0b080bd9;color:#f8edde;font:500 clamp(16px,2.2vw,24px)/1.35 var(--ui);text-align:center;pointer-events:none}
+#stage:has(#pause:not([hidden])) #lyric{visibility:hidden}
+#stage.approach #interaction,#stage.approach #progress,#stage.approach header{visibility:hidden}
+
+/* End titles share the film clock, including while the register is paused. */
+#closing{position:absolute;inset:0;z-index:3;background:#070606;color:#e7ded2;text-align:center;overflow:hidden}
+#closing [hidden],#closing[hidden],#stage:has(#pause:not([hidden])) #closing{display:none}
+#closing-title,.dedication{position:absolute;top:50%;left:5%;right:5%;margin:0;transform:translateY(-50%)}
+#closing-title{font:600 clamp(25px,5.5vw,86px)/1.14 var(--title);letter-spacing:.06em;color:#dec8b6}
+#roll-window{position:absolute;inset:5% 3%;overflow:hidden;mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent)}
+#credit-roll{will-change:transform}
+#credit-roll section{margin:0 auto clamp(44px,8vh,100px);max-width:56rem}
+#closing h3,.dedication small{font:500 clamp(13px,1.35vw,20px)/1.4 var(--ui);letter-spacing:.13em;text-transform:uppercase;color:#c29d88;margin:0 0 .85em}
+#closing p{font:400 clamp(19px,2.45vw,44px)/1.2 Georgia,serif;margin:.65em auto .25em;text-wrap:balance}
+#closing small{display:block;font:400 clamp(14px,1.5vw,23px)/1.45 var(--ui);color:#c2b8b1;text-wrap:balance}
+.dedication p{font-family:var(--title);font-size:clamp(22px,3.65vw,60px);margin:.4em auto}
+#roll-window.credit-pages{display:grid;align-items:center;mask-image:none}
+#end{background:#070606;justify-content:center}

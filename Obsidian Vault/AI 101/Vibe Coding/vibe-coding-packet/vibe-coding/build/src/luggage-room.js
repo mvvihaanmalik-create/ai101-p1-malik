@@ -1,4 +1,5 @@
-import {finishMaterial} from './visual-finish.js';
+import {finishMaterial,surfaceColor,lightHotelMaterials} from './visual-finish.js';
+import {fitSmile} from './character-performance.js';
 import * as THREE from 'three';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {clone} from 'three/addons/utils/SkeletonUtils.js';
@@ -20,12 +21,13 @@ function tagTexture(mark) {
 }
 
 export function createLuggageRoom(porter,makeCase){
- const scene=new THREE.Scene();scene.background=new THREE.Color(0x292120);
+ const scene=new THREE.Scene();lightHotelMaterials(scene,.42);scene.background=new THREE.Color(0x292120);
  const camera=new THREE.PerspectiveCamera(36,16/9,.05,35);
  camera.position.set(.15,2.1,4.0);camera.lookAt(.05,1.45,-.6);
  const material=(color,metalness=0)=>new THREE.MeshStandardMaterial({color,metalness,roughness:.62});
  const walnut=material(0x47312a),trim=material(0xa18755,.42),velvet=material(0x641f34),taupe=material(0x605145);
  for(const [mat,key,factor] of [[walnut,'walnut',.002],[velvet,'velvet',.0009],[trim,'brass',.0004],[taupe,'velvet',.0006]]){finishMaterial(mat,key,factor);mat.map=mat.roughnessMap;}
+ walnut.map=surfaceColor('assets/smoked-walnut-v31.webp');walnut.color.setHex(0xcbb7a7);
  function box(parent,x,y,z,w,h,d,mat){
   const geo=new THREE.BoxGeometry(w,h,d),uv=geo.attributes.uv,p=geo.attributes.position,n=geo.attributes.normal;
   for(let i=0;i<uv.count;i++){const u=Math.abs(n.getX(i))>.5?p.getZ(i):p.getX(i),v=Math.abs(n.getY(i))>.5?p.getZ(i):p.getY(i);uv.setXY(i,u*1.65+.34,v*1.65+.17);}
@@ -79,8 +81,8 @@ export function createLuggageRoom(porter,makeCase){
  const mixer=new THREE.AnimationMixer(figure);
  const idle=mixer.clipAction(porter.animations.find(a=>a.name==='Idle')).play();
  const release=mixer.clipAction(porter.animations.find(a=>a.name==='Raise'));release.setLoop(THREE.LoopOnce,1);release.clampWhenFinished=true;
- scene.add(new THREE.HemisphereLight(0xf4ddc8,0x41333a,1.25));
- for(const [x,y,z,color,power] of [[-1.7,2.5,1.5,0xffae6a,17],[1.55,2.5,.5,0x94c9cd,11]]){
+ scene.add(new THREE.HemisphereLight(0xc4c7cc,0x39202c,.76));
+ for(const [x,y,z,color,power] of [[-1.76,2.42,1.12,0xffb979,21],[1.82,2.55,-.43,0x96c3c2,14.5]]){
   const light=new THREE.PointLight(color,power,8);light.position.set(x,y,z);scene.add(light);
  }
  // Soft contact at the feet of each case, including when it slides toward us.
@@ -88,19 +90,27 @@ export function createLuggageRoom(porter,makeCase){
  const mc=mask.getContext('2d'),grad=mc.createRadialGradient(64,64,4,64,64,64);
  grad.addColorStop(0,'rgba(16,4,4,.65)');grad.addColorStop(.55,'rgba(16,4,4,.33)');grad.addColorStop(1,'rgba(16,4,4,0)');mc.fillStyle=grad;mc.fillRect(0,0,128,128);
  const shade=new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(mask),transparent:true,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1});
+ // Exact critically damped response preserves momentum if the guest reverses a case mid-turn.
+ function settle(body,key,goal,rate,dt){
+  const velocity=key+'Speed',offset=body[key]-goal,decay=Math.exp(-rate*dt);
+  const c=body[velocity]+rate*offset;
+  body[key]=goal+(offset+c*dt)*decay;body[velocity]=(body[velocity]-rate*c*dt)*decay;
+ }
  const cases=[],textures=stamps.map(tagTexture);
  for(let i=0;i<3;i++){
   const bag=makeCase(scene);bag.position.set(-1.42+i*1.06,.98,.03);bag.scale.setScalar(1.23);
   const tag=new THREE.Mesh(new THREE.PlaneGeometry(.37,.255),new THREE.MeshBasicMaterial({map:textures[i]}));
-  tag.position.set(0,.4,-.117);tag.rotation.y=Math.PI;bag.add(tag);const contact=new THREE.Mesh(new THREE.PlaneGeometry(.90,.50),shade);contact.position.set(bag.position.x,.975,.03);contact.rotation.x=-Math.PI/2;scene.add(contact);cases.push({bag,tag,contact});
+  tag.position.set(0,.4,-.117);tag.rotation.y=Math.PI;bag.add(tag);const contact=new THREE.Mesh(new THREE.PlaneGeometry(.90,.50),shade);contact.position.set(bag.position.x,.975,.03);contact.rotation.x=-Math.PI/2;scene.add(contact);cases.push({bag,tag,contact,yaw:0,yawSpeed:0,depth:.03,depthSpeed:0});
  }
  const ticket=document.getElementById('claim-ticket'),stamp=document.getElementById('claim-stamp');
+ const greet=fitSmile(figure);greet(.66);
  const head=figure.getObjectByName('head');
  const neutralHead=head?.quaternion.clone();
  let active=0,target=0,turned=false,angle=0,solved=false,open=0,order=[],recognitionTime=0;
  function start(seed){
   lastMirror=-Infinity;target=(seed>>>3)%3;order=[0,1,2];if(seed&1)order.reverse();order.push(...order.splice(0,seed%3));
-  cases.forEach(({tag,bag},i)=>{tag.material.map=textures[order[i]];bag.rotation.y=Math.PI/2;});
+  cases.forEach((c,i)=>{c.tag.material.map=textures[order[i]];c.yaw=c.bag.rotation.y=Math.PI/2;
+   c.depth=c.bag.position.z=c.contact.position.z=.03;c.yawSpeed=c.depthSpeed=0;});
   active=0;turned=false;angle=Math.PI/2;solved=false;open=0;door.rotation.y=0;
   recognitionTime=0;release.stop();idle.reset().setEffectiveWeight(1).play();figure.rotation.y=Math.PI+.20;
   if(head)head.quaternion.copy(neutralHead);
@@ -108,11 +118,13 @@ export function createLuggageRoom(porter,makeCase){
  }
  function step(dt){
   if(head)head.quaternion.copy(neutralHead);
-  mixer.update(dt);const goal=turned?0:Math.PI/2;
-  angle=THREE.MathUtils.damp(angle,goal,7,dt);
-  cases.forEach(({bag,contact},i)=>{bag.rotation.y=THREE.MathUtils.damp(bag.rotation.y,i===active?goal:Math.PI/2,7,dt);
-   const depth=i===active?(solved?.06:.30):.02;
-   bag.position.z=THREE.MathUtils.damp(bag.position.z,depth,solved?2:8,dt);contact.position.z=bag.position.z;contact.rotation.z=bag.rotation.y;});
+  greet(recognitionTime>0?.24:.66);mixer.update(dt);const goal=turned?0:Math.PI/2;
+  cases.forEach((c,i)=>{
+   settle(c,'yaw',i===active?goal:Math.PI/2,11,dt);
+   settle(c,'depth',i===active?(solved?.06:.30):.02,solved?4:10,dt);
+   c.bag.rotation.y=c.yaw;c.bag.position.z=c.contact.position.z=c.depth;c.contact.rotation.z=c.yaw;
+  });
+  angle=cases[active].yaw;
   if(solved){
    const previous=recognitionTime;recognitionTime+=dt;
    const ease=THREE.MathUtils.smoothstep;

@@ -1,0 +1,93 @@
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 03:35:23)
+Read blend: "C:\Users\91982\Documents\Obsidian Vault\AI 101\Vibe Coding\vibe-coding-packet\vibe-coding\build\assets\receptionist-v22.blend"
+Fra:1 Mem:47.00M (Peak 47.00M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist skin
+Fra:1 Mem:47.79M (Peak 47.79M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist gold hoop.001
+Fra:1 Mem:47.89M (Peak 47.89M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist gold hoop
+Fra:1 Mem:47.97M (Peak 47.97M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist eyelashes01
+Fra:1 Mem:49.63M (Peak 49.63M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist upper lash line.001
+Fra:1 Mem:49.66M (Peak 49.66M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist upper lash line
+Fra:1 Mem:49.67M (Peak 49.67M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist side parted copper waves
+Fra:1 Mem:50.06M (Peak 50.06M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist teeth_base
+Fra:1 Mem:53.08M (Peak 53.08M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist tongue01
+Fra:1 Mem:53.12M (Peak 53.12M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist female_elegantsuit01
+Fra:1 Mem:56.47M (Peak 56.76M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist long01
+Fra:1 Mem:57.63M (Peak 57.63M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Receptionist shoes03
+Fra:1 Mem:63.30M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:57.23M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Chestnut fibres
+Fra:1 Mem:57.23M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Receptionist skin portrait colour
+Fra:1 Mem:57.23M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading brown_eye.png
+Fra:1 Mem:57.23M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Receptionist eyebrow001 portrait colour
+Fra:1 Mem:57.23M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading eyelashes01.png
+Fra:1 Mem:58.23M (Peak 64.76M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading teeth.png
+Fra:1 Mem:74.23M (Peak 74.23M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading tongue01_diffuse.png
+Fra:1 Mem:99.25M (Peak 100.26M) | Time:00:00.32 | Mem:2.00M, Peak:2.00M | Scene, ViewLayer | Updating Images | Loading Receptionist long01 portrait colour
+Fra:1 Mem:118.26M (Peak 125.27M) | Time:00:00.33 | Mem:6.00M, Peak:6.00M | Scene, ViewLayer | Updating Images | Loading female_elegantsuit01_diffuse.png
+Fra:1 Mem:116.25M (Peak 125.27M) | Time:00:00.33 | Mem:7.00M, Peak:7.00M | Scene, ViewLayer | Updating Images | Loading female_elegantsuit01_normal.png
+Fra:1 Mem:116.25M (Peak 125.27M) | Time:00:00.33 | Mem:7.00M, Peak:7.00M | Scene, ViewLayer | Updating Images | Loading shoes03_diffuse.png
+Fra:1 Mem:148.98M (Peak 248.27M) | Time:00:00.47 | Mem:95.00M, Peak:95.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:148.98M (Peak 248.27M) | Time:00:00.47 | Mem:95.00M, Peak:95.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:148.98M (Peak 248.27M) | Time:00:03.19 | Mem:95.02M, Peak:95.02M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:148.98M (Peak 248.27M) | Time:00:03.19 | Mem:95.02M, Peak:95.02M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:149.08M (Peak 248.27M) | Time:00:03.19 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:151.20M (Peak 248.27M) | Time:00:03.20 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.20 | Mem:95.03M, Peak:95.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.21 | Mem:99.21M, Peak:99.21M | Scene, ViewLayer | Updating Geometry BVH Receptionist gold hoop.001 14/14 | Building BVH
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.21 | Mem:99.21M, Peak:99.21M | Scene, ViewLayer | Updating Geometry BVH Receptionist gold hoop.001 14/14 | Building OptiX acceleration structure
+Fra:1 Mem:155.41M (Peak 248.27M) | Time:00:03.21 | Mem:99.24M, Peak:99.24M | Scene, ViewLayer | Updating Geometry BVH base.001 1/14 | Building BVH
+Fra:1 Mem:155.41M (Peak 248.27M) | Time:00:03.21 | Mem:99.24M, Peak:99.24M | Scene, ViewLayer | Updating Geometry BVH base.001 1/14 | Building OptiX acceleration structure
+Fra:1 Mem:156.73M (Peak 248.27M) | Time:00:03.21 | Mem:100.16M, Peak:100.16M | Scene, ViewLayer | Updating Geometry BVH high-poly 2/14 | Building BVH
+Fra:1 Mem:156.73M (Peak 248.27M) | Time:00:03.21 | Mem:100.16M, Peak:100.16M | Scene, ViewLayer | Updating Geometry BVH high-poly 2/14 | Building OptiX acceleration structure
+Fra:1 Mem:156.77M (Peak 248.27M) | Time:00:03.21 | Mem:100.16M, Peak:100.16M | Scene, ViewLayer | Updating Geometry BVH eyebrow001 3/14 | Building BVH
+Fra:1 Mem:156.77M (Peak 248.27M) | Time:00:03.21 | Mem:100.16M, Peak:100.16M | Scene, ViewLayer | Updating Geometry BVH eyelashes01 4/14 | Building OptiX acceleration structure
+Fra:1 Mem:156.77M (Peak 248.27M) | Time:00:03.21 | Mem:100.16M, Peak:100.16M | Scene, ViewLayer | Updating Geometry BVH teeth_base 5/14 | Building BVH
+Fra:1 Mem:156.77M (Peak 248.27M) | Time:00:03.21 | Mem:100.68M, Peak:100.68M | Scene, ViewLayer | Updating Geometry BVH teeth_base 5/14 | Building OptiX acceleration structure
+Fra:1 Mem:156.91M (Peak 248.27M) | Time:00:03.21 | Mem:100.83M, Peak:100.83M | Scene, ViewLayer | Updating Geometry BVH tongue01 6/14 | Building BVH
+Fra:1 Mem:156.91M (Peak 248.27M) | Time:00:03.21 | Mem:100.83M, Peak:100.83M | Scene, ViewLayer | Updating Geometry BVH tongue01 6/14 | Building OptiX acceleration structure
+Fra:1 Mem:156.92M (Peak 248.27M) | Time:00:03.21 | Mem:100.83M, Peak:100.83M | Scene, ViewLayer | Updating Geometry BVH female_elegantsuit01 7/14 | Building BVH
+Fra:1 Mem:156.92M (Peak 248.27M) | Time:00:03.21 | Mem:100.83M, Peak:100.83M | Scene, ViewLayer | Updating Geometry BVH female_elegantsuit01 7/14 | Building OptiX acceleration structure
+Fra:1 Mem:157.00M (Peak 248.27M) | Time:00:03.21 | Mem:100.88M, Peak:100.88M | Scene, ViewLayer | Updating Geometry BVH shoes03 8/14 | Building BVH
+Fra:1 Mem:157.00M (Peak 248.27M) | Time:00:03.21 | Mem:100.91M, Peak:100.91M | Scene, ViewLayer | Updating Geometry BVH shoes03 8/14 | Building OptiX acceleration structure
+Fra:1 Mem:157.08M (Peak 248.27M) | Time:00:03.21 | Mem:100.99M, Peak:100.99M | Scene, ViewLayer | Updating Geometry BVH long01 9/14 | Building BVH
+Fra:1 Mem:157.08M (Peak 248.27M) | Time:00:03.21 | Mem:100.99M, Peak:100.99M | Scene, ViewLayer | Updating Geometry BVH Receptionist side parted copper waves 10/14 | Building OptiX acceleration structure
+Fra:1 Mem:158.10M (Peak 248.27M) | Time:00:03.21 | Mem:100.99M, Peak:100.99M | Scene, ViewLayer | Updating Geometry BVH Receptionist upper lash line 11/14 | Building BVH
+Fra:1 Mem:158.10M (Peak 248.27M) | Time:00:03.21 | Mem:100.99M, Peak:100.99M | Scene, ViewLayer | Updating Geometry BVH Receptionist upper lash line 11/14 | Building OptiX acceleration structure
+Fra:1 Mem:158.10M (Peak 248.27M) | Time:00:03.21 | Mem:100.99M, Peak:100.99M | Scene, ViewLayer | Updating Geometry BVH Receptionist upper lash line.001 12/14 | Building BVH
+Fra:1 Mem:158.10M (Peak 248.27M) | Time:00:03.21 | Mem:100.99M, Peak:100.99M | Scene, ViewLayer | Updating Geometry BVH Receptionist gold hoop 13/14 | Building OptiX acceleration structure
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.23 | Mem:102.61M, Peak:107.19M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.23 | Mem:102.61M, Peak:107.19M | Scene, ViewLayer | Updating Scene BVH | Building OptiX acceleration structure
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.23 | Mem:102.62M, Peak:107.19M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:155.39M (Peak 248.27M) | Time:00:03.23 | Mem:102.62M, Peak:107.19M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.24 | Mem:102.62M, Peak:107.19M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.24 | Mem:107.59M, Peak:107.59M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.59M, Peak:107.59M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.59M, Peak:107.59M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.59M, Peak:107.59M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.59M, Peak:107.59M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.59M, Peak:107.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:160.36M (Peak 248.27M) | Time:00:03.25 | Mem:107.67M, Peak:107.67M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:164.37M (Peak 248.27M) | Time:00:03.27 | Mem:451.68M, Peak:451.68M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:197.03M (Peak 248.27M) | Time:00:03.29 | Remaining:00:00.48 | Mem:484.33M, Peak:484.33M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:210.78M (Peak 248.27M) | Time:00:10.01 | Mem:484.33M, Peak:484.33M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:210.78M (Peak 248.27M) | Time:00:10.01 | Mem:484.33M, Peak:484.33M | Scene, ViewLayer | Finished
+Saved: 'C:\Users\91982\Documents\Obsidian Vault\AI 101\Vibe Coding\vibe-coding-packet\vibe-coding\build-record\tests\receptionist-22\portrait.png'
+Time: 00:10.59 (Saving: 00:00.39)
+
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+
+Blender quit

@@ -1,0 +1,107 @@
+[
+  {
+    "label": "Title",
+    "time": 0,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Roadside exit",
+    "time": 17.5,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Check-in",
+    "time": 44.46,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "pantry encounter",
+    "time": 68.54,
+    "room": "pantry",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "lounge encounter",
+    "time": 77.29,
+    "room": "lounge",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "baggage encounter",
+    "time": 85.63,
+    "room": "baggage",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Gallery butler",
+    "time": 99.58,
+    "room": "corridor",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Children on stair landing",
+    "time": 116.5,
+    "room": "stairs",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Correct decision 1",
+    "time": 135.17,
+    "room": "stairs",
+    "score": 1,
+    "errors": []
+  },
+  {
+    "label": "Correct decision 2",
+    "time": 161,
+    "room": "corridor",
+    "score": 2,
+    "errors": []
+  },
+  {
+    "label": "Luggage claim",
+    "time": 167.54,
+    "room": "claim",
+    "score": 2,
+    "errors": []
+  },
+  {
+    "label": "Correct decision 3",
+    "time": 195.75,
+    "room": "stairs",
+    "score": 3,
+    "errors": []
+  },
+  {
+    "label": "Correct decision 4",
+    "time": 217.42,
+    "room": "pantry",
+    "score": 4,
+    "errors": []
+  },
+  {
+    "label": "Honeymoon suite",
+    "time": 231.92,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  },
+  {
+    "label": "End card",
+    "time": 258.08,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  }
+]

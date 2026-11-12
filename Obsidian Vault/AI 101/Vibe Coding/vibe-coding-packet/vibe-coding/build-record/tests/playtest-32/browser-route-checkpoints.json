@@ -1,0 +1,616 @@
+[
+  {
+    "label": "ordinary-children",
+    "room": "stairs",
+    "detail": "stair",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C3",
+    "branch": "stair",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C3"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "porcelain-game",
+    "room": "stairs",
+    "detail": "stair",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C3",
+    "branch": "stair",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C3"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "dog-on-the-stair",
+    "room": "stairs",
+    "detail": "stair",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C4",
+    "branch": "stair",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C4"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "bell-study",
+    "room": "corridor",
+    "detail": "bell",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C1",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": true,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "runner-study",
+    "room": "corridor",
+    "detail": "runner",
+    "progress": 0,
+    "orientation": false,
+    "focus": "E6",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "gallery-last-order",
+    "room": "lounge",
+    "detail": "bar",
+    "progress": 0,
+    "orientation": false,
+    "focus": "C5",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C5"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "porcelain likeness"
+  },
+  {
+    "label": "unscored tour to stair",
+    "room": "stairs",
+    "detail": null,
+    "progress": 0,
+    "orientation": false,
+    "focus": "C3",
+    "branch": "hall",
+    "stairKind": "lesson",
+    "visibleCast": [
+      "C3"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "met the dog on its own landing",
+    "room": "stairs",
+    "detail": null,
+    "progress": 0,
+    "orientation": false,
+    "focus": "C4",
+    "branch": "hall",
+    "stairKind": "kennel",
+    "visibleCast": [
+      "C4"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "ground register after tour",
+    "room": "landing",
+    "detail": null,
+    "progress": 0,
+    "orientation": false,
+    "focus": null,
+    "branch": null,
+    "stairKind": "kennel",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "correct decision 1",
+    "room": "stairs",
+    "detail": null,
+    "progress": 1,
+    "orientation": false,
+    "focus": null,
+    "branch": "stair",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "correct decision 2",
+    "room": "baggage",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": "C6",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [
+      "C6"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "claimed luggage and entered staff stair",
+    "room": "stairs",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "correct decision 3",
+    "room": "stairs",
+    "detail": null,
+    "progress": 3,
+    "orientation": false,
+    "focus": null,
+    "branch": null,
+    "stairKind": "watch",
+    "visibleCast": [
+      "C4"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "correct decision 4",
+    "room": "bathroom",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "E4",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "suite reached on mixed routes",
+    "room": "suite",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "E4",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "reception ending entered",
+    "room": "suite",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "E4",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  },
+  {
+    "label": "ending completed",
+    "room": "suite",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "E4",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "orientation",
+        "choice": "continue",
+        "correct": true,
+        "progress": 0,
+        "unlocked": false,
+        "serial": 1,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": "E5"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C6"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": [],
+    "plaything": "rubber ball"
+  }
+]

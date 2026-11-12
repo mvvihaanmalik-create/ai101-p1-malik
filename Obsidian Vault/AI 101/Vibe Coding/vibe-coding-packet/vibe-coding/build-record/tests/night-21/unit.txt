@@ -1,0 +1,37 @@
+
+> room-zero-visual-prototype@0.1.0 test
+> node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs tools/test-arms.mjs
+
+✔ arm solver preserves bone lengths and clamps unreachable targets without NaNs (1.6228ms)
+✔ constant animation tracks cannot accumulate finger curl across frames or frame rates (50.623ms)
+✔ reachable grip stays on target and elbow stays on its anatomical pole side (0.5582ms)
+✔ only the unlocked suite during gameplay can start the ending (1.1899ms)
+✔ the greeting repeats verbatim before the skeleton and surrounding cast (0.4435ms)
+✔ the finite ending freezes at its terminal image and never loops into play (2.8229ms)
+✔ reveal and enclosure are bounded and monotonic with no flashing fade (6.8288ms)
+✔ actual travel selects the right authored step, independent of input key (2.7271ms)
+✔ diagonal stance blend reproduces actual ground displacement (0.2909ms)
+✔ blocked movement does not advance steps and settles into idle (1.8079ms)
+✔ release stops within 15 centimetres, without abrupt velocity changes (0.2993ms)
+✔ 30 and 120 fps cover the same ground within three centimetres (1.9443ms)
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (1.4014ms)
+✔ four consecutive correct decisions unlock, both choices are valid (3.1654ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (0.3745ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.3394ms)
+✔ each route locks once; normal and changed decks shuffle separately (40.9965ms)
+✔ same seed reproduces order; different seeds produce different orders (1.5015ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.3372ms)
+✔ normal and changed versions of all twelve entries are reachable (1.6988ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.4447ms)
+✔ walking back through the corridor entrance scores exactly once without an E interaction (0.3827ms)
+✔ stair decisions require crossing the bottom or top, and absent guests cannot be inspected (0.2527ms)
+✔ ending score hands off hotel music and becomes silent at the terminal image (4.2489ms)
+✔ pause, ending, replay and mute do not leave overlapping or advancing tracks (1.5033ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 260.1387

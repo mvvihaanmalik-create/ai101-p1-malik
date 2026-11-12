@@ -1,4 +1,6 @@
 
+
+**Asset/tool provenance:** The replacement dog is German Shepherd by 3dskillup.art (CC BY 4.0). Conversion, seated-shadow posing and lettering renders used headless Blender. [Sources, licences and scripts](../../../sources/assets-and-tools.md).
 # T1 repair pass, build v14
 
 November 10, 2026. Vihaan explicitly requested the three observed T1 fixes before proceeding to T2. This changes the planned repair timing; it does not retroactively complete Cycle 1 or constitute instructor approval of a different course sequence.

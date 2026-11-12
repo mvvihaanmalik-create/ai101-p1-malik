@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node tools/serve.mjs",
     "check": "node tools/check-syntax.mjs",
-    "test": "node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs tools/test-arms.mjs"
+    "test": "node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs tools/test-arms.mjs tools/check-road-pose.mjs tools/check-held-props.mjs tools/check-bar-clearance.mjs"
   },
   "dependencies": {
     "three": "0.187.0"

@@ -1,0 +1,23 @@
+
+> room-zero-visual-prototype@0.1.0 check
+> node tools/check-syntax.mjs
+
+Syntax OK: arm-kinematics.js
+Syntax OK: benchmark.js
+Syntax OK: character-encounters.js
+Syntax OK: desert-arrival.js
+Syntax OK: encounter-art.js
+Syntax OK: encounter-catalogue.js
+Syntax OK: ending-timeline.js
+Syntax OK: guest-locomotion.js
+Syntax OK: hand-pose.js
+Syntax OK: luggage-room.js
+Syntax OK: main.js
+Syntax OK: music-score.js
+Syntax OK: night-car.js
+Syntax OK: night-route.js
+Syntax OK: passage-loop.js
+Syntax OK: reception-ending.js
+Syntax OK: road-driver.js
+Syntax OK: texture-identities.js
+Syntax OK: visual-finish.js

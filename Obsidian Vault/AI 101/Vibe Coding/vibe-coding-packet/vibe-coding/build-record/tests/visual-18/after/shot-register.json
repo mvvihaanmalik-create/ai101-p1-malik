@@ -1,0 +1,222 @@
+[
+  {
+    "label": "desk",
+    "view": 3,
+    "room": "reception",
+    "visual": {
+      "file": "reception-v3-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17.8,
+    "gpu": {
+      "version": "v18",
+      "samples": 60,
+      "medianMs": 0.6,
+      "p95Ms": 0.9,
+      "triangles": 119916,
+      "drawCalls": 25,
+      "viewport": [
+        1904,
+        1071
+      ],
+      "buffer": [
+        1904,
+        1071
+      ],
+      "visibility": "visible"
+    }
+  },
+  {
+    "label": "lift-wide",
+    "view": 4,
+    "room": "landing",
+    "visual": {
+      "file": "route-4-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.9
+  },
+  {
+    "label": "gallery",
+    "view": 0,
+    "room": "corridor",
+    "visual": {
+      "file": "route-0-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.3
+  },
+  {
+    "label": "stairs",
+    "view": 5,
+    "room": "stairs",
+    "visual": {
+      "file": "route-5-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.6
+  },
+  {
+    "label": "suite-door",
+    "view": 7,
+    "room": "suite",
+    "visual": {
+      "file": "suite-v9-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.9
+  },
+  {
+    "label": "night-bar",
+    "view": 8,
+    "room": "lounge",
+    "visual": {
+      "file": "lounge-v3-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.3
+  },
+  {
+    "label": "dog",
+    "view": 20,
+    "room": "stairs",
+    "visual": {
+      "file": "inspect-stair-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.3
+  },
+  {
+    "label": "bell",
+    "view": 21,
+    "room": "corridor",
+    "visual": {
+      "file": "route-21-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.6
+  },
+  {
+    "label": "luggage",
+    "view": 19,
+    "room": "corridor",
+    "visual": {
+      "file": "route-19-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 22.9,
+    "gpu": {
+      "version": "v18",
+      "samples": 60,
+      "medianMs": 2.3,
+      "p95Ms": 3.1,
+      "triangles": 46106,
+      "drawCalls": 34,
+      "viewport": [
+        1904,
+        1071
+      ],
+      "buffer": [
+        1904,
+        1071
+      ],
+      "visibility": "visible"
+    }
+  },
+  {
+    "label": "mirror",
+    "view": 11,
+    "room": "corridor",
+    "visual": {
+      "file": "inspect-mirror-E4-v5-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 19.3
+  },
+  {
+    "label": "children",
+    "view": 20,
+    "room": "stairs",
+    "visual": {
+      "file": "inspect-stair-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.2
+  },
+  {
+    "label": "bones",
+    "view": 7,
+    "room": "suite",
+    "visual": {
+      "file": "ending-butler-v6.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.4
+  },
+  {
+    "label": "surround",
+    "view": 7,
+    "room": "suite",
+    "visual": {
+      "file": "ending-surround-v6.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.4,
+    "gpu": {
+      "version": "v18",
+      "samples": 60,
+      "medianMs": 1.7,
+      "p95Ms": 2.5,
+      "triangles": 2,
+      "drawCalls": 1,
+      "viewport": [
+        1904,
+        1071
+      ],
+      "buffer": [
+        1904,
+        1071
+      ],
+      "visibility": "visible"
+    }
+  }
+]

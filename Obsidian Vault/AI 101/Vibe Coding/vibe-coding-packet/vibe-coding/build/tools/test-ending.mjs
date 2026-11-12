@@ -1,13 +1,15 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {endingFrame,ENDING_DURATION,GREETING,canEnterEnding} from '../src/ending-timeline.js';
+import {endingFrame,ENDING_DURATION,STRIKE_AT,canEnterEnding} from '../src/ending-timeline.js';
 test('only the unlocked suite during gameplay can start the ending',()=>{
  for(const room of ['suite','corridor','reception'])for(const unlocked of [false,true])for(const mode of ['playing','paused','ending','end'])assert.equal(canEnterEnding({room,unlocked,mode}),room==='suite'&&unlocked&&mode==='playing');
 });
-test('the greeting repeats verbatim before the skeleton and surrounding cast',()=>{
- assert.equal(endingFrame(3).caption,GREETING);assert.equal(endingFrame(3).shot,0);assert.equal(endingFrame(3).reveal,0);
- assert.equal(endingFrame(11).shot,1);assert.equal(endingFrame(11).reveal,1);assert.equal(endingFrame(11).caption,'');
- assert.equal(endingFrame(15).shot,2);assert.equal(endingFrame(25).approach,1);
+test('silent reception gives way to bone, the crowd, a held silence and a single close cut',()=>{
+ assert.equal(endingFrame(3).phase,'desk');assert.equal(endingFrame(3).reveal,0);
+ assert.equal(endingFrame(11).shot,1);assert.equal(endingFrame(11).reveal,1);
+ assert.equal(endingFrame(15).shot,2);assert.equal(endingFrame(22).phase,'listening');
+ assert.equal(endingFrame(STRIKE_AT-.001).shot,2);assert.equal(endingFrame(STRIKE_AT).shot,3);
+ assert.equal(endingFrame(26).blackout,1);
 });
 test('the finite ending freezes at its terminal image and never loops into play',()=>{
  assert.equal(endingFrame(ENDING_DURATION-.01).complete,false);assert.equal(endingFrame(ENDING_DURATION).complete,true);

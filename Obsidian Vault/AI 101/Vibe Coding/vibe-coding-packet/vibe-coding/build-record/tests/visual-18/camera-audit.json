@@ -1,14 +1,7 @@
 {
   "expected": 38,
-  "rendered": 32,
-  "missing": [
-    "route-19-normal-v15.webp",
-    "inspect-stair-v15.webp",
-    "route-21-normal-v15.webp",
-    "route-22-normal-v15.webp",
-    "ending-butler-v6.webp",
-    "ending-surround-v6.webp"
-  ],
+  "rendered": 38,
+  "missing": [],
   "shots": [
     {
       "file": "route-0-normal-v15.webp",
@@ -123,6 +116,42 @@
       "bytes": 297320,
       "meanAbsRGB": 0.44,
       "lumaShift": -0.02
+    },
+    {
+      "file": "route-19-normal-v15.webp",
+      "bytes": 359992,
+      "meanAbsRGB": 0.42,
+      "lumaShift": -0.06
+    },
+    {
+      "file": "inspect-stair-v15.webp",
+      "bytes": 126308,
+      "meanAbsRGB": 0.27,
+      "lumaShift": -0.04
+    },
+    {
+      "file": "route-21-normal-v15.webp",
+      "bytes": 307084,
+      "meanAbsRGB": 0.42,
+      "lumaShift": -0.06
+    },
+    {
+      "file": "route-22-normal-v15.webp",
+      "bytes": 431380,
+      "meanAbsRGB": 0.44,
+      "lumaShift": -0.03
+    },
+    {
+      "file": "ending-butler-v6.webp",
+      "bytes": 231412,
+      "meanAbsRGB": 0.41,
+      "lumaShift": -0.08
+    },
+    {
+      "file": "ending-surround-v6.webp",
+      "bytes": 302106,
+      "meanAbsRGB": 0.35,
+      "lumaShift": -0.08
     },
     {
       "file": "route-0-E1-v15.webp",

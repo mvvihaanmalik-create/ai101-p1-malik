@@ -1,0 +1,285 @@
+{
+  "status": "passed",
+  "pause": true,
+  "skip": true,
+  "arrival": true,
+  "exitToLanding": true,
+  "mute": true,
+  "clips": [
+    "engine.mp3",
+    "car-open.mp3",
+    "sleeve.mp3",
+    "footstep00.mp3",
+    "footstep03.mp3",
+    "footstep06.mp3",
+    "car-close.mp3",
+    "metalLatch.mp3",
+    "creak1.mp3",
+    "lid.mp3",
+    "catch.mp3",
+    "case.mp3"
+  ],
+  "events": [
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0.5662000000000008
+    },
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0.6897999999999993
+    },
+    {
+      "file": "car-open.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "sleeve.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "sleeve.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "car-close.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "metalLatch.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "creak1.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "metalLatch.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "creak1.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "lid.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "catch.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "case.mp3",
+      "state": "running",
+      "offset": 0
+    }
+  ],
+  "errors": []
+}

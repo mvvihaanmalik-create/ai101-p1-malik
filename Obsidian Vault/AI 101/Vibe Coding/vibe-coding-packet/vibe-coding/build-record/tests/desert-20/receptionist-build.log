@@ -1,0 +1,91 @@
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info FROM_SOURCE
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+[WARN ] services.humanservice ..................: Creating game engine skin material
+[WARN ] material.mhmaterial ....................: Patching input material line to cater for non-normalized key ('bumpTexture', 'bumpmapTexture')
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+INFO Draco mesh compression is available, use library at C:\Program Files\Blender Foundation\Blender 4.3\4.3\python\lib\site-packages\extern_draco.dll
+01:30:12 | INFO: Starting glTF 2.0 export
+01:30:12 | INFO: Extracting primitive: bob02
+01:30:14 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:14 | INFO: Primitives created: 1
+01:30:14 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+01:30:14 | INFO: Extracting primitive: eyebrow001
+01:30:14 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:14 | INFO: Primitives created: 1
+01:30:14 | INFO: Extracting primitive: eyelashes01
+01:30:14 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:14 | INFO: Primitives created: 1
+01:30:14 | INFO: Extracting primitive: female_elegantsuit01
+01:30:17 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:17 | INFO: Primitives created: 1
+01:30:17 | INFO: Extracting primitive: high-poly
+01:30:18 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:18 | INFO: Primitives created: 1
+01:30:18 | INFO: Extracting primitive: shoes03
+01:30:18 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:18 | INFO: Primitives created: 1
+01:30:18 | INFO: Extracting primitive: base.001
+01:30:20 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:30:20 | INFO: Primitives created: 1
+01:30:21 | INFO: Finished glTF 2.0 export in 9.258145332336426 s
+
+CHARACTER Receptionist bones 53 meshes 7
+Info: Packed 10 file(s)
+Info: Saved "receptionist-v20.blend"
+BlenderMCP addon unregistered
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 03:35:23)
+OBJ import of 'base.obj' took 94.15 ms
+OBJ import of 'high-poly.obj' took 16.82 ms
+OBJ import of 'eyebrow001.obj' took 3.23 ms
+OBJ import of 'eyelashes01.obj' took 4.24 ms
+OBJ import of 'teeth_base.obj' took 30.48 ms
+OBJ import of 'tongue01.obj' took 4.61 ms
+OBJ import of 'female_elegantsuit01.obj' took 4.73 ms
+OBJ import of 'shoes03.obj' took 15.61 ms
+OBJ import of 'bob02.obj' took 3.66 ms
+
+Blender quit

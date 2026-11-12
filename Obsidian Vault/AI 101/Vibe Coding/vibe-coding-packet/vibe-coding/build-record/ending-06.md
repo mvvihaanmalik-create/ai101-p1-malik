@@ -1,5 +1,7 @@
 # Room 0: hostile reception ending 06
 
+**Asset/tool provenance:** The skeleton geometry is project-authored on the CC0-derived butler rig. The final cast reuses the documented character models; v14+ uses the credited German Shepherd. [Sources, licences and scripts](../sources/assets-and-tools.md).
+
 November 8, 2026. Vihaan requested the chosen hostile reception ending, the glowing butler skeleton and surrounding anomalies, with polish and vault updates. The ending is implemented and developer-verified. Human visual/audio acceptance remains separate.
 
 ## Result

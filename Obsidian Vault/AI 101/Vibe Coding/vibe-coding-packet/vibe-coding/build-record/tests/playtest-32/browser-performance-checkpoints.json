@@ -1,0 +1,144 @@
+[
+  {
+    "label": "ordinary tour greeting",
+    "room": "pantry",
+    "detail": "service",
+    "progress": 0,
+    "orientation": true,
+    "focus": "C2",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [
+      "C2"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "ordinary pantry performance 1",
+    "room": "pantry",
+    "detail": null,
+    "progress": 0,
+    "orientation": false,
+    "focus": "C2",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C2"
+    ],
+    "butlerVisible": false,
+    "history": [],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "ordinary pantry performance 2",
+    "room": "pantry",
+    "detail": null,
+    "progress": 1,
+    "orientation": false,
+    "focus": "C2",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C2"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "ordinary pantry performance 3",
+    "room": "pantry",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": "C2",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C2"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C1"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 5,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "ordinary pantry performance 4",
+    "room": "pantry",
+    "detail": "service",
+    "progress": 3,
+    "orientation": false,
+    "focus": "C2",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C2"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C1"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 5,
+        "anomaly": "C1"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 7,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  }
+]

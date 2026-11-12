@@ -1,0 +1,313 @@
+[
+  {
+    "label": "desk",
+    "view": 3,
+    "room": "reception",
+    "visual": {
+      "file": "reception-v3-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 16.8,
+    "gpu": {
+      "version": "v26",
+      "samples": 60,
+      "medianMs": 1.1,
+      "p95Ms": 2.5,
+      "triangles": 90598,
+      "drawCalls": 21,
+      "viewport": [
+        1904,
+        1071
+      ],
+      "buffer": [
+        1904,
+        1071
+      ],
+      "visibility": "visible"
+    }
+  },
+  {
+    "label": "lift-wide",
+    "view": 4,
+    "room": "landing",
+    "visual": {
+      "file": "route-4-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.3
+  },
+  {
+    "label": "gallery",
+    "view": 0,
+    "room": "corridor",
+    "visual": {
+      "file": "route-0-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17.1
+  },
+  {
+    "label": "stairs",
+    "view": 5,
+    "room": "stairs",
+    "visual": {
+      "file": "route-5-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18
+  },
+  {
+    "label": "suite-door",
+    "view": 7,
+    "room": "suite",
+    "visual": {
+      "file": "suite-v9-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17.2
+  },
+  {
+    "label": "night-bar",
+    "view": 8,
+    "room": "lounge",
+    "visual": {
+      "file": "lounge-v3-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17.4
+  },
+  {
+    "label": "dog",
+    "view": 20,
+    "room": "stairs",
+    "visual": {
+      "file": "inspect-stair-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 18.5
+  },
+  {
+    "label": "bell",
+    "view": 21,
+    "room": "corridor",
+    "visual": {
+      "file": "route-21-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 21.1
+  },
+  {
+    "label": "luggage",
+    "view": 19,
+    "room": "corridor",
+    "visual": {
+      "file": "route-19-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 26.4,
+    "gpu": {
+      "version": "v26",
+      "samples": 60,
+      "medianMs": 2.5,
+      "p95Ms": 11.6,
+      "triangles": 46106,
+      "drawCalls": 34,
+      "viewport": [
+        1904,
+        1071
+      ],
+      "buffer": [
+        1904,
+        1071
+      ],
+      "visibility": "visible"
+    }
+  },
+  {
+    "label": "mirror",
+    "view": 11,
+    "room": "corridor",
+    "visual": {
+      "file": "inspect-mirror-E4-v5-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 21
+  },
+  {
+    "label": "children",
+    "view": 20,
+    "room": "stairs",
+    "visual": {
+      "file": "inspect-stair-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 22.2
+  },
+  {
+    "label": "service",
+    "view": 17,
+    "room": "corridor",
+    "visual": {
+      "file": "route-17-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 27.8
+  },
+  {
+    "label": "bar",
+    "view": 18,
+    "room": "corridor",
+    "visual": {
+      "file": "route-18-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 28.6
+  },
+  {
+    "label": "portrait",
+    "view": 10,
+    "room": "corridor",
+    "visual": {
+      "file": "inspect-portrait-E1-v5-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 20.8
+  },
+  {
+    "label": "rain",
+    "view": 14,
+    "room": "corridor",
+    "visual": {
+      "file": "inspect-rain-v5-v14.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 19
+  },
+  {
+    "label": "lift",
+    "view": 13,
+    "room": "landing",
+    "visual": {
+      "file": "route-13-E3-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17.3
+  },
+  {
+    "label": "coat",
+    "view": 20,
+    "room": "stairs",
+    "visual": {
+      "file": "inspect-stair-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17
+  },
+  {
+    "label": "runner",
+    "view": 22,
+    "room": "corridor",
+    "visual": {
+      "file": "route-22-normal-v15.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 17.7
+  },
+  {
+    "label": "bones",
+    "view": 7,
+    "room": "suite",
+    "visual": {
+      "file": "ending-butler-v6.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 20.6
+  },
+  {
+    "label": "surround",
+    "view": 7,
+    "room": "suite",
+    "visual": {
+      "file": "ending-surround-v6.webp",
+      "masterReady": true,
+      "cached": 3,
+      "failed": [],
+      "bufferWidth": 1904
+    },
+    "frameMs": 25.9,
+    "gpu": {
+      "version": "v26",
+      "samples": 60,
+      "medianMs": 1.3,
+      "p95Ms": 2.1,
+      "triangles": 2,
+      "drawCalls": 1,
+      "viewport": [
+        1904,
+        1071
+      ],
+      "buffer": [
+        1904,
+        1071
+      ],
+      "visibility": "visible"
+    }
+  }
+]

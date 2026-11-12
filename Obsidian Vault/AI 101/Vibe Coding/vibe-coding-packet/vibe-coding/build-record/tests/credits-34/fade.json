@@ -1,0 +1,14 @@
+{
+  "gain_relative_to_source_each_second_from_one_second_before_fade": [
+    0.976,
+    0.922,
+    0.831,
+    0.727,
+    0.638,
+    0.544,
+    0.437,
+    0.349,
+    0.259
+  ],
+  "last_100ms_peak": 3.21e-06
+}

@@ -1,11 +1,12 @@
-# Test 1: Reach the honeymoon suite
+# Test 1 · Reach the honeymoon suite
+November 10, 2026 · v13
 
-**Completed on v13, November 10, 2026.** Vihaan watched; Codex played and recorded.
+I watched and gave feedback while Codex played and recorded.
 
-**Result:** Completed the ordinary tour, made ten scored decisions, reached the suite and replayed the game. Pausing and resuming the ending worked.
+**What happened:** The run completed the ordinary tour, made ten scored decisions, reached the suite and replayed. Pausing and resuming the ending worked.
 
-**Vihaan's feedback:** Vihaan noticed unnatural fingers, an unconvincing dog and wall lettering that was too light.
+**My feedback:** I found the fingers unnatural, the dog unconvincing and the wall lettering too light.
 
-**Follow-up:** v14 revised the hand poses, replaced the dog and increased the lettering weight. A formal retest is pending.
+**What changed:** I asked for better hand poses, a free model to replace the dog and heavier lettering. These became v14. [My Cycle 2 comparison](../formal-cycle-2/T1-result.md) covers the later playtest.
 
-[Watch the silent recording](T1-main-path.mp4) · [Timeline](T1-timeline.md) · [Full original record](T1-result-full-record.md) · [All tests](../../testing-and-failure-log.md)
+[Recording](T1-main-path.mp4) · [Timeline](T1-timeline.md) · [Original record](T1-result-full-record.md) · [All tests](../../testing-and-failure-log.md).

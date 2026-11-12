@@ -106,6 +106,57 @@
       "views": [
         8
       ]
+    },
+    "pantry": {
+      "origin": 180.0,
+      "bounds": [
+        -1.38,
+        -0.15,
+        2.7,
+        8.05
+      ],
+      "entry": [
+        -0.55,
+        3.42
+      ],
+      "exit": 7.88,
+      "views": [
+        23
+      ]
+    },
+    "baggage": {
+      "origin": 210.0,
+      "bounds": [
+        -1.38,
+        -0.15,
+        2.7,
+        8.05
+      ],
+      "entry": [
+        -0.55,
+        3.42
+      ],
+      "exit": 7.88,
+      "views": [
+        25
+      ]
+    },
+    "bathroom": {
+      "origin": 240,
+      "bounds": [
+        -0.59,
+        0.64,
+        2.7,
+        8.05
+      ],
+      "entry": [
+        -0.24,
+        3.42
+      ],
+      "exit": 7.88,
+      "views": [
+        28
+      ]
     }
   },
   "cameras": [
@@ -510,6 +561,125 @@
       "fov": 39,
       "minY": 0,
       "plate": "route-22-normal-v15.webp"
+    },
+    {
+      "name": "pantry-v27",
+      "room": "pantry",
+      "position": [
+        181.35,
+        2.14,
+        -0.7
+      ],
+      "target": [
+        179.95,
+        1.38,
+        -7.45
+      ],
+      "fov": 34.11393115323413,
+      "plate": "pantry-v27.webp",
+      "minY": 0
+    },
+    {
+      "name": "pantry-service-v27",
+      "room": "pantry",
+      "position": [
+        179.22,
+        1.74,
+        -4.55
+      ],
+      "target": [
+        180.75,
+        1.23,
+        -7.2
+      ],
+      "fov": 30.60848678960818,
+      "plate": "pantry-service-v27.webp",
+      "minY": 0
+    },
+    {
+      "name": "baggage-v27",
+      "room": "baggage",
+      "position": [
+        211.4,
+        2.16,
+        -0.8
+      ],
+      "target": [
+        209.95,
+        1.38,
+        -7.5
+      ],
+      "fov": 34.11393115323413,
+      "plate": "baggage-v27.webp",
+      "minY": 0
+    },
+    {
+      "name": "baggage-mirror-v27",
+      "room": "baggage",
+      "position": [
+        208.99,
+        1.65,
+        -4.46
+      ],
+      "target": [
+        210.83,
+        1.43,
+        -7.7
+      ],
+      "fov": 30.60848678960818,
+      "plate": "baggage-mirror-v27.webp",
+      "minY": 0
+    },
+    {
+      "name": "bar-counter-v27",
+      "room": "lounge",
+      "position": [
+        149.58,
+        1.79,
+        -3.56
+      ],
+      "target": [
+        150.85,
+        1.45,
+        -7.21
+      ],
+      "fov": 29.1071455814251,
+      "plate": "bar-counter-v27.webp",
+      "minY": 0
+    },
+    {
+      "room": "bathroom",
+      "name": "washroom",
+      "position": [
+        242.7,
+        2.28,
+        -2.25
+      ],
+      "target": [
+        239.61,
+        1.43,
+        -5.52
+      ],
+      "minY": 0,
+      "fov": 60,
+      "plate": null
+    },
+    {
+      "room": "bathroom",
+      "name": "vanity",
+      "position": [
+        239.55,
+        1.76,
+        -5.5
+      ],
+      "target": [
+        237.1,
+        1.59,
+        -5.5
+      ],
+      "minY": 0,
+      "fov": 32,
+      "plate": null
     }
   ],
   "version": 15,
@@ -524,28 +694,20 @@
     "E3": {
       "4": "route-4-E3-v15.webp",
       "13": "route-13-E3-v15.webp"
-    },
-    "E4": {
-      "0": "route-0-E4-v15.webp",
-      "1": "route-1-E4-v15.webp",
-      "2": "route-2-E4-v15.webp",
-      "11": "inspect-mirror-E4-v5-v14.webp",
-      "12": "route-12-E4-v15.webp",
-      "18": "route-18-E4-v15.webp"
     }
   },
   "details": {
     "vignette": 9,
     "portrait": 10,
-    "mirror": 11,
+    "mirror": 29,
     "coat": 12,
     "lift": 13,
     "rain": 14,
     "children": 15,
     "dog": 16,
-    "service": 17,
-    "bar": 18,
-    "luggage": 19,
+    "service": 24,
+    "bar": 27,
+    "luggage": 26,
     "stair": 20,
     "bell": 21,
     "runner": 22

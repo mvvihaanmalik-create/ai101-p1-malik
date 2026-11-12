@@ -1,0 +1,293 @@
+[
+  {
+    "label": "N-C2 scored in pantry",
+    "room": "stairs",
+    "detail": null,
+    "progress": 1,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "C2 scored in pantry",
+    "room": "claim",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": "C2",
+    "branch": "hall",
+    "stairKind": "watch",
+    "visibleCast": [
+      "C2"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C2"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "N-C5 scored in lounge",
+    "room": "lounge",
+    "detail": null,
+    "progress": 3,
+    "orientation": false,
+    "focus": "C5",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [
+      "C5"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C2"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "C5 scored in lounge",
+    "room": "stairs",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C2"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": "C5"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "N-C6 scored in baggage",
+    "room": "baggage",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "C6",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [
+      "C6"
+    ],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C2"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": "C5"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 6,
+        "anomaly": null
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "C6 scored in baggage",
+    "room": "stairs",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 2,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 3,
+        "anomaly": "C2"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 3,
+        "unlocked": false,
+        "serial": 4,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 5,
+        "anomaly": "C5"
+      },
+      {
+        "kind": "correct",
+        "choice": "continue",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 6,
+        "anomaly": null
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 4,
+        "unlocked": true,
+        "serial": 7,
+        "anomaly": "C6"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  }
+]

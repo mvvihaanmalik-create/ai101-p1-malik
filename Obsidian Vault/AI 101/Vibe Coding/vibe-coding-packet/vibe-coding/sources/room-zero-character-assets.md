@@ -1,5 +1,12 @@
 # Room 0 character assets: art pass 02
 
+**Receptionist, v22.** I supplied a front-facing reference for her face shape and hair. Codex fitted the face and smile, shaped the long01 hair foundation, and built the side-parted shoulder waves, eyeliner and gold hoops in Blender. The existing 53-bone rig carries the greeting. [Portrait](../build-record/tests/receptionist-22/portrait.png) · [Facial fitting](../build/tools/build_receptionist_v22.py) · [Hair and finishing](../build/tools/finish_receptionist_v22.py).
+
+**Earlier desert arrival, v20:** The adult desk receptionist has her own CC0 MakeHuman model, fitted with bob02 hair and female_elegantsuit01 clothing. The older butler appears in the gallery and ending, and the porter handles luggage. [Blender source](../build/tools/build_receptionist_v20.py).
+
+
+**Current v18 credits:** [Models, licences, adaptations and Blender workflow](assets-and-tools.md). The sections below preserve the earlier build history.
+
 **November 10, v15:** The rolling porcelain likeness is derived from the existing CC0 child model used by the two figures. Blender retained the face, eyes and hair, removed the body, closed the cut mesh, and assigned fired-clay materials. The red rubber toy remains the ordinary version. [Adaptation source](../build/tools/build_stair_study_v15.py) · [In-game study](../build-record/tests/repairs-15/porcelain-game.jpg). No new download.
 
 November 8, 2026. Vihaan rejected the blocky first characters and requested more detailed, realistic, rigged replacements. These assets are now used by the local visual prototype. Visual acceptance remains pending his review.
@@ -64,3 +71,23 @@ The cast in the final reverse shot reuses the same child, attendant, porter and 
 German Shepherd by 3dskillup.art, https://3dskillup.art/free-assets/german-shepherd/ , licensed CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ . The creator permits modification and redistribution with attribution; no account or purchase was required. Original ZIP and source HTML retained under sources/assets/german-shepherd/. Download SHA256 recorded with repair evidence.
 
 Adaptations: retain textured canine anatomy and rig; create seated shadow pose, convert to GLB/WebP, tune material, add quiet head motion, use the same dog in the spectral ending. 4,991 vertices / 9,978 triangles for the visible dog, 1024px packed textures, approximately 1.07 MB GLB including the shadow mesh. The source page advertises 2K; actual inspected file dimensions take precedence. Credit is visible in the game's Credits page. Original dog sculptures remain archived in v13, but are no longer the live cast.
+
+## Receptionist · local v23
+
+I chose Lana Del Rey’s face and the side-swept waves in the portrait I supplied. Codex fitted the photo’s brows, nose, smile and jaw landmarks to the existing rigged MakeHuman head in headless Blender. The eyes, teeth, swept hair and hoops have their own geometry. The front photo guides the likeness. The profile comes from the sculpt.
+
+The MakeHuman base uses CC0 assets. The photographer and reuse licence for my supplied image are unconfirmed. This local model contains photo-derived facial colour. [Portrait](../build-record/tests/face-sound-23/portrait.png) · [Blender fitting script](../build/tools/fit_receptionist_face.py)
+
+## Red dress and narrower face · v24
+
+I wanted a slimmer face and a red dress at reception. Codex narrowed the cheeks and jaw on the existing rigged head. The fitted shoulders and sleeves come from MakeHuman’s CC0 elegant suit. Codex cut the bodice at the waist and built a flared satin skirt with a dark red waistband in headless Blender. [Character source](../build/tools/receptionist_dress.py) · [Portrait](../build-record/tests/dress-24/portrait.png)
+
+## Night receptionist · v25
+
+I replaced the portrait-based receptionist with **Female Adult 11** from Microsoft Rocketbox. Her original face, swept-back hair, belt and pleated dress suit the front desk. I kept the dress red. Codex recoloured the cloth, fitted the library’s breathing animation to her rig in headless Blender and exported the model for the browser.
+
+[Model and source textures](https://github.com/microsoft/Microsoft-Rocketbox/tree/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_11) · [Breathing animation](https://github.com/microsoft/Microsoft-Rocketbox/blob/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Animations/all_animations_max_motextr_static/f_idle_breathe_01.max.fbx) · [MIT licence, copyright 2020 Microsoft](../build/assets/rocketbox-LICENSE.txt) · [Portrait](../build-record/tests/rocketbox-25/portrait.png)
+
+## Silent check-in · v29
+
+I restored the receptionist from the screenshot I supplied. She wears the original striped blouse and short bob. The game loads `receptionist-v20.glb`, built from the MakeHuman CC0 female base, bob02 hair and female_elegantsuit01 outfit. The butler returns at the end. [Original fitting script](../build/tools/build_receptionist_v20.py)

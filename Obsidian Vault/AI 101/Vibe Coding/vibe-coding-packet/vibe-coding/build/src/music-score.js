@@ -1,14 +1,10 @@
-// Kevin MacLeod, CC BY 4.0. Full source/edits/attribution: ../music-credits.html.
+import {createFinalCue} from './finale-cue.js';
+// Track-specific sources and permissions are recorded in ../music-credits.html.
 const clamp=x=>Math.max(0,Math.min(1,x));
-export function scoreLevels(time){
- const t=Math.max(0,Number.isFinite(time)?time:0);
- return {hotel:.65*(1-clamp(t/2.4)),ending:(.22+.73*clamp((t-1.6)/13))*clamp(t/1.6)*(1-clamp((t-24)/2))};
-}
-
 export function createMusicScore({onError=()=>{}}={}){
- const tracks={hotel:new Audio('assets/audio/hotel-noir.mp3'),ending:new Audio('assets/audio/ending-dread.mp3')};
- let context,channels,mode='idle',paused=true,enabled=true,volume=.55,time=0,lastSync=-10,hotelLevel=.65;
- const failures=new Set();
+ const tracks={hotel:new Audio('assets/audio/dance-of-the-dream-man.mp3')};
+ let hotelFilter,context,channels,mode='idle',paused=true,enabled=true,volume=.55,hotelLevel=.65;
+ const failures=new Set(),finale=createFinalCue(onError);
  for(const [name,audio] of Object.entries(tracks)){
   audio.preload='auto';audio.loop=name==='hotel';
   audio.addEventListener('error',()=>{failures.add(name);onError('Music could not load. Hotel effects remain available.');});
@@ -18,38 +14,37 @@ export function createMusicScore({onError=()=>{}}={}){
   for(const [name,audio] of Object.entries(tracks)){
    const source=context.createMediaElementSource(audio),filter=context.createBiquadFilter(),gain=context.createGain();
    filter.type='lowpass';filter.frequency.value=name==='hotel'?3200:12000;gain.gain.value=0;
-   source.connect(filter);filter.connect(gain);gain.connect(context.destination);channels[name]=gain;
+   if(name==='hotel')hotelFilter=filter;source.connect(filter);filter.connect(gain);gain.connect(context.destination);channels[name]=gain;
   }
  }
  function play(name){if(!failures.has(name))tracks[name].play().catch(error=>{if(error.name!=='AbortError')onError('Music playback paused by the browser. Resume the game to retry.');});}
  function mix(){
   if(!context)return;
-  const levels=mode==='hotel'?{hotel:hotelLevel,ending:0}:mode==='ending'?scoreLevels(time):{hotel:0,ending:0};
+  const levels={hotel:mode==='hotel'?hotelLevel:0};
+  finale.volume(enabled?volume*.82:0);
   for(const name of Object.keys(tracks))channels[name].gain.setTargetAtTime(!paused&&enabled?levels[name]*volume:0,context.currentTime,.12);
  }
  function startHotel(ctx){
-  attach(ctx);mode='hotel';paused=false;time=0;tracks.ending.pause();tracks.ending.currentTime=0;tracks.hotel.currentTime=0;
+  attach(ctx);mode='hotel';paused=false;finale.stop();tracks.hotel.currentTime=0;
   if(context){play('hotel');mix();}
  }
  function startEnding(at=0){
-  mode='ending';paused=false;time=at;lastSync=-10;tracks.ending.currentTime=Math.min(at,26);
-  if(context){play('ending');if(at<2.4)play('hotel');else tracks.hotel.pause();mix();}
+  mode='ending';paused=false;tracks.hotel.pause();finale.prepare(context);finale.start(at);mix();
  }
- function updateEnding(t){
-  if(mode!=='ending')return;time=t;
-  if(t>=2.4)tracks.hotel.pause();
-  // Keep the scored cue with the visual reveal when rendering stalls or review jumps.
-  if(!paused&&!tracks.ending.seeking&&tracks.ending.readyState>=2&&t-lastSync>1&&Math.abs(tracks.ending.currentTime-t)>.7){tracks.ending.currentTime=Math.min(t,26);lastSync=t;}
-  mix();if(t>=26){mode='finished';tracks.ending.pause();mix();}
- }
- function pause(){paused=true;for(const track of Object.values(tracks))track.pause();mix();}
+ function finishEnding(){mode='finished';finale.stop();mix();}
+ function pause(){paused=true;tracks.hotel.pause();finale.pause();mix();}
  function resume(){
-  paused=false;if(!context)return;context.resume().catch(()=>{});
-  if(mode==='hotel')play('hotel');else if(mode==='ending'){play('ending');if(time<2.4)play('hotel');}mix();
+  paused=false;context?.resume().catch(()=>{});
+  if(mode==='hotel'&&context)play('hotel');else if(mode==='ending')finale.resume();mix();
  }
- return {startHotel,startEnding,updateEnding,pause,resume,
-  updateHotel(t,room){if(mode!=='hotel')return;const phase=t%70;hotelLevel=['reception','lounge'].includes(room)?.65:phase<14?.16*(1-phase/14):phase>60?.16*(phase-60)/10:0;mix();},
+ return {startHotel,startEnding,finishEnding,pause,resume,prepareEnding:()=>finale.prepare(context),cueTime:finale.time,
+  updateHotel(t,room){if(mode!=='hotel')return;const phase=t%70;
+   const levels={road:0,reception:.53,lounge:.71,pantry:.10,baggage:.055,claim:.045,suite:0};
+   hotelLevel=levels[room]??(phase<14?.15*(1-phase/14):phase>60?.15*(phase-60)/10:0);
+   if(hotelFilter){const hz=room==='lounge'?5100:room==='reception'?3200:room==='pantry'?870:640;
+    if(hotelFilter.targetHz!==hz){hotelFilter.targetHz=hz;hotelFilter.frequency.setTargetAtTime(hz,context.currentTime,.30);}}
+   mix();},
   setEnabled(value){enabled=value;mix();},setVolume(value){volume=clamp(Number(value)||0);mix();},
-  snapshot(){return {mode,paused,enabled,volume,context:context?.state||'unstarted',tracks:Object.fromEntries(Object.entries(tracks).map(([name,a])=>[name,{paused:a.paused,time:+a.currentTime.toFixed(2),ready:a.readyState,duration:Number.isFinite(a.duration)?+a.duration.toFixed(2):null,gain:channels?+channels[name].gain.value.toFixed(3):0,error:failures.has(name)}]))};}
+  snapshot(){return {mode,paused,enabled,volume,finale:finale.snapshot(),context:context?.state||'unstarted',tracks:Object.fromEntries(Object.entries(tracks).map(([name,a])=>[name,{paused:a.paused,time:+a.currentTime.toFixed(2),ready:a.readyState,duration:Number.isFinite(a.duration)?+a.duration.toFixed(2):null,gain:channels?+channels[name].gain.value.toFixed(3):0,error:failures.has(name)}]))};}
  };
 }

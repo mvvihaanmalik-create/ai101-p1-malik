@@ -1,0 +1,241 @@
+{
+  "status": "passed",
+  "pause": true,
+  "skip": true,
+  "arrival": true,
+  "exitToLanding": true,
+  "mute": true,
+  "clips": [
+    "engine.mp3",
+    "car-open.mp3",
+    "footstep00.mp3",
+    "footstep03.mp3",
+    "footstep06.mp3",
+    "car-close.mp3",
+    "metalLatch.mp3",
+    "creak1.mp3"
+  ],
+  "events": [
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0.4869999999977645
+    },
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0.6044999999977645
+    },
+    {
+      "file": "car-open.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "car-close.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "metalLatch.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "creak1.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep00.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep06.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "footstep03.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "metalLatch.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "creak1.mp3",
+      "state": "running",
+      "offset": 0
+    },
+    {
+      "file": "engine.mp3",
+      "state": "running",
+      "offset": 0
+    }
+  ],
+  "errors": []
+}

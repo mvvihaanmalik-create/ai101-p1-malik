@@ -61,7 +61,7 @@ test('normal and changed versions of all twelve entries are reachable',()=>{
  assert.equal(normal.size,12);assert.equal(changed.size,12);
 });
 test('inspection hotspots remain within the route and distinct from choice thresholds',()=>{
- for(const [room,x,y,key] of [['landing',59.4,7.5,'lift'],['corridor',-.7,7.7,'portrait'],['corridor',-.7,15.1,'mirror'],['corridor',-1.1,12.3,'coat'],['corridor',.9,12.3,'rain'],['corridor',-.25,10,'children']])assert.equal(inspectionAt(room,x,y)?.key,key);
+ for(const [room,x,y,key] of [['landing',59.4,7.5,'lift'],['corridor',-.7,7.7,'portrait'],['bathroom',239.7,5.5,'mirror'],['corridor',.9,12.3,'rain'],['pantry',179.5,4.5,'service'],['lounge',149.5,4.5,'bar'],['baggage',209.5,4.5,'luggage']])assert.equal(inspectionAt(room,x,y)?.key,key);
  assert.equal(inspectionAt('landing',59.5,3.25),null);assert.equal(inspectionAt('corridor',0,21.9),null);assert.equal(inspectionAt('stairs',90,7),null);
 });
 
@@ -76,4 +76,8 @@ test('stair decisions require crossing the bottom or top, and absent guests cann
  assert.equal(stairDecision(7,7),null);assert.equal(stairDecision(8,7),null);
  assert.equal(chooseShot('corridor',7,'C1',{key:'service'},false),null);
  assert.equal(chooseShot('stairs',6,'C3',null,true).key,'stair');assert.equal(chooseShot('stairs',6,'C3',null,false),null);
+});
+
+test('gallery has no service, bartender, traveller or stair-cast hotspots',()=>{
+ for(const depth of [7,10,14,17,20])assert.equal(inspectionAt('corridor',0,depth),null);
 });

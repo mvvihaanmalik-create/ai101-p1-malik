@@ -65,8 +65,8 @@ Vihaan subsequently requested execution before T4. v15 implements a numbered asc
 
 | Test | Cycle 1 | Cycle 2 | Mark | Evidence and ADR |
 |---|---|---|---|---|
-| T1 Main path | Completed; route/ending/replay observed, with three visual findings | Formal retest not run. v14 focused repair checks are compared above. | Pending matching retest | [T1 baseline result](tests/formal-cycle-1/T1-result.md); [v14 repair evidence](tests/repairs-14/README.md); ADR-006/007/008 |
-| T2 Edge case | Escape earned 1/4; one contact reset to 0/4; idle stable and movement restored. Guidance detail finding. | [Not run] | Pending matching retest | [T2 baseline result](tests/formal-cycle-1/T2-result.md); [v15 guidance repair](../decisions/ADR-009-night-register.md); no formal retest |
+| T1 Main path | Completed; route/ending/replay observed, with three visual findings | [November 12 playtest and revisions through v35](tests/formal-cycle-2/T1-result.md). Hands still overlapped in the bar. | Inconclusive overall | [T1 baseline result](tests/formal-cycle-1/T1-result.md); [v14 repair evidence](tests/repairs-14/README.md); ADR-006/007/008 |
+| T2 | Retreat earned 1/4 and contact reset the score once. | I reviewed character movement and the reception ending through v36. | Inconclusive for retreat/reset. | [Cycle 1](tests/formal-cycle-1/T2-result.md) · [Cycle 2 findings and recordings](tests/formal-cycle-2/T2-result.md) |
 | T3 Unexpected input | Control checks passed; broad spatial/pacing/horror feedback recorded. | [Not run] | Pending matching retest | [T3 baseline and open feedback](tests/formal-cycle-1/T3-result.md); [v15 staging repair](../decisions/ADR-010-separate-the-ascent.md); no formal retest |
 | T4 Out-of-scope request | Pending on v15; no frozen-v13 observation | [Not run] | No v13 before/after pair | [v15 test card](test-4-v15.md) |
 

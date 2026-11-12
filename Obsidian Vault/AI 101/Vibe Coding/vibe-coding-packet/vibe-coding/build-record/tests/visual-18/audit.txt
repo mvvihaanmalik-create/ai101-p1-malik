@@ -1,0 +1,1 @@
+Cameras: 38 of 38 | largest change: {'file': 'route-1-normal-v15.webp', 'bytes': 366134, 'meanAbsRGB': np.float64(0.6), 'lumaShift': np.float64(-0.1)} | observed variant agreements: [0.999, 1.0, 0.999, 1.0, 0.994, 0.998, 0.998, 1.0, 0.998, 0.997]

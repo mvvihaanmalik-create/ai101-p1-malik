@@ -1,0 +1,51 @@
+[
+  {
+    "label": "Title",
+    "time": 0.17,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Silent check-in",
+    "time": 6.67,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Suite door",
+    "time": 11.08,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  },
+  {
+    "label": "bones",
+    "time": 20.88,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  },
+  {
+    "label": "surrounded",
+    "time": 24.75,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  },
+  {
+    "label": "listening",
+    "time": 32.79,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  },
+  {
+    "label": "strike",
+    "time": 34.54,
+    "room": "suite",
+    "score": 4,
+    "errors": []
+  }
+]

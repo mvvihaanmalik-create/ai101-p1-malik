@@ -1,0 +1,70 @@
+[
+  {
+    "label": "claimed luggage and entered staff stair",
+    "room": "stairs",
+    "detail": null,
+    "progress": 2,
+    "orientation": false,
+    "focus": null,
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 7,
+        "anomaly": "C1"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 8,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  },
+  {
+    "label": "all rooms, both washroom states, luggage puzzle and four ending shots",
+    "room": "suite",
+    "detail": null,
+    "progress": 4,
+    "orientation": false,
+    "focus": "C1",
+    "branch": "hall",
+    "stairKind": "transfer",
+    "visibleCast": [],
+    "butlerVisible": false,
+    "history": [
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 1,
+        "unlocked": false,
+        "serial": 7,
+        "anomaly": "C1"
+      },
+      {
+        "kind": "correct",
+        "choice": "return",
+        "correct": true,
+        "progress": 2,
+        "unlocked": false,
+        "serial": 8,
+        "anomaly": "C1"
+      }
+    ],
+    "contacts": 0,
+    "errors": []
+  }
+]

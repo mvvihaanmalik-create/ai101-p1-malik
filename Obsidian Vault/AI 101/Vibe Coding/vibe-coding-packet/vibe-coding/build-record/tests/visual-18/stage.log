@@ -1,0 +1,13 @@
+Vercel CLI 60.1.1 (Node.js 24.15.0)
+Deploying room-zero
+Uploading [--------------------] (0.0B/14.6MB)
+Uploading [=====---------------] (3.7MB/14.6MB)
+Uploading [==========----------] (7.3MB/14.6MB)
+Uploading [===============-----] (11.0MB/14.6MB)
+Uploading [====================] (14.6MB/14.6MB)
+  Inspect         https://vercel.com/vihaanmalik/room-zero/7SByXjNRKnfVSXHAVZW7sbG19kbk
+▲ Production      https://room-zero-m5lhu3ol5-vihaanmalik.vercel.app
+Building…
+Building…
+[2K[1A[2K[G▲ Production      https://room-zero-m5lhu3ol5-vihaanmalik.vercel.app
+Completing…

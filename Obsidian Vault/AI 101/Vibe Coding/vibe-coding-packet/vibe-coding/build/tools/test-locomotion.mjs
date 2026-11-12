@@ -6,13 +6,18 @@ test('actual travel selects the right authored step, independent of input key',(
 });
 test('diagonal stance blend reproduces actual ground displacement',()=>{
  const m=createLocomotion();measureMotion(m,-.02,-.04,1/60);
- assert.ok(Math.abs(m.weights.Walk*CYCLES.Walk*m.phase-.04)<1e-10);
- assert.ok(Math.abs(m.weights.StepLeft*CYCLES.StepLeft*m.phase-.02)<1e-10);
+ assert.ok(Math.abs(m.weights.Walk*CYCLES.Walk*m.phase*m.stride-.04)<1e-10);
+ assert.ok(Math.abs(m.weights.StepLeft*CYCLES.StepLeft*m.phase*m.stride-.02)<1e-10);
 });
 test('blocked movement does not advance steps and settles into idle',()=>{
  const m=createLocomotion();measureMotion(m,0,-.04,1/60);const phase=m.phase;
  for(let i=0;i<60;i++){steerMotion(m,0,-1,1/60);measureMotion(m,0,0,1/60);}
  assert.equal(m.phase,phase);assert.equal(m.gait,0);
+});
+test('holding a direction builds to a brisk walk; releasing or reversing resets the ramp',()=>{
+ const m=createLocomotion();for(let i=0;i<120;i++)steerMotion(m,0,-1,1/60);
+ assert.ok(-m.vz>2.1);steerMotion(m,0,1,1/60);assert.ok(m.held<.03);
+ steerMotion(m,0,0,1/60);assert.equal(m.held,0);
 });
 test('release stops within 15 centimetres, without abrupt velocity changes',()=>{
  const m=createLocomotion();for(let i=0;i<60;i++)steerMotion(m,0,-1,1/60);

@@ -1,9 +1,8 @@
-# ADR-002: Horror aesthetic
+# ADR-002 · Hotel atmosphere
+November 5, 2026
 
-**Status:** Accepted by Vihaan on November 5, 2026; Visual Study 02 selected.
+**Why:** I wanted the hotel to feel unsettling and beautiful, with stronger lighting than the first visual study.
 
-**Context:** Room 0 needs a consistent look and feeling for its hotel and anomalies.
+**My decision:** I chose Visual Study 02: walnut, oxblood, olive and brass, warm lamps, cold windows and uncanny formally dressed characters. Twin Peaks and Hokum guide the atmosphere.
 
-**Decision:** Use Visual Study 02 as the visual direction, influenced by Hokum and Twin Peaks: an aging hotel with walnut paneling, oxblood carpet, faded olive wallpaper, brass details, rich amber practical lighting, cold slate-blue window light, atmospheric shafts and deep readable shadows. Characters should be uncanny and formally dressed. See ../sources/moodboards/room-zero-visual-study-02.md. Sound design remains open.
-
-**Consequence:** The board gives the build a concrete visual reference. Translating its materials, lighting, and character quality into a browser scene still requires choosing and demonstrating a rendering approach.
+**Tradeoff:** The board gives each art pass a reference. [Visual Study 02](../sources/moodboards/room-zero-visual-study-02.md).

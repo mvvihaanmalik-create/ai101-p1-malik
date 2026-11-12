@@ -1,23 +1,20 @@
-# Room 0
+# Hotel of Horror
+**My goal:** Make a polished horror game that my friends and I would enjoy, built around noticing something wrong in an unsettling hotel.
 
-**Goal:** Reach the honeymoon suite four floors up by recognizing what has changed on the way.
+**Player goal:** As a new guest visiting for the first time, reach my room, the honeymoon suite. The broken lift forces me to take the long way upstairs. Reaching the suite reveals that the hotel is a loop and I am trapped.
 
-**User:** Vihaan Malik and his friends Tiffany, Katie, Aleela, Marie and Ornilla enjoy Exit 8 and weird horror. Give them a finished game to share and play, built around noticing anomalies in an unsettling hotel.
+## The experience
+1. **Learn and observe.** After a flat tyre strands me on a California desert highway, I walk to a hotel with red-lit windows. The receptionist turns toward the east wing. A lift notice directs me upstairs. The four-storey exterior leads into an ordinary first visit. The staff greet me in writing. I can ask for wine in the bar and inspect my face in the washroom mirror. Later visits may change. I spread encounters across the stairs, gallery and lift landing so each has room to breathe.
+2. **Choose and retreat.** Continue through an ordinary passage. Turn back if something changed. Four correct decisions in a row unlock the suite. A mistake or contact with the hostile butler resets progress.
+3. **Claim and finish.** At 2/4, match a suitcase to its stamp in the mirror. The stamped ticket says I claimed it yesterday. The porter opens the staff stair. The suite returns me to reception. A bell rings, the butler’s skin gives way to bone, and the other guests stop around me. His face cuts into view just before everything goes black.
 
-**Design direction:** Spread the cast across the hotel’s floors and rooms. Characters who belong together can share a scene. Use the Exit 8 turn-back rule on observation routes. At 2/4, collect one case in the luggage room.
+**Look and feel:** I chose Twin Peaks and Hokum for the atmosphere, Exit 8 for observation and Resident Evil for fixed cameras. Warm lamps, red curtains, dark wood and cold window light follow [Visual Study 02](sources/moodboards/room-zero-visual-study-02.md).
 
-**Features in v17:** The guest walks to reception. The porter apologizes for the broken lift and directs the guest to the honeymoon suite by the stairs. E skips the greeting.
-1. **Observe:** Take an unscored ordinary tour. On later visits, study one subject on the east stair or in the longer west gallery; check the lift on the shared landing. E holds a close-up until dismissed. Escape opens the ordinary night register.
-2. **Decide and evade:** Walk back across the entrance if something changed, otherwise cross the far end or top step. Four correct decisions earn the suite; mistakes and butler contact return you to ground. A floating-bell warning tells you how to retreat.
-3. **Claim and finish:** Match a case to its reflection (A/D to select, E to turn and claim). A wrong claim can be retried. On a match, the porter recognizes the case and opens the staff stair. Opening the suite returns you to reception: the greeting repeats, the butler’s bones glow and the cast closes in. The last image holds until replay.
+**Controls:** WASD/arrows walk; holding a direction builds speed. E inspects or uses a door; Escape pauses and opens the night register.
 
-**Interaction:** WASD/arrows walk, E inspects/opens, Escape pauses. Crossing a passage threshold submits the decision. Begin again starts a fresh run.
+**Scope:** Connected hotel rooms reused across the ascent. No combat, mobile controls, additional endings or separate architecture for every floor.
 
-**Look and feel:** Exit 8-inspired observation, Twin Peaks-inspired noir lighting, Hokum-inspired folk horror and fixed Resident Evil-inspired cameras. Follow Visual Study 02. Hide the guest's face; show the shirt, tie and blazer when the camera allows.
-
-**Out of scope:** Combat, weapons, mobile controls, bespoke architecture for each floor, multiple endings and story-letter puzzles. The numbered ascent reuses six connected spaces.
-
-**Done when:**
-1. Each passage scores once; wrong choices reset progress; four correct decisions unlock the suite and its complete ending.
-2. Inspections and camera changes preserve control and readable clues; the guest's face stays hidden; pause/resume and replay work.
-3. The anomalous butler warns before pursuit, allows escape by retreat and causes exactly one reset to the landing on contact.
+## Done when
+- Each choice scores once; mistakes reset progress; four correct choices open the suite and ending.
+- Clues stay readable, camera cuts preserve control, and pause and replay work.
+- The butler gives a warning, allows retreat and causes one reset on contact.

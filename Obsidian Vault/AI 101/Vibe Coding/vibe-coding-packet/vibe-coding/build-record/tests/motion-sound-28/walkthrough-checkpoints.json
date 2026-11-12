@@ -1,0 +1,58 @@
+[
+  {
+    "label": "Title",
+    "time": 0.13,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Exit starts",
+    "time": 14.08,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Exit ends",
+    "time": 22.08,
+    "room": "reception",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "service",
+    "time": 23.92,
+    "room": "pantry",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "bar",
+    "time": 30.33,
+    "room": "lounge",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "luggage",
+    "time": 44.67,
+    "room": "baggage",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "bell",
+    "time": 55.63,
+    "room": "corridor",
+    "score": 0,
+    "errors": []
+  },
+  {
+    "label": "Ending",
+    "time": 59.79,
+    "room": "corridor",
+    "score": 0,
+    "errors": []
+  }
+]
