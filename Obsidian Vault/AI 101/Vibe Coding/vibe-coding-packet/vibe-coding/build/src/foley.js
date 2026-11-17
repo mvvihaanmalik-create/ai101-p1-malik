@@ -17,6 +17,7 @@ const files = {
 export function createFoley() {
  const clips = new Map(), voices = new Set();
  let context, output, enterTone, reflection, send, room='road', enabled=true, step=0;
+ let driving=null,driveGain,driveFilter;
  // Decode during the hotel load so the first engine transient lands on the first frame.
  const ready = (async () => {
   const decoder = new OfflineAudioContext(1,1,44100);
@@ -40,11 +41,11 @@ export function createFoley() {
   source.onended=()=>{voices.delete(source);source.disconnect();filter.disconnect();volume.disconnect();stereo.disconnect();};
   source.start(context.currentTime+delay,offset);
  }
- function stop() {for (const source of voices) source.stop(); voices.clear();}
+ function stop() {for (const source of voices) source.stop(); voices.clear();driving=null;}
  function enter(name){
   room=name;
   enterTone?.(name);
-  const wet={pantry:.23,stairs:.31,reception:.11,landing:.19,baggage:.045,claim:.055,lounge:.08,corridor:.14,suite:.05,ending:.22};
+  const wet={road:.045,pantry:.23,stairs:.31,reception:.11,landing:.19,baggage:.045,claim:.055,lounge:.08,corridor:.14,suite:.05,ending:.22};
   reflection?.gain.setTargetAtTime(wet[name]||0,context.currentTime,.10);
  }
  return {
@@ -62,6 +63,20 @@ export function createFoley() {
   },
   enable(value){enabled=value;if(!value) stop();}, stop,
   engine(time){play('engine',.84,{offset:time,cutoff:4500});},
+  drive(t){
+   if(!context||!enabled||!clips.has('engine'))return;
+   if(t>=24){if(driving){driving.stop();voices.delete(driving);driving=null;}return;}
+   if(!driving){
+    driving=context.createBufferSource();driving.buffer=clips.get('engine');driving.loop=true;driving.loopStart=.35;driving.loopEnd=2.8;
+    driveFilter=context.createBiquadFilter();driveFilter.type='lowpass';driveGain=context.createGain();
+    driving.connect(driveFilter);driveFilter.connect(driveGain);driveGain.connect(output);driveGain.connect(send);voices.add(driving);
+    const src=driving,filter=driveFilter,gain=driveGain;src.onended=()=>{src.disconnect();filter.disconnect();gain.disconnect();voices.delete(src);};src.start(0,.35+t%2.45);
+   }
+   const strain=Math.max(0,Math.min(1,(t-18)/6)),now=context.currentTime;
+   driving.playbackRate.setTargetAtTime(.78-.38*strain+.025*Math.sin(t*2.2),now,.06);
+   driveFilter.frequency.setTargetAtTime(1150+strain*950,now,.1);
+   driveGain.gain.setTargetAtTime(.52*(1-strain*.9)*(1-.22*strain*(1+Math.sin(t*21))),now,.05);
+  },
   car(open){play(open?'open':'close',open?.88:1.05);},
   fabric(pan=0,level=.38){play('sleeve',level,{pan,rate:.83,cutoff:3800});},
  cloche(tap,near){play('lid',(near?.64:.37)*[1,.60,.78][tap],{pan:.40,rate:[.83,.91,.76][tap],cutoff:near?8400:3600});},

@@ -1,3 +1,4 @@
+import {createReceptionCounter} from './test3-art.js';
 import {renderPlate,lightHotelMaterials} from './visual-finish.js';
 import * as THREE from 'three';
 import {createProcession} from './ending-procession.js';
@@ -32,8 +33,8 @@ export async function createReceptionEnding({renderer,loader,tex,models,receptio
  const faceLight=new THREE.PointLight(0xffdfbe,0,12,2),rim=new THREE.DirectionalLight(0x9ab9cc,.83);
  rim.position.set(30,3,1);rim.target.position.set(30,1,-4);scene.add(faceLight,rim,rim.target);
  // A depth-only counter keeps the same reception geometry registered in both front shots.
- const desk=new THREE.Mesh(new THREE.BoxGeometry(2.85,1.24,.98),new THREE.MeshBasicMaterial({colorWrite:false}));desk.position.set(31.5,.62,-6.9);desk.renderOrder=-2;scene.add(desk);
- const target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,depthBuffer:true,samples:Math.min(2,renderer.capabilities.maxSamples)});
+ const desk=createReceptionCounter(scene);
+ const target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,depthBuffer:true,samples:0});
  const postScene=new THREE.Scene(),postCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
  const post=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,uniforms:{image:{value:target.texture},pixel:{value:new THREE.Vector2(1/1280,1/720)},blur:{value:0},glow:{value:0},fade:{value:0}},vertexShader:'varying vec2 uv0;void main(){uv0=uv;gl_Position=vec4(position.xy,0.,1.);}',fragmentShader:`
   uniform sampler2D image;uniform vec2 pixel;uniform float blur,glow,fade;varying vec2 uv0;
@@ -102,7 +103,7 @@ export async function createReceptionEnding({renderer,loader,tex,models,receptio
   if(close&&reducedMotion)post.uniforms.fade.value=Math.max(frame.blackout,.8*(1-THREE.MathUtils.smoothstep(time,STRIKE_AT,STRIKE_AT+.48)));
  }
  function render(){
-  renderer.getDrawingBufferSize(size);size.multiplyScalar(Math.min(1,2304/size.x)).floor();if(target.width!==size.x||target.height!==size.y){target.setSize(size.x,size.y);post.uniforms.pixel.value.set(1/size.x,1/size.y);}
+  renderer.getDrawingBufferSize(size);size.multiplyScalar(Math.min(1,1920/size.x)).floor();if(target.width!==size.x||target.height!==size.y){target.setSize(size.x,size.y);post.uniforms.pixel.value.set(1/size.x,1/size.y);}
   renderer.setRenderTarget(target);renderPlate(renderer,scene,camera);drawStats={triangles:renderer.info.render.triangles,drawCalls:renderer.info.render.calls};renderer.setRenderTarget(null);renderer.render(postScene,postCamera);
  }
  function start(at=0){active=true;procession.reset();time=at;lastPhase='';held=false;update(0);}

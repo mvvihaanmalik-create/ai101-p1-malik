@@ -14,6 +14,9 @@ header{position:absolute;top:5%;left:5%;right:5%;display:flex;align-items:center
 #location{font-size:14px;font-weight:500;letter-spacing:.08em;color:#d0cdc3}
 .panel{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:5% 8%;background:linear-gradient(90deg,#060808f5 0%,#060808d9 36%,#06080866 65%,#06080822 100%);overflow-y:auto}
 .panel[hidden]{display:none}
+#explore{margin-top:10px}.explore-note{font:16px/1.5 var(--ui);color:#c7bca9;margin:6px 0 4px}
+#title-menu{margin-top:10px}#register-note{white-space:pre-line}
+.exploring #world{touch-action:none}
 .eyebrow{margin:0 0 12px;font-size:14px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .panel h1{font:600 clamp(52px,7.5vw,112px)/1.05 var(--title);letter-spacing:.04em;margin:0 0 18px;text-shadow:0 3px 25px #0008}
 .panel h1 span{color:var(--gold)}
@@ -132,6 +135,10 @@ header .wordmark{font-size:clamp(13px,1.4vw,20px);letter-spacing:.06em}
 
 #lyric{position:absolute;z-index:3;left:50%;bottom:8%;transform:translateX(-50%);max-width:90%;width:max-content;padding:.32em .8em;background:#0b080bd9;color:#f8edde;font:500 clamp(16px,2.2vw,24px)/1.35 var(--ui);text-align:center;pointer-events:none}
 #stage:has(#pause:not([hidden])) #lyric{visibility:hidden}
+#stage.opening-film #caption{bottom:19%;font-size:clamp(17px,1.65vw,22px)}
+#stage.opening-film #lyric{bottom:7%}
+#stage.opening-film header,#stage.opening-film #progress,#stage.opening-film #hud{visibility:hidden}
+#stage.opening-film #interaction{left:auto;right:4%;bottom:3.5%;font:16px var(--ui)}
 #stage.approach #interaction,#stage.approach #progress,#stage.approach header{visibility:hidden}
 
 /* End titles share the film clock, including while the register is paused. */

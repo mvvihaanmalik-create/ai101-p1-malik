@@ -3,7 +3,7 @@ export const CATALOGUE=Object.freeze({
  C2:{name:'Room service',normal:'A closed silver cloche on its tray.',changed:'Something knocks beneath the closed cloche.',kind:'character'},
  C3:{name:'The children',normal:'Two children roll a red rubber ball.',changed:'A porcelain likeness of a third child rolls between them and stops face up.',kind:'character'},
  C4:{name:'The abandoned dog',normal:'The standing dog casts a matching shadow.',changed:'The dog stands. Its shadow sits.',kind:'character'},
- C5:{name:'The last order',normal:'The server sets the glass down. Then the bartender picks it up.',changed:'A released glass rises into a waiting hand.',kind:'character'},
+ C5:{name:'The last order',normal:'The server sets the glass down. Then the bartender picks it up.',changed:'The bartender grins with his head bent sideways. The bottle tips itself and never empties.',kind:'character'},
  C6:{name:'The late guest',normal:'The guest and his reflection move together.',changed:'His reflection stays behind, then turns as you retreat.',kind:'character'},
  E1:{name:'The founder',normal:'The portrait looks away.',changed:'He faces you. A human shadow escapes the frame.',kind:'environment'},
  E2:{name:'The rain',normal:'Rain runs down the glass.',changed:'The middle window rains upward.',kind:'environment'},

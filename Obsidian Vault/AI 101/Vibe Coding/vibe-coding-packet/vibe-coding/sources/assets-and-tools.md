@@ -1,5 +1,13 @@
 # Room 0 · Asset and tool credits
-Current through v21, November 11, 2026. Sources below were checked against the retained downloads, licences, build scripts and runtime imports.
+Current through v40, November 14, 2026. Sources below were checked against the retained downloads, licences, build scripts and runtime imports.
+
+**v40:** I rejected the receptionist's crossed arms in my screenshots. Codex corrected the existing MakeHuman rig's hand targets, candle grip and doorway stride, softened the lights and added bevelled door details using Three.js. The empty-hotel mode reuses the existing sets, characters' absence and music; its exterior uses a first-person camera. No new model was downloaded and no Blender MCP call was made. [Revision](../build-record/tests/opening-40/README.md).
+
+**v39:** I reused the existing car, Rocketbox exit animation and MakeHuman guest/receptionist for the song-timed opening. Codex authored the brass candle, roadside distance sign, revised camera cuts, hand poses and 161-metre hotel placement in Three.js. There were no new downloaded models or Blender MCP calls. [Opening record](../build-record/tests/opening-39/README.md).
+
+**v38:** I made the luggage guest older and distinct from the bartender. I reused the MakeHuman CC0 porter rig and `old_caucasian_male/old_lightskinned_male_diffuse.png` from the retained system pack. Its material header credits Data Collection AB, Joel Palmius and Jonas Hauquier. The skin was converted to WebP. Codex authored the weighted beard shell, head-attached wire glasses, thinner coat, gaunt cheeks and longer grey hair in Three.js under my direction. This pass used no Blender MCP or newly downloaded model.
+
+**v37 update, November 13:** I reused these credited assets for the Test 3 revision. Cooper-inspired face adjustments, the reception counter, lamp and staff-stair key were implemented in Three.js. The car-exit take was retimed within a longer opening, not replaced with new motion capture. This pass used no Blender MCP calls or new downloaded models. [Changes and verification](../build-record/tests/test3-37/README.md).
 
 ## Reused 3D assets
 | On screen | Source and credit | Licence | Room 0 changes |
@@ -87,3 +95,5 @@ I wanted the hotel to feel scarier while keeping the clues readable. Codex grade
 ## Reception procession, v36
 
 I used the credited MakeHuman cast and German Shepherd for the ending. The heads on the tray and stair landing share the child mesh. The finale restores skin and hair on the two head props. Codex animated the handbell, wine stream, muzzle drips and skeleton changes in Three.js.
+
+Desert detail pass: Codex built wind-rippled ground, scattered stones, branching dry scrub, shoulder gravel and worn roadside markers procedurally in Three.js. No new downloaded assets or Blender MCP were used. Static geometry is batched by material.

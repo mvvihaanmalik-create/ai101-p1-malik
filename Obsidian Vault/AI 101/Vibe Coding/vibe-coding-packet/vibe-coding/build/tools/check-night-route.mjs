@@ -11,7 +11,7 @@ let counter=0,buf=Buffer.alloc(0),sid;const pending=new Map(),errors=[];
 browser.stdio[4].on('data',v=>{buf=Buffer.concat([buf,v]);let end;while((end=buf.indexOf(0))>=0){const m=JSON.parse(buf.subarray(0,end).toString());buf=buf.subarray(end+1);if(m.id){const p=pending.get(m.id);if(!p)continue;pending.delete(m.id);m.error?p.reject(Error(JSON.stringify(m.error))):p.resolve(m.result);}else if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails.exception?.description||m.params.exceptionDetails.text);}});
 function cmd(method,params={},sessionId=sid){const id=++counter;return new Promise((resolve,reject)=>{pending.set(id,{resolve,reject});browser.stdio[3].write(JSON.stringify({id,method,params,sessionId})+'\0');});}
 const sleep=n=>new Promise(r=>setTimeout(r,n));
-const ev=async expression=>{const v=await cmd('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(v.exceptionDetails)throw Error(v.exceptionDetails.exception?.description||v.exceptionDetails.text);return v.result.value;};
+const ev=async expression=>{const v=await cmd('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true,userGesture:true});if(v.exceptionDetails)throw Error(v.exceptionDetails.exception?.description||v.exceptionDetails.text);return v.result.value;};
 const diag=()=>ev("JSON.parse(document.getElementById('diagnostics').textContent||'{}')");
 async function until(f,max=55000){const start=Date.now();for(;;){if(errors.length)throw Error(errors.join('\n'));const v=await f();if(v)return v;if(Date.now()-start>max)throw Error('Timed out: '+f+' '+JSON.stringify(await diag()));await sleep(110);}}
 const mode=process.argv[3]||'route';const snapshots=[];async function record(label){const d=await diag();snapshots.push({label,room:d.room,detail:d.detail,progress:d.progress,orientation:d.orientation,focus:d.focus,branch:d.branch,stairKind:d.stairKind,visibleCast:d.visibleCast,butlerVisible:d.butlerVisible,history:d.history,contacts:d.contacts,errors:d.errors,plaything:d.encounterMetrics?.plaything});await writeFile(new URL('browser-'+mode+'-checkpoints.json',dir),JSON.stringify(snapshots,null,2));console.log(label,d.room,d.detail,d.focus,d.progress);}
@@ -39,7 +39,41 @@ try{
  if(mode==='bath'){
   await until(async()=>(await diag()).road?.time>=16,100000);await shot('four-storey-exterior');
  }
- if((await diag()).road)await press('e');
+ if(mode==='opening39'){
+  assert.equal((await diag()).build,process.env.HOTEL_BUILD||'v39');
+  const evidence=[];
+  for(const [at,label] of [[4.5,'driver-at-wheel'],[8,'highway'],[14.9,'early-smoke'],[17,'roadside-sign'],[21.5,'distant-hotel'],[26,'car-exit'],[30,'feet-planted'],[33,'long-approach'],[34.5,'woman-doorway'],[37,'entry-bell'],[41,'threshold'],[47.3,'candle'],[50.4,'directions'],[54,'corridor-voices']]){
+   await until(async()=>{const d=await diag();return d.mode==='playing'&&d.music.opening.audible&&d.music.opening.time>=at;},95000);
+   const d=await diag();evidence.push({at,label,road:d.road,arrival:d.arrival,lyric:d.lyric,audio:d.music.opening,hotelPaused:d.music.tracks.hotel.paused});
+   assert.equal(d.music.mode,'opening');assert.ok(d.music.opening.ready);assert.ok(d.music.opening.audible);assert.equal(d.music.tracks.hotel.paused,true);
+   if(label==='early-smoke')assert.ok(d.road.smokeLevel>.1);
+   if(label==='distant-hotel')assert.ok(d.road.hotelDistance>150);
+   // Hold the actual game frame during capture; slow screenshots must not skip the pose.
+   await press('Escape');await until(async()=>(await diag()).mode==='paused');
+   await ev("document.querySelector('#pause').style.visibility='hidden'");await shot(label);
+   await ev("document.querySelector('#pause').style.visibility=''");await hit('resume');
+   if(label==='roadside-sign'){
+    await press('Escape');await until(async()=>(await diag()).mode==='paused');const p=(await diag()).music.opening.time;
+    await sleep(1100);assert.equal((await diag()).music.opening.time,p);await hit('resume');
+   }
+   if(label==='corridor-voices')assert.equal(d.view,0);
+   if(label==='directions')assert.match(await ev("document.querySelector('#caption').textContent"),/east stairs/);
+  }
+  await until(async()=>!(await diag()).arrival&&(await diag()).road===null);
+  assert.equal((await diag()).music.mode,'hotel');assert.equal((await diag()).lyric,'');assert.equal((await diag()).music.opening.paused,true);
+  await writeFile(new URL('opening-evidence.json',dir),JSON.stringify(evidence,null,2));
+  await record('59 second opening completed and hotel audio resumed');
+  await writeFile(new URL('browser-opening39-result.json',dir),JSON.stringify({status:'passed',url,errors,formalTest:false},null,2));
+  await shot('ready-to-play');
+  await walk('w',d=>d.room==='reception'&&d.guestY>7.8);await press('e');
+  await until(async()=>(await diag()).room==='landing');await record('player control returned and east door opened');
+  await hit('restart');await until(async()=>(await diag()).road!=null);
+  await press('e');await until(async()=>(await diag()).arrival!=null);
+  assert.equal((await diag()).music.mode,'hotel');assert.equal((await diag()).lyric,'');
+  await press('e');await until(async()=>(await diag()).arrival===null);
+  await record('restarted and skipped opening without overlapping audio');
+  process.exitCode=0;
+ }else if((await diag()).road)await press('e');
  async function claimCheck(){
   await until(async()=>(await diag()).room==='claim');await sleep(900);
   const start=await diag(),{target,order}=start.claim;
@@ -55,6 +89,9 @@ try{
   assert.equal((await diag()).claim.solved,true);
   assert.match(await ev("document.getElementById('claim-ticket').textContent"),/claimed yesterday/);
   await shot('porter-recognizes-case');
+  let maxHeadOffset=0;for(let i=0;i<48;i++){await sleep(250);maxHeadOffset=Math.max(maxHeadOffset,(await diag()).claim.headOffset);}
+  assert.ok(maxHeadOffset<25,'Luggage guest head drifted: '+maxHeadOffset);
+  await shot('porter-after-twelve-seconds');
   await until(async()=>(await diag()).claim?.open>=.95);await shot('porter-opens-stair');await press('e');
   await until(async()=>(await diag()).room==='stairs');assert.equal((await diag()).progress,2);await record('claimed luggage and entered staff stair');
  }
@@ -78,7 +115,42 @@ try{
   await until(async()=>(await diag()).arrival===null);await walk('w',d=>d.guestY>7.8);await press('e');await until(async()=>(await diag()).room==='landing');
   await hit('restart');await until(async()=>(await diag()).road!=null);await press('e');await until(async()=>(await diag()).arrival!=null);await press('e');await until(async()=>(await diag()).arrival===null);
  }
- if(mode==='performance'){
+ if(mode==='opening37'){
+  await hit('restart');
+  for(const [label,time] of [['night-drive',3],['engine-falter',8],['stopped-car',17],['exit-weight-transfer',26],['red-hotel',35],['scratched-sign',41],['entrance',49]]){
+   await until(async()=>(await diag()).road?.time>=time,100000);await shot(label);
+  }
+  await until(async()=>(await diag()).arrival!==null,45000);await shot('reception-welcome');
+  await until(async()=>(await diag()).arrival?.time>7);await shot('reception-directions');
+  assert.match(await ev("document.querySelector('#caption').textContent"),/lift is broken/);
+  assert.equal((await diag()).graphicsRecoveries,0);await record('53 second opening and readable reception captions');
+ }else if(mode==='opening39'){ /* Checked above. */
+ }else if(mode==='recovery'){
+  await select('review-room','reception');await hit('resume');await sleep(1500);
+  const before=await diag();assert.equal(before.build,'v38');
+  await until(async()=>(await diag()).music.tracks.hotel.ready>=2);
+  assert.equal((await diag()).music.tracks.hotel.error,false);
+  // Force an actual WebGL loss/restore, not synthetic DOM events.
+  await ev("window.recoveryProbe=document.querySelector('#world').getContext('webgl2').getExtension('WEBGL_lose_context');window.recoveryProbe.loseContext()");
+  await until(async()=>await ev("!document.querySelector('#error').hidden"));
+  await sleep(500);await ev('window.recoveryProbe.restoreContext()');
+  await until(async()=>{const d=await diag();return d.graphicsRecoveries===1&&!d.graphicsLost;});
+  const after=await diag();assert.equal(after.progress,before.progress);assert.equal(after.room,before.room);assert.equal(after.mode,'paused');
+  await hit('resume');await walk('w',d=>d.guestY>7.8);await press('e');await until(async()=>(await diag()).room==='landing');
+  await record('graphics restored, progress retained and next door opened');
+  await select('review-encounter','N-C5');await select('review-detail','bar');await hit('resume');await sleep(1200);await shot('bar-normal');
+  await press('w');await sleep(300);assert.equal((await diag()).detail,'bar');
+  await press('e');await sleep(300);await press('Escape');await press('w');await sleep(500);await hit('resume');await sleep(500);
+  const at=await diag();await sleep(1000);assert.equal((await diag()).guestY,at.guestY);
+  for(let i=0;i<5;i++)await press('e');await sleep(500);assert.equal((await diag()).room,'lounge');
+  await select('review-encounter','C5');await select('review-detail','bar');await hit('resume');
+  await until(async()=>(await diag()).encounterMetrics.bartenderHorror>.9);await shot('bar-changed');
+  for(const [id,detail,name] of [['N-C6','luggage','porter'],['N-E4','mirror','mirror-normal'],['E4','mirror','mirror-blood']]){
+   await select('review-encounter',id);await select('review-detail',detail);await hit('resume');await sleep(1500);await shot(name);
+  }
+  const result=await diag();assert.equal(result.graphicsRecoveries,1);assert.deepEqual(result.errors,[]);
+  await writeFile(new URL('recovery-evidence.json',dir),JSON.stringify({before,after,last:result},null,2));
+ }else if(mode==='performance'){
   await select('review-encounter','orientation');await hit('resume');await sleep(900);await walk('w',d=>d.room==='pantry');await sleep(950);
   await walk('w',d=>d.guestY>4.5);await until(async()=>/plates are still warm/.test(await ev("document.getElementById('caption').textContent")));
   assert.equal((await diag()).socialFloor,0);await press('e');await sleep(650);await shot('ordinary-attendant');await record('ordinary tour greeting');
@@ -181,7 +253,7 @@ try{
    await select('review-ending',name);await until(async()=>(await diag()).ending?.held);await sleep(900);await shot(name);
   }
   await ev("document.querySelector('[aria-label=\"Hold ending frame\"]').click()");
-  await until(async()=>(await diag()).mode==='end');await record('final approach complete');
+  await until(async()=>(await diag()).mode==='end',150000);await record('final approach complete');
  }else if(mode==='visual-fallback'){ /* Standalone fallback exercise above. */ }
  else if(mode==='claim'||mode==='story'||mode.startsWith('visual')){
   for(let i=1;i<=2;i++){
@@ -234,7 +306,7 @@ try{
   await walk('w',d=>d.guestY>5.3);assert.equal((await diag()).contacts,1);
  }else{
  for(const [id,name] of [['N-C3','ordinary-children'],['C3','porcelain-game'],['C4','dog-on-the-stair'],['C1','bell-study'],['E6','runner-study'],['C5','gallery-last-order']]){
-  await select('review-encounter',id);await hit('resume');await sleep(1050);
+  await select('review-encounter',id);await hit('resume');await until(async()=>{const d=await diag();return d.vignette===id.replace('N-','')&&d.mode==='playing';});await sleep(1050);
   const focus=await diag();assert.equal(focus.vignette,id.replace('N-',''));assert.ok(focus.visibleCast.length<=1);
   await select('review-detail',id.endsWith('C3')?'children':id==='C4'?'dog':id==='C1'?'bell':id==='C5'?'bar':'runner');await hit('resume');await sleep(900);
   const d=await diag();assert.ok(d.detail);if(id.endsWith('C3'))assert.equal(d.encounterMetrics.plaything,id==='C3'?'porcelain likeness':'rubber ball');

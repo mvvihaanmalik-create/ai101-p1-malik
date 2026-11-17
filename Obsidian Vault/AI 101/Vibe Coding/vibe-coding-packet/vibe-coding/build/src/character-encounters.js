@@ -1,4 +1,5 @@
 import {fitSmile,secondaryPose} from './character-performance.js';
+import {ageLuggageGuest} from './luggage-guest.js';
 import {finishMaterial} from './visual-finish.js';
 import {solveArm} from './arm-kinematics.js';
 import {captureArmPose,restoreArmPose,applyFingerGrip,calibrateHands,orientedPalm} from './hand-pose.js';
@@ -55,9 +56,9 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
   a.holder.updateWorldMatrix(true,true);
   const sign=side==='l'?1:-1;
   const normal=glassGrip?new THREE.Vector3(sign*.88,0,-.46).normalize():new THREE.Vector3(0,-1,0);
-  const forward=glassGrip?new THREE.Vector3(sign*.34,-.28,.90):new THREE.Vector3(.12,-.30,.95);
+  const forward=glassGrip?new THREE.Vector3(sign*.18,-.08,.98):new THREE.Vector3(.12,-.30,.95);
   const wanted=orientedPalm(hand,normal,forward);
-  hand.quaternion.rotateTowards(lower.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(wanted),.47);
+  hand.quaternion.rotateTowards(lower.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(wanted),.42);
   const shoulder=upper.getWorldPosition(new THREE.Vector3()),elbow=lower.getWorldPosition(new THREE.Vector3());
   const other=a.model.getObjectByName('upperarm_'+(side==='l'?'r':'l')).getWorldPosition(new THREE.Vector3());
   const pole=shoulder.clone().sub(other).normalize().multiplyScalar(.62).add(new THREE.Vector3(0,-.78,-.12));
@@ -126,14 +127,18 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
  const bottle=mesh(bar,new THREE.LatheGeometry([[.001,0],[.043,0],[.045,.018],[.044,.185],[.021,.224],[.014,.233],[.014,.295],[.018,.297],[.018,.312],[.011,.312]].map(([x,y])=>new THREE.Vector2(x,y)),28),new THREE.MeshStandardMaterial({color:0x244535,roughness:.22,metalness:.18}),[1.14,1.12,-13.71]);
  cylinder(bottle,.045,.087,[0,.118,0],new THREE.MeshStandardMaterial({color:0xc5ae84,roughness:.78}));
  label(bottle,'1969',.07,.043,[0,.119,.046]);
+ const wineMat=new THREE.MeshStandardMaterial({color:0x610617,roughness:.20,metalness:.12});
+ const wineFall=mesh(bar,new THREE.CylinderGeometry(.009,.017,1,10),wineMat,[1.14,.68,-13.40]);wineFall.visible=false;
+ const winePool=mesh(bar,new THREE.CircleGeometry(.19,32),wineMat,[1.14,.065,-13.40]);winePool.rotation.x=-Math.PI/2;winePool.visible=false;
  const glass=new THREE.Group();bar.add(glass);glass.scale.setScalar(1.12);const glassMat=new THREE.MeshPhysicalMaterial({color:0xbaccc2,metalness:.04,roughness:.18,transparent:true,opacity:.49,depthWrite:false,side:THREE.FrontSide});
  const rim=mesh(glass,new THREE.TorusGeometry(.045,.005,8,32),silver,[0,.12,0]);rim.rotation.x=Math.PI/2;
  const cup=mesh(glass,new THREE.CylinderGeometry(.045,.034,.12,32,1,true),glassMat,[0,.06,0]);cylinder(glass,.037,.007,[0,.005,0],silver);cylinder(glass,.036,.055,[0,.034,0],new THREE.MeshStandardMaterial({color:0xb85d1e,emissive:0x291204,emissiveIntensity:.25,metalness:.1,roughness:.22}));
 
- const luggage=root('C6'),traveller=actor(luggage,porter,[.55,.02,-14.15],{tint:0x899180,scale:1.03,yaw:Math.PI-.18}),caseObject=suitcase(luggage);caseObject.scale.y=1.5;const caseHandle=new THREE.Vector3();
+ const luggage=root('C6'),traveller=actor(luggage,porter,[.55,.02,-14.15],{tint:0x899180,scale:1.03,yaw:Math.PI-.18}),caseObject=suitcase(luggage);caseObject.scale.y=1.32;const caseHandle=new THREE.Vector3();
 
  // A real planar reflection, with a separate actor only for the changed reflection.
  const reflection=actor(luggage,porter,[.55,.02,-14.15],{tint:0x899180,scale:1.03,yaw:Math.PI-.18});reflection.holder.visible=false;
+ ageLuggageGuest(traveller.model);ageLuggageGuest(reflection.model);
  const mirrorFrame=new THREE.Group();luggage.add(mirrorFrame);mirrorFrame.visible=persistent;
  const mirror=new Reflector(new THREE.PlaneGeometry(1.4,2.2),{textureWidth:384,textureHeight:384,multisample:0,color:0xadaaa0});
  mirror.position.set(1.1,1.2,-15.55);mirrorFrame.add(mirror);
@@ -170,8 +175,8 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
   if(room!=='corridor')return;
   coat.rotation.x=current.anomaly==='E5'?-Math.PI/2+.025*Math.sin(time*.8):.008*Math.sin(time*.7);
   if(currentId==='C6'){
-   const wave=Math.sin(time*.30);traveller.holder.position.z=-14.1+wave*.30;
-   const walking=Math.abs(Math.cos(time*.30))*.65;
+   const wave=Math.sin(time*.60);traveller.holder.position.z=-14.15;
+   const walking=0;
    traveller.idle.setEffectiveWeight(1-walking);traveller.walk.setEffectiveWeight(walking);
    traveller.walk.time=THREE.MathUtils.euclideanModulo(wave*.30/1.07,1)*traveller.walk.getClip().duration;
   }
@@ -250,6 +255,14 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
    // on the wood during the exchange, giving the first hand time to clear.
    bartender.head.rotation.y+=.24*gaze;bartender.head.rotation.x+=.09*nod;
    const t=(current.barClock??time)%9;
+   const horror=changed?beat(t,1,2.2)*(1-beat(t,7.5,8.8)):0;
+   bartender.smile(changed?1.9:.35,changed?.75:.12);bartender.head.rotation.z-=.52*horror;
+   bartender.head.rotation.x-=.24*horror;
+   bottle.rotation.z=-1.65*horror;
+   const lip=new THREE.Vector3(0,.312,0).applyEuler(bottle.rotation).add(bottle.position);
+   wineFall.visible=horror>.65;wineFall.position.set(lip.x,(lip.y+.07)/2,lip.z);wineFall.scale.y=lip.y-.07;
+   winePool.position.set(lip.x,.065,lip.z);winePool.scale.setScalar(.4+.6*horror);winePool.visible=wineFall.visible;
+   metrics.bartenderHorror=+horror.toFixed(3);
    const firstLift=beat(t,.95,1.87)*(1-beat(t,2.14,3.05));
    const secondLift=beat(t,changed?4.86:5.72,6.85)*(1-beat(t,7.04,8.05));
    const pos=tablePoint.clone().lerp(serverLift,firstLift).lerp(receiverLift,secondLift);
@@ -268,11 +281,11 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
   }
   if(currentId==='C6'){
    const z=traveller.holder.position.z;
-   caseObject.position.set(.85,0,z+.16);caseHandle.copy(caseObject.position);caseHandle.y+=1.08;
+   caseObject.position.set(.85,0,z+.16);caseHandle.copy(caseObject.position);caseHandle.y+=.9504;
    const hand=handTo(traveller,caseHandle,'l',.88);
 
    reflectionChanged=changed;reflection.holder.position.z=-14.15;reflection.head.quaternion.copy(reflection.headRest);if(changed&&retreating)reflection.head.rotation.y+=.65;metrics.reflectionMismatch=changed;mirror.visible=persistent;
-   metrics.caseHandGap=+gripPoint(hand).distanceTo(new THREE.Vector3(caseObject.position.x,caseObject.position.y+1.08,caseObject.position.z)).toFixed(3);
+   metrics.caseHandGap=+gripPoint(hand).distanceTo(new THREE.Vector3(caseObject.position.x,caseObject.position.y+.9504,caseObject.position.z)).toFixed(3);
   }
   // Lower floors acknowledge the guest and then return to work. Upstairs
   // the head keeps following after the body has turned back to its task.

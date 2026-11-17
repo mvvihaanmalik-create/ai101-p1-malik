@@ -183,7 +183,7 @@ export function createProcession(scene,crowd,models,skeleton,onBeat,reduced){
    const [x,z]=lanes[i];p.holder.position.set(30+x,.02,z-dist);
    p.holder.rotation.y=.045*x;
    if(!parade){
-    p.holder.position.set(p===lady?31.45:30.2,p===lady?.16:.02,p===lady?-7.85:-7.35);
+    p.holder.position.set(p===lady?31.45:30.2,.02,p===lady?-7.85:-7.35);
     p.holder.rotation.y=Math.PI;
    }
    perform(p,dist,t,i,parade);

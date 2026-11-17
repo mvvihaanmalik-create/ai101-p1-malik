@@ -1,0 +1,50 @@
+{
+  "build": "v39",
+  "deploymentId": "dpl_6sTCNbnPtUmrpiyfNn7oDwpRcv7Y",
+  "target": "production",
+  "state": "READY",
+  "publicUrl": "https://room-zero-ashy.vercel.app/",
+  "fixedUrl": "https://room-zero-8klr6y82k-vihaanmalik.vercel.app/",
+  "aliasVerified": true,
+  "localBrowser": "Full opening, pause/resume, first door, restart, skip; no JavaScript errors",
+  "unitTests": 33,
+  "syntax": "passed",
+  "formalTest": false,
+  "hostedFiles": [
+    {
+      "file": "src/main.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/opening-cue.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/desert-arrival.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/welcome-candle.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/music-score.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/foley.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "music-credits.html",
+      "status": 200,
+      "matched": true
+    }
+  ]
+}

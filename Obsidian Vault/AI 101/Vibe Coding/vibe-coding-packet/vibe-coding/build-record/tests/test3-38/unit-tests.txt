@@ -1,0 +1,114 @@
+
+> room-zero-visual-prototype@0.1.0 test
+> node --test tools/test-loop.mjs tools/test-ending.mjs tools/test-music.mjs tools/test-locomotion.mjs tools/test-arms.mjs tools/check-road-pose.mjs tools/check-held-props.mjs tools/check-bar-clearance.mjs
+
+{
+  variant: 'normal',
+  frames: 541,
+  minimumHandGapAt1280px: { wide: '39.9', counter: '101.0' }
+}
+{
+  variant: 'changed',
+  frames: 541,
+  minimumHandGapAt1280px: { wide: '39.9', counter: '101.0' }
+}
+{
+  variant: 'wine',
+  frames: 328,
+  minimumHandGapAt1280px: { wide: '89.4', counter: '246.3' }
+}
+✔ tools\check-bar-clearance.mjs (2132.7084ms)
+{
+  id: 'C5',
+  anomaly: null,
+  bend: 24.064188581775458,
+  wristTurn: 3.3908493303670446,
+  fastest: [ 21, 'l' ],
+  fingerTurn: 3.006073258523661,
+  propTravel: 0.008778101733217082,
+  worstGap: 0,
+  closestHands: 0.375
+}
+{
+  id: 'C5',
+  anomaly: 'C5',
+  bend: 24.064188581775458,
+  wristTurn: 3.3908493303670446,
+  fastest: [ 21, 'l' ],
+  fingerTurn: 3.006073258523661,
+  propTravel: 0.008778101733217082,
+  worstGap: 0,
+  closestHands: 0.375
+}
+{
+  id: 'C6',
+  anomaly: null,
+  bend: 24.06419503135195,
+  wristTurn: 0.050324449325782325,
+  fastest: [ 1057, 'l' ],
+  fingerTurn: 0.03566139870281829,
+  propTravel: 0,
+  worstGap: 0,
+  closestHands: Infinity
+}
+{
+  id: 'C6',
+  anomaly: 'C6',
+  bend: 24.06419503135195,
+  wristTurn: 0.050324449325782325,
+  fastest: [ 1057, 'l' ],
+  fingerTurn: 0.03566139870281829,
+  propTravel: 0,
+  worstGap: 0,
+  closestHands: Infinity
+}
+✔ tools\check-held-props.mjs (1397.5532ms)
+{"leg":"l","sampledFrames":484,"minDegrees":57.1,"maxDegrees":151.4,"maxDegreesPerFrame":2.5,"plantedAnkleDriftMeters":0}
+{"leg":"r","sampledFrames":484,"minDegrees":53.1,"maxDegrees":162.4,"maxDegreesPerFrame":3.9,"plantedAnkleDriftMeters":0}
+Peak frame rotations (left wrist, right wrist, head, torso) {
+  '0': { turn: 4.8, t: 7.767 },
+  '1': { turn: 2.26, t: 13.117 },
+  '2': { turn: 3.42, t: 13.067 },
+  '3': { turn: 1.5, t: 13.067 }
+}
+{
+  maxOpeningGap: 7.195250489463023e-8,
+  maxClosingGap: 0.000038891624698161145
+}
+✔ tools\check-road-pose.mjs (768.1021ms)
+✔ arm solver preserves bone lengths and clamps unreachable targets without NaNs (0.9582ms)
+✔ constant animation tracks cannot accumulate finger curl across frames or frame rates (37.5155ms)
+✔ reachable grip stays on target and elbow stays on its anatomical pole side (0.3002ms)
+✔ only the unlocked suite during gameplay can start the ending (0.6167ms)
+✔ silent reception gives way to bone, the crowd, a held silence and a single close cut (0.263ms)
+✔ the finite ending freezes at its terminal image and never loops into play (0.8809ms)
+✔ reveal and enclosure are bounded and monotonic with no flashing fade (6.881ms)
+✔ actual travel selects the right authored step, independent of input key (1.6723ms)
+✔ diagonal stance blend reproduces actual ground displacement (0.2819ms)
+✔ blocked movement does not advance steps and settles into idle (1.214ms)
+✔ holding a direction builds to a brisk walk; releasing or reversing resets the ramp (0.2602ms)
+✔ release stops within 15 centimetres, without abrupt velocity changes (0.7999ms)
+✔ 30 and 120 fps cover the same ground within three centimetres (1.3601ms)
+✔ orientation is ordinary, cannot score, and cannot be skipped by returning (1.3552ms)
+✔ four consecutive correct decisions unlock, both choices are valid (2.5949ms)
+✔ wrong choice and contact reset streak, not anomaly draw history (0.2958ms)
+✔ each passage commits once; stale callbacks cannot score a new passage (0.1766ms)
+✔ each route locks once; normal and changed decks shuffle separately (28.4834ms)
+✔ same seed reproduces order; different seeds produce different orders (0.9173ms)
+✔ only crossing a marked threshold submits, not turning or standing (0.7423ms)
+✔ normal and changed versions of all twelve entries are reachable (2.1005ms)
+✔ inspection hotspots remain within the route and distinct from choice thresholds (0.2629ms)
+✔ walking back through the corridor entrance scores exactly once without an E interaction (0.1894ms)
+✔ stair decisions require crossing the bottom or top, and absent guests cannot be inspected (0.1401ms)
+✔ gallery has no service, bartender, traveller or stair-cast hotspots (0.0885ms)
+✔ suite approach precedes film; musical marks preserve all shots through blackout (1.0616ms)
+✔ upper floors hold attention longer in normal and changed encounters (0.8506ms)
+✔ pause, ending, replay and mute do not leave overlapping or advancing tracks (33.5797ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2143.0272

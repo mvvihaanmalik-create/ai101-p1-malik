@@ -1,0 +1,528 @@
+[
+  {
+    "start": 7.059999999999998,
+    "end": 21.78,
+    "text": " On a dark desert highway, cool wind in my hair. Warm smell of colitas rising up through the air. Up ahead in",
+    "words": [
+      {
+        "start": 7.059999999999998,
+        "end": 7.94,
+        "word": " On"
+      },
+      {
+        "start": 7.94,
+        "end": 8.1,
+        "word": " a"
+      },
+      {
+        "start": 8.1,
+        "end": 8.42,
+        "word": " dark"
+      },
+      {
+        "start": 8.42,
+        "end": 8.8,
+        "word": " desert"
+      },
+      {
+        "start": 8.8,
+        "end": 9.6,
+        "word": " highway,"
+      },
+      {
+        "start": 10.18,
+        "end": 11.2,
+        "word": " cool"
+      },
+      {
+        "start": 11.2,
+        "end": 11.62,
+        "word": " wind"
+      },
+      {
+        "start": 11.62,
+        "end": 11.82,
+        "word": " in"
+      },
+      {
+        "start": 11.82,
+        "end": 12.14,
+        "word": " my"
+      },
+      {
+        "start": 12.14,
+        "end": 12.78,
+        "word": " hair."
+      },
+      {
+        "start": 13.58,
+        "end": 14.46,
+        "word": " Warm"
+      },
+      {
+        "start": 14.46,
+        "end": 14.86,
+        "word": " smell"
+      },
+      {
+        "start": 14.86,
+        "end": 15.38,
+        "word": " of"
+      },
+      {
+        "start": 15.38,
+        "end": 16.02,
+        "word": " colitas"
+      },
+      {
+        "start": 16.02,
+        "end": 17.7,
+        "word": " rising"
+      },
+      {
+        "start": 17.7,
+        "end": 18.14,
+        "word": " up"
+      },
+      {
+        "start": 18.14,
+        "end": 18.4,
+        "word": " through"
+      },
+      {
+        "start": 18.4,
+        "end": 18.68,
+        "word": " the"
+      },
+      {
+        "start": 18.68,
+        "end": 19.26,
+        "word": " air."
+      },
+      {
+        "start": 20.58,
+        "end": 20.94,
+        "word": " Up"
+      },
+      {
+        "start": 20.94,
+        "end": 21.36,
+        "word": " ahead"
+      },
+      {
+        "start": 21.36,
+        "end": 21.78,
+        "word": " in"
+      }
+    ]
+  },
+  {
+    "start": 21.78,
+    "end": 51.58,
+    "text": " through the air. Up ahead in the distance I saw a shimmering light. My head grew heavy and my sight grew dim. I had to stop for the night. There she stood in the doorway. I heard the mission bell. And I was thinking to myself this could be heaven or this could be hell. Then she lit up a candle and she showed me the way.",
+    "words": [
+      {
+        "start": 21.78,
+        "end": 22.46,
+        "word": " through"
+      },
+      {
+        "start": 22.46,
+        "end": 22.48,
+        "word": " the"
+      },
+      {
+        "start": 22.48,
+        "end": 22.58,
+        "word": " air."
+      },
+      {
+        "start": 22.58,
+        "end": 22.58,
+        "word": " Up"
+      },
+      {
+        "start": 22.58,
+        "end": 22.58,
+        "word": " ahead"
+      },
+      {
+        "start": 22.58,
+        "end": 22.58,
+        "word": " in"
+      },
+      {
+        "start": 22.58,
+        "end": 22.58,
+        "word": " the"
+      },
+      {
+        "start": 22.58,
+        "end": 22.58,
+        "word": " distance"
+      },
+      {
+        "start": 22.58,
+        "end": 23.92,
+        "word": " I"
+      },
+      {
+        "start": 23.92,
+        "end": 24.22,
+        "word": " saw"
+      },
+      {
+        "start": 24.22,
+        "end": 24.52,
+        "word": " a"
+      },
+      {
+        "start": 24.52,
+        "end": 25.2,
+        "word": " shimmering"
+      },
+      {
+        "start": 25.2,
+        "end": 25.64,
+        "word": " light."
+      },
+      {
+        "start": 26.56,
+        "end": 27.24,
+        "word": " My"
+      },
+      {
+        "start": 27.24,
+        "end": 27.42,
+        "word": " head"
+      },
+      {
+        "start": 27.42,
+        "end": 27.66,
+        "word": " grew"
+      },
+      {
+        "start": 27.66,
+        "end": 28.02,
+        "word": " heavy"
+      },
+      {
+        "start": 28.02,
+        "end": 28.28,
+        "word": " and"
+      },
+      {
+        "start": 28.28,
+        "end": 28.42,
+        "word": " my"
+      },
+      {
+        "start": 28.42,
+        "end": 28.68,
+        "word": " sight"
+      },
+      {
+        "start": 28.68,
+        "end": 29.04,
+        "word": " grew"
+      },
+      {
+        "start": 29.04,
+        "end": 29.52,
+        "word": " dim."
+      },
+      {
+        "start": 29.94,
+        "end": 30.52,
+        "word": " I"
+      },
+      {
+        "start": 30.52,
+        "end": 30.66,
+        "word": " had"
+      },
+      {
+        "start": 30.66,
+        "end": 30.86,
+        "word": " to"
+      },
+      {
+        "start": 30.86,
+        "end": 31.12,
+        "word": " stop"
+      },
+      {
+        "start": 31.12,
+        "end": 31.54,
+        "word": " for"
+      },
+      {
+        "start": 31.54,
+        "end": 31.72,
+        "word": " the"
+      },
+      {
+        "start": 31.72,
+        "end": 32.24,
+        "word": " night."
+      },
+      {
+        "start": 33.42,
+        "end": 33.96,
+        "word": " There"
+      },
+      {
+        "start": 33.96,
+        "end": 34.18,
+        "word": " she"
+      },
+      {
+        "start": 34.18,
+        "end": 34.48,
+        "word": " stood"
+      },
+      {
+        "start": 34.48,
+        "end": 34.88,
+        "word": " in"
+      },
+      {
+        "start": 34.88,
+        "end": 35.02,
+        "word": " the"
+      },
+      {
+        "start": 35.02,
+        "end": 35.64,
+        "word": " doorway."
+      },
+      {
+        "start": 36.68,
+        "end": 37.02,
+        "word": " I"
+      },
+      {
+        "start": 37.02,
+        "end": 37.24,
+        "word": " heard"
+      },
+      {
+        "start": 37.24,
+        "end": 37.42,
+        "word": " the"
+      },
+      {
+        "start": 37.42,
+        "end": 37.84,
+        "word": " mission"
+      },
+      {
+        "start": 37.84,
+        "end": 38.42,
+        "word": " bell."
+      },
+      {
+        "start": 40.14,
+        "end": 40.82,
+        "word": " And"
+      },
+      {
+        "start": 40.82,
+        "end": 40.86,
+        "word": " I"
+      },
+      {
+        "start": 40.86,
+        "end": 41.06,
+        "word": " was"
+      },
+      {
+        "start": 41.06,
+        "end": 41.36,
+        "word": " thinking"
+      },
+      {
+        "start": 41.36,
+        "end": 41.66,
+        "word": " to"
+      },
+      {
+        "start": 41.66,
+        "end": 42.2,
+        "word": " myself"
+      },
+      {
+        "start": 42.2,
+        "end": 42.7,
+        "word": " this"
+      },
+      {
+        "start": 42.7,
+        "end": 42.86,
+        "word": " could"
+      },
+      {
+        "start": 42.86,
+        "end": 43.08,
+        "word": " be"
+      },
+      {
+        "start": 43.08,
+        "end": 43.56,
+        "word": " heaven"
+      },
+      {
+        "start": 43.56,
+        "end": 43.94,
+        "word": " or"
+      },
+      {
+        "start": 43.94,
+        "end": 44.22,
+        "word": " this"
+      },
+      {
+        "start": 44.22,
+        "end": 44.42,
+        "word": " could"
+      },
+      {
+        "start": 44.42,
+        "end": 44.82,
+        "word": " be"
+      },
+      {
+        "start": 44.82,
+        "end": 45.26,
+        "word": " hell."
+      },
+      {
+        "start": 46.42,
+        "end": 46.98,
+        "word": " Then"
+      },
+      {
+        "start": 46.98,
+        "end": 47.2,
+        "word": " she"
+      },
+      {
+        "start": 47.2,
+        "end": 47.44,
+        "word": " lit"
+      },
+      {
+        "start": 47.44,
+        "end": 47.76,
+        "word": " up"
+      },
+      {
+        "start": 47.76,
+        "end": 48.02,
+        "word": " a"
+      },
+      {
+        "start": 48.02,
+        "end": 48.56,
+        "word": " candle"
+      },
+      {
+        "start": 48.56,
+        "end": 50.16,
+        "word": " and"
+      },
+      {
+        "start": 50.16,
+        "end": 50.38,
+        "word": " she"
+      },
+      {
+        "start": 50.38,
+        "end": 50.76,
+        "word": " showed"
+      },
+      {
+        "start": 50.76,
+        "end": 51.1,
+        "word": " me"
+      },
+      {
+        "start": 51.1,
+        "end": 51.28,
+        "word": " the"
+      },
+      {
+        "start": 51.28,
+        "end": 51.58,
+        "word": " way."
+      }
+    ]
+  },
+  {
+    "start": 52.72,
+    "end": 58.14,
+    "text": " There were voices down the corridor. I thought I heard them say.",
+    "words": [
+      {
+        "start": 52.72,
+        "end": 53.5,
+        "word": " There"
+      },
+      {
+        "start": 53.5,
+        "end": 53.66,
+        "word": " were"
+      },
+      {
+        "start": 53.66,
+        "end": 54.1,
+        "word": " voices"
+      },
+      {
+        "start": 54.1,
+        "end": 54.4,
+        "word": " down"
+      },
+      {
+        "start": 54.4,
+        "end": 54.7,
+        "word": " the"
+      },
+      {
+        "start": 54.7,
+        "end": 55.26,
+        "word": " corridor."
+      },
+      {
+        "start": 56.2,
+        "end": 56.56,
+        "word": " I"
+      },
+      {
+        "start": 56.56,
+        "end": 56.82,
+        "word": " thought"
+      },
+      {
+        "start": 56.82,
+        "end": 57.02,
+        "word": " I"
+      },
+      {
+        "start": 57.02,
+        "end": 57.24,
+        "word": " heard"
+      },
+      {
+        "start": 57.24,
+        "end": 57.72,
+        "word": " them"
+      },
+      {
+        "start": 57.72,
+        "end": 58.14,
+        "word": " say."
+      }
+    ]
+  }
+]

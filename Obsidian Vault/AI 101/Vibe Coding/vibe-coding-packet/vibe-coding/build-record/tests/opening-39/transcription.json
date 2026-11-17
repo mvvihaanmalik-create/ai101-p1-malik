@@ -1,0 +1,656 @@
+[
+  {
+    "start": 7.060000000000005,
+    "end": 17.74,
+    "text": " On a dark desert highway, cool wind in my hair Wants me up on the dust, rising",
+    "words": [
+      {
+        "start": 7.060000000000005,
+        "end": 7.94,
+        "word": " On",
+        "probability": 0.269462525844574
+      },
+      {
+        "start": 7.94,
+        "end": 8.1,
+        "word": " a",
+        "probability": 0.882908284664154
+      },
+      {
+        "start": 8.1,
+        "end": 8.42,
+        "word": " dark",
+        "probability": 0.9923875331878662
+      },
+      {
+        "start": 8.42,
+        "end": 8.8,
+        "word": " desert",
+        "probability": 0.9826722145080566
+      },
+      {
+        "start": 8.8,
+        "end": 9.6,
+        "word": " highway,",
+        "probability": 0.987862229347229
+      },
+      {
+        "start": 10.18,
+        "end": 11.2,
+        "word": " cool",
+        "probability": 0.2762152850627899
+      },
+      {
+        "start": 11.2,
+        "end": 11.62,
+        "word": " wind",
+        "probability": 0.9116404056549072
+      },
+      {
+        "start": 11.62,
+        "end": 11.82,
+        "word": " in",
+        "probability": 0.9826907515525818
+      },
+      {
+        "start": 11.82,
+        "end": 12.14,
+        "word": " my",
+        "probability": 0.9975720047950745
+      },
+      {
+        "start": 12.14,
+        "end": 12.78,
+        "word": " hair",
+        "probability": 0.9740128517150879
+      },
+      {
+        "start": 12.78,
+        "end": 14.64,
+        "word": " Wants",
+        "probability": 0.4074938967823982
+      },
+      {
+        "start": 14.64,
+        "end": 14.86,
+        "word": " me",
+        "probability": 0.2082153558731079
+      },
+      {
+        "start": 14.86,
+        "end": 15.18,
+        "word": " up",
+        "probability": 0.7374731302261353
+      },
+      {
+        "start": 15.18,
+        "end": 15.44,
+        "word": " on",
+        "probability": 0.21229185163974762
+      },
+      {
+        "start": 15.44,
+        "end": 15.66,
+        "word": " the",
+        "probability": 0.2456425279378891
+      },
+      {
+        "start": 15.66,
+        "end": 16.36,
+        "word": " dust,",
+        "probability": 0.39592480659484863
+      },
+      {
+        "start": 17.3,
+        "end": 17.74,
+        "word": " rising",
+        "probability": 0.7918485999107361
+      }
+    ]
+  },
+  {
+    "start": 17.74,
+    "end": 26.0,
+    "text": " after the air Up ahead in the distance I saw a shimmering light",
+    "words": [
+      {
+        "start": 17.74,
+        "end": 18.28,
+        "word": " after",
+        "probability": 0.4085175395011902
+      },
+      {
+        "start": 18.28,
+        "end": 18.68,
+        "word": " the",
+        "probability": 0.9964141845703125
+      },
+      {
+        "start": 18.68,
+        "end": 20.24,
+        "word": " air",
+        "probability": 0.9667384624481201
+      },
+      {
+        "start": 20.24,
+        "end": 20.92,
+        "word": " Up",
+        "probability": 0.903673529624939
+      },
+      {
+        "start": 20.92,
+        "end": 21.36,
+        "word": " ahead",
+        "probability": 0.990419328212738
+      },
+      {
+        "start": 21.36,
+        "end": 21.78,
+        "word": " in",
+        "probability": 0.9612393379211426
+      },
+      {
+        "start": 21.78,
+        "end": 21.92,
+        "word": " the",
+        "probability": 0.9146142601966858
+      },
+      {
+        "start": 21.92,
+        "end": 22.62,
+        "word": " distance",
+        "probability": 0.9263290762901306
+      },
+      {
+        "start": 22.62,
+        "end": 23.94,
+        "word": " I",
+        "probability": 0.4486290514469147
+      },
+      {
+        "start": 23.94,
+        "end": 24.22,
+        "word": " saw",
+        "probability": 0.9934288859367371
+      },
+      {
+        "start": 24.22,
+        "end": 24.48,
+        "word": " a",
+        "probability": 0.8528726696968079
+      },
+      {
+        "start": 24.48,
+        "end": 25.2,
+        "word": " shimmering",
+        "probability": 0.8656691610813141
+      },
+      {
+        "start": 25.2,
+        "end": 26.0,
+        "word": " light",
+        "probability": 0.9897079467773438
+      }
+    ]
+  },
+  {
+    "start": 26.0,
+    "end": 29.5,
+    "text": " I hit the heavy and my sight grew dim",
+    "words": [
+      {
+        "start": 26.0,
+        "end": 27.24,
+        "word": " I",
+        "probability": 0.26236867904663086
+      },
+      {
+        "start": 27.24,
+        "end": 27.46,
+        "word": " hit",
+        "probability": 0.0720614641904831
+      },
+      {
+        "start": 27.46,
+        "end": 27.66,
+        "word": " the",
+        "probability": 0.8393071293830872
+      },
+      {
+        "start": 27.66,
+        "end": 27.98,
+        "word": " heavy",
+        "probability": 0.9795427322387695
+      },
+      {
+        "start": 27.98,
+        "end": 28.28,
+        "word": " and",
+        "probability": 0.8062980771064758
+      },
+      {
+        "start": 28.28,
+        "end": 28.42,
+        "word": " my",
+        "probability": 0.9655345678329468
+      },
+      {
+        "start": 28.42,
+        "end": 28.72,
+        "word": " sight",
+        "probability": 0.39259302616119385
+      },
+      {
+        "start": 28.72,
+        "end": 29.06,
+        "word": " grew",
+        "probability": 0.9736825227737427
+      },
+      {
+        "start": 29.06,
+        "end": 29.5,
+        "word": " dim",
+        "probability": 0.5983361601829529
+      }
+    ]
+  },
+  {
+    "start": 29.5,
+    "end": 32.4,
+    "text": " I had to stop for the night",
+    "words": [
+      {
+        "start": 29.5,
+        "end": 30.5,
+        "word": " I",
+        "probability": 0.8535419702529907
+      },
+      {
+        "start": 30.5,
+        "end": 30.68,
+        "word": " had",
+        "probability": 0.9928025603294373
+      },
+      {
+        "start": 30.68,
+        "end": 30.86,
+        "word": " to",
+        "probability": 0.9788596630096436
+      },
+      {
+        "start": 30.86,
+        "end": 31.16,
+        "word": " stop",
+        "probability": 0.9915663599967957
+      },
+      {
+        "start": 31.16,
+        "end": 31.54,
+        "word": " for",
+        "probability": 0.7257241606712341
+      },
+      {
+        "start": 31.54,
+        "end": 31.74,
+        "word": " the",
+        "probability": 0.963566243648529
+      },
+      {
+        "start": 31.74,
+        "end": 32.4,
+        "word": " night",
+        "probability": 0.9981346130371094
+      }
+    ]
+  },
+  {
+    "start": 33.34,
+    "end": 35.64,
+    "text": " That she stood in the doorway",
+    "words": [
+      {
+        "start": 33.34,
+        "end": 33.96,
+        "word": " That",
+        "probability": 0.494808554649353
+      },
+      {
+        "start": 33.96,
+        "end": 34.18,
+        "word": " she",
+        "probability": 0.9127534031867981
+      },
+      {
+        "start": 34.18,
+        "end": 34.48,
+        "word": " stood",
+        "probability": 0.9931486248970032
+      },
+      {
+        "start": 34.48,
+        "end": 34.88,
+        "word": " in",
+        "probability": 0.9620734453201294
+      },
+      {
+        "start": 34.88,
+        "end": 35.04,
+        "word": " the",
+        "probability": 0.5105294585227966
+      },
+      {
+        "start": 35.04,
+        "end": 35.64,
+        "word": " doorway",
+        "probability": 0.9812359809875488
+      }
+    ]
+  },
+  {
+    "start": 36.400000000000006,
+    "end": 38.5,
+    "text": " I heard the mission bell",
+    "words": [
+      {
+        "start": 36.400000000000006,
+        "end": 37.02,
+        "word": " I",
+        "probability": 0.33778753876686096
+      },
+      {
+        "start": 37.02,
+        "end": 37.26,
+        "word": " heard",
+        "probability": 0.43274667859077454
+      },
+      {
+        "start": 37.26,
+        "end": 37.42,
+        "word": " the",
+        "probability": 0.9581706523895264
+      },
+      {
+        "start": 37.42,
+        "end": 37.84,
+        "word": " mission",
+        "probability": 0.8839458227157593
+      },
+      {
+        "start": 37.84,
+        "end": 38.5,
+        "word": " bell",
+        "probability": 0.3400416076183319
+      }
+    ]
+  },
+  {
+    "start": 40.220000000000006,
+    "end": 42.18,
+    "text": " I was thinking to myself",
+    "words": [
+      {
+        "start": 40.220000000000006,
+        "end": 40.84,
+        "word": " I",
+        "probability": 0.8179436922073364
+      },
+      {
+        "start": 40.84,
+        "end": 41.04,
+        "word": " was",
+        "probability": 0.9990824460983276
+      },
+      {
+        "start": 41.04,
+        "end": 41.32,
+        "word": " thinking",
+        "probability": 0.9608295559883118
+      },
+      {
+        "start": 41.32,
+        "end": 41.64,
+        "word": " to",
+        "probability": 0.9846529364585876
+      },
+      {
+        "start": 41.64,
+        "end": 42.18,
+        "word": " myself",
+        "probability": 0.9994762539863586
+      }
+    ]
+  },
+  {
+    "start": 42.18,
+    "end": 45.44,
+    "text": " This could be heaven, and this could be man",
+    "words": [
+      {
+        "start": 42.18,
+        "end": 42.7,
+        "word": " This",
+        "probability": 0.3062393069267273
+      },
+      {
+        "start": 42.7,
+        "end": 42.88,
+        "word": " could",
+        "probability": 0.9971333742141724
+      },
+      {
+        "start": 42.88,
+        "end": 43.1,
+        "word": " be",
+        "probability": 0.9821703433990479
+      },
+      {
+        "start": 43.1,
+        "end": 43.58,
+        "word": " heaven,",
+        "probability": 0.6063141822814941
+      },
+      {
+        "start": 43.84,
+        "end": 43.94,
+        "word": " and",
+        "probability": 0.6152840256690979
+      },
+      {
+        "start": 43.94,
+        "end": 44.2,
+        "word": " this",
+        "probability": 0.9939568042755127
+      },
+      {
+        "start": 44.2,
+        "end": 44.42,
+        "word": " could",
+        "probability": 0.9984350800514221
+      },
+      {
+        "start": 44.42,
+        "end": 44.82,
+        "word": " be",
+        "probability": 0.9977722764015198
+      },
+      {
+        "start": 44.82,
+        "end": 45.44,
+        "word": " man",
+        "probability": 0.19459053874015808
+      }
+    ]
+  },
+  {
+    "start": 46.38,
+    "end": 48.62,
+    "text": " Then she did up a candle",
+    "words": [
+      {
+        "start": 46.38,
+        "end": 47.0,
+        "word": " Then",
+        "probability": 0.45799049735069275
+      },
+      {
+        "start": 47.0,
+        "end": 47.22,
+        "word": " she",
+        "probability": 0.9289757013320923
+      },
+      {
+        "start": 47.22,
+        "end": 47.42,
+        "word": " did",
+        "probability": 0.13496048748493195
+      },
+      {
+        "start": 47.42,
+        "end": 47.84,
+        "word": " up",
+        "probability": 0.4672660529613495
+      },
+      {
+        "start": 47.84,
+        "end": 47.98,
+        "word": " a",
+        "probability": 0.5381082892417908
+      },
+      {
+        "start": 47.98,
+        "end": 48.62,
+        "word": " candle",
+        "probability": 0.677327573299408
+      }
+    ]
+  },
+  {
+    "start": 49.56,
+    "end": 51.82,
+    "text": " And she showed me the way",
+    "words": [
+      {
+        "start": 49.56,
+        "end": 50.18,
+        "word": " And",
+        "probability": 0.6000248193740845
+      },
+      {
+        "start": 50.18,
+        "end": 50.38,
+        "word": " she",
+        "probability": 0.9978793859481812
+      },
+      {
+        "start": 50.38,
+        "end": 50.78,
+        "word": " showed",
+        "probability": 0.9642257690429688
+      },
+      {
+        "start": 50.78,
+        "end": 51.1,
+        "word": " me",
+        "probability": 0.9988860487937927
+      },
+      {
+        "start": 51.1,
+        "end": 51.3,
+        "word": " the",
+        "probability": 0.993802547454834
+      },
+      {
+        "start": 51.3,
+        "end": 51.82,
+        "word": " way",
+        "probability": 0.9915549159049988
+      }
+    ]
+  },
+  {
+    "start": 52.74,
+    "end": 55.3,
+    "text": " There were bushes down the corridor",
+    "words": [
+      {
+        "start": 52.74,
+        "end": 53.5,
+        "word": " There",
+        "probability": 0.30517739057540894
+      },
+      {
+        "start": 53.5,
+        "end": 53.66,
+        "word": " were",
+        "probability": 0.9720984697341919
+      },
+      {
+        "start": 53.66,
+        "end": 54.1,
+        "word": " bushes",
+        "probability": 0.6081671118736267
+      },
+      {
+        "start": 54.1,
+        "end": 54.42,
+        "word": " down",
+        "probability": 0.9628551602363586
+      },
+      {
+        "start": 54.42,
+        "end": 54.64,
+        "word": " the",
+        "probability": 0.3525012731552124
+      },
+      {
+        "start": 54.64,
+        "end": 55.3,
+        "word": " corridor",
+        "probability": 0.2192610800266266
+      }
+    ]
+  },
+  {
+    "start": 55.82,
+    "end": 58.14,
+    "text": " I thought I heard them sing",
+    "words": [
+      {
+        "start": 55.82,
+        "end": 56.54,
+        "word": " I",
+        "probability": 0.5606059432029724
+      },
+      {
+        "start": 56.54,
+        "end": 56.8,
+        "word": " thought",
+        "probability": 0.9716511368751526
+      },
+      {
+        "start": 56.8,
+        "end": 57.02,
+        "word": " I",
+        "probability": 0.9863848090171814
+      },
+      {
+        "start": 57.02,
+        "end": 57.24,
+        "word": " heard",
+        "probability": 0.9775463938713074
+      },
+      {
+        "start": 57.24,
+        "end": 57.68,
+        "word": " them",
+        "probability": 0.8923432230949402
+      },
+      {
+        "start": 57.68,
+        "end": 58.14,
+        "word": " sing",
+        "probability": 0.7146852016448975
+      }
+    ]
+  }
+]

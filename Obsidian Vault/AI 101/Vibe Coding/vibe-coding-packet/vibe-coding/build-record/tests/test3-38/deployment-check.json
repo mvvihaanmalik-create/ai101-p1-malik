@@ -1,0 +1,34 @@
+{
+  "build": "v38",
+  "date": "2026-11-14",
+  "deploymentId": "dpl_Gv6Lg4f7T9damq1nhhFiedxAspaP",
+  "stagedUrl": "https://room-zero-n22kghmeb-vihaanmalik.vercel.app/",
+  "liveUrl": "https://room-zero-ashy.vercel.app/",
+  "sourceChecks": [
+    {
+      "file": "src/main.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/luggage-guest.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/luggage-room.js",
+      "status": 200,
+      "matched": true
+    },
+    {
+      "file": "src/music-score.js",
+      "status": 200,
+      "matched": true
+    }
+  ],
+  "publicCheck": {
+    "status": 200,
+    "buildV38": true
+  },
+  "limitation": "Local Chrome could not connect to either Vercel hostname (TLS reset/timeout). Browser gameplay checks ran locally. Vercel connector verified served source files and production alias; no hosted browser playthrough is claimed."
+}

@@ -1,5 +1,6 @@
 import {finishMaterial,surfaceColor,lightHotelMaterials} from './visual-finish.js';
-import {fitSmile} from './character-performance.js';
+import {fitSmile,secondaryPose} from './character-performance.js';
+import {ageLuggageGuest} from './luggage-guest.js';
 import * as THREE from 'three';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {clone} from 'three/addons/utils/SkeletonUtils.js';
@@ -23,7 +24,7 @@ function tagTexture(mark) {
 export function createLuggageRoom(porter,makeCase){
  const scene=new THREE.Scene();lightHotelMaterials(scene,.42);scene.background=new THREE.Color(0x292120);
  const camera=new THREE.PerspectiveCamera(36,16/9,.05,35);
- camera.position.set(.15,2.1,4.0);camera.lookAt(.05,1.45,-.6);
+ camera.position.set(.55,2.15,4.55);camera.lookAt(.36,1.46,-.65);
  const material=(color,metalness=0)=>new THREE.MeshStandardMaterial({color,metalness,roughness:.62});
  const walnut=material(0x47312a),trim=material(0xa18755,.42),velvet=material(0x641f34),taupe=material(0x605145);
  for(const [mat,key,factor] of [[walnut,'walnut',.002],[velvet,'velvet',.0009],[trim,'brass',.0004],[taupe,'velvet',.0006]]){finishMaterial(mat,key,factor);mat.map=mat.roughnessMap;}
@@ -60,7 +61,7 @@ export function createLuggageRoom(porter,makeCase){
  for(const x of [-1.81,1.17])box(scene,x,1.75,-1.80,.038,2.04,.12,walnut);
  for(const y of [.76,2.74])box(scene,-.32,y,-1.80,3.03,.045,.12,walnut);
  const door=new THREE.Group();door.position.set(1.38,0,-1.82);scene.add(door);
- box(scene,2.02,1.19,-1.91,1.33,2.38,.09,new THREE.MeshBasicMaterial({color:0xb5926c}));
+ box(scene,2.02,1.19,-1.91,1.33,2.38,.09,new THREE.MeshBasicMaterial({color:0x0e1b1c}));
  box(door,.65,1.19,0,1.30,2.38,.10,walnut);box(door,1.12,1.07,.09,.12,.04,.08,trim);
  for(const y of [.25,1.4,2.14])box(door,.65,y,.065,1.06,.034,.03,trim);
  // Inset panels and a key escutcheon make the service door read in silhouette.
@@ -71,7 +72,7 @@ export function createLuggageRoom(porter,makeCase){
  box(scene,-.35,.945,.04,3.84,.055,1.02,velvet);
  // Narrow brass reveal between the padded top and the cabinet face.
  box(scene,-.35,.85,.541,3.71,.016,.016,trim);
- const figure=clone(porter.scene);figure.position.set(1.23,.05,-.96);figure.rotation.y=Math.PI+.20;scene.add(figure);
+ const figure=clone(porter.scene);figure.position.set(1.98,.05,-.72);figure.rotation.y=Math.PI-.12;scene.add(figure);
  figure.traverse(part=>{
   if(!part.isMesh)return;
   part.frustumCulled=false;
@@ -80,8 +81,10 @@ export function createLuggageRoom(porter,makeCase){
  });
  const mixer=new THREE.AnimationMixer(figure);
  const idle=mixer.clipAction(porter.animations.find(a=>a.name==='Idle')).play();
+ mixer.update(0);ageLuggageGuest(figure);
  const release=mixer.clipAction(porter.animations.find(a=>a.name==='Raise'));release.setLoop(THREE.LoopOnce,1);release.clampWhenFinished=true;
  scene.add(new THREE.HemisphereLight(0xc4c7cc,0x39202c,.76));
+ const faceLight=new THREE.PointLight(0xffd4a9,3.6,4);faceLight.position.set(1.35,2.22,1.45);scene.add(faceLight);
  for(const [x,y,z,color,power] of [[-1.76,2.42,1.12,0xffb979,21],[1.82,2.55,-.43,0x96c3c2,14.5]]){
   const light=new THREE.PointLight(color,power,8);light.position.set(x,y,z);scene.add(light);
  }
@@ -103,22 +106,34 @@ export function createLuggageRoom(porter,makeCase){
   tag.position.set(0,.4,-.117);tag.rotation.y=Math.PI;bag.add(tag);const contact=new THREE.Mesh(new THREE.PlaneGeometry(.90,.50),shade);contact.position.set(bag.position.x,.975,.03);contact.rotation.x=-Math.PI/2;scene.add(contact);cases.push({bag,tag,contact,yaw:0,yawSpeed:0,depth:.03,depthSpeed:0});
  }
  const ticket=document.getElementById('claim-ticket'),stamp=document.getElementById('claim-stamp');
+ const stairKey=new THREE.Group();scene.add(stairKey);stairKey.visible=false;
+ const bow=new THREE.Mesh(new THREE.TorusGeometry(.045,.009,8,24),trim);bow.rotation.x=-Math.PI/2;stairKey.add(bow);
+ box(stairKey,0,0,.095,.016,.016,.15,trim);box(stairKey,.024,0,.151,.055,.016,.026,trim);
  const greet=fitSmile(figure);greet(.66);
+ const motion=secondaryPose(figure,['spine_01','spine_02','head','clavicle_r','upperarm_r','lowerarm_r']);
+ let age=0;
  const head=figure.getObjectByName('head');
  const neutralHead=head?.quaternion.clone();
  let active=0,target=0,turned=false,angle=0,solved=false,open=0,order=[],recognitionTime=0;
  function start(seed){
+  figure.visible=true;
   lastMirror=-Infinity;target=(seed>>>3)%3;order=[0,1,2];if(seed&1)order.reverse();order.push(...order.splice(0,seed%3));
   cases.forEach((c,i)=>{c.tag.material.map=textures[order[i]];c.yaw=c.bag.rotation.y=Math.PI/2;
    c.depth=c.bag.position.z=c.contact.position.z=.03;c.yawSpeed=c.depthSpeed=0;});
-  active=0;turned=false;angle=Math.PI/2;solved=false;open=0;door.rotation.y=0;
-  recognitionTime=0;release.stop();idle.reset().setEffectiveWeight(1).play();figure.rotation.y=Math.PI+.20;
+  active=0;turned=false;angle=Math.PI/2;solved=false;open=0;door.rotation.y=0;stairKey.visible=false;
+  recognitionTime=0;release.stop();idle.reset().setEffectiveWeight(1).play();figure.rotation.y=Math.PI-.12;
   if(head)head.quaternion.copy(neutralHead);
   stamp.src=textures[target].image.toDataURL();stamp.alt=stamps[target];ticket.hidden=false;
  }
  function step(dt){
+  motion.restore();age+=dt;
+  greet(recognitionTime>0?.24:.66);mixer.update(dt);
+  // Constant animation tracks may skip writes. Restore the sampled head pose
+  // before additive glances, otherwise a tiny nod accumulates into a full flip.
   if(head)head.quaternion.copy(neutralHead);
-  greet(recognitionTime>0?.24:.66);mixer.update(dt);const goal=turned?0:Math.PI/2;
+  motion.turn('spine_01',.012*Math.sin(age*1.5),.015*Math.sin(age*.6));
+  motion.turn('spine_02',-.007*Math.sin(age*1.5));
+  if(head)head.rotation.y+=.08*Math.sin(age*.55);const goal=turned?0:Math.PI/2;
   cases.forEach((c,i)=>{
    settle(c,'yaw',i===active?goal:Math.PI/2,11,dt);
    settle(c,'depth',i===active?(solved?.06:.30):.02,solved?4:10,dt);
@@ -127,12 +142,14 @@ export function createLuggageRoom(porter,makeCase){
   angle=cases[active].yaw;
   if(solved){
    const previous=recognitionTime;recognitionTime+=dt;
+   stairKey.visible=true;stairKey.position.set(cases[active].bag.position.x,.982,.12+.36*THREE.MathUtils.smoothstep(recognitionTime,.3,1.8));
    const ease=THREE.MathUtils.smoothstep;
    const glance=ease(recognitionTime,0,.65)*(1-ease(recognitionTime,1.55,2.4));
    if(head){head.rotation.x+=.16*glance;head.rotation.y+=.24*glance;}
-   figure.rotation.y=Math.PI+.20-1.0*ease(recognitionTime,2,3.25);
-   if(previous<2.65&&recognitionTime>=2.65){release.reset().play();idle.crossFadeTo(release,.4,false);}
-   open=ease(recognitionTime,3.15,4.55);door.rotation.y=-1.35*open;
+   const point=ease(recognitionTime,2,3.25)*(1-ease(recognitionTime,4.55,5.8));
+   motion.turn('clavicle_r',0,-.06*point);motion.turn('upperarm_r',-.24*point,0,-.18*point);motion.turn('lowerarm_r',-.32*point);
+   if(head)head.rotation.y-=.27*point;
+   open=ease(recognitionTime,3.15,4.55);door.rotation.y=1.35*open;
   }
  }
  function input(key){
@@ -146,7 +163,12 @@ export function createLuggageRoom(porter,makeCase){
  }
  function prompt(){
   if(solved)return open>=.95?'E   Enter the staff stair':'';
-  return ['Left','Middle','Right'][active]+' case     ·     A / D   Select     ·     E   '+(turned?'Claim case':'Turn to mirror');
+  return ['Left','Middle','Right'][active]+' case     ·     A / D   Select     ·     E   '+(turned?'Open my case':'Turn to mirror');
  }
- return {start,step,input,prompt,hide(){ticket.hidden=true;},render(renderer){renderer.render(scene,camera);},snapshot(){return {active,target:stamps[target],order:order.map(i=>stamps[i]),turned,solved,open};}};
+ const storyCamera=camera.position.clone(),storyRotation=camera.quaternion.clone();
+ const storyStart=start;
+ return {start(seed){storyStart(seed);camera.position.copy(storyCamera);camera.quaternion.copy(storyRotation);},step,input,prompt,
+  exploreStart(){storyStart(0);figure.visible=false;ticket.hidden=true;stairKey.visible=false;camera.position.set(.1,1.65,3.9);camera.lookAt(-.1,1.5,-1.6);},
+  exploreStep(dt,x,z){camera.position.x=THREE.MathUtils.clamp(camera.position.x+x*dt*1.5,-2.5,2.5);camera.position.z=THREE.MathUtils.clamp(camera.position.z-z*dt*1.5,1.2,4.3);camera.lookAt(camera.position.x*.35,1.5,-1.6);},
+  hide(){ticket.hidden=true;},render(renderer){renderer.render(scene,camera);},snapshot(){return {active,target:stamps[target],order:order.map(i=>stamps[i]),turned,solved,open,personVisible:figure.visible,headOffset:head?THREE.MathUtils.radToDeg(head.quaternion.angleTo(neutralHead)):0};}};
 }

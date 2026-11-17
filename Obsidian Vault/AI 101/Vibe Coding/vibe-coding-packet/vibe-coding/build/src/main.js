@@ -1,8 +1,12 @@
+import {OPENING_LENGTH,RECEPTION_AT,openingLyricAt} from './opening-cue.js';
+import {createWelcomeCandle} from './welcome-candle.js';
+import {EXPLORE_WINGS,EXPLORE_FLOORS,EXPLORE_PLAN,wingExit} from './explore-route.js';
+import {refineGuestFace,createReceptionCounter} from './test3-art.js';
 import {fitSmile,secondaryPose,socialBeat} from './character-performance.js';
 import {paintCredits} from './end-credits.js';
 import {CUE_LENGTH,DOOR_AT,filmAt,cueAt as cueForShot,lyricAt} from './finale-cue.js';
 import {createBathroom} from './bathroom.js';
-import {createDesertArrival,ROAD_DURATION} from './desert-arrival.js';
+import {createDesertArrival,ROAD_DURATION,roadTimeAt} from './desert-arrival.js';
 import {initPlates,renderPlate,plateStatus,costumeFinish,reuseIdenticalPixels,lightHotelMaterials} from './visual-finish.js';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -22,16 +26,19 @@ import {calibrateHands,applyFingerGrip,captureArmPose,restoreArmPose} from './ha
 import {createFoley} from './foley.js';
 const foley=createFoley();
 let desert,roadTime=null,roadStep;
+let exploring=false,exploreOutside=false,exploreFloor=0,exploreStairBase=0;
+const explorePosition=new THREE.Vector3(-4.5,1.65,14);let exploreYaw=.51,explorePitch=0,exploreSpeed=0,exploreDistance=0;
 const deskGaze=[],vertical=new THREE.Vector3(0,1,0);
-let luggageRoom,claimCompleted=false,receptionist,deskMixer,arrival=null;
-function finishArrival(){arrival=null;releaseMovement();$('caption').classList.remove('show');}
+let luggageRoom,claimCompleted=false,receptionist,deskMixer,deskWelcome,arrival=null;
+function finishArrival(){arrival=null;releaseMovement();$('stage').classList.remove('opening-film');setOpeningLyric(-1);if(music.snapshot().mode==='opening')music.startHotel(audioCtx);$('caption').classList.remove('show');}
 function advanceArrival(dt){
- arrival.time+=dt;
- if(arrival.time>=2.65&&arrival.beat===0){
-  arrival.beat=1;say('LIFT OUT OF ORDER  /  EAST STAIR',3.9);
+ arrival.time=arrival.musical?Math.max(0,music.openingTime()-RECEPTION_AT):arrival.time+dt;
+ if(arrival.musical){music.updateOpening();setOpeningLyric(music.openingTime());}
+ if(arrival.time>=5.06&&arrival.beat===0){
+  arrival.beat=1;say('The lift is broken. Take the east stairs. I will show you.',9);
  }
- if(arrival.time>=4.4)arrival.beat=2;
- if(arrival.time>=6.9)finishArrival();
+ if(arrival.time>=11.0)arrival.beat=2;
+ if(arrival.time>=OPENING_LENGTH-RECEPTION_AT)finishArrival();
 }
 const $=id=>document.getElementById(id);
 const cfg={butlerSpeed:.62,repelSpeed:1.18,repelTime:3,cooldown:5,range:4.2,contact:.65,cutAt:11.4,returnAt:10.5};
@@ -70,6 +77,7 @@ let suiteApproach=null;
 let ending,pausedMode='playing';
 let stairKind='transfer',lastFocus=null,stairSigns=[];
 function focusId(){
+ if(exploring)return null;
  for(const [id,destination] of Object.entries(westRooms))if(room===destination)return id;
  if(room==='corridor'&&loop.orientation)return 'C1';
  if(room==='stairs'&&stairKind!=='watch')return stairKind==='lesson'?'C3':stairKind==='kennel'?'C4':null;
@@ -78,11 +86,13 @@ function focusId(){
 }
 function currentInspection(y){
  const raw=inspectionAt(room,guest.position.x,y);
+ if(exploring)return raw;
  if(raw?.key==='bar'&&!wineAsked)return {...raw,label:'Ask for wine'};
  if(Object.values(westRooms).includes(room))return raw;
  return chooseShot(room,y,focusId(),raw,['lesson','kennel','watch'].includes(stairKind));
 }
 function updateCast(dt){
+ if(exploring){butler.visible=butlerShadow.visible=bell.visible=receptionist.visible=false;deskWelcome?.pose(0,false);for(const root of Object.values(characterEncounters.roots))root.visible=false;return;}
  const id=focusId();
  if(room==='corridor'&&loop.orientation&&!detail&&lastFocus&&id!==lastFocus)setView(state.view,true);
  lastFocus=id;const inHall=room==='corridor'&&id==='C1';
@@ -95,7 +105,7 @@ function updateCast(dt){
  receptionist.visible=room==='reception';
  if(receptionist.visible){
   for(const joint of deskGaze)if(joint.posed)joint.bone.quaternion.copy(joint.base);
-  deskMixer.update(dt);deskSmile(.36+.68*(arrival?socialBeat(arrival.time,0).gaze:.42),arrival?.beat===1?.88:.20);
+  deskWelcome?.restore();deskMixer.update(dt);deskSmile(.36+.68*(arrival?socialBeat(arrival.time,0).gaze:.42),arrival?.beat===1?.88:.20);
   const turn=arrival?THREE.MathUtils.smoothstep(arrival.time,3.2,4.7)*(1-THREE.MathUtils.smoothstep(arrival.time,5.6,6.8)):0;
   receptionist.rotation.y=Math.PI-.38*turn;
   const attention=arrival?THREE.MathUtils.smoothstep(arrival.time,.2,1.5):1;
@@ -104,12 +114,14 @@ function updateCast(dt){
    rotateWorld(joint.bone,vertical,(-.31*attention-.14*turn)*joint.share);
   }
  }
+ deskWelcome?.pose(arrival?.musical?music.openingTime():-1,room==='reception'&&Boolean(arrival));
  characterEncounters.update(state.time,dt,room,{...loop.current,vignette:id,wineTime,staffBeat,eyeX:detail?camera.position.x:guest.position.x,eyeZ:detail?camera.position.z:guest.position.z,barClock:state.time-barStart},-camera.position.z,actors.Guest.locomotion.vz>.08);
 }
 function stairTravel(kind,notice){stairKind=kind;goRoom('stairs',false,notice);}
 function enterBranch(branch){loop.chooseRoute(branch);if(branch==='stair')stairTravel('watch','East stair. Inspect the landing before crossing the top step.');else goRoom(loop.orientation?'pantry':westDestination(loop.current.vignette));}
 function registerText(){
- if(room==='claim')return 'Turn a case toward the mirror and compare its stamp with your ticket.';
+ if(exploring)return EXPLORE_PLAN;
+ if(room==='claim')return 'The porter holds the staff-stair key with the honeymoon luggage. Turn the cases toward the mirror; match the stamp to your suite ticket.';
  if(room==='landing')return REGISTER.E3;
  const id=focusId();return id&&REGISTER[id]?REGISTER[id]:'The first trip is ordinary. Take your time learning the hotel.';
 }
@@ -120,7 +132,7 @@ function refreshSigns(){
   for(const x of [25,487])for(const y of [25,263]){ctx.fillStyle='#aa9064';ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fill();ctx.fillStyle='#393227';ctx.fillRect(x-2,y-.6,4,1.2);}
  
   ctx.fillStyle='#e5cea1';ctx.textAlign='center';ctx.font='bold 39px Georgia';ctx.fillText(level?(stairKind==='transfer'?'WEST STAIR':'EAST STAIR'):'NIGHT REGISTER',256,72);
-  ctx.font='bold 81px Georgia';ctx.fillText(floorName(loop.progress),256,175);ctx.font='bold 32px Georgia';ctx.fillText('F L O O R',256,235);tex.needsUpdate=true;
+  ctx.font='bold 81px Georgia';ctx.fillText(floorName(exploring?exploreFloor:loop.progress),256,175);ctx.font='bold 32px Georgia';ctx.fillText('F L O O R',256,235);tex.needsUpdate=true;
  }
 }
 let seed=0;
@@ -137,7 +149,7 @@ const music=createMusicScore({onError:message=>{$('music-status').textContent=me
 function audioStart(){
  if(audioCtx){audioCtx.resume();return;}
  try{
-  audioCtx=new AudioContext();master=audioCtx.createGain();master.gain.value=.18;master.connect(audioCtx.destination);foley.connect(audioCtx,master);
+  audioCtx=new AudioContext();audioCtx.resume().catch(()=>{});master=audioCtx.createGain();master.gain.value=.18;master.connect(audioCtx.destination);foley.connect(audioCtx,master);
  }catch(e){console.warn('Sound unavailable',e);}
 }
 function tone(freq,duration,volume,type='sine'){
@@ -145,7 +157,8 @@ function tone(freq,duration,volume,type='sine'){
  const t=audioCtx.currentTime,o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;
  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(volume,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+duration);o.connect(g);g.connect(master);o.start(t);o.stop(t+duration+.04);
 }
-function ring(){[880,1317,1763,2310].forEach((f,i)=>tone(f,1.8,.09/(i+1)));}
+let lastBell=-Infinity;
+function ring(){lastBell=state.time;[880,1317,1763,2310].forEach((f,i)=>tone(f,2.4,.24/(i+1)));}
 function foot(){foley.foot(room==='bathroom'||room==='pantry'||room==='reception'?'tile':room==='stairs'?'stone':'carpet');}
 function say(text,duration=4){$('caption').textContent=text;$('caption').classList.add('show');state.captionUntil=state.time+duration;}
 function fatal(e){console.error(e);state.mode='error';$('error-message').textContent=`${e.message} Start this folder with npm run dev and open the printed local address.`;$('error').hidden=false;}
@@ -162,7 +175,7 @@ function setView(index,insertCut=false){
  state.view=index;placeLights();const c=views[index];camera.position.fromArray(c.position);camera.lookAt(new THREE.Vector3().fromArray(c.target));camera.fov=c.fov;const zoom=detail?(detail.key==='luggage'?1.18:detail.key==='stair'?1.12:1.30):room==='corridor'&&loop.orientation&&['C3','C5'].includes(focusId())?1.28:framingZoom;if(room==='bathroom'&&detail?.key==='mirror')bathroom.aim(camera);
  camera.zoom=zoom;camera.updateProjectionMatrix();scene.background=room==='bathroom'?bathroom.background:plateVariants[loop.current.anomaly]?.[index]||plates[index];if(scene.background.isTexture){scene.background.repeat.setScalar(1/zoom);scene.background.offset.setScalar((1-1/zoom)/2);scene.background.updateMatrix();}$('location').textContent=room==='corridor'?'WEST GALLERY':room==='stairs'&&stairKind==='transfer'?'WEST STAIR':roomNames[room];needsRender=true;
 }
-let capWidth=2304,slowTime=0;
+let capWidth=1920,slowTime=0,graphicsLost=false,graphicsRecoveries=0;
 function resize(){const r=$('stage').getBoundingClientRect();renderer.setPixelRatio(Math.min(devicePixelRatio,1.75,capWidth/Math.max(1,r.width)));renderer.setSize(Math.max(1,r.width),Math.max(1,r.height),false);camera.aspect=16/9;camera.updateProjectionMatrix();needsRender=true;}
 function mapNodes(root){root.traverse(o=>{if(o.name){nodes[o.name]=o;o.userData.restRotation=o.rotation.clone();}if(o.isMesh){o.frustumCulled=false;if(o.material){o.material.envMapIntensity=.45;if(o.material.name==='Aged brass')o.material.color.setRGB(.36,.235,.095);}}});}
 function joint(name,axis,angle){const n=nodes[name];if(n)n.rotation[axis]=n.userData.restRotation[axis]+angle;}
@@ -185,17 +198,18 @@ function prepareActor(name,gltf){
 }
 
 async function boot(){
- renderer=new THREE.WebGLRenderer({canvas:$('world'),antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
- renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;
+ renderer=new THREE.WebGLRenderer({canvas:$('world'),antialias:true,powerPreference:'default'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
+ renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  scene=new THREE.Scene();lightHotelMaterials(scene,.33);camera=new THREE.PerspectiveCamera(45,16/9,.05,100);
  initPlates(()=>{needsRender=true;});if((navigator.deviceMemory||8)<=4)capWidth=1600;
- document.body.dataset.build='v36';
+ document.body.dataset.build='v40';
  const response=await fetch('assets/hotel-v15.json');if(!response.ok)throw new Error('Hotel camera data is missing.');hotel=await response.json();views=hotel.cameras;
  const manager=new THREE.LoadingManager();manager.onProgress=(_,loaded,total)=>{$('load-progress').textContent=` ${Math.round(loaded/total*100)}%`;};
  const loader=new GLTFLoader(manager),tex=new THREE.TextureLoader(manager);
  const imageFiles=[...new Set([...views.map(c=>c.plate).filter(Boolean),...Object.values(hotel.variants).flatMap(v=>Object.values(v))])];
  const [g,b,o,newDepth,child,props,staff,porter,dog,porcelain,deskModel,nightCar,driverTake,...p]=await Promise.all([loader.loadAsync('assets/guest-v8.glb'),loader.loadAsync('assets/butler-v3.glb'),loader.loadAsync('assets/occlusion.glb'),loader.loadAsync('assets/hotel-occlusion-v3.glb'),loader.loadAsync('assets/child-v5.glb'),loader.loadAsync('assets/encounter-props-v5.glb'),loader.loadAsync('assets/attendant-v5.glb'),loader.loadAsync('assets/porter-v5.glb'),loader.loadAsync('assets/dog-v14.glb'),loader.loadAsync('assets/porcelain-v15.glb'),loader.loadAsync('assets/receptionist-v20.glb'),loader.loadAsync('assets/night-car-v28.glb'),fetch('assets/driver-exit-v28.json').then(r=>r.json()),...imageFiles.map(file=>tex.loadAsync('assets/proxies-v31/'+file))]);
  for(const [name,data] of [['guest-v8',g],['butler-v3',b],['child-v5',child],['attendant-v5',staff],['porter-v5',porter],['porcelain-v15',porcelain]])reuseIdenticalPixels(name,data);
+ refineGuestFace(g.scene);
  for(const data of [g,b,child,props,staff,porter,dog,deskModel])costumeFinish(data.scene);
  p.forEach((t,i)=>t.userData.masterPlate=imageFiles[i]);
  // Apply the identical centered crop to the plate and perspective camera.
@@ -206,7 +220,7 @@ async function boot(){
  butler=new THREE.Group();butler.add(b.scene);scene.add(butler);mapNodes(b.scene);
  prepareActor('Guest',g);prepareActor('Butler',b);butlerSmile=fitSmile(b.scene);butlerMotion=secondaryPose(b.scene,['head','spine_01','clavicle_l','upperarm_l','lowerarm_l']);bathroom=createBathroom(scene,guest);
  o.scene.traverse(n=>{if(n.isMesh){n.material=new THREE.MeshBasicMaterial({colorWrite:false,depthWrite:true});n.renderOrder=-2;}});scene.add(o.scene);
- newDepth.scene.traverse(n=>{if(n.isMesh){if(/reception.?counter/i.test(n.name))n.position.y-=.065;n.material=new THREE.MeshBasicMaterial({colorWrite:false,depthWrite:true});n.renderOrder=-2;}});scene.add(newDepth.scene);
+ newDepth.scene.traverse(n=>{if(n.isMesh){if(/reception.?counter/i.test(n.name))n.position.y-=.065;n.material=new THREE.MeshBasicMaterial({colorWrite:false,depthWrite:true});n.renderOrder=-2;}});scene.add(newDepth.scene);createReceptionCounter(scene);
  scene.add(new THREE.HemisphereLight(0x778c9d,0x2e1822,.43));
  const key=new THREE.DirectionalLight(0xe1b493,.56);key.position.set(-3,4,2);scene.add(key);
  const rim=new THREE.DirectionalLight(0x819fb9,.72);rim.position.set(4,3,-10);scene.add(rim);
@@ -242,8 +256,8 @@ async function boot(){
  }
  encounterArt=await createEncounterArt(scene);characterEncounters=createCharacterEncounters(scene,{adult:g,child,props,dog,staff,porter,porcelain,persistent:true});
  luggageRoom=createLuggageRoom(porter,characterEncounters.makeCase);
- desert=createDesertArrival(g,nightCar,driverTake);
- receptionist=new THREE.Group();receptionist.add(deskModel.scene);receptionist.position.set(31.45,.16,-7.85);receptionist.scale.setScalar(1.045);receptionist.rotation.y=Math.PI;scene.add(receptionist);
+ desert=createDesertArrival(g,nightCar,driverTake,deskModel);
+ receptionist=new THREE.Group();receptionist.add(deskModel.scene);receptionist.position.set(31.45,.02,-7.85);receptionist.scale.setScalar(1.045);receptionist.rotation.y=Math.PI;scene.add(receptionist);
  deskModel.scene.traverse(part=>{
   if(part.isBone&&['head','neck_01'].includes(part.name)){
    deskGaze.push({bone:part,base:new THREE.Quaternion(),posed:false,share:part.name==='head'?.65:.35});
@@ -256,15 +270,25 @@ async function boot(){
   part.material.alphaTest=.32;
   part.material.transparent=false;part.material.depthWrite=true;
  });
- deskSmile=fitSmile(deskModel.scene);deskMixer=new THREE.AnimationMixer(deskModel.scene);deskMixer.clipAction(deskModel.animations.find(a=>a.name==='Idle')).play();
- const deskLight=new THREE.PointLight(0xffc3a3,3.5,3.5);deskLight.position.set(31.05,1.95,-6.65);scene.add(deskLight);deskLight.intensity=2.4;
+ deskSmile=fitSmile(deskModel.scene);deskMixer=new THREE.AnimationMixer(deskModel.scene);deskMixer.clipAction(deskModel.animations.find(a=>a.name==='Idle')).play();deskMixer.update(0);deskWelcome=createWelcomeCandle(scene,receptionist,deskModel.scene);
+ const deskLight=new THREE.PointLight(0xffc3a3,1.15,3.5);deskLight.position.set(30.78,2.13,-6.45);scene.add(deskLight);
  ending=await createReceptionEnding({renderer,loader,tex,models:{guest:g,butler:b,child,props,dog,staff,porter,deskModel,porcelain,bell},reception:views[3],plate:plates[3],reducedMotion,onBeat:phase=>{if(phase==='desk'||phase==='handbell')ring();if(phase==='unmasking'){tone(36,4,.16,'triangle');tone(74,4,.045);}if(phase==='turn')tone(48,1,.14);if(phase==='surrounded'){tone(31,6,.19,'triangle');tone(65,6,.045);}if(phase==='listening')foley.enter('silence');if(phase==='strike'){foley.cloche(0,!reducedMotion);tone(67,.26,reducedMotion?.13:.25,'triangle');tone(91,.19,.075);}}});
- $('world').addEventListener('webglcontextlost',e=>{e.preventDefault();pause();$('error-message').textContent='The graphics device paused. Reload to restore the passage.';$('error').hidden=false;});
- new ResizeObserver(resize).observe($('stage'));resize();setRoom('reception');for(const root of Object.values(characterEncounters.roots))root.visible=true;await renderer.compileAsync(scene,camera);updateCast(0);renderPlate(renderer,scene,camera);await foley.ready;state.mode='intro';$('enter').disabled=false;$('enter').textContent='Begin';if(review)$('diagnostics').hidden=false;
+ $('world').addEventListener('webglcontextlost',e=>{
+  e.preventDefault();graphicsLost=true;graphicsRecoveries++;releaseMovement();pause();
+  $('error-message').textContent='Restoring the graphics device. Your room and progress are saved.';$('error').hidden=false;
+ });
+ $('world').addEventListener('webglcontextrestored',()=>{
+  graphicsLost=false;capWidth=1280;renderer.shadowMap.enabled=false;resize();needsRender=true;
+  $('error').hidden=true;$('music-status').textContent='Graphics recovered in reduced-detail mode. Resume to continue.';
+ });
+ new ResizeObserver(resize).observe($('stage'));resize();setRoom('reception');updateCast(0);await renderer.compileAsync(scene,camera);await Promise.all([foley.ready,music.prepareOpening(),desert.prepare(renderer)]);
+ // The candle adds a light to the reception shader. Prepare that variant too.
+ deskWelcome.pose(50,true);await renderer.compileAsync(scene,camera);renderPlate(renderer,scene,camera);
+ deskWelcome.restore();updateCast(0);renderPlate(renderer,scene,camera);state.mode='intro';$('enter').disabled=false;$('explore').disabled=false;$('enter').textContent='Begin story';if(review)$('diagnostics').hidden=false;
  if(review)installBenchmark({renderer,scene,camera,pause,setRoom,reviewEncounter,reviewDetail,reviewEnding,holdEnding:value=>{ending.hold(value);if(ending.active){if(value)music.pause();else music.resume();}},renderFrame:()=>ending.active?ending.render():room==='claim'?luggageRoom.render(renderer):renderPlate(renderer,scene,camera)});
  let last=performance.now(),lastStep=0,lastRaf=last;
  function tick(now,scheduler){
-  if(now-lastRender<10||document.hidden)return;
+  if(graphicsLost||now-lastRender<1000/30||document.hidden)return;
   const elapsed=(now-last)/1000;last=now;const dt=Math.min(elapsed,.05);state.frameMs=state.frameMs*.95+elapsed*1000*.05;perf.scheduler=scheduler;
   if(state.mode==='playing'){
    if(renderer.domElement.width>1600&&elapsed<.25){slowTime=Math.max(0,slowTime+(elapsed>.037?elapsed:-elapsed*1.5));if(slowTime>4){capWidth=renderer.domElement.width>1960?1920:1600;slowTime=0;resize();}}
@@ -297,13 +321,13 @@ async function boot(){
    const t=music.cueTime();paintCredits(t,reducedMotion);
    if(t>=CUE_LENGTH){music.finishEnding();$('closing').hidden=true;state.mode='end';$('end').hidden=false;$('again').focus();}
   }
-  if(needsRender){const start=performance.now();(roadTime!==null?desert.render(renderer):ending?.active?ending.render():room==='claim'?luggageRoom.render(renderer):renderPlate(renderer,scene,camera));perf.renderMs=perf.renderMs*.9+(performance.now()-start)*.1;needsRender=false;}
+  if(needsRender){const start=performance.now();(exploreOutside||roadTime!==null?desert.render(renderer):ending?.active?ending.render():room==='claim'?luggageRoom.render(renderer):renderPlate(renderer,scene,camera));perf.renderMs=perf.renderMs*.9+(performance.now()-start)*.1;needsRender=false;}
   lastRender=now;if(now-lastDiagnostic>200){updateDiagnostics();lastDiagnostic=now;}
  }
  renderer.setAnimationLoop(now=>{lastRaf=now;tick(now,'raf');});
  // Desktop embedded previews can stall rAF even while reporting visible.
  // The watchdog only runs while visible, never advances hidden gameplay.
- setInterval(()=>{const now=performance.now();if(!document.hidden&&now-lastRaf>100){if(perf.scheduler!=='timer')perf.stalls++;tick(now,'timer');}},16);
+ setInterval(()=>{const now=performance.now();if(!document.hidden&&now-lastRaf>500){if(perf.scheduler!=='timer')perf.stalls++;tick(now,'timer');}},250);
 }
 function resetPositions(){
  const r=hotel.rooms[room];guest.position.set(r.origin+r.entry[0],.02,-r.entry[1]);guest.rotation.set(0,0,0);butler.position.set(room==='reception'?31.45:-.28,.02,room==='reception'?-7.85:-18.2);butler.rotation.y=Math.PI;butler.visible=room==='corridor'||room==='reception';butlerShadow.visible=room==='corridor'&&butler.visible;bell.visible=room==='corridor'&&butler.visible;if(room==='corridor'){butler.position.set(-.94,.02,-18.6);cueAt=null;}
@@ -312,24 +336,26 @@ function resetPositions(){
  for(const name of ['Guest','Butler']){actors[name].distance=0;actors[name].locomotion=createLocomotion();animateBody(name,0,0);}setView(r.views[0]);keys.clear();movementBasis=null;updateShadows();needsRender=true;
 }
 function updateProgress(){
+ if(exploring){$('progress').hidden=true;return;}
  const label=!passageStarted?'Find the broken lift':loop.orientation?'Ground floor \u00b7 ordinary visit':`${floorName(loop.progress)} FLOOR  \u00b7  ${loop.progress} / 4`;
  $('progress-label').textContent=label;$('progress').setAttribute('aria-label',label);
  [...$('progress-marks').children].forEach((mark,i)=>mark.classList.toggle('lit',i<loop.progress));
 }
 function setRoom(name,fromEnd=false){
  suiteApproach=null;setLyric(-1);$('stage').classList.remove('approach');if(name==='suite'&&loop.unlocked)music.prepareEnding();
- arrival=null;roadTime=null;$('stage').classList.remove('on-road');
+ arrival=null;roadTime=null;$('stage').classList.remove('on-road','opening-film');if(music.snapshot().mode==='opening')music.startHotel(audioCtx);
  $('closing').hidden=true;ending?.stop();pausedMode='playing';$('stage').classList.remove('ending');$('end').hidden=true;
  detail=null;$('stage').classList.remove('inspecting');guest.visible=true;guestShadow.visible=true;room=name;noticedAt=null;clearWine();bathroom.enter(room==='bathroom',loop.current.anomaly==='E4');foley.enter(room);lastKnock=-1;lastEcho=-1;suiteKnockAt=name==='suite'?state.time+2:null;if(name==='landing'&&!passageStarted)passageStarted=true;
  if(name==='claim'){
-  releaseMovement();$('claim-ticket').querySelector('span').textContent='Claim ticket';luggageRoom.start(seed);$('stage').classList.add('claim');$('location').textContent='LEFT LUGGAGE';$('interaction').textContent=luggageRoom.prompt();
-  say('Match your ticket to the stamp in the mirror.',4.5);needsRender=true;return;
+  if(exploring){luggageRoom.exploreStart();$('stage').classList.add('claim');$('location').textContent='LEFT LUGGAGE';$('interaction').textContent='WASD   Look around     ·     E   Return';needsRender=true;return;}
+  releaseMovement();$('claim-ticket').querySelector('span').textContent='Honeymoon suite · luggage receipt';luggageRoom.start(seed);$('stage').classList.add('claim');$('location').textContent='LEFT LUGGAGE';$('interaction').textContent=luggageRoom.prompt();
+  say('The staff-stair key is with your luggage. Match your suite receipt to a case in the mirror.',9);needsRender=true;return;
  }
  luggageRoom.hide();$('stage').classList.remove('claim');lastFocus=null;resetPositions();if(fromEnd)guest.position.z=-(hotel.rooms[name].exit-.9);
  roomCooldown=.8;updateShadows();encounterArt.update(state.time,room,loop.current.anomaly);updateCast(0);updateProgress();refreshSigns();
  $('caption').classList.remove('show');state.captionUntil=0;
- if(name==='landing'&&!loop.orientation)say('Inspect with E. If something changed, walk back through the entrance.',5.3);
- if(name==='landing'&&loop.orientation)say('Take the red door for your first round.',3.8);
+ if(!exploring&&name==='landing'&&!loop.orientation)say('Inspect with E. If something changed, walk back through the entrance.',5.3);
+ if(!exploring&&name==='landing'&&loop.orientation)say('Take the red door for your first round.',3.8);
 
 }
 function goRoom(name,fromEnd=false,notice=''){if(pendingRoom)return;cutUntil=0;$('camera-cut').style.opacity='0';const keepWalking=(loop.orientation&&westTour.includes(name))||(room==='stairs'&&name==='stairs'&&stairKind==='kennel');pendingRoom={name,fromEnd,notice,keepWalking,at:state.time+.42};releaseMovement();$('blackout').style.opacity=1;}
@@ -356,6 +382,7 @@ function reviewEncounter(id){
  else{const normal=id==='normal'||id.startsWith('N-'),key=id.replace('N-',''),branch=STAIR.includes(key)?'stair':'hall';loop.orientation=false;loop.unlocked=false;loop.progress=Math.min(loop.progress,3);loop.current={serial:++loop.serial,anomaly:normal?null:key,vignette:key,changed:!normal,shared:key==='E3',route:key==='E3'?null:branch,resolved:false};passageStarted=true;stairKind='watch';setRoom(key==='E3'?'landing':branch==='stair'?'stairs':westDestination(key));}
 }
 function describeInspection(){
+ if(exploring){const lines={mirror:'Only your reflection.',bar:'A glass left on the polished counter.',luggage:'Left luggage. The mirror catches the empty shelves.',service:'The silver pantry. No one is on duty.',lift:'OUT OF ORDER.',portrait:'The founder watches the passage.',coat:'A coat left behind.',rain:'Rain against the glass.',runner:'The runner leads to the next landing.'};say(lines[detail?.key]||'The hotel is quiet.',4);return;}
  const id=room==='landing'?'E3':focusId(),entry=CATALOGUE[id];if(!entry)return;
  const changed=loop.current.anomaly===id;
  const direction=changed?'Turn back through the entrance.':loop.orientation||stairKind==='lesson'||stairKind==='kennel'?'Remember this for later.':loop.current.shared&&room!=='landing'?'Think back to the lift before you choose.':'Continue onward.';
@@ -402,6 +429,7 @@ function interact(){
   goRoom(room==='lounge'?'reception':route[route.indexOf(room)-1],true);return;}
  if(room==='landing')say('OUT OF ORDER. Please use the east stair.',4);
 }
+function setOpeningLyric(t){const node=$('lyric'),line=openingLyricAt(t);if(node.textContent!==line)node.textContent=line;node.hidden=!line;}
 function setLyric(t){
  const node=$('lyric'),line=lyricAt(t);if(node.textContent!==line)node.textContent=line;node.hidden=!line;
 }
@@ -429,18 +457,21 @@ function reviewEnding(value){
  const times={arrival:2.6,bones:11.2,surround:14.85,service:16.25,wine:18.65,plaything:20.25,hound:21.50,bell:22.65,final:23.87};startEnding(times[value]??0);
 }
 function begin(){
+ exploring=false;exploreOutside=false;desert.showDriver();$('stage').classList.remove('exploring');$('restart').textContent='Restart';
  ending?.stop();$('stage').classList.remove('ending');$('progress').hidden=false;pausedMode='playing';
  audioStart();music.startHotel(audioCtx);pendingRoom=null;blockedKeys.clear();heldForward.clear();newRun();state.contacts=0;state.casts=0;setRoom('reception');state.mode='playing';$('intro').hidden=true;$('pause').hidden=true;$('end').hidden=true;$('hud').hidden=false;$('blackout').style.opacity=0;$('stage').focus();
  if(master)master.gain.setTargetAtTime(soundOn?.18:0,audioCtx.currentTime,.2);
- $('caption').classList.remove('show');roadTime=0;roadStep=undefined;foley.enter('road');music.updateHotel(0,'road');foley.stop();foley.engine(0);desert.frame(0,0);$('stage').classList.add('on-road');
+ $('caption').classList.remove('show');roadTime=0;roadStep=undefined;foley.enter('road');foley.stop();music.startOpening(audioCtx);desert.frame(roadTimeAt(0),0,0);$('stage').classList.add('on-road','opening-film');
  $('interaction').textContent='E   Skip to reception';say('California desert',2.5);
 }
-function enterReception(){
+function enterReception(skipped=false){
+ $('world').style.filter='none';
  foley.stop();foley.enter('reception');roadTime=null;$('stage').classList.remove('on-road');$('blackout').style.opacity=0;
- arrival={time:0,beat:0};say('Receptionist: \u201cWelcome. I have the honeymoon suite for you.\u201d',2.6);$('interaction').textContent='E   Skip check-in';needsRender=true;
+ if(skipped){music.startHotel(audioCtx);setOpeningLyric(-1);$('stage').classList.remove('opening-film');}
+ arrival={time:0,beat:0,musical:!skipped};say('I am sorry. Only the honeymoon suite is available.',5.06);$('interaction').textContent='E   Skip check-in';needsRender=true;
 }
-function pause(){if(!['playing','ending','credits'].includes(state.mode))return;heldForward.clear();pausedMode=state.mode;$('pause').querySelector('.premise').innerHTML=['ending','credits'].includes(pausedMode)?'':'Continue if ordinary. Turn back if changed. Four correct floors open the suite.';if(roadTime!==null)$('pause').querySelector('.premise').textContent='';if(room==='claim')$('pause').querySelector('.premise').textContent='';$('register-note').hidden=['ending','credits'].includes(pausedMode)||roadTime!==null;$('register-note').textContent=registerText();state.mode='paused';foley.stop();music.pause();if(actors.Guest){actors.Guest.locomotion.held=0;actors.Guest.locomotion.vx=0;actors.Guest.locomotion.vz=0;}keys.clear();movementBasis=null;$('pause').hidden=false;$('resume').focus();if(master)master.gain.setTargetAtTime(0,audioCtx.currentTime,.2);}
-function resume(){if(state.mode!=='paused')return;state.mode=pausedMode;if(roadTime!==null)foley.engine(roadTime);music.resume();$('pause').hidden=true;$('stage').focus();if(master)master.gain.setTargetAtTime(soundOn?.18:0,audioCtx.currentTime,.2);}
+function pause(){if(!['playing','ending','credits'].includes(state.mode))return;heldForward.clear();pausedMode=state.mode;$('pause').querySelector('.premise').innerHTML=['ending','credits'].includes(pausedMode)?'':'Continue if ordinary. Turn back if changed. Four correct floors open the suite.';if(roadTime!==null)$('pause').querySelector('.premise').textContent='';if(room==='claim')$('pause').querySelector('.premise').textContent='';$('register-note').hidden=['ending','credits'].includes(pausedMode)||roadTime!==null;$('register-note').textContent=registerText();if(exploring){$('pause').querySelector('.premise').textContent='An empty hotel. No anomalies or scoring.';$('register-note').hidden=false;}state.mode='paused';foley.stop();music.pause();if(actors.Guest){actors.Guest.locomotion.held=0;actors.Guest.locomotion.vx=0;actors.Guest.locomotion.vz=0;}keys.clear();movementBasis=null;$('pause').hidden=false;$('resume').focus();if(master)master.gain.setTargetAtTime(0,audioCtx.currentTime,.2);}
+function resume(){if(state.mode!=='paused')return;state.mode=pausedMode;music.resume();$('pause').hidden=true;$('stage').focus();if(master)master.gain.setTargetAtTime(soundOn?.18:0,audioCtx.currentTime,.2);}
 function animateBody(name,phase,moving,dt=0){
  const actor=actors[name];if(!actor)return;
  if(name==='Guest'){
@@ -467,14 +498,14 @@ function placeLights(){
  if(!lamps)return;
  lamps.forEach(([x,y,z,color,power],i)=>{
   liveLights[i].position.set(x,y,z);liveLights[i].color.setHex(color);const height=loop.orientation?0:loop.progress/4;
-  liveLights[i].intensity=power*(i===0?1-.20*height:1+.19*height);
+  liveLights[i].intensity=power*(i===0?1-.20*height:1+.19*height)*(room==='reception'&&i===1?.58:1);
  });
  const [x,y,z]=lamps[1];windowShadow.position.set(x,y+1.2,z);
  windowShadow.target.position.set(hotel.rooms[room].origin,.1,z-.9);
  windowShadow.color.copy(liveLights[1].color);
  windowShadow.angle=room==='bathroom'?.70:room==='suite'?.62:.83;
  windowShadow.penumbra=room==='corridor'?.40:.70;
- windowShadow.intensity=room==='stairs'?8:room==='bathroom'?7:12;
+ windowShadow.intensity=room==='stairs'?8:room==='bathroom'?7:room==='reception'?4.5:12;
 }
 // The hip travels smoothly while each sole meets the actual 32 cm tread under it.
 const ankleTarget=new THREE.Vector3(),kneeForward=new THREE.Vector3(0,0,-1);
@@ -506,18 +537,98 @@ function slidePast(figure,radius){
  guest.position.x+=x*(radius-gap)/gap;
  guest.position.z+=z*(radius-gap)/gap;
 }
+function beginExplore(){
+ exploring=true;exploreOutside=true;exploreFloor=0;exploreStairBase=0;
+ ending.stop();pendingRoom=null;blockedKeys.clear();heldForward.clear();newRun();audioStart();music.startHotel(audioCtx);
+ setRoom('reception');state.mode='playing';state.contacts=state.casts=0;
+ $('intro').hidden=$('pause').hidden=$('end').hidden=true;$('hud').hidden=false;$('progress').hidden=true;
+ $('restart').textContent='Restart walk';$('blackout').style.opacity=0;$('world').style.filter='none';
+ $('stage').classList.remove('opening-film','ending','approach');$('stage').classList.add('exploring');
+ explorePosition.set(-4.5,1.65,14);exploreYaw=.51;explorePitch=0;exploreSpeed=exploreDistance=0;
+ foley.enter('road');setOpeningLyric(-1);say('The hotel is empty. Walk toward the red windows.',5);$('stage').focus();
+ if(master)master.gain.setTargetAtTime(soundOn?.18:0,audioCtx.currentTime,.2);
+}
+function exploreTransition(name,fromEnd=false){foley.door();goRoom(name,fromEnd);}
+function exploreInteract(){
+ if(pendingRoom||roomCooldown>0)return;
+ if(exploreOutside){if(explorePosition.distanceTo(new THREE.Vector3(-86.45,1.65,-132.4))<3){exploreOutside=false;setRoom('reception');foley.door();}else{releaseMovement();exploreSpeed=0;explorePosition.set(-86.45,1.65,-129.9);exploreYaw=0;explorePitch=0;}return;}
+ if(room==='claim'){exploreTransition('baggage');return;}
+ if(detail){closeInspection();return;}
+ const y=-guest.position.z,r=hotel.rooms[room];
+ if(room==='landing'&&y<6.4&&y>3.2&&exploreFloor<3){exploreStairBase=exploreFloor;stairKind='explore';exploreTransition('stairs');return;}
+ if(room==='reception'&&y<3.6){exploreOutside=true;releaseMovement();explorePosition.set(-86.45,1.65,-130.9);exploreYaw=Math.PI+.52;foley.enter('road');return;}
+ const inspection=currentInspection(y);
+ if(inspection){if(room==='baggage'){exploreTransition('claim');return;}openInspection(inspection.key);return;}
+ if(room==='reception'&&y>r.exit-1)exploreTransition('landing');
+}
+function updateExplore(dt){
+ roomCooldown=Math.max(0,roomCooldown-dt);music.updateExplore(exploreOutside?'road':room);
+ if(pendingRoom){if(state.time>=pendingRoom.at){const next=pendingRoom;pendingRoom=null;setRoom(next.name,next.fromEnd);$('blackout').style.opacity=0;}return;}
+ const ix=(keys.has('d')?1:0)-(keys.has('a')?1:0),iy=(keys.has('w')||keys.has('arrowup')?1:0)-(keys.has('s')||keys.has('arrowdown')?1:0);
+ if(exploreOutside){
+  exploreYaw+=((keys.has('arrowleft')?1:0)-(keys.has('arrowright')?1:0))*dt*1.15;
+  const distance=explorePosition.distanceTo(new THREE.Vector3(-86.45,1.65,-132.4));
+  exploreSpeed=THREE.MathUtils.damp(exploreSpeed,ix||iy?(distance<7?1.6:4):0,2.4,dt);
+  const step=exploreSpeed*dt/Math.max(1,Math.hypot(ix,iy)),before=explorePosition.clone();
+  explorePosition.x+=(-Math.sin(exploreYaw)*iy+Math.cos(exploreYaw)*ix)*step;
+  explorePosition.z+=(-Math.cos(exploreYaw)*iy-Math.sin(exploreYaw)*ix)*step;
+  explorePosition.x=THREE.MathUtils.clamp(explorePosition.x,-103,12);explorePosition.z=THREE.MathUtils.clamp(explorePosition.z,-149,31);
+  if(explorePosition.x>-5.5&&explorePosition.x<-2.7&&explorePosition.z>3.1&&explorePosition.z<9)explorePosition.copy(before);
+  if(explorePosition.x>-97.9&&explorePosition.x<-74.1&&explorePosition.z<-132.35&&explorePosition.z>-139.1)explorePosition.copy(before);
+  const previousStep=Math.floor(exploreDistance/.65);exploreDistance+=explorePosition.distanceTo(before);
+  if(Math.floor(exploreDistance/.65)!==previousStep)foley.foot('stone');
+  desert.explore(explorePosition,exploreYaw,explorePitch,state.time);$('location').textContent='THE DESERT HIGHWAY';
+  $('interaction').textContent=distance<3?'E   Enter the hotel':'E   Continue to the hotel     ·     WASD   Walk     ·     ← → or drag   Look';return;
+ }
+ updateCast(0);encounterArt.update(state.time,room,null);
+ $('location').textContent=EXPLORE_FLOORS[exploreFloor].toUpperCase()+' · '+(room==='claim'?'LEFT LUGGAGE':roomNames[room]);
+ if(room==='claim'){luggageRoom.exploreStep(dt,ix,iy);return;}
+ const r=hotel.rooms[room],motion=actors.Guest.locomotion;
+ const direction=new THREE.Vector2(ix,iy).normalize(),delta=steerMotion(motion,detail?0:direction.x,detail?0:-direction.y,dt,room==='stairs'?.8:1,true);
+ v2.copy(guest.position);
+ guest.position.x=THREE.MathUtils.clamp(guest.position.x+delta.x,r.origin+r.bounds[0],r.origin+r.bounds[1]);
+ guest.position.z=THREE.MathUtils.clamp(guest.position.z+delta.z,-r.bounds[3],-r.bounds[2]);
+ measureMotion(motion,guest.position.x-v2.x,guest.position.z-v2.z,dt);state.walk+=guest.position.distanceTo(v2);state.gait=motion.gait;
+ guest.rotation.y=room==='bathroom'&&detail?.key==='mirror'?Math.PI/2:0;
+ animateBody('Guest',state.walk,state.gait,dt);guest.position.y=.02+floorHeight(-guest.position.z);updateShadows();
+ const y=-guest.position.z;let chosen=r.views[0];for(const index of r.views)if(y>=views[index].minY)chosen=index;
+ if(!detail&&chosen!==state.view)setView(chosen);
+ if(detail){$('interaction').textContent='E   Step back';return;}
+ if(roomCooldown===0){
+  if(room==='stairs'){
+   if(y>9.35){exploreFloor=exploreStairBase+1;exploreTransition('landing');return;}
+   if(y<2.85){exploreFloor=exploreStairBase;exploreTransition('landing');return;}
+  }else if(room==='landing'){
+   if(y>8.2){exploreTransition(EXPLORE_WINGS[exploreFloor][0]);return;}
+   if(y<2.85){if(exploreFloor===0)exploreTransition('reception',true);else{exploreStairBase=exploreFloor-1;stairKind='explore';exploreTransition('stairs',true);}return;}
+  }else if(room!=='reception'){
+   if(y>r.exit-.08){exploreTransition(wingExit(exploreFloor,room,1));return;}
+   if(y<r.bounds[2]+.12){exploreTransition(wingExit(exploreFloor,room,-1),true);return;}
+  }
+ }
+ const inspection=currentInspection(y);
+ $('interaction').textContent=room==='landing'?(exploreFloor<3?'E   Upstairs     ·     W   Floor gallery     ·     S   Downstairs':'W   Honeymoon wing     ·     S   Downstairs'):
+  room==='stairs'?'W   Upstairs     ·     S   Downstairs':
+  room==='reception'?(y<3.6?'E   Return outside':y>r.exit-1?'E   Enter the east wing':''):
+  inspection?(room==='baggage'?'E   Enter left luggage':`E   ${inspection.label}`):'W   Continue     ·     S   Return';
+}
 function update(dt){
+ if(exploring){updateExplore(dt);return;}
  if(roadTime!==null){
-  const before=roadTime;roadTime+=dt;const step=desert.frame(roadTime,dt);
-  if(step!==undefined&&roadStep!==undefined&&step!==roadStep&&!(before<20.8&&roadTime>=20.8))foley.foot(roadTime<20.8?'distant':'stone');
+  const before=roadTimeAt(roadTime),previous=roadTime;roadTime=music.openingTime();music.updateOpening();setOpeningLyric(roadTime);
+  const shotTime=roadTimeAt(roadTime);const step=desert.frame(shotTime,dt,roadTime);foley.drive(roadTime);
+  
+  if(previous<36.4&&roadTime>=36.4)ring();
+  $('world').style.filter=roadTime<18?'grayscale(1) contrast(1.12)':roadTime>=26&&roadTime<29.2?`blur(${(.6*Math.sin((roadTime-26)/3.2*Math.PI)).toFixed(2)}px)`:'none';
+  if(step!==undefined&&roadStep!==undefined&&step!==roadStep&&!(before<20.8&&shotTime>=20.8))foley.foot(shotTime<20.8?'distant':'stone');
   roadStep=step;
-  for(const plant of [9.14,10.40,11.24])if(before<plant&&roadTime>=plant)foley.foot('stone');
-  if(before<2.12&&roadTime>=2.12){tone(67,.15,.11,'triangle');tone(118,.20,.04,'sawtooth');}
-  if(before<8.05&&roadTime>=8.05)foley.fabric(-.32);
-  if(before<9.55&&roadTime>=9.55)foley.fabric(-.20,.25);
-  if(before<7.14&&roadTime>=7.14)foley.car(true);
-  if(before<13.71&&roadTime>=13.71)foley.car(false);
-  if(before<24.17&&roadTime>=24.17)foley.door();
+  for(const plant of [9.14,10.40,11.24])if(before<plant&&shotTime>=plant)foley.foot('stone');
+  if(before<2.12&&shotTime>=2.12){tone(67,.15,.11,'triangle');tone(118,.20,.04,'sawtooth');}
+  if(before<8.05&&shotTime>=8.05)foley.fabric(-.32);
+  if(before<9.55&&shotTime>=9.55)foley.fabric(-.20,.25);
+  if(before<7.14&&shotTime>=7.14)foley.car(true);
+  if(before<13.71&&shotTime>=13.71)foley.car(false);
+  if(before<24.17&&shotTime>=24.17)foley.door();
   $('blackout').style.opacity=String(THREE.MathUtils.smoothstep(roadTime,ROAD_DURATION-.48,ROAD_DURATION));
   if(roadTime>=ROAD_DURATION)enterReception();return;
  }
@@ -585,12 +696,15 @@ function update(dt){
   const facing=Math.atan2(-v.x,-v.z),turnError=facing-butler.rotation.y;
   butler.rotation.y+=Math.atan2(Math.sin(turnError),Math.cos(turnError))*(1-Math.exp(-9*dt));state.threatWalk+=dt*3.1;animateBody('Butler',state.threatWalk,1);
  }else animateBody('Butler',state.time*.6,0);
+ if(bell.visible&&room==='corridor'&&state.time-lastBell>5.2)ring();
  if(bell){
   if(loop.current.anomaly==='C1'&&room==='corridor'){if(bell.parent!==butler)butler.add(bell);bell.position.set(.40,1.31+Math.sin(state.time*1.4)*.045,-.22);bell.rotation.set(0,0,0);}
-  else{const socket=actors.Butler.bellSocket;if(bell.parent!==socket)socket.add(bell);bell.position.set(0,-.092,0);bell.rotation.set(0,0,0);}
+  else{const socket=actors.Butler.bellSocket;if(bell.parent!==socket)socket.add(bell);bell.position.set(0,-.092,0);bell.rotation.set(0,0,.23*Math.sin((state.time-lastBell)*23)*Math.exp(-Math.max(0,state.time-lastBell)*3));}
  }
  const y=-guest.position.z;if(room==='suite'&&loop.unlocked&&y>=4.45&&y>previousY){beginSuiteApproach();return;}
- let chosen=r.views[0];for(const index of r.views)if(y>=views[index].minY+(index>state.view?.25:-.25))chosen=index;if(!detail&&chosen!==state.view)setView(chosen);
+ let chosen=r.views[0];for(const index of r.views)if(y>=views[index].minY+(index>state.view?.25:-.25))chosen=index;
+ if(arrival?.musical&&arrival.time>=8.24&&arrival.time<13.8)chosen=hotel.rooms.corridor.views[0];
+ if(!detail&&chosen!==state.view)setView(chosen);
  if(roomCooldown<=0&&!detail&&room!=='corridor'&&westTour.includes(room)&&loop.current.route==='hall'&&!loop.current.resolved){
   const limit=r.exit-.08;
   if(y>=limit&&previousY<limit){
@@ -627,24 +741,31 @@ function update(dt){
 }
 function updateDiagnostics(){
  if(!guest)return;
- $('diagnostics').textContent=JSON.stringify({build:document.body.dataset.build,suiteApproach:Boolean(suiteApproach),socialFloor,lyric:$('lyric').textContent,bathroom:room==='bathroom'?bathroom.snapshot():undefined,wineAsked,wineTime,road:roadTime===null?null:{time:roadTime,shot:desert.shot},visual:review?{...plateStatus(),bufferWidth:renderer.domElement.width}:undefined,arrival:arrival?{...arrival}:null,claim:room==='claim'?luggageRoom.snapshot():undefined,branch:loop.current.route,stairKind,focus:focusId(),butlerVisible:butler.visible,music:review?music.snapshot():undefined,ending:ending?.active?ending.snapshot():null,encounterMetrics:review?characterEncounters.metrics:undefined,visibleCast:review?Object.entries(characterEncounters.roots).filter(([id,g])=>g.visible).map(([id])=>id):undefined,vignette:review?loop.current.vignette:undefined,detail:detail?.key||null,time:+state.time.toFixed(2),seed,passage:loop.current.serial,orientation:loop.orientation,anomaly:review?loop.current.anomaly:undefined,progress:loop.progress,unlocked:loop.unlocked,resolved:loop.current.resolved,history:review?loop.history:undefined,pending:pendingRoom?.name||null,mode:state.mode,room,view:state.view,guestX:+guest.position.x.toFixed(2),guestY:+(-guest.position.z).toFixed(2),elevation:+guest.position.y.toFixed(2),butlerY:+(-butler.position.z).toFixed(2),distance:+guest.position.distanceTo(butler.position).toFixed(2),active:state.active,repel:+state.repel.toFixed(2),cooldown:+state.cooldown.toFixed(2),contacts:state.contacts,casts:state.casts,frameMs:+state.frameMs.toFixed(1),renderCpuMs:+perf.renderMs.toFixed(2),scheduler:perf.scheduler,stalls:perf.stalls,triangles:renderer.info.render.triangles,drawCalls:renderer.info.render.calls,locomotion:review?actors.Guest.locomotion:undefined,walkPhase:+actors.Guest.actions.Walk.time.toFixed(3),errors});$('stage').dataset.mode=state.mode;$('stage').dataset.camera=String(state.view);
+ $('diagnostics').textContent=JSON.stringify({build:document.body.dataset.build,exploring,exploreOutside,exploreFloor,explorePosition:exploring?explorePosition.toArray():undefined,receptionistVisible:receptionist?.visible,graphicsLost,graphicsRecoveries,gpuTextures:renderer.info.memory.textures,suiteApproach:Boolean(suiteApproach),socialFloor,lyric:$('lyric').textContent,bathroom:room==='bathroom'?bathroom.snapshot():undefined,wineAsked,wineTime,road:roadTime===null?null:{time:roadTime,...desert.snapshot()},visual:review?{...plateStatus(),bufferWidth:renderer.domElement.width}:undefined,arrival:arrival?{...arrival}:null,claim:room==='claim'?luggageRoom.snapshot():undefined,branch:loop.current.route,stairKind,focus:focusId(),butlerVisible:butler.visible,music:review?music.snapshot():undefined,ending:ending?.active?ending.snapshot():null,encounterMetrics:review?characterEncounters.metrics:undefined,visibleCast:review?Object.entries(characterEncounters.roots).filter(([id,g])=>g.visible).map(([id])=>id):undefined,vignette:review?loop.current.vignette:undefined,detail:detail?.key||null,time:+state.time.toFixed(2),seed,passage:loop.current.serial,orientation:loop.orientation,anomaly:review?loop.current.anomaly:undefined,progress:loop.progress,unlocked:loop.unlocked,resolved:loop.current.resolved,history:review?loop.history:undefined,pending:pendingRoom?.name||null,mode:state.mode,room,view:state.view,guestX:+guest.position.x.toFixed(2),guestY:+(-guest.position.z).toFixed(2),elevation:+guest.position.y.toFixed(2),butlerY:+(-butler.position.z).toFixed(2),distance:+guest.position.distanceTo(butler.position).toFixed(2),active:state.active,repel:+state.repel.toFixed(2),cooldown:+state.cooldown.toFixed(2),contacts:state.contacts,casts:state.casts,frameMs:+state.frameMs.toFixed(1),renderCpuMs:+perf.renderMs.toFixed(2),scheduler:perf.scheduler,stalls:perf.stalls,triangles:renderer.info.render.triangles,drawCalls:renderer.info.render.calls,locomotion:review?actors.Guest.locomotion:undefined,walkPhase:+actors.Guest.actions.Walk.time.toFixed(3),errors});$('stage').dataset.mode=state.mode;$('stage').dataset.camera=String(state.view);
 }
-$('enter').addEventListener('click',begin);$('resume').addEventListener('click',resume);$('restart').addEventListener('click',begin);$('again').addEventListener('click',begin);
-$('sound').addEventListener('change',e=>{soundOn=e.target.checked;foley.enable(soundOn);if(soundOn&&roadTime!==null&&state.mode==='playing')foley.engine(roadTime);music.setEnabled(soundOn);if(master)master.gain.setTargetAtTime(soundOn&&['playing','ending'].includes(state.mode)?.18:0,audioCtx.currentTime,.1);});
+$('enter').addEventListener('click',begin);$('resume').addEventListener('click',resume);$('restart').addEventListener('click',()=>exploring?beginExplore():begin());$('again').addEventListener('click',begin);
+$('explore').addEventListener('click',beginExplore);
+$('title-menu').addEventListener('click',()=>{exploring=false;exploreOutside=false;pendingRoom=null;setRoom('reception');music.pause();foley.stop();state.mode='intro';$('pause').hidden=true;$('intro').hidden=false;$('stage').classList.remove('exploring');});
+let exploreDrag=null;
+$('world').addEventListener('pointerdown',e=>{if(exploring&&exploreOutside&&state.mode==='playing'){exploreDrag={x:e.clientX,y:e.clientY};$('world').setPointerCapture(e.pointerId);}});
+$('world').addEventListener('pointermove',e=>{if(!exploreDrag)return;exploreYaw-=(e.clientX-exploreDrag.x)*.004;explorePitch=THREE.MathUtils.clamp(explorePitch-(e.clientY-exploreDrag.y)*.003,-.65,.55);exploreDrag={x:e.clientX,y:e.clientY};});
+$('world').addEventListener('pointerup',()=>exploreDrag=null);
+$('world').addEventListener('pointercancel',()=>exploreDrag=null);
+$('sound').addEventListener('change',e=>{soundOn=e.target.checked;foley.enable(soundOn);music.setEnabled(soundOn);if(master)master.gain.setTargetAtTime(soundOn&&['playing','ending'].includes(state.mode)?.18:0,audioCtx.currentTime,.1);});
 $('music-volume').addEventListener('input',e=>{music.setVolume(Number(e.target.value)/100);$('music-value').textContent=e.target.value+'%';});
 addEventListener('keydown',e=>{
  if(e.key!=='Escape'&&e.target.closest?.('input,select,a'))return;
  const k=e.key.toLowerCase();if(state.mode==='playing'&&(k==='w'||k==='arrowup'))heldForward.add(k);if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','f','e','escape'].includes(k))e.preventDefault();
- if(k==='escape'&&!e.repeat){if(state.mode==='paused')resume();else pause();return;}if(state.mode!=='playing'||suiteApproach||pendingRoom||blockedKeys.has(k))return;if(room==='claim'){
+ if(k==='escape'&&!e.repeat){if(state.mode==='paused')resume();else pause();return;}if(state.mode!=='playing'||suiteApproach||pendingRoom||blockedKeys.has(k))return;if(exploring){if(k==='e'&&!e.repeat)exploreInteract();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright'].includes(k))keys.add(k);return;}if(room==='claim'){
   if(e.repeat)return;
   const outcome=luggageRoom.input(k);
   if(outcome==='turn'||outcome==='select'){foley.caseMove();$('caption').classList.remove('show');}
-  if(outcome==='wrong'){tone(104,.18,.08);say('Wrong stamp.',2);}
-  if(outcome==='match'){foley.clasp();$('claim-ticket').querySelector('span').textContent='Honeymoon suite · claimed yesterday';}
+  if(outcome==='wrong'){tone(104,.18,.08);say('Wrong stamp. That case belongs to another room.',3);}
+  if(outcome==='match'){foley.clasp();$('claim-ticket').querySelector('span').textContent='Honeymoon suite · claimed yesterday';say('Your receipt is dated yesterday. Inside: the staff-stair key. You have never stayed here before.',9);}
   if(outcome==='exit'){claimCompleted=true;stairTravel('transfer','Second-floor register upstairs.');}
   return;
  }
- if(roadTime!==null){if(k==='e'&&!e.repeat)enterReception();return;}
+ if(roadTime!==null){if(k==='e'&&!e.repeat)enterReception(true);return;}
  if(arrival){if(k==='e'&&!e.repeat)finishArrival();return;}
  if(k==='e'&&!e.repeat)interact();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright'].includes(k))keys.add(k);
 });

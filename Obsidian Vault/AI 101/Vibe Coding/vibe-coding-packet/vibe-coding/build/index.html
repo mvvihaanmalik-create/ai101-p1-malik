@@ -18,12 +18,15 @@
 <h1>HOTEL<br><span>OF HORROR</span></h1>
 <p class="premise">Learn the hotel on your first walk. Then continue if a floor is ordinary, or turn back if something has changed. Four correct decisions open the suite.</p>
 <button id="enter" disabled>Preparing the hotel<span id="load-progress">&hellip;</span></button>
+<button id="explore" class="secondary" disabled>Explore the hotel</button>
+<p class="explore-note">An empty hotel. No anomalies or scoring.</p>
 <a class="credits" href="music-credits.html" target="_blank" rel="noopener">Credits</a>
 <div class="instructions" aria-label="Controls"><span><kbd>W A S D</kbd> Walk</span><span><kbd>E</kbd> Inspect / open</span><span><kbd>Esc</kbd> Pause</span></div>
 </div>
 <div id="pause" class="panel" hidden>
 <h2>Paused</h2><p class="premise"></p><p id="register-note"></p>
 <div class="menu-actions"><button id="resume">Resume</button><button id="restart" class="secondary">Restart</button></div>
+<button id="title-menu" class="secondary">Return to title</button>
 <div class="audio-settings"><label class="sound-setting"><input id="sound" type="checkbox" checked> Sound</label><label class="music-setting" for="music-volume">Music <input id="music-volume" type="range" min="0" max="100" value="55" aria-label="Music volume"><output id="music-value" for="music-volume">55%</output></label></div><p id="music-status" role="status"></p>
 <a class="credits" href="music-credits.html" target="_blank" rel="noopener">Credits</a>
 <div class="instructions"><span><kbd>W A S D</kbd> Walk</span><span><kbd>E</kbd> Inspect / open</span><span><kbd>Esc</kbd> Resume</span></div>

@@ -35,7 +35,7 @@ export function reach(chain,target,pole,weight=1,levelEnd=false){
  if(levelEnd)c.quaternion.copy(c.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(endRot));
 }
 
-export function createRoadDriver(guestData,take){
+export function createRoadDriver(guestData,take,hotelShift=new THREE.Vector3()){
  const root=new THREE.Group(),model=clone(guestData.scene);root.add(model);
  const bone=name=>model.getObjectByName(name);
  const chain=(names,s)=>names.map(name=>bone(name+'_'+s));
@@ -47,7 +47,7 @@ export function createRoadDriver(guestData,take){
  const action=name=>mixer.clipAction(guestData.animations.find(c=>c.name===name)).play();
  const idle=action('Idle'),walk=action('Walk');
  const pivot=bone('pelvis'),spine=bone('spine_01'),head=bone('head');
- const begin=vec(-5.70,0,6.15),handleStop=vec(-17.37,0,-13.13),inside=vec(-17.54,0,-15.32);
+ const begin=vec(-5.70,0,6.15),handleStop=vec(-17.37,0,-13.13).add(hotelShift),inside=vec(-17.54,0,-15.32).add(hotelShift);
  const path=handleStop.clone().sub(begin),yaw=Math.atan2(-path.x,-path.z);
  const sockets=arms.map((chain,i)=>{
   const hand=chain[2],middle=bone('middle_01_'+(i?'r':'l'));

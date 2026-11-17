@@ -1,0 +1,434 @@
+[
+  {
+    "at": 4.5,
+    "label": "driver-at-wheel",
+    "road": {
+      "time": 4.621333333333333,
+      "shot": "driver-at-wheel",
+      "smokeLevel": 0,
+      "hotelDistance": 161.33,
+      "driver": [
+        -4.599952102282418,
+        -0.569191478793879,
+        161.82569109173474
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "",
+    "audio": {
+      "time": 4.621,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 3800,
+      "gain": 0.8,
+      "pan": -0.23,
+      "echo": 0.035
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 8,
+    "label": "highway",
+    "road": {
+      "time": 8.181333333333333,
+      "shot": "night-drive",
+      "smokeLevel": 0,
+      "hotelDistance": 161.33,
+      "driver": [
+        -4.599952102282418,
+        -0.569191478793879,
+        130.85369109173473
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "On a dark desert highway",
+    "audio": {
+      "time": 8.181,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 3800,
+      "gain": 0.8,
+      "pan": -0.23,
+      "echo": 0.035
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 14.9,
+    "label": "early-smoke",
+    "road": {
+      "time": 15.061333333333334,
+      "shot": "engine-smoke",
+      "smokeLevel": 0.223,
+      "hotelDistance": 161.33,
+      "driver": [
+        -4.599952102282418,
+        -0.569191478793879,
+        70.99769109173474
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "Warm smell of colitas",
+    "audio": {
+      "time": 15.064,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 3800,
+      "gain": 0.8,
+      "pan": -0.23,
+      "echo": 0.035
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 17,
+    "label": "roadside-sign",
+    "road": {
+      "time": 17.101333333333333,
+      "shot": "roadside-sign",
+      "smokeLevel": 0.24,
+      "hotelDistance": 161.33,
+      "driver": [
+        -4.599952102282418,
+        -0.569191478793879,
+        53.24969109173476
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "",
+    "audio": {
+      "time": 17.101,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 3800,
+      "gain": 0.8,
+      "pan": -0.23,
+      "echo": 0.035
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 21.5,
+    "label": "distant-hotel",
+    "road": {
+      "time": 21.568,
+      "shot": "distant-hotel",
+      "smokeLevel": 0.24,
+      "hotelDistance": 161.33,
+      "driver": [
+        -4.599952102282418,
+        -0.569191478793879,
+        9.077554676445487
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "Up ahead in the distance",
+    "audio": {
+      "time": 21.568,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 3800,
+      "gain": 0.8,
+      "pan": -0.23,
+      "echo": 0.035
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 26,
+    "label": "car-exit",
+    "road": {
+      "time": 26.088,
+      "shot": "driver-exits",
+      "smokeLevel": 0.69,
+      "hotelDistance": 161.33,
+      "driver": [
+        -4.6167201278678665,
+        -0.5746753194636465,
+        6.110191490994436
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "My head grew heavy and my sight grew dim",
+    "audio": {
+      "time": 26.088,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 3513.3549055999997,
+      "gain": 0.7617806540800001,
+      "pan": -0.23,
+      "echo": 0.04250737152000001
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 30,
+    "label": "feet-planted",
+    "road": {
+      "time": 30.088,
+      "shot": "driver-exits",
+      "smokeLevel": 0.69,
+      "hotelDistance": 161.33,
+      "driver": [
+        -5.616565768479145,
+        -0.06118903413753407,
+        5.93120870626129
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "I had to stop for the night",
+    "audio": {
+      "time": 30.088,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 2217.271363213168,
+      "gain": 0.5889695150950891,
+      "pan": -0.23,
+      "echo": 0.07645241667775035
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 33,
+    "label": "long-approach",
+    "road": {
+      "time": 33.23733333333333,
+      "shot": "desert-crossing",
+      "smokeLevel": 0.69,
+      "hotelDistance": 161.33,
+      "driver": [
+        -6.0824835805639355,
+        0,
+        5.494368048588311
+      ],
+      "candle": {
+        "lit": false,
+        "visible": false
+      }
+    },
+    "arrival": null,
+    "lyric": "",
+    "audio": {
+      "time": 33.237,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 1700,
+      "gain": 0.52,
+      "pan": -0.23,
+      "echo": 0.09
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 34.5,
+    "label": "woman-doorway",
+    "road": {
+      "time": 34.95733333333334,
+      "shot": "woman-in-doorway",
+      "smokeLevel": 0.69,
+      "hotelDistance": 161.33,
+      "driver": [
+        -7.114709143173729,
+        0,
+        3.7249847487534
+      ],
+      "candle": {
+        "lit": false,
+        "visible": true
+      }
+    },
+    "arrival": null,
+    "lyric": "There she stood in the doorway",
+    "audio": {
+      "time": 34.957,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 180,
+      "lowpass": 1700,
+      "gain": 0.52,
+      "pan": -0.23,
+      "echo": 0.09
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 37,
+    "label": "entry-bell",
+    "road": {
+      "time": 37.14933333333334,
+      "shot": "entrance",
+      "smokeLevel": 0.69,
+      "hotelDistance": 161.33,
+      "driver": [
+        -85.29231794085104,
+        0,
+        -130.28269771737797
+      ],
+      "candle": {
+        "lit": false,
+        "visible": true
+      }
+    },
+    "arrival": null,
+    "lyric": "I heard the mission bell",
+    "audio": {
+      "time": 37.149,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 156.0024461599999,
+      "lowpass": 3566.476409777785,
+      "gain": 0.555551931614815,
+      "pan": -0.18911527864296282,
+      "echo": 0.08200081538666663
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 41,
+    "label": "threshold",
+    "road": {
+      "time": 41.59733333333334,
+      "shot": "threshold-thought",
+      "smokeLevel": 0.69,
+      "hotelDistance": 161.33,
+      "driver": [
+        -86.42232726332664,
+        0,
+        -132.8040982746197
+      ],
+      "candle": {
+        "lit": false,
+        "visible": true
+      }
+    },
+    "arrival": null,
+    "lyric": "And I was thinking to myself",
+    "audio": {
+      "time": 41.597,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 55.99510423999993,
+      "lowpass": 11344.825225777784,
+      "gain": 0.7037109566814816,
+      "pan": -0.018732399816296177,
+      "echo": 0.04866503474666664
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 47.3,
+    "label": "candle",
+    "road": null,
+    "arrival": {
+      "time": 2.849333333333334,
+      "beat": 0,
+      "musical": true
+    },
+    "lyric": "Then she lit up a candle",
+    "audio": {
+      "time": 47.349,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 45,
+      "lowpass": 12200,
+      "gain": 0.72,
+      "pan": 0,
+      "echo": 0.045
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 50.4,
+    "label": "directions",
+    "road": null,
+    "arrival": {
+      "time": 6.049333333333337,
+      "beat": 1,
+      "musical": true
+    },
+    "lyric": "And she showed me the way",
+    "audio": {
+      "time": 50.549,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 45,
+      "lowpass": 12200,
+      "gain": 0.72,
+      "pan": 0,
+      "echo": 0.045
+    },
+    "hotelPaused": true
+  },
+  {
+    "at": 54,
+    "label": "corridor-voices",
+    "road": null,
+    "arrival": {
+      "time": 9.667999999999992,
+      "beat": 1,
+      "musical": true
+    },
+    "lyric": "There were voices down the corridor",
+    "audio": {
+      "time": 54.168,
+      "ready": true,
+      "paused": false,
+      "audible": true,
+      "highpass": 45,
+      "lowpass": 12200,
+      "gain": 0.72,
+      "pan": 0,
+      "echo": 0.045
+    },
+    "hotelPaused": true
+  }
+]

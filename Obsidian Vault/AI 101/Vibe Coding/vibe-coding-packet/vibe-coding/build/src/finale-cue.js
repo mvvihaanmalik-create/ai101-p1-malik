@@ -40,7 +40,7 @@ export function createFinalCue(onError){
  function prepare(context){
   if(!context)return;ctx=context;
   if(!gain){gain=ctx.createGain();gain.gain.value=level;gain.connect(ctx.destination);}
-  if(!loading)loading=fetch('assets/audio/hotel-california-credits.mp3').then(r=>{
+  if(!loading)loading=fetch('assets/audio/hotel-california-credits.ogg').then(r=>{
    if(!r.ok)throw Error('Finale recording unavailable');return r.arrayBuffer();
   }).then(bytes=>ctx.decodeAudioData(bytes)).then(decoded=>{buffer=decoded;sound();})
     .catch(()=>{loading=null;onError('Ending music unavailable. Captions and animation continue.');});

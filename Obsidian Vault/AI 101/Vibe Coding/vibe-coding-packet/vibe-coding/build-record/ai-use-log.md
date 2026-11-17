@@ -19,6 +19,8 @@ I used Codex to implement and revise Room 0 from my direction. This is a short i
 
 The 3D workflow used headless Blender scripts. MCP execution is not confirmed. [Asset and tool credits](../sources/assets-and-tools.md).
 
+**November 14, v39–v40:** I chose the opening music excerpt, then rejected the receptionist's crossed arms in my screenshots and asked why exploration was missing. Codex synchronized the opening, corrected the existing rig and grip, polished the lighting and door geometry, and added the empty-hotel routes under my direction. [Revision and evidence](tests/opening-40/README.md).
+
 I supplied observations while Codex controlled and recorded the tests. [Actual results](testing-and-failure-log.md). I played again and gave [Cycle 2 Test 1 feedback](tests/formal-cycle-2/T1-result.md). Codex verified and recorded the later edits.
 
 **November 11 story decision:** I clarified that the player is a new guest on their first visit. The broken lift sends them upstairs to the honeymoon suite, where returning to reception reveals the loop and trap. I named Hotel California as the ending inspiration. Codex updated the story, PRD, idea, ending decision and source note. This was a documentation update.

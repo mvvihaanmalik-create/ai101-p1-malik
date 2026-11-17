@@ -17,7 +17,7 @@ for(const recording of ['ending-v35.mp4','ending-v36-1080p.mp4'])files.add('down
 await tree('assets/surfaces-v18');await tree('src');await tree('vendor');await tree('assets/fonts');
 for(const file of [...files].filter(f=>f.startsWith('src/')&&f.endsWith('.js'))){
  const source=await readFile(path.join(root,file),'utf8');
- for(const match of source.matchAll(/['"](assets\/[^'"]+\.(?:glb|json|png|webp|mp3))['"]/g))files.add(match[1]);
+ for(const match of source.matchAll(/['"](assets\/[^'"]+\.(?:glb|json|png|webp|mp3|ogg))['"]/g))files.add(match[1]);
 }
 function plates(value){
  if(typeof value==='string'&&value.endsWith('.webp')){files.add('assets/proxies-v31/'+value);files.add('assets/masters-v31/'+value);}

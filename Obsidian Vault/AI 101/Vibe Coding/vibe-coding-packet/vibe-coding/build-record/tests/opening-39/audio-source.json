@@ -1,0 +1,16 @@
+{
+  "source": "Eagles - Hotel California (Official Audio) (Clip 2).mp3",
+  "sourceDuration": 63.9935,
+  "matchedOriginalOffset": 40.02,
+  "requestedOriginal": [
+    45,
+    104
+  ],
+  "clipTrim": [
+    4.98,
+    63.98
+  ],
+  "runtimeDuration": 59,
+  "matchCorrelation": 0.9999817,
+  "method": "2000 Hz mono cross-correlation against the retained full recording"
+}

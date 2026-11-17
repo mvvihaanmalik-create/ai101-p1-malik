@@ -14,6 +14,8 @@
 
 **Scope:** Connected hotel rooms reused across the ascent. No combat, mobile controls, additional endings or separate architecture for every floor.
 
+**Optional exploration:** I added an empty-hotel mode from the title screen. It starts at the car, connects four storeys using the existing room sets, and plays quieter, muffled music. It has no people, anomaly rules, score or ending trap. The [layout](hotel-exploration-plan.md) states which rooms exist and which remain unbuilt.
+
 ## Done when
 - Each choice scores once; mistakes reset progress; four correct choices open the suite and ending.
 - Clues stay readable, camera cuts preserve control, and pause and replay work.
