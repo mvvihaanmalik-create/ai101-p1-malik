@@ -6,3 +6,5 @@ November 10, 2026
 **My decision:** I asked for clearer guidance. The revised game includes an ordinary tour, a night register, a retreat warning and an explanation after a reset.
 
 **Tradeoff:** The register describes the ordinary scene without revealing the current answer. A first-time player still needs to assess the guidance.
+
+**Current build:** [ADR-013](ADR-013-record-every-sighting.md) extends the register to track twelve distinct sightings.
