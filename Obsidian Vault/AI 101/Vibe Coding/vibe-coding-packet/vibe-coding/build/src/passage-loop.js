@@ -9,33 +9,27 @@ export function seededRandom(seed) {
 export class PassageLoop {
  constructor(random = Math.random) {
   this.random = random; this.progress = 0; this.orientation = true; this.unlocked = false;
-  this.decks=new Map();this.last=new Map();this.serial=0;this.history=[];this.next();
- }
- draw(key,pool){
-  let bag=this.decks.get(key);
-  if(!bag?.length){
-   bag=[...pool];
-   for(let i=bag.length-1;i>0;i--){const j=Math.floor(this.random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]];}
-   if(bag.length>1&&bag.at(-1)===this.last.get(key))[bag[0],bag[bag.length-1]]=[bag.at(-1),bag[0]];
-   this.decks.set(key,bag);
+  this.recorded = new Set();
+  this.serial = 0;
+  this.history = [];
+  this.order = [...ANOMALIES];
+  for (let i = this.order.length - 1; i > 0; i--) {
+   const j = Math.floor(random() * (i + 1));
+   [this.order[i], this.order[j]] = [this.order[j], this.order[i]];
   }
-  const id=bag.pop();this.last.set(key,id);return id;
+  this.next();
  }
  next(){
   if(this.unlocked)return this.current;
-  const changed=!this.orientation&&this.random()<.5;
-  const shared=!this.orientation&&this.random()<1/12;
-  this.current={serial:++this.serial,route:null,changed,shared,anomaly:changed&&shared?'E3':null,vignette:shared?'E3':null,resolved:false};
+  const anomaly=this.orientation ? null : this.order.find(id => !this.recorded.has(id));
+  this.current={serial:++this.serial,route:null,changed:Boolean(anomaly),shared:anomaly==='E3',anomaly,vignette:anomaly,resolved:false,observed:false};
   return this.current;
  }
  chooseRoute(route){
-  if(!['hall','stair'].includes(route))throw Error('Unknown route');
   const p=this.current;
-  if(p.resolved||p.route)return p;
-  p.route=route;
-  if(!p.shared){
-   p.vignette=this.orientation?'C2':this.draw(route+Number(p.changed),route==='stair'?STAIR:HALL);
-   p.anomaly=p.changed?p.vignette:null;
+  if(!p.route && !p.resolved){
+   p.route=this.orientation ? route : STAIR.includes(p.anomaly) ? 'stair' : 'hall';
+   if(this.orientation)p.vignette='C2';
   }
   return p;
  }
@@ -43,11 +37,15 @@ export class PassageLoop {
   if (!['continue', 'return', 'contact'].includes(choice)) throw new Error('Invalid passage decision');
   if (this.unlocked || this.current.resolved || serial !== this.current.serial) return null;
   if (this.orientation && choice === 'return') return {kind: 'orientation-return', progress: 0};
+  if (!this.orientation && choice==='return' && !this.current.observed) return {kind:'inspect-first'};
   this.current.resolved = true;
   const correct = choice !== 'contact' && (choice === 'return') === Boolean(this.current.anomaly);
   const kind = this.orientation ? 'orientation' : choice === 'contact' ? 'contact' : correct ? 'correct' : 'wrong';
   if (this.orientation) this.orientation = false;
-  else this.progress = correct ? this.progress + 1 : 0;
+  else if(correct){
+   this.recorded.add(this.current.anomaly);
+   this.progress=Math.floor(this.recorded.size/3);
+  }
   this.unlocked = this.progress === 4;
   const result = {kind, choice, correct, progress: this.progress, unlocked: this.unlocked, serial, anomaly: this.current.anomaly};
   this.history.push(result); this.history = this.history.slice(-32);

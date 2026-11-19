@@ -1,5 +1,5 @@
 # How I used AI during the build
-I used Codex to implement and revise Room 0 from my direction. This is a short index of the consequential work. The [original detailed log](../sources/archive/documentation-before-voice-edit-2026-11-11/build-record/ai-use-log.md) keeps the fuller prompt and tool record.
+I used Codex to implement and revise Room 0 from my direction. This is a short index of the consequential work. The original detailed log (local archive) keeps the fuller prompt and tool record.
 
 | Stage | My direction | What Codex produced |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ I used Codex to implement and revise Room 0 from my direction. This is a short i
 
 The 3D workflow used headless Blender scripts. MCP execution is not confirmed. [Asset and tool credits](../sources/assets-and-tools.md).
 
-**November 14, v39–v40:** I chose the opening music excerpt, then rejected the receptionist's crossed arms in my screenshots and asked why exploration was missing. Codex synchronized the opening, corrected the existing rig and grip, polished the lighting and door geometry, and added the empty-hotel routes under my direction. [Revision and evidence](tests/opening-40/README.md).
+**November 14, v39–v40:** I chose the opening music excerpt, then rejected the receptionist's crossed arms in my screenshots and asked why exploration was missing. Codex synchronized the opening, corrected the existing rig and grip, polished the lighting and door geometry, and added the empty-hotel routes under my direction. Revision and evidence (local archive).
 
 I supplied observations while Codex controlled and recorded the tests. [Actual results](testing-and-failure-log.md). I played again and gave [Cycle 2 Test 1 feedback](tests/formal-cycle-2/T1-result.md). Codex verified and recorded the later edits.
 
@@ -34,3 +34,5 @@ I chose Hotel of Horror as the title and directed a California desert breakdown 
 I asked for a higher-quality rigged vehicle, a full-night exterior and a sign with only HOTEL readable. Codex sourced Car Concept, authored the driver’s exit and door contacts, revised the lighting, and documented the creators and licence.
 
 I provided a reference for the receptionist’s face and hairstyle. Codex fitted the rigged face, rebuilt the side-parted waves, rendered a portrait study and checked the exported model in the reception scene.
+
+Staff conversations: I chose silent, situational dialogue for three hotel staff. Codex implemented a Vercel function with a private OPENAI_API_KEY, short conversation history, bounded responses and per-instance request limits. Authored replies cover missing credentials or timeouts. Public endpoint checks returned authored replies for all three characters; live OpenAI generation still needs verification after key setup.

@@ -1,0 +1,55 @@
+{
+  "streams": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "hevc",
+        "width": 3840,
+        "height": 2160,
+        "r_frame_rate": "30/1",
+        "start_time": "0.000000",
+        "duration": "508.133333",
+        "nb_frames": "15244"
+      },
+      {
+        "codec_name": "aac",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "start_time": "0.000000",
+        "duration": "507.719000",
+        "nb_frames": "23801"
+      }
+    ],
+    "format": {
+      "duration": "508.133333",
+      "size": "1238944881"
+    }
+  },
+  "sightings": [
+    "C4",
+    "E3",
+    "E5",
+    "C5",
+    "E4",
+    "C3",
+    "C6",
+    "E2",
+    "C2",
+    "E1",
+    "E6",
+    "C1"
+  ],
+  "musicSlider": 100,
+  "talkHidden": true,
+  "captionCSSpx": 19,
+  "layoutWidth": 1376,
+  "cinematicFrames": [
+    1770,
+    672
+  ],
+  "interactiveSource": [
+    2560,
+    1440
+  ]
+}

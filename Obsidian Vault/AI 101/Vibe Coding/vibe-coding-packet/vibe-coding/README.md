@@ -1,19 +1,17 @@
 # Hotel of Horror
-Previously titled Room 0 and Hotel California.
-[Play the game](https://room-zero-ashy.vercel.app/) · [Compare the artwork](build-record/tests/visual-18/compare.html)
 
-I’m making a short horror game for my friends and me. We enjoy Exit 8, and I wanted its observation mechanic in a hotel inspired by Twin Peaks and Hokum.
+[Play in a desktop browser](https://room-zero-ashy.vercel.app/) · [Project notes](START-HERE.md)
 
-Your car breaks down on a California desert highway. At night, the palms are silhouettes. Red windows mark a distant hotel whose name has been scratched off the sign. The receptionist apologizes: only the honeymoon suite is available, and the broken lift means taking the stairs. Reach the suite by spotting changes on the way upstairs. Learn the ordinary hotel, turn back when something changes, solve one luggage puzzle and make four correct decisions in a row.
+Your car breaks down in the California desert. The hotel has one room left and a broken lift. Learn the ordinary layout, then inspect each change and turn back. Record twelve sightings and solve the luggage puzzle to reach the honeymoon suite.
 
-[The v39 opening](build-record/tests/opening-39/README.md) follows my chosen 59-second music excerpt through the drive, breakdown, entrance and receptionist's directions.
+- **WASD or arrows** to move. **E** inspects or opens a door.
+- **Escape** opens the night register. **A/D** selects luggage. **T** opens an optional staff conversation when prompted.
+- **Explore the hotel** starts an empty tour. Press **E** by the car to take the shortcut.
 
-**Explore the hotel:** Choose this on the title screen for an empty walk from the broken car through four storeys, with quiet music and no scoring. Escape opens the [hotel plan](hotel-exploration-plan.md). [v40 repairs and checks](build-record/tests/opening-40/README.md).
+To run locally, open the build folder, run `npm run dev`, and visit [localhost:4170](http://127.0.0.1:4170/). Staff have authored replies. Vercel can generate additional replies when the project has a server-side `OPENAI_API_KEY`.
 
-**Controls:** Hold WASD/arrows for a brisk walk. E inspects a clue or opens a door. Escape pauses. Use A/D to select luggage. E skips the desert sequence or the silent check-in.
+I designed for a desktop keyboard. The four floors reuse room sets. [Testing results](build-record/testing-and-failure-log.md) · [Asset and music credits](sources/source-index.md)
 
-**Run locally:** In the build folder, run `npm run dev`, then open [localhost:4170](http://127.0.0.1:4170/).
+## Audio in the repository
 
-**Limits:** Desktop keyboard play. No combat or mobile controls. The floors reuse the hotel rooms. I recorded [Cycle 2 Test 1](build-record/tests/formal-cycle-2/T1-result.md). I also recorded [Test 2](build-record/tests/formal-cycle-2/T2-result.md). Tests 3–4 are pending.
-
-[Start here](START-HERE.md) · [Plan](plan.md) · [PRD](prd.md) · [Tests](build-record/testing-and-failure-log.md) · [Credits](sources/source-index.md) · [Sound credits](sources/sound-credits.md) · [AI disclosure](disclosure.md).
+This source copy includes the game sound effects and timed cinematics. I keep the commercially recorded soundtrack out of the repository. The live game and local walkthrough have the full audio mix. The [sound credits](sources/sound-credits.md) list the music, creators and edits.

@@ -14,6 +14,6 @@ I watched and gave feedback while Codex played and recorded. Tests 1–3 used v1
 
 [2 · Character movement and the reception ending](tests/formal-cycle-2/T2-result.md) is recorded. I wanted smoother movement, more space between characters and a clearer view of each anomaly’s action. The note links the v35 and v36 recordings.
 
-[3 · Controls and character believability](tests/formal-cycle-2/T3-result.md) is incomplete. I gave feedback on cup grips, porter movement, the suitcase puzzle, the mirror likeness, bell audio and floating reception bodies. Two graphics failures interrupted the attempt; no usable recording was saved. [v37 developer checks](tests/test3-37/README.md) cover the repairs; [v38](tests/test3-38/README.md) addresses the unreadable luggage guest. I still need to watch the revised build and give my verdict.
+[3 · Controls and character believability](tests/formal-cycle-2/T3-result.md) is incomplete. I gave feedback on cup grips, porter movement, the suitcase puzzle, the mirror likeness, bell audio and floating reception bodies. Two graphics failures interrupted the attempt; no usable recording was saved. v37 developer checks (local archive) cover the repairs; v38 (local archive) addresses the unreadable luggage guest. I still need to watch the revised build and give my verdict.
 
-**Next: recover and finish Test 3.** [Remaining tests and procedures](tests/formal-cycle-2/README.md) · [Detailed evidence](testing-and-failure-log-full-record.md).
+**Next: recover and finish Test 3.** [Remaining tests and procedures](tests/formal-cycle-2/README.md) · Detailed evidence (local archive).

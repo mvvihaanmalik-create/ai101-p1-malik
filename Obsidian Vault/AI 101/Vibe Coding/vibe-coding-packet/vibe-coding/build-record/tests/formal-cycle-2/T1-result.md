@@ -14,4 +14,4 @@ I played the hotel and grouped my last ten prompts into this test. Walking felt 
 
 **What Codex verified afterward.** The bar handoff had a visible gap in the checked views. The revised title and credits ran 84 seconds, including six seconds for David Lynch and four for Professor Madrid. The ending recording captures the suite approach through replay becoming available.
 
-[Cycle 1 result](../formal-cycle-1/T1-result.md) · [My original feedback](../playtest-32/player-feedback.md) · [Washroom and movement checks](../bath-30/checks.md) · [Bar handoff checks](../lighting-31/checks.md) · [Revised ending recording](<../credits-35/Hotel of Horror - End credits.mp4>)
+[Cycle 1 result](../formal-cycle-1/T1-result.md) · My original feedback (local archive) · Washroom and movement checks (local archive) · Bar handoff checks (local archive) · Revised ending recording (local archive)

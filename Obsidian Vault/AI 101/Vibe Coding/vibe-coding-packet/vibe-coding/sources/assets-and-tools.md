@@ -1,13 +1,13 @@
 # Room 0 · Asset and tool credits
 Current through v40, November 14, 2026. Sources below were checked against the retained downloads, licences, build scripts and runtime imports.
 
-**v40:** I rejected the receptionist's crossed arms in my screenshots. Codex corrected the existing MakeHuman rig's hand targets, candle grip and doorway stride, softened the lights and added bevelled door details using Three.js. The empty-hotel mode reuses the existing sets, characters' absence and music; its exterior uses a first-person camera. No new model was downloaded and no Blender MCP call was made. [Revision](../build-record/tests/opening-40/README.md).
+**v40:** I rejected the receptionist's crossed arms in my screenshots. Codex corrected the existing MakeHuman rig's hand targets, candle grip and doorway stride, softened the lights and added bevelled door details using Three.js. The empty-hotel mode reuses the existing sets, characters' absence and music; its exterior uses a first-person camera. No new model was downloaded and no Blender MCP call was made. Revision (local archive).
 
-**v39:** I reused the existing car, Rocketbox exit animation and MakeHuman guest/receptionist for the song-timed opening. Codex authored the brass candle, roadside distance sign, revised camera cuts, hand poses and 161-metre hotel placement in Three.js. There were no new downloaded models or Blender MCP calls. [Opening record](../build-record/tests/opening-39/README.md).
+**v39:** I reused the existing car, Rocketbox exit animation and MakeHuman guest/receptionist for the song-timed opening. Codex authored the brass candle, roadside distance sign, revised camera cuts, hand poses and 161-metre hotel placement in Three.js. There were no new downloaded models or Blender MCP calls. Opening record (local archive).
 
 **v38:** I made the luggage guest older and distinct from the bartender. I reused the MakeHuman CC0 porter rig and `old_caucasian_male/old_lightskinned_male_diffuse.png` from the retained system pack. Its material header credits Data Collection AB, Joel Palmius and Jonas Hauquier. The skin was converted to WebP. Codex authored the weighted beard shell, head-attached wire glasses, thinner coat, gaunt cheeks and longer grey hair in Three.js under my direction. This pass used no Blender MCP or newly downloaded model.
 
-**v37 update, November 13:** I reused these credited assets for the Test 3 revision. Cooper-inspired face adjustments, the reception counter, lamp and staff-stair key were implemented in Three.js. The car-exit take was retimed within a longer opening, not replaced with new motion capture. This pass used no Blender MCP calls or new downloaded models. [Changes and verification](../build-record/tests/test3-37/README.md).
+**v37 update, November 13:** I reused these credited assets for the Test 3 revision. Cooper-inspired face adjustments, the reception counter, lamp and staff-stair key were implemented in Three.js. The car-exit take was retimed within a longer opening, not replaced with new motion capture. This pass used no Blender MCP calls or new downloaded models. Changes and verification (local archive).
 
 ## Reused 3D assets
 | On screen | Source and credit | Licence | Room 0 changes |
@@ -22,7 +22,7 @@ The human meshes are adapted third-party work. The dog is a freely licensed mode
 
 **Human evidence:** [Selected components and modifications](room-zero-character-assets.md) · [Retained manifest](../build/vendor/licenses/makehuman/selected-licenses.json) · [CC0 licence](../build/vendor/licenses/makehuman/LICENSE.ASSETS.md). MPFB's GPL-3.0 tool-code licence is separate from the selected CC0 graphical assets. [Official MPFB repository](https://github.com/makehumancommunity/mpfb2).
 
-**Dog evidence:** [Retained creator page](assets/german-shepherd/source-page.html) · [Original download](assets/german-shepherd/original.zip) · [Adaptation script](../build/tools/build_dog_v14.py). Credit also appears in the game's Credits page.
+**Dog evidence:** Retained creator page (project archive) · Original download (project archive) · [Adaptation script](../build/tools/build_dog_v14.py). Credit also appears in the game's Credits page.
 
 ## Blender and Blender MCP
 Blender MCP was requested for the initial prototype. The [technical record](../room-zero-technical-approach.md) states that its tools were unavailable. The documented modelling, rigging, exports and offline rendering used **Blender 4.3.2 in background mode, driven by Codex-authored Python scripts**.
@@ -37,7 +37,7 @@ The BlenderMCP add-on registered during some launches. That startup message does
 | Dog conversion and seated shadow | [Dog adaptation](../build/tools/build_dog_v14.py) |
 | Skeleton and ending backgrounds | [Ending builder](../build/tools/build_ending_v6.py) |
 | Porcelain likeness and stair insert | [Stair study](../build/tools/build_stair_study_v15.py) |
-| v18: 38 backgrounds at 2560 × 1440 | [Render script](../build/tools/render_visuals_v18.py), [render log](../build-record/tests/visual-18/render.log), [camera audit](../build-record/tests/visual-18/camera-audit.json) |
+| v18: 38 backgrounds at 2560 × 1440 | [Render script](../build/tools/render_visuals_v18.py), render log (local archive), camera audit (local archive) |
 
 The luggage room, live mirror, procedural case detailing and runtime material finishes use Three.js. The five v18 surface textures and lightweight preview images were made with Python, NumPy and Pillow. They were not generated by Blender MCP.
 
@@ -76,7 +76,7 @@ I wanted the flat tyre and the walk from the car to feel like one continuous arr
 | Car door | looneybits · [CarDoorSFX](https://opengameart.org/content/cardoorsfx) | Codex trimmed and timed both recordings to the animated door. |
 | Shoes, hotel latch and hinge | Kenney Vleugels · [50 RPG sound effects](https://opengameart.org/content/50-rpg-sound-effects) | Three shoe strikes follow the walking cycle. They sound softer on carpet and sharper on the stairs. |
 
-All three packs use [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). I kept the [source downloads and licence evidence](audio-23/) and a [short sound preview](../build-record/tests/face-sound-23/foley-preview.mp3).
+All three packs use [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). I kept the [source downloads and licence evidence](audio-23/) and a short sound preview (local archive).
 
 ## Driver performance and room sound · v28
 

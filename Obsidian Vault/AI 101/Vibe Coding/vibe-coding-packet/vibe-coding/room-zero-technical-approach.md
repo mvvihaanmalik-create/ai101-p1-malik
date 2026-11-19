@@ -20,4 +20,4 @@ I asked for more realistic characters after the first blocky prototype. The cast
 
 The hotel, props and most decorative work were generated for this project. The current scenes still reuse architecture, and the animations are authored rather than motion capture.
 
-[Visual comparison](build-record/tests/visual-18/compare.html) · [Developer checks](build-record/visuals-18.md) · [Detailed technical history](sources/archive/documentation-before-voice-edit-2026-11-11/room-zero-technical-approach.md).
+Visual comparison (local archive) · Developer checks (local archive) · Detailed technical history (local archive).

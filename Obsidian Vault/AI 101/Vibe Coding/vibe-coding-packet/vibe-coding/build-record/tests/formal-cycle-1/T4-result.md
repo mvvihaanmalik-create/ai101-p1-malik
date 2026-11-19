@@ -7,4 +7,4 @@ November 10, 2026 · fixed v16
 
 **Recording limit:** The live attempts were interrupted. The completed silent recording came from a separate isolated-browser run. My feedback came from the live attempt.
 
-[Completed recording](T4-v16-recorded/T4-v16-out-of-scope.mp4) · [Input timeline](T4-v16-recorded/T4-v16-events.json) · [Interrupted attempt](T4-v16-interrupted.mp4).
+Completed recording (local archive) · Input timeline (local archive) · Interrupted attempt (local archive).

@@ -9,4 +9,4 @@ I watched and gave feedback while Codex played and recorded.
 
 **What changed:** The v15 revision spread the encounters out, added closer views and gave the children a porcelain likeness to roll. The formal retest is still pending.
 
-[Recording](T3-unexpected-input.mp4) · [Timeline](T3-timeline.md) · [Original record](T3-result-full-record.md) · [All tests](../../testing-and-failure-log.md).
+Recording (local archive) · [Timeline](T3-timeline.md) · Original record (local archive) · [All tests](../../testing-and-failure-log.md).

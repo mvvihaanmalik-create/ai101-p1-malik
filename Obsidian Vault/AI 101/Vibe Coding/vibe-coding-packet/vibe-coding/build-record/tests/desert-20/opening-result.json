@@ -1,8 +1,0 @@
-{
-  "status": "passed",
-  "pause": true,
-  "skip": true,
-  "arrival": true,
-  "exitToLanding": true,
-  "errors": []
-}

@@ -1,3 +1,4 @@
+import {resetTalk,openTalk} from './staff-talk.js';
 import {OPENING_LENGTH,RECEPTION_AT,openingLyricAt} from './opening-cue.js';
 import {createWelcomeCandle} from './welcome-candle.js';
 import {EXPLORE_WINGS,EXPLORE_FLOORS,EXPLORE_PLAN,wingExit} from './explore-route.js';
@@ -73,6 +74,8 @@ const introduced=new Set();
 let butlerSmile,butlerMotion,deskSmile;
 let noticedAt=null,socialFloor=0,staffBeat=socialBeat(0,0);
 let bathroom,wineTime=null,wineAsked=false,barStart=0;
+let registerLines={};
+fetch('assets/night-register.json').then(r=>r.ok?r.json():{}).then(lines=>{registerLines=lines;}).catch(()=>{});
 let suiteApproach=null;
 let ending,pausedMode='playing';
 let stairKind='transfer',lastFocus=null,stairSigns=[];
@@ -118,10 +121,25 @@ function updateCast(dt){
  characterEncounters.update(state.time,dt,room,{...loop.current,vignette:id,wineTime,staffBeat,eyeX:detail?camera.position.x:guest.position.x,eyeZ:detail?camera.position.z:guest.position.z,barClock:state.time-barStart},-camera.position.z,actors.Guest.locomotion.vz>.08);
 }
 function stairTravel(kind,notice){stairKind=kind;goRoom('stairs',false,notice);}
-function enterBranch(branch){loop.chooseRoute(branch);if(branch==='stair')stairTravel('watch','East stair. Inspect the landing before crossing the top step.');else goRoom(loop.orientation?'pantry':westDestination(loop.current.vignette));}
+function measureGuestStep(motion,dx,dz,dt){
+ const yaw=guest.rotation.y, cos=Math.cos(yaw), sin=Math.sin(yaw);
+ measureMotion(motion,dx*cos-dz*sin,dx*sin+dz*cos,dt);
+}
+function turnGuest(z,dt){
+ if(!z)return true;
+ const target=z>0?Math.PI:0;
+ const error=target-guest.rotation.y;
+ guest.rotation.y+=Math.sign(error)*Math.min(Math.abs(error),dt*8);
+ return Math.abs(target-guest.rotation.y)<.12;
+}
+function enterBranch(branch){if(loop.current.shared){say('Inspect the open lift, then turn back.',5);return;} if(!loop.orientation&&branch!==(STAIR.includes(loop.current.anomaly)?'stair':'hall')){say(STAIR.includes(loop.current.anomaly)?'The disturbance is on the east stair.':'Take the red door to the west wing.',4);return;} branch=loop.chooseRoute(branch).route;if(branch==='stair')stairTravel('watch','East stair. Inspect the landing before crossing the top step.');else goRoom(loop.orientation?'pantry':westDestination(loop.current.vignette));}
+function routeHint(){
+  return loop.current.shared?'Inspect the broken lift.':STAIR.includes(loop.current.anomaly)?'E at the landing: take the east stair.':'Walk through the red door to the west wing.';
+}
 function registerText(){
  if(exploring)return EXPLORE_PLAN;
  if(room==='claim')return 'The porter holds the staff-stair key with the honeymoon luggage. Turn the cases toward the mirror; match the stamp to your suite ticket.';
+ if(room==='landing'&&!loop.orientation)return routeHint();
  if(room==='landing')return REGISTER.E3;
  const id=focusId();return id&&REGISTER[id]?REGISTER[id]:'The first trip is ordinary. Take your time learning the hotel.';
 }
@@ -136,7 +154,7 @@ function refreshSigns(){
  }
 }
 let seed=0;
-function newRun(){introduced.clear();wineAsked=false;wineTime=null;claimCompleted=false;seed=crypto.getRandomValues(new Uint32Array(1))[0];loop=new PassageLoop(seededRandom(seed));passageStarted=false;cueAt=null;stairKind='transfer';lastFocus=null;}
+function newRun(){resetTalk();introduced.clear();wineAsked=false;wineTime=null;claimCompleted=false;seed=crypto.getRandomValues(new Uint32Array(1))[0];loop=new PassageLoop(seededRandom(seed));passageStarted=false;cueAt=null;stairKind='transfer';lastFocus=null;}
 newRun();
 const framingZoom=1.18;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -175,8 +193,8 @@ function setView(index,insertCut=false){
  state.view=index;placeLights();const c=views[index];camera.position.fromArray(c.position);camera.lookAt(new THREE.Vector3().fromArray(c.target));camera.fov=c.fov;const zoom=detail?(detail.key==='luggage'?1.18:detail.key==='stair'?1.12:1.30):room==='corridor'&&loop.orientation&&['C3','C5'].includes(focusId())?1.28:framingZoom;if(room==='bathroom'&&detail?.key==='mirror')bathroom.aim(camera);
  camera.zoom=zoom;camera.updateProjectionMatrix();scene.background=room==='bathroom'?bathroom.background:plateVariants[loop.current.anomaly]?.[index]||plates[index];if(scene.background.isTexture){scene.background.repeat.setScalar(1/zoom);scene.background.offset.setScalar((1-1/zoom)/2);scene.background.updateMatrix();}$('location').textContent=room==='corridor'?'WEST GALLERY':room==='stairs'&&stairKind==='transfer'?'WEST STAIR':roomNames[room];needsRender=true;
 }
-let capWidth=1920,slowTime=0,graphicsLost=false,graphicsRecoveries=0;
-function resize(){const r=$('stage').getBoundingClientRect();renderer.setPixelRatio(Math.min(devicePixelRatio,1.75,capWidth/Math.max(1,r.width)));renderer.setSize(Math.max(1,r.width),Math.max(1,r.height),false);camera.aspect=16/9;camera.updateProjectionMatrix();needsRender=true;}
+let capWidth=2560,slowTime=0,graphicsLost=false,graphicsRecoveries=0;
+function resize(){const r=$('stage').getBoundingClientRect();renderer.setPixelRatio(Math.min(devicePixelRatio,2,capWidth/Math.max(1,r.width)));renderer.setSize(Math.max(1,r.width),Math.max(1,r.height),false);camera.aspect=16/9;camera.updateProjectionMatrix();needsRender=true;}
 function mapNodes(root){root.traverse(o=>{if(o.name){nodes[o.name]=o;o.userData.restRotation=o.rotation.clone();}if(o.isMesh){o.frustumCulled=false;if(o.material){o.material.envMapIntensity=.45;if(o.material.name==='Aged brass')o.material.color.setRGB(.36,.235,.095);}}});}
 function joint(name,axis,angle){const n=nodes[name];if(n)n.rotation[axis]=n.userData.restRotation[axis]+angle;}
 function prepareActor(name,gltf){
@@ -202,12 +220,24 @@ async function boot(){
  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  scene=new THREE.Scene();lightHotelMaterials(scene,.33);camera=new THREE.PerspectiveCamera(45,16/9,.05,100);
  initPlates(()=>{needsRender=true;});if((navigator.deviceMemory||8)<=4)capWidth=1600;
- document.body.dataset.build='v40';
+ document.body.dataset.build='v43';
  const response=await fetch('assets/hotel-v15.json');if(!response.ok)throw new Error('Hotel camera data is missing.');hotel=await response.json();views=hotel.cameras;
  const manager=new THREE.LoadingManager();manager.onProgress=(_,loaded,total)=>{$('load-progress').textContent=` ${Math.round(loaded/total*100)}%`;};
  const loader=new GLTFLoader(manager),tex=new THREE.TextureLoader(manager);
+ async function loadModel(url){
+  if(typeof DecompressionStream==='function'){
+   try{
+    const response=await fetch(url+'.gz');
+    if(!response.ok)throw Error('Compressed asset unavailable');
+    const bytes=await response.arrayBuffer();
+    const data=new Uint8Array(bytes)[0]===31 ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer() : bytes;
+    return await loader.parseAsync(data,'assets/');
+   }catch{/* Fall back to the original GLB. */}
+  }
+  return loader.loadAsync(url);
+ }
  const imageFiles=[...new Set([...views.map(c=>c.plate).filter(Boolean),...Object.values(hotel.variants).flatMap(v=>Object.values(v))])];
- const [g,b,o,newDepth,child,props,staff,porter,dog,porcelain,deskModel,nightCar,driverTake,...p]=await Promise.all([loader.loadAsync('assets/guest-v8.glb'),loader.loadAsync('assets/butler-v3.glb'),loader.loadAsync('assets/occlusion.glb'),loader.loadAsync('assets/hotel-occlusion-v3.glb'),loader.loadAsync('assets/child-v5.glb'),loader.loadAsync('assets/encounter-props-v5.glb'),loader.loadAsync('assets/attendant-v5.glb'),loader.loadAsync('assets/porter-v5.glb'),loader.loadAsync('assets/dog-v14.glb'),loader.loadAsync('assets/porcelain-v15.glb'),loader.loadAsync('assets/receptionist-v20.glb'),loader.loadAsync('assets/night-car-v28.glb'),fetch('assets/driver-exit-v28.json').then(r=>r.json()),...imageFiles.map(file=>tex.loadAsync('assets/proxies-v31/'+file))]);
+ const [g,b,o,newDepth,child,props,staff,porter,dog,porcelain,deskModel,nightCar,driverTake,...p]=await Promise.all([loadModel('assets/guest-v8.glb'),loadModel('assets/butler-v3.glb'),loadModel('assets/occlusion.glb'),loadModel('assets/hotel-occlusion-v3.glb'),loadModel('assets/child-v5.glb'),loadModel('assets/encounter-props-v5.glb'),loadModel('assets/attendant-v5.glb'),loadModel('assets/porter-v5.glb'),loadModel('assets/dog-v14.glb'),loadModel('assets/porcelain-v15.glb'),loadModel('assets/receptionist-v20.glb'),loadModel('assets/night-car-v28.glb'),fetch('assets/driver-exit-v28.json').then(r=>r.json()),...imageFiles.map(file=>tex.loadAsync('assets/proxies-v31/'+file))]);
  for(const [name,data] of [['guest-v8',g],['butler-v3',b],['child-v5',child],['attendant-v5',staff],['porter-v5',porter],['porcelain-v15',porcelain]])reuseIdenticalPixels(name,data);
  refineGuestFace(g.scene);
  for(const data of [g,b,child,props,staff,porter,dog,deskModel])costumeFinish(data.scene);
@@ -288,6 +318,10 @@ async function boot(){
  if(review)installBenchmark({renderer,scene,camera,pause,setRoom,reviewEncounter,reviewDetail,reviewEnding,holdEnding:value=>{ending.hold(value);if(ending.active){if(value)music.pause();else music.resume();}},renderFrame:()=>ending.active?ending.render():room==='claim'?luggageRoom.render(renderer):renderPlate(renderer,scene,camera)});
  let last=performance.now(),lastStep=0,lastRaf=last;
  function tick(now,scheduler){
+  const staff=nearbyStaff(),button=$('talk-staff');
+  button.hidden=!staff||$('staff-dialog').open;
+  if(staff)button.textContent='T · Talk to '+staff;
+  if($('staff-dialog').open){last=now;return;}
   if(graphicsLost||now-lastRender<1000/30||document.hidden)return;
   const elapsed=(now-last)/1000;last=now;const dt=Math.min(elapsed,.05);state.frameMs=state.frameMs*.95+elapsed*1000*.05;perf.scheduler=scheduler;
   if(state.mode==='playing'){
@@ -337,7 +371,7 @@ function resetPositions(){
 }
 function updateProgress(){
  if(exploring){$('progress').hidden=true;return;}
- const label=!passageStarted?'Find the broken lift':loop.orientation?'Ground floor \u00b7 ordinary visit':`${floorName(loop.progress)} FLOOR  \u00b7  ${loop.progress} / 4`;
+ const label=!passageStarted?'Find the broken lift':loop.orientation?'Ground floor \u00b7 ordinary visit':`${floorName(loop.progress)} FLOOR  \u00b7  ${loop.recorded.size} / 12 sightings`;
  $('progress-label').textContent=label;$('progress').setAttribute('aria-label',label);
  [...$('progress-marks').children].forEach((mark,i)=>mark.classList.toggle('lit',i<loop.progress));
 }
@@ -362,13 +396,14 @@ function goRoom(name,fromEnd=false,notice=''){if(pendingRoom)return;cutUntil=0;$
 function nextPassage(notice){loop.next();cueAt=null;goRoom('landing',false,notice);}
 function submitDecision(choice){
  const result=loop.decide(choice);if(!result)return;
+ if(result.kind==='inspect-first'){releaseMovement();guest.position.z=room==='corridor'?-5:room==='landing'?-4.4:-3.4;say(loop.current.shared?'Inspect the lift with E.':'Find the change and inspect it with E before returning.',5);return;}
  if(result.kind==='orientation-return'){releaseMovement();guest.position.z=room==='corridor'?-5.0:-4.5;say('First round: continue to the far stair.',5);return;}
  updateProgress();releaseMovement();
  if(result.kind==='wrong'||result.kind==='contact'){
-  tone(39,.8,.25,'sawtooth');nextPassage(result.kind==='contact'?'He caught you. Back to ground: hold S past the entrance before he reaches you.':choice==='return'?'This visit was ordinary. Going back cost your floors. Start again at ground.':`You passed a change. ${CATALOGUE[result.anomaly]?.changed||''} Back to ground.`);
+  tone(39,.8,.25,'sawtooth');nextPassage(result.kind==='contact'?'He caught you. Try this visit again: hold S past the entrance before he reaches you.':choice==='return'?'This visit was ordinary. Going back cost your floors. Start again at ground.':`You passed a change. ${CATALOGUE[result.anomaly]?.changed||''} Try this visit again.`);
  }else{
   tone(165,.5,.035);
-  const notice=result.kind==='orientation'?'Four correct floors open the suite.':result.unlocked?'Four correct decisions. The suite is waiting.':`${result.progress} of 4. Climb to the next landing.`;
+  const notice=result.kind==='orientation'?'Inspect three changes per floor and turn back.':result.unlocked?'Twelve sightings. The suite is waiting.':`Sighting ${loop.recorded.size} of 12. Take the stairs.`;
   if(result.progress===2&&!claimCompleted){goRoom('claim');return;}
   if(result.kind==='orientation')stairTravel('lesson','Climb to the register.');
   else if(room==='stairs'&&choice==='continue'){if(result.unlocked)goRoom('suite',false,notice);else nextPassage(notice);}
@@ -390,6 +425,9 @@ function describeInspection(){
 }
 function openInspection(key){
  if(state.active){say('He is too close. Keep moving.',2);return;}
+ const id=loop.current.anomaly;
+ const required={C1:'bell',C2:'service',C3:'stair',C4:'stair',C5:'bar',C6:'luggage',E1:'portrait',E2:'rain',E3:'lift',E4:'mirror',E5:'stair',E6:'runner'}[id];
+ if(key===required&&(id==='E3'?room==='landing':Boolean(loop.current.route)))loop.current.observed=true;
  detail={key,view:state.view};$('stage').classList.add('inspecting');releaseMovement();guest.visible=false;guestShadow.visible=false;const shot=key;if(hotel.details[shot]===undefined)throw Error('Missing inspection: '+key);setView(hotel.details[shot]);if(wineTime===null)describeInspection();$('interaction').textContent='E \u00b7 Return to the passage';
 }
 function clearWine(){if(wineTime!==null){barStart=state.time;wineTime=null;$('caption').classList.remove('show');}$('stage').classList.remove('wine-service');}
@@ -470,7 +508,13 @@ function enterReception(skipped=false){
  if(skipped){music.startHotel(audioCtx);setOpeningLyric(-1);$('stage').classList.remove('opening-film');}
  arrival={time:0,beat:0,musical:!skipped};say('I am sorry. Only the honeymoon suite is available.',5.06);$('interaction').textContent='E   Skip check-in';needsRender=true;
 }
-function pause(){if(!['playing','ending','credits'].includes(state.mode))return;heldForward.clear();pausedMode=state.mode;$('pause').querySelector('.premise').innerHTML=['ending','credits'].includes(pausedMode)?'':'Continue if ordinary. Turn back if changed. Four correct floors open the suite.';if(roadTime!==null)$('pause').querySelector('.premise').textContent='';if(room==='claim')$('pause').querySelector('.premise').textContent='';$('register-note').hidden=['ending','credits'].includes(pausedMode)||roadTime!==null;$('register-note').textContent=registerText();if(exploring){$('pause').querySelector('.premise').textContent='An empty hotel. No anomalies or scoring.';$('register-note').hidden=false;}state.mode='paused';foley.stop();music.pause();if(actors.Guest){actors.Guest.locomotion.held=0;actors.Guest.locomotion.vx=0;actors.Guest.locomotion.vz=0;}keys.clear();movementBasis=null;$('pause').hidden=false;$('resume').focus();if(master)master.gain.setTargetAtTime(0,audioCtx.currentTime,.2);}
+function registerPage(){
+ const guidance=registerText();
+ if(exploring||!loop.recorded.size)return guidance;
+ const notes=[...loop.recorded].slice(-3).map(id=>registerLines[id]||CATALOGUE[id].changed);
+ return guidance+'\n\nNIGHT AUDIT\n'+notes.join('\n');
+}
+function pause(){if(!['playing','ending','credits'].includes(state.mode))return;heldForward.clear();pausedMode=state.mode;$('pause').querySelector('.premise').innerHTML=['ending','credits'].includes(pausedMode)?'':'Continue if ordinary. Turn back if changed. Inspect three changes per floor and turn back.';if(roadTime!==null)$('pause').querySelector('.premise').textContent='';if(room==='claim')$('pause').querySelector('.premise').textContent='';$('register-note').hidden=['ending','credits'].includes(pausedMode)||roadTime!==null;$('register-note').textContent=registerPage();if(exploring){$('pause').querySelector('.premise').textContent='An empty hotel. No anomalies or scoring.';$('register-note').hidden=false;}state.mode='paused';foley.stop();music.pause();if(actors.Guest){actors.Guest.locomotion.held=0;actors.Guest.locomotion.vx=0;actors.Guest.locomotion.vz=0;}keys.clear();movementBasis=null;$('pause').hidden=false;$('resume').focus();if(master)master.gain.setTargetAtTime(0,audioCtx.currentTime,.2);}
 function resume(){if(state.mode!=='paused')return;state.mode=pausedMode;music.resume();$('pause').hidden=true;$('stage').focus();if(master)master.gain.setTargetAtTime(soundOn?.18:0,audioCtx.currentTime,.2);}
 function animateBody(name,phase,moving,dt=0){
  const actor=actors[name];if(!actor)return;
@@ -510,6 +554,7 @@ function placeLights(){
 // The hip travels smoothly while each sole meets the actual 32 cm tread under it.
 const ankleTarget=new THREE.Vector3(),kneeForward=new THREE.Vector3(0,0,-1);
 function placeFeet(actor){
+ kneeForward.set(0,0,-1).applyQuaternion(guest.quaternion);
  const ramp=guest.position.y-.02;
  for(const {bones,pose} of actor.legs){
   bones.forEach((b,i)=>pose[i].copy(b.quaternion));
@@ -584,12 +629,12 @@ function updateExplore(dt){
  $('location').textContent=EXPLORE_FLOORS[exploreFloor].toUpperCase()+' · '+(room==='claim'?'LEFT LUGGAGE':roomNames[room]);
  if(room==='claim'){luggageRoom.exploreStep(dt,ix,iy);return;}
  const r=hotel.rooms[room],motion=actors.Guest.locomotion;
- const direction=new THREE.Vector2(ix,iy).normalize(),delta=steerMotion(motion,detail?0:direction.x,detail?0:-direction.y,dt,room==='stairs'?.8:1,true);
+ const direction=new THREE.Vector2(ix,iy).normalize(),ready=turnGuest(detail?0:-direction.y,dt),delta=steerMotion(motion,detail||!ready?0:direction.x,detail||!ready?0:-direction.y,dt,room==='stairs'?.8:1,true);
  v2.copy(guest.position);
  guest.position.x=THREE.MathUtils.clamp(guest.position.x+delta.x,r.origin+r.bounds[0],r.origin+r.bounds[1]);
  guest.position.z=THREE.MathUtils.clamp(guest.position.z+delta.z,-r.bounds[3],-r.bounds[2]);
- measureMotion(motion,guest.position.x-v2.x,guest.position.z-v2.z,dt);state.walk+=guest.position.distanceTo(v2);state.gait=motion.gait;
- guest.rotation.y=room==='bathroom'&&detail?.key==='mirror'?Math.PI/2:0;
+ measureGuestStep(motion,guest.position.x-v2.x,guest.position.z-v2.z,dt);state.walk+=guest.position.distanceTo(v2);state.gait=motion.gait;
+ guest.rotation.y=room==='bathroom'&&detail?.key==='mirror'?Math.PI/2:guest.rotation.y;
  animateBody('Guest',state.walk,state.gait,dt);guest.position.y=.02+floorHeight(-guest.position.z);updateShadows();
  const y=-guest.position.z;let chosen=r.views[0];for(const index of r.views)if(y>=views[index].minY)chosen=index;
  if(!detail&&chosen!==state.view)setView(chosen);
@@ -660,7 +705,7 @@ function update(dt){
   if(!movementBasis)movementBasis={forward:new THREE.Vector3(0,0,-1),right:new THREE.Vector3(1,0,0)};
   v.copy(movementBasis.forward).multiplyScalar(iy).addScaledVector(movementBasis.right,ix).normalize();
  }else{movementBasis=null;v.set(0,0,0);}
- const motion=actors.Guest.locomotion,delta=steerMotion(motion,v.x,v.z,dt,room==='stairs'?.8:1,!arrival),r=hotel.rooms[room];
+ const motion=actors.Guest.locomotion,ready=arrival||turnGuest(v.z,dt),delta=steerMotion(motion,ready?v.x:0,ready?v.z:0,dt,room==='stairs'?.8:1,!arrival),r=hotel.rooms[room];
  v2.copy(guest.position);
  guest.position.x=THREE.MathUtils.clamp(guest.position.x+delta.x,r.origin+r.bounds[0],r.origin+r.bounds[1]);
  guest.position.z=THREE.MathUtils.clamp(guest.position.z+delta.z,-r.bounds[3],-r.bounds[2]);
@@ -676,12 +721,12 @@ function update(dt){
  }
  const dx=guest.position.x-v2.x,dz=guest.position.z-v2.z;
  if(Math.abs(dx)<1e-8)motion.vx=0;if(Math.abs(dz)<1e-8)motion.vz=0;
- measureMotion(motion,dx,dz,dt);state.walk+=Math.hypot(dx,dz);state.gait=motion.gait;
+ measureGuestStep(motion,dx,dz,dt);state.walk+=Math.hypot(dx,dz);state.gait=motion.gait;
  // Authored directional steps keep the concealed face and planted feet aligned.
- guest.rotation.y=room==='bathroom'&&detail?.key==='mirror'?Math.PI/2:arrival?-.46*THREE.MathUtils.smoothstep(arrival.time,1.9,3.1)*(1-THREE.MathUtils.smoothstep(arrival.time,5.7,6.9)):0;
+ guest.rotation.y=room==='bathroom'&&detail?.key==='mirror'?Math.PI/2:arrival?-.46*THREE.MathUtils.smoothstep(arrival.time,1.9,3.1)*(1-THREE.MathUtils.smoothstep(arrival.time,5.7,6.9)):guest.rotation.y;
  animateBody('Guest',state.walk,state.gait,dt);
  guest.position.y=.02+floorHeight(-guest.position.z);
- if(room==='corridor'&&focusId()==='C1'&&cueAt===null&&guest.position.z<-14.5){cueAt=state.time;ring();if(loop.current.anomaly==='C1')say('Loose bell. Hold S past the entrance.',7);}
+ if(room==='corridor'&&focusId()==='C1'&&cueAt===null&&guest.position.z<-14.5){cueAt=state.time;if(loop.current.anomaly==='C1')loop.current.observed=true;ring();if(loop.current.anomaly==='C1')say('Loose bell. Hold S past the entrance.',7);}
  if(room==='corridor'&&loop.current.anomaly==='C1'&&!state.active&&cueAt!==null){
   // The warning delays pursuit, but walking into his stationary body still counts as contact.
   const separation=Math.hypot(guest.position.x-butler.position.x,guest.position.z-butler.position.z);
@@ -726,7 +771,7 @@ function update(dt){
  }
  const nearby=currentInspection(y);
  const hint=detail?'E: Step back':nearby?`E: ${nearby.label}`:
-  room==='landing'&&!loop.orientation&&y>=3.75&&y<=6.25?'E: Take east stair   /   W: Walk to west wing':
+  room==='landing'&&!loop.orientation&&y>=3.75&&y<=6.25?routeHint():
   room==='landing'&&y<3.9?(loop.orientation?'First learn the ordinary passage':'CROSS THE BRASS LINE: TURN BACK'):
   westTour.includes(room)&&room!=='corridor'&&loop.current.route==='hall'&&!loop.current.resolved?(loop.orientation?'W   Follow the staff route':y<3.7?'S   Turn back through the entrance':'W   Continue     /     S   Turn back'):
   room==='corridor'&&y<5.8?(loop.orientation?'REMEMBER THIS FLOOR, THEN CONTINUE':'WALK BACK THROUGH THE ENTRANCE'):
@@ -753,7 +798,23 @@ $('world').addEventListener('pointerup',()=>exploreDrag=null);
 $('world').addEventListener('pointercancel',()=>exploreDrag=null);
 $('sound').addEventListener('change',e=>{soundOn=e.target.checked;foley.enable(soundOn);music.setEnabled(soundOn);if(master)master.gain.setTargetAtTime(soundOn&&['playing','ending'].includes(state.mode)?.18:0,audioCtx.currentTime,.1);});
 $('music-volume').addEventListener('input',e=>{music.setVolume(Number(e.target.value)/100);$('music-value').textContent=e.target.value+'%';});
+function nearbyStaff(){
+ if(state.mode!=='playing'||exploring||arrival||roadTime!==null||pendingRoom||suiteApproach)return null;
+ if(room==='claim')return 'porter';
+ const y=-guest.position.z;
+ if(room==='reception'&&y>4&&y<9&&receptionist.visible)return 'receptionist';
+ if(room==='lounge'&&y>3.6&&y<6)return 'bartender';
+ return null;
+}
+function talk(){
+ const staff=nearbyStaff();if(!staff)return;
+ releaseMovement();heldForward.clear();
+ openTalk({staff,floor:loop.progress,seen:[...loop.recorded,...(loop.current.observed?[loop.current.anomaly]:[])]});
+}
+$('talk-staff').onclick=talk;
 addEventListener('keydown',e=>{
+ if($('staff-dialog').open)return;
+ if(!e.repeat&&nearbyStaff()&&(e.key.toLowerCase()==='t'||(e.key.toLowerCase()==='e'&&room==='reception'&&-guest.position.z>=4.6&&-guest.position.z<hotel.rooms.reception.exit-.9))){e.preventDefault();talk();return;}
  if(e.key!=='Escape'&&e.target.closest?.('input,select,a'))return;
  const k=e.key.toLowerCase();if(state.mode==='playing'&&(k==='w'||k==='arrowup'))heldForward.add(k);if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','f','e','escape'].includes(k))e.preventDefault();
  if(k==='escape'&&!e.repeat){if(state.mode==='paused')resume();else pause();return;}if(state.mode!=='playing'||suiteApproach||pendingRoom||blockedKeys.has(k))return;if(exploring){if(k==='e'&&!e.repeat)exploreInteract();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright'].includes(k))keys.add(k);return;}if(room==='claim'){

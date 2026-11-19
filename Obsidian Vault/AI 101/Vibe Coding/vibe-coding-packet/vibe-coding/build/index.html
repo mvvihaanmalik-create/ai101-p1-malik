@@ -16,7 +16,7 @@
 <div id="claim-ticket" hidden><span>Claim ticket</span><img id="claim-stamp" alt=""></div>
 <div id="intro" class="panel">
 <h1>HOTEL<br><span>OF HORROR</span></h1>
-<p class="premise">Learn the hotel on your first walk. Then continue if a floor is ordinary, or turn back if something has changed. Four correct decisions open the suite.</p>
+<p class="premise">Learn the hotel on your first walk. Then inspect each change and turn back. Three sightings on each of four floors open the suite.</p>
 <button id="enter" disabled>Preparing the hotel<span id="load-progress">&hellip;</span></button>
 <button id="explore" class="secondary" disabled>Explore the hotel</button>
 <p class="explore-note">An empty hotel. No anomalies or scoring.</p>
@@ -49,6 +49,8 @@
 </section>
 <div id="end" class="panel" hidden><h2>No departures.</h2><button id="again">Begin again</button><a class="credits" href="music-credits.html" target="_blank" rel="noopener">Sources and licences</a></div>
 <div id="error" class="panel" hidden><h2>The passage could not open.</h2><p id="error-message"></p><button onclick="location.reload()">Try again</button></div>
+<button id="talk-staff" hidden></button>
+<dialog id="staff-dialog"><h2></h2><div role="log" aria-live="polite"></div><form><input aria-label="Your question" placeholder="Ask a question…" maxlength="240" required autocomplete="off"><button>Ask</button></form><button type="button" data-leave>Leave conversation</button></dialog>
 <footer id="hud" hidden><span><kbd>Esc</kbd> Night register</span></footer><output id="diagnostics" hidden></output>
 </div>
 </main><script type="module" src="src/main.js"></script></body></html>

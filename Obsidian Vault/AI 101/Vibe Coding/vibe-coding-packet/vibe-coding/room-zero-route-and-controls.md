@@ -20,4 +20,4 @@ The exterior shows four storeys. The ascent reuses the hotel’s rooms. The floo
 
 I removed the crucifix and combat. Retreat is the response to the hostile butler; contact resets progress to ground.
 
-I chose fixed cameras and close-ups. I kept the face reveal for the washroom mirror. [Camera decision](decisions/ADR-001-camera-direction.md) · [Earlier route versions](sources/archive/documentation-before-voice-edit-2026-11-11/room-zero-route-and-controls.md).
+I chose fixed cameras and close-ups. I kept the face reveal for the washroom mirror. [Camera decision](decisions/ADR-001-camera-direction.md) · Earlier route versions (local archive).

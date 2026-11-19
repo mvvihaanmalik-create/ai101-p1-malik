@@ -1,0 +1,227 @@
+[
+  {
+    "label": "Title",
+    "time": 0.3,
+    "room": "reception",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Desert highway",
+    "time": 8.6,
+    "room": "reception",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 6.192
+  },
+  {
+    "label": "Checked in",
+    "time": 61.6,
+    "room": "reception",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "pantry encounter",
+    "time": 74.23,
+    "room": "pantry",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "lounge encounter",
+    "time": 86.37,
+    "room": "lounge",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "baggage encounter",
+    "time": 96.97,
+    "room": "baggage",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "bathroom encounter",
+    "time": 106.7,
+    "room": "bathroom",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Gallery butler",
+    "time": 118.93,
+    "room": "corridor",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Children on stair landing",
+    "time": 132.17,
+    "room": "stairs",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Beau on the next landing",
+    "time": 142.33,
+    "room": "stairs",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 1 C4",
+    "time": 157.97,
+    "room": "stairs",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 2 E3",
+    "time": 175,
+    "room": "landing",
+    "score": 0,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 3 E5",
+    "time": 194.07,
+    "room": "stairs",
+    "score": 1,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 4 C5",
+    "time": 215.7,
+    "room": "lounge",
+    "score": 1,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 5 E4",
+    "time": 234.37,
+    "room": "bathroom",
+    "score": 1,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 6 C3",
+    "time": 253.5,
+    "room": "stairs",
+    "score": 2,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Luggage claim",
+    "time": 259.73,
+    "room": "claim",
+    "score": 2,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 7 C6",
+    "time": 282.93,
+    "room": "baggage",
+    "score": 2,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 8 E2",
+    "time": 309.13,
+    "room": "corridor",
+    "score": 2,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 9 C2",
+    "time": 327.5,
+    "room": "pantry",
+    "score": 3,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 10 E1",
+    "time": 348.37,
+    "room": "corridor",
+    "score": 3,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 11 E6",
+    "time": 372.4,
+    "room": "corridor",
+    "score": 3,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Sighting 12 C1",
+    "time": 396.4,
+    "room": "corridor",
+    "score": 4,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  },
+  {
+    "label": "Honeymoon suite",
+    "time": 411.2,
+    "room": "suite",
+    "score": 4,
+    "errors": [],
+    "audio": 6.61,
+    "opening": 0
+  },
+  {
+    "label": "End card",
+    "time": 515.53,
+    "room": "suite",
+    "score": 4,
+    "errors": [],
+    "audio": 0,
+    "opening": 0
+  }
+]

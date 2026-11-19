@@ -20,6 +20,6 @@ I gave the ordinary staff short written greetings and small smiles. In the Night
 
 The game randomizes the order. The player continues if nothing changed or turns back if something did. The butler is the active threat.
 
-[Route](room-zero-route-and-controls.md) · [Model credits](sources/assets-and-tools.md) · [Earlier character proposals](sources/archive/documentation-before-voice-edit-2026-11-11/room-zero-encounters.md).
+[Route](room-zero-route-and-controls.md) · [Model credits](sources/assets-and-tools.md) · Earlier character proposals (local archive).
 
 [Song-inspired anomaly proposals](hotel-california-anomalies.md).

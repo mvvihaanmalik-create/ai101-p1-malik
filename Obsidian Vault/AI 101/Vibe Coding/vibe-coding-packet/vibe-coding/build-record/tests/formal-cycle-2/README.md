@@ -9,7 +9,7 @@
 
 **Test 3 attempted November 13 on the public live build:** [Feedback and incomplete result](T3-result.md). Graphics failures interrupted the checks, and no usable recording was saved. My feedback is captured, but Test 3 still needs a rerun. Test 4 has not started.
 
-The original plan used v21. I requested the latest live build for Test 3 instead; the link above now fixes the v40 revision. Record the actual build and follow the [original inputs and timings](../../formal-test-protocol-full-record.md). Compare T3 with v13, and T4 with v16.
+The original plan used v21. I requested the latest live build for Test 3 instead; the link above now fixes the v40 revision. Record the actual build and follow the original inputs and timings (local archive). Compare T3 with v13, and T4 with v16.
 
 [My Test 4 exploration request](T4-proposal.md) is implemented in v40 with a [defined floor plan](../../../hotel-exploration-plan.md). Its developer checks do not complete formal Test 4.
 

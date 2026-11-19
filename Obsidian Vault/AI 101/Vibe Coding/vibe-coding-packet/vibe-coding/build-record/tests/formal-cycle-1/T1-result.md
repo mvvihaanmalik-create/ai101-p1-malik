@@ -9,4 +9,4 @@ I watched and gave feedback while Codex played and recorded.
 
 **What changed:** I asked for better hand poses, a free model to replace the dog and heavier lettering. These became v14. [My Cycle 2 comparison](../formal-cycle-2/T1-result.md) covers the later playtest.
 
-[Recording](T1-main-path.mp4) · [Timeline](T1-timeline.md) · [Original record](T1-result-full-record.md) · [All tests](../../testing-and-failure-log.md).
+Recording (local archive) · [Timeline](T1-timeline.md) · Original record (local archive) · [All tests](../../testing-and-failure-log.md).

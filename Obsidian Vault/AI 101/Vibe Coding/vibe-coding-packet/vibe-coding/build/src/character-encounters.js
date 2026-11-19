@@ -173,6 +173,8 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
   const nextId=current.vignette||'C1';if(!persistent&&nextId!==currentId)for(const k of Object.keys(metrics))delete metrics[k];currentId=nextId;const changed=current.anomaly===currentId;
   for(const [id,g] of Object.entries(roots))g.visible=room==='corridor'&&(id===currentId||id==='coat');
   if(room!=='corridor')return;
+  coat.rotation.order='YXZ';
+  coat.rotation.y=current.anomaly==='E5'?1.32:.20;
   coat.rotation.x=current.anomaly==='E5'?-Math.PI/2+.025*Math.sin(time*.8):.008*Math.sin(time*.7);
   if(currentId==='C6'){
    const wave=Math.sin(time*.60);traveller.holder.position.z=-14.15;
@@ -241,6 +243,7 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
    if(service!=null){
     // A glance at the vintage, an open hand beside the bottle, then a slow shake of the head.
     const present=THREE.MathUtils.smoothstep(service,.18,1.14)*(1-THREE.MathUtils.smoothstep(service,4.12,5.36));
+    bottle.rotation.z=0;wineFall.visible=false;winePool.visible=false;
     glass.position.copy(tablePoint);
     bartender.head.quaternion.copy(bartender.headRest);
     bartender.head.rotation.x+=.13*present;
@@ -260,8 +263,14 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
    bartender.head.rotation.x-=.24*horror;
    bottle.rotation.z=-1.65*horror;
    const lip=new THREE.Vector3(0,.312,0).applyEuler(bottle.rotation).add(bottle.position);
-   wineFall.visible=horror>.65;wineFall.position.set(lip.x,(lip.y+.07)/2,lip.z);wineFall.scale.y=lip.y-.07;
-   winePool.position.set(lip.x,.065,lip.z);winePool.scale.setScalar(.4+.6*horror);winePool.visible=wineFall.visible;
+   const flow=beat(horror,.56,.83), length=(lip.y-.07)*flow;
+   wineFall.visible=flow>.001;
+   wineFall.position.set(lip.x,lip.y-length/2,lip.z);
+   wineFall.scale.set(.45+.55*flow,length,.45+.55*flow);
+   const puddle=changed?beat(t,1.9,5)*(1-beat(t,8.2,8.98)):0;
+   winePool.visible=puddle>.001;
+   if(flow>.98)winePool.position.set(lip.x,.065,lip.z);
+   winePool.scale.set(1.18*puddle,.82*puddle,1);
    metrics.bartenderHorror=+horror.toFixed(3);
    const firstLift=beat(t,.95,1.87)*(1-beat(t,2.14,3.05));
    const secondLift=beat(t,changed?4.86:5.72,6.85)*(1-beat(t,7.04,8.05));
@@ -324,7 +333,11 @@ export function createCharacterEncounters(scene,{adult,child,props,dog,staff,por
   if(stair){
    if(id==='C3')g.position.set(89.27,1.92,4.40);
    if(id==='C4')g.position.set(89.16,1.92,5.12);
-   if(id==='E5')g.position.set(91.58,1.92,3.94);
+   if(id==='E5'){
+    // Fit the hanger and extended sleeve below the stair shot's upper edge.
+    g.scale.setScalar(.74);
+    g.position.set(90.01+1.57*.74,1.92,-9.72+12.9*.74);
+   }
   }else if(wing)g.position.set(wing[1],wing[3],wing[2]);
   else g.position.z=offsets[id]||0;
   g.updateWorldMatrix(true,true);

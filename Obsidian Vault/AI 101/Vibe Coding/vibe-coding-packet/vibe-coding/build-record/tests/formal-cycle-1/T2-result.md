@@ -9,4 +9,4 @@ I watched and gave feedback while Codex played and recorded.
 
 **What changed:** The v15 revision added the night register and clearer retreat/reset messages. The formal retest is still pending.
 
-[Recording](T2-edge-case.mp4) · [Timeline](T2-timeline.md) · [Original record](T2-result-full-record.md) · [All tests](../../testing-and-failure-log.md).
+Recording (local archive) · [Timeline](T2-timeline.md) · Original record (local archive) · [All tests](../../testing-and-failure-log.md).
