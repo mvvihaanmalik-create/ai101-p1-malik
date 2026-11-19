@@ -1,26 +1,12 @@
-# source-index.md
+# Earlier source records
 
 **v15 additions:** The three new camera plates and destination signs were rendered from the existing hotel scene. The porcelain plaything uses the same licensed child character, with new geometry treatment and materials. [Provenance](room-zero-character-assets.md) · Repair record (local archive).
 
-*List everything the build relies on: game rules, design references, assets, or your Project 3 skill and hard rules. Delete the italic guidance lines before you submit.*
-
-| Reference | Where it came from | What it is for in the build | Permission |
-|---|---|---|---|
-| [ ] | [link or file] | [ ] | [yours / licensed / public domain / course file] |
-| [ ] | [ ] | [ ] | [ ] |
-| Twin Peaks | [Series overview](https://www.paramountplus.com/shows/twin_peaks/) | Room 0 aesthetic inspiration | [Check permission before using any material] |
-| Hokum (2026 film) | [Official film site](https://hokummovie.com/synopsis/) | Room 0 aesthetic inspiration, including a haunted honeymoon suite | [Check permission before using any material] |
-| Resident Evil (1996) | [Capcom listing](https://game.capcom.com/residentevil/en/news-4054.html) | Room 0 camera direction inspiration | [Check permission before using any material] |
-| Silent Hill | [Specific source or reference to identify] | Possible atmosphere reference for A | [Check before using any material] |
-| The Exit 8 | [Official Steam page](https://store.steampowered.com/app/2653790/8/) | Primary anomaly observation and turning back inspiration for Room 0; also a reference for Last Train Home | [Check before using any material] |
-| R.E.P.O. | [Specific source or reference to identify] | User-named inspiration for Room 0's defensive element | [Check before using any material] |
-| The Tell-Tale Heart by Edgar Allan Poe | [Poe's short fiction](https://standardebooks.org/ebooks/edgar-allan-poe/short-fiction) | Possible story inspiration for the Poe game | [Check the edition and permission for any material used] |
+This file records earlier builds. The [current source index](source-index.md) links the final creators, licences and edits. The films, games and books discussed during planning served as references. The supplied soundtrack recordings are listed separately in [Sound credits](sound-credits.md).
 
 See [room-zero-visual-references.md](room-zero-visual-references.md) for the reference shortlist, including Silent Hill 2 and Dune (1984).
 
 ## AI-generated assets
-
-[List any image, sound, or text the AI made for the build, and say so in `disclosure.md`.]
 
 - [Room 0 visual study 01](moodboards/room-zero-visual-study-01.md): AI-generated moodboard made with Codex's built-in image generation tool on November 5, 2026. Draft for visual review; not yet selected as a build asset.
 - [Room 0 visual study 02](moodboards/room-zero-visual-study-02.md): AI-generated revision of study 01 with more unsettling characters and more dramatic lighting. Chosen by Vihaan as the visual direction on November 5, 2026; the image is a concept reference for the build.

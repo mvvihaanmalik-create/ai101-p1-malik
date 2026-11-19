@@ -1,7 +1,7 @@
-# tests
+# Test evidence
 
-Save a screenshot or a short screen recording of every test here, before you decide what it means.
+- [Cycle 1 results](formal-cycle-1/README.md) link four completed tests and their selected screenshots.
+- [Cycle 2 results](formal-cycle-2/README.md) show two recorded reviews, one interrupted run and one pending test.
+- [Final build verification](visual-43/README.md) covers the twelve anomaly views. [Walkthrough checkpoints](../walkthrough-tv-master/walkthrough-checkpoints.json) cover the full route, puzzle, ending and credits.
 
-Name each file by cycle and test, for example `c1-main.png`, `c1-edge.mp4`, `c2-scope.png`.
-
-The interpretation goes in `../testing-and-failure-log.md`. This folder holds the evidence the log points to, so a reader can check a claim without re-running your build.
+The [compact test log](../testing-and-failure-log.md) records the results and links the archived evidence.

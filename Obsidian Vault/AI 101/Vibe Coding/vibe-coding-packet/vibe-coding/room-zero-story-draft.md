@@ -1,6 +1,9 @@
 # The story
 I want the player to be a new guest visiting this hotel for the first time. Their goal is simple: reach their room, the honeymoon suite. The journey reveals that the hotel is a loop and a trap.
 
+## Where it started
+In Room 0, the guest inherited a family hotel that had been closed for years. A late relative left a letter asking the guest to close it for good. One person still occupied the honeymoon suite, and the staff kept repeating the last night the hotel was full. I changed the protagonist into a stranded driver making their first visit. The broken lift, the occupied suite as a destination, and the repetition became the spine of the final story.
+
 ## Arrival
 At night, I drive through an empty California desert with music on the car radio. Smoke rises before the car fails. A roadside sign points to a hotel 0.1 mile away. Its name after HOTEL is scratched out. The engine stops; a front tyre is flat and heavy steam rises from the bonnet. Red windows and palm silhouettes mark the distant hotel. I step out and walk toward it, seeing a place to shelter for the night.
 
@@ -9,7 +12,7 @@ The woman with the brown bob waits at the entrance and lets me inside. At recept
 ## The way upstairs
 I meet the staff on an ordinary first trip. In the Night Bar I can ask for wine. The bartender gestures to the vintage and his reply appears on screen. In the guest washroom I see my own face. On a later visit, that same face can be covered in blood. Later passages reveal anomalies. The guest continues when things are normal and turns back when something changes.
 
-The stairs and halls make the route feel longer and stranger. Four correct decisions bring the guest to the suite. The short luggage puzzle interrupts the ascent without changing their goal.
+The stairs and halls make the route feel longer and stranger. The first tour is unscored. Each scored visit has a change to inspect and retreat from. Twelve distinct sightings across four floors bring the guest to the suite. The luggage puzzle opens the staff stair after six sightings.
 
 The story includes the porter’s line about carrying a case upstairs yesterday. It does not establish that the player has visited before. Any dialogue I keep must support the first-time-guest setup.
 

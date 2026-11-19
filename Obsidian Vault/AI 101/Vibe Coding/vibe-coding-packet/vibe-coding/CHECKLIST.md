@@ -1,31 +1,19 @@
-# Submission checklist
+# Submission status
 
-Keep this open while you finish. Each item says what your work must show.
+The game and compact project folder are on the [shared AI 101 repository](https://github.com/mvvihaanmalik-create/ai101-p1-malik/tree/main/Obsidian%20Vault/AI%20101/Vibe%20Coding/vibe-coding-packet/vibe-coding). The [course brief](https://ai-101-v4.vercel.app/projects/vibe-coding) lists Sunday, November 22, 2026 at 11:59 p.m.
 
-## The idea and the plan
-- [ ] `plan.md` names one real user, one rejected idea and why, and the boundary.
-- [ ] The build sentence names a user, an action, and a response.
+- [x] [Plan](plan.md) has a player, a build sentence, a rejected idea and a boundary.
+- [x] [PRD](prd.md) describes the playable build and ends with three checks.
+- [x] [Decision records](decisions/README.md) cover the early decisions and the later changes tied to evidence.
+- [x] [README](README.md) explains how to play and run the build. The submission copy rendered all twelve anomaly views in Chrome.
+- [x] [Source index](sources/source-index.md), [AI Use Log](build-record/ai-use-log.md) and [disclosure](disclosure.md) record sources, contributions and decisions. The separate Companion session record has not been located.
+- [x] [Test log](build-record/testing-and-failure-log.md) lists all eight formal slots with their actual status. Selected screens remain in the vault and raw evidence is archived locally.
+- [x] Figma deck includes the test recap and game link. The local 4K walkthrough (local demo file) is complete.
 
-## The PRD and decisions
-- [ ] `prd.md` fits on one screen and ends with three "Done when" checks.
-- [ ] `decisions/` holds at least two ADRs written before Cycle 1.
-- [ ] Every Cycle 2 change has its own ADR that names the failure behind it.
+## Still open
 
-## The build
-- [ ] `build/index.html` opens and runs in a current browser.
-- [ ] `README.md` states how to open it, what it will not do, and its known limits.
-- [ ] `sources/source-index.md` lists every reference and asset, with permission.
-
-## The record
-- [ ] `build-record/testing-and-failure-log.md` shows the same four tests in both cycles, marked.
-- [ ] `build-record/tests/` holds the screenshots or recordings the log points to.
-- [ ] The AI Use Log is complete, including the Companion session.
-- [ ] `disclosure.md` states what AI contributed and what you decided.
-- [ ] `reflection.md` is written in your own words.
-
-## Before you push
-- [ ] No passwords, keys, personal data, classmates' work, or unlicensed files are in the folder.
-- [ ] The live defense was delivered in Class 19.
-- [ ] The folder is renamed `AI101_P4_[Last]_[First]` and pushed to the GitHub repository shared with the instructor.
-
-Due Sunday, November 22, 2026 at 11:59 p.m. The full brief is at https://ai-101-v4.vercel.app/projects/vibe-coding
+- [ ] [Reflection](reflection.md) in Vihaan’s own words.
+- [ ] Formal Cycle 2 Tests 3 and 4. Test 3 was interrupted. Test 4’s original input procedure is pending.
+- [ ] Add the Dropbox video link once the recording is uploaded.
+- [ ] Confirm the defense was delivered.
+- [ ] Confirm the final submission path uses `AI101_P4_Malik_Vihaan`. The current GitHub copy is in the existing Vibe Coding folder.

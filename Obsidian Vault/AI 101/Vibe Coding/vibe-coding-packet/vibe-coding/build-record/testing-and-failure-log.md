@@ -10,10 +10,17 @@ I watched and gave feedback while Codex played and recorded. Tests 1–3 used v1
 
 ## Cycle 2
 
-[1 · Main path and ending](tests/formal-cycle-2/T1-result.md) is recorded. The bar hand overlap was the clearest repeat of a Cycle 1 concern. My other feedback shaped the ordinary tour, anomalies, lighting, final shots and shorter credits. The overall comparison is inconclusive.
+| Formal slot | What happened | Comparison |
+| --- | --- | --- |
+| [1 · Reach the suite](tests/formal-cycle-2/T1-result.md) | Recorded my main-path and ending feedback. The hand overlap persisted. I requested faster walking, clearer clues and a shorter finale. | Inconclusive across the whole route |
+| [2 · Escape the butler](tests/formal-cycle-2/T2-result.md) | Recorded a character and ending review. The original retreat, contact and reset procedure was not repeated. | Inconclusive |
+| [3 · Unexpected inputs](tests/formal-cycle-2/T3-result.md) | Two graphics failures interrupted the attempt. I noted grip, porter, puzzle, mirror, bell and desk issues. No usable recording was saved. | Inconclusive, rerun pending |
+| [4 · Try to attack](tests/formal-cycle-2/T4-proposal.md) | I proposed empty-hotel exploration. Codex built and checked it. The original out-of-scope input test is still due. | Pending |
 
-[2 · Character movement and the reception ending](tests/formal-cycle-2/T2-result.md) is recorded. I wanted smoother movement, more space between characters and a clearer view of each anomaly’s action. The note links the v35 and v36 recordings.
+## Developer verification
 
-[3 · Controls and character believability](tests/formal-cycle-2/T3-result.md) is incomplete. I gave feedback on cup grips, porter movement, the suitcase puzzle, the mirror likeness, bell audio and floating reception bodies. Two graphics failures interrupted the attempt; no usable recording was saved. v37 developer checks (local archive) cover the repairs; v38 (local archive) addresses the unreadable luggage guest. I still need to watch the revised build and give my verdict.
+- **Opening and graphics.** Checked the full car-to-reception sequence, pause and skip. Fixed arm motion, grip and first-use rendering stalls. v40 check (local archive)
+- **Exploration.** Walked four storeys and back outside. Confirmed movement returned after a simulated graphics reset. [Route and limits](../hotel-exploration-plan.md)
+- **Final story.** Checked 200 shuffled routes and all twelve inspection views. The full demo reached the suite, reveal and credits. [v43 evidence](tests/visual-43/README.md) · [Recording checkpoints](walkthrough-tv-master/walkthrough-checkpoints.json)
 
-**Next: recover and finish Test 3.** [Remaining tests and procedures](tests/formal-cycle-2/README.md) · Detailed evidence (local archive).
+The developer checks verify the build. The formal [rerun plan](tests/formal-cycle-2/README.md) records the unfinished player tests.
