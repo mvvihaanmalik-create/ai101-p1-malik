@@ -7,6 +7,6 @@ November 12, 2026 · v35 → v36
 
 **What I can compare.** I asked for downloadable copies of both endings so I could watch the same moments side by side. [Before · v35, 720p](https://room-zero-ashy.vercel.app/downloads/ending-v35.mp4) · [After · v36, 1080p with sound and credits](https://room-zero-ashy.vercel.app/downloads/ending-v36-1080p.mp4)
 
-**What Codex checked.** The revised route reached the suite and replay. Codex checked the close-ups, corrected the lid grip and head rendering, and rendered the final MP4 at 30 evenly spaced frames per second after the live capture held frames during the pour. Route and shot checks (local archive)
+**What Codex checked.** The revised route reached the suite and replay. Codex checked the close-ups, corrected the lid grip and head rendering, and rendered the final MP4 at 30 evenly spaced frames per second after the live capture held frames during the pour. [Route and shot checks](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/procession-36/README.md)
 
 **Cycle 1 comparison: inconclusive.** My earlier Test 2 measured the butler’s retreat, contact and score reset. This review covered movement and staging. I didn’t repeat that reset procedure or give a final verdict on v36’s motion. [Cycle 1 Test 2](../formal-cycle-1/T2-result.md)

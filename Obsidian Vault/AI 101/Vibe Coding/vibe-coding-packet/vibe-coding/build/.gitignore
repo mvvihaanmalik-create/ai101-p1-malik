@@ -1,0 +1,6 @@
+node_modules/
+*.log
+assets/*.blend1
+tools/vendor/
+.deploy/
+.vercel/

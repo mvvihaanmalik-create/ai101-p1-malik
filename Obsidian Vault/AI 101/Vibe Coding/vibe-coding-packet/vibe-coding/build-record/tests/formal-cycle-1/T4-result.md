@@ -7,4 +7,4 @@ November 10, 2026 · fixed v16
 
 **Recording limit:** The live attempts were interrupted. The completed silent recording came from a separate isolated-browser run. My feedback came from the live attempt.
 
-Completed recording (local archive) · Input timeline (local archive) · Interrupted attempt (local archive).
+[Completed recording](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/formal-cycle-1/T4-v16-recorded/T4-v16-out-of-scope.mp4) · [Input timeline](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/formal-cycle-1/T4-v16-recorded/T4-v16-events.json) · [Interrupted attempt](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/formal-cycle-1/T4-v16-interrupted.mp4).

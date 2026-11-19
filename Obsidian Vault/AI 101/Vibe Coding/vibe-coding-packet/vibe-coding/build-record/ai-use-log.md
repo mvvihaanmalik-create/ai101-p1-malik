@@ -1,5 +1,5 @@
 # How I used AI during the build
-I used Codex to implement and revise Room 0 from my direction. This is a short index of the consequential work. The original detailed log (local archive) keeps the fuller prompt and tool record.
+I used Codex to implement and revise Room 0 from my direction. This is a short index of the consequential work. The [original detailed log](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/sources/archive/documentation-before-voice-edit-2026-11-11/build-record/ai-use-log.md) keeps the fuller prompt and tool record.
 
 | Stage | My direction | What Codex produced |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ The 3D workflow used headless Blender scripts. MCP execution is not confirmed. [
 
 I have not located a separate Companion session transcript for this project. These entries use the decisions and evidence available in the project record.
 
-**November 14, v39–v40:** I chose the opening music excerpt, then rejected the receptionist's crossed arms in my screenshots and asked why exploration was missing. Codex synchronized the opening, corrected the existing rig and grip, polished the lighting and door geometry, and added the empty-hotel routes under my direction. Revision and evidence (local archive).
+**November 14, v39–v40:** I chose the opening music excerpt, then rejected the receptionist's crossed arms in my screenshots and asked why exploration was missing. Codex synchronized the opening, corrected the existing rig and grip, polished the lighting and door geometry, and added the empty-hotel routes under my direction. [Revision and evidence](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/opening-40/README.md).
 
 I supplied observations while Codex controlled and recorded the tests. [Actual results](testing-and-failure-log.md). I played again and gave [Cycle 2 Test 1 feedback](tests/formal-cycle-2/T1-result.md). Codex verified and recorded the later edits.
 

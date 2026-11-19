@@ -25,8 +25,8 @@ The game displayed “The graphics device paused” twice, including after openi
 
 ## Revision for the rerun
 
-I asked Codex to implement these changes in v37. What changed and what was checked (local archive). Developer checks do not complete my observed Test 3; I still need to watch the revised version and give my verdict.
+I asked Codex to implement these changes in v37. [What changed and what was checked](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/test3-37/README.md). Developer checks do not complete my observed Test 3; I still need to watch the revised version and give my verdict.
 
-**Follow-up, November 14:** The luggage guest's face and facing direction were unreadable, and he looked too similar to the bartender. I asked for a skinny, older man with longer grey hair, a bigger beard and glasses. Revision and checks (local archive).
+**Follow-up, November 14:** The luggage guest's face and facing direction were unreadable, and he looked too similar to the bartender. I asked for a skinny, older man with longer grey hair, a bigger beard and glasses. [Revision and checks](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/test3-38/README.md).
 
-**Opening follow-up, v39:** My screenshots showed the receptionist's arms crossing her torso and unnatural hand movement. I asked for animation and render polish. v40 repairs and checks (local archive). This does not complete the unfinished control test.
+**Opening follow-up, v39:** My screenshots showed the receptionist's arms crossing her torso and unnatural hand movement. I asked for animation and render polish. [v40 repairs and checks](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/opening-40/README.md). This does not complete the unfinished control test.

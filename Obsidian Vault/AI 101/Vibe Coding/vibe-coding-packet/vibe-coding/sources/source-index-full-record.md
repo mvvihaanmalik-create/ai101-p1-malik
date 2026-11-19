@@ -1,6 +1,6 @@
 # Earlier source records
 
-**v15 additions:** The three new camera plates and destination signs were rendered from the existing hotel scene. The porcelain plaything uses the same licensed child character, with new geometry treatment and materials. [Provenance](room-zero-character-assets.md) · Repair record (local archive).
+**v15 additions:** The three new camera plates and destination signs were rendered from the existing hotel scene. The porcelain plaything uses the same licensed child character, with new geometry treatment and materials. [Provenance](room-zero-character-assets.md) · [Repair record](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/repairs-15/README.md).
 
 This file records earlier builds. The [current source index](source-index.md) links the final creators, licences and edits. The films, games and books discussed during planning served as references. The supplied soundtrack recordings are listed separately in [Sound credits](sound-credits.md).
 
@@ -40,32 +40,32 @@ The current prototype combines original generated environment/props/audio, adapt
 
 ## Loop 04 source update
 
-November 8: no additional external assets were downloaded. Live rain, threshold inlays and the breathing runner are original procedural Three.js geometry; the runner reuses the project's original carpet texture. Existing character, Blender and Three.js licensing remains unchanged. Runtime sources and verification are listed in loop 04 (local archive).
+November 8: no additional external assets were downloaded. Live rain, threshold inlays and the breathing runner are original procedural Three.js geometry; the runner reuses the project's original carpet texture. Existing character, Blender and Three.js licensing remains unchanged. Runtime sources and verification are listed in [loop 04](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/anomaly-loop-04.md).
 
 ## Encounter expansion 05 source update
 
-All twelve encounters now have normal/changed versions. Three additional weighted humans reuse the retained official CC0 MakeHuman archive; additional young male/female skin evidence is recorded in the [character source note](room-zero-character-assets.md). Original procedural dog sculptures, service/luggage/ball/glass props, projected shadows and rendered hotel variants were authored locally. The empty coat and founder portrait derive from the licensed human assets. `hotel-v5.blend`/`hotel-v5.json` define 17 matched cameras and 28 plates; `child-v5.blend`, `staff-v5.blend` and `encounter-props-v5.blend` preserve editable assets. No new online assets or hosted services were used. Build and verification record (local archive).
+All twelve encounters now have normal/changed versions. Three additional weighted humans reuse the retained official CC0 MakeHuman archive; additional young male/female skin evidence is recorded in the [character source note](room-zero-character-assets.md). Original procedural dog sculptures, service/luggage/ball/glass props, projected shadows and rendered hotel variants were authored locally. The empty coat and founder portrait derive from the licensed human assets. `hotel-v5.blend`/`hotel-v5.json` define 17 matched cameras and 28 plates; `child-v5.blend`, `staff-v5.blend` and `encounter-props-v5.blend` preserve editable assets. No new online assets or hosted services were used. [Build and verification record](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/encounters-05.md).
 
 ## Hostile reception ending 06 source update
 
-The new skeleton geometry, entrance/curtain geometry, matched reception shots, timeline, compositing and synthesized ending cues were authored locally. The skeleton uses the retained CC0-derived butler rig; the closing cast reuses the documented encounter assets. No new online assets, dependencies or hosted services were used. Editable sources are `ending-skeleton-v6.blend` and `ending-reception-v6.blend`; the camera contract is `ending-v6.json`. The existing 28 gameplay plates are joined by two ending plates. Evidence and provenance (local archive).
+The new skeleton geometry, entrance/curtain geometry, matched reception shots, timeline, compositing and synthesized ending cues were authored locally. The skeleton uses the retained CC0-derived butler rig; the closing cast reuses the documented encounter assets. No new online assets, dependencies or hosted services were used. Editable sources are `ending-skeleton-v6.blend` and `ending-reception-v6.blend`; the camera contract is `ending-v6.json`. The existing 28 gameplay plates are joined by two ending plates. [Evidence and provenance](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/ending-06.md).
 
 ## Vercel deployment and music research
 
-November 9: the existing runtime was hosted on Vercel at https://room-zero-ashy.vercel.app/ with Vercel Authentication protecting all URLs. No new game assets were downloaded. Official Rhino and retailer soundtrack listings were consulted for The Fireman / Dark Space Low as proposed cues; no recordings were added. Deployment record (local archive).
+November 9: the existing runtime was hosted on Vercel at https://room-zero-ashy.vercel.app/ with Vercel Authentication protecting all URLs. No new game assets were downloaded. Official Rhino and retailer soundtrack listings were consulted for The Fireman / Dark Space Low as proposed cues; no recordings were added. [Deployment record](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/deployment-06.md).
 
 ## Night music 07
 
-November 9: downloaded Night on the Docks - Piano (USUAN1100135) and Long Note Four (USUAN1100467) directly from Kevin MacLeod's Incompetech site under CC BY 4.0. Originals and official metadata/license-page evidence are retained in sources/music-07. In-game credits link artist, tracks, licence and modifications. Music build, source links and verification (local archive). These replace the earlier pending soundtrack status with independent free music; no Twin Peaks recording was obtained.
+November 9: downloaded Night on the Docks - Piano (USUAN1100135) and Long Note Four (USUAN1100467) directly from Kevin MacLeod's Incompetech site under CC BY 4.0. Originals and official metadata/license-page evidence are retained in sources/music-07. In-game credits link artist, tracks, licence and modifications. [Music build, source links and verification](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/music-07.md). These replace the earlier pending soundtrack status with independent free music; no Twin Peaks recording was obtained.
 
 
 ## Interface and locomotion 08
 
-November 9: self-hosted Cinzel 600 and IBM Plex Sans 400/500 from Google Fonts, under SIL Open Font License 1.1. Full licence texts are bundled in build/assets/fonts. The guest mesh remains the previously documented CC0-derived asset; six revised animation clips were authored locally in headless Blender. Implementation, provenance and evidence (local archive).
+November 9: self-hosted Cinzel 600 and IBM Plex Sans 400/500 from Google Fonts, under SIL Open Font License 1.1. Full licence texts are bundled in build/assets/fonts. The guest mesh remains the previously documented CC0-derived asset; six revised animation clips were authored locally in headless Blender. [Implementation, provenance and evidence](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/ui-gait-08.md).
 
 ## Observation loop and playthrough 09
 
-November 9: no new external assets or dependencies. New inspection plates and suite rush bindings/candles/salt were authored in local headless Blender; existing licensed characters/fonts/music are retained. Official PLAYISM Exit 8 and Hokum synopsis pages were consulted for the loop and general atmosphere. Editable hotel-v9.blend and runtime hotel-v9.json are preserved. Source links, implementation and evidence (local archive).
+November 9: no new external assets or dependencies. New inspection plates and suite rush bindings/candles/salt were authored in local headless Blender; existing licensed characters/fonts/music are retained. Official PLAYISM Exit 8 and Hokum synopsis pages were consulted for the loop and general atmosphere. Editable hotel-v9.blend and runtime hotel-v9.json are preserved. [Source links, implementation and evidence](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/playthrough-09.md).
 
 ## Runtime polish 11-13
 

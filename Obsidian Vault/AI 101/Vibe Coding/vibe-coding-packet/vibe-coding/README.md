@@ -11,7 +11,3 @@ Your car breaks down in the California desert. The hotel has one room left and a
 To run locally, open the build folder, run `npm run dev`, and visit [localhost:4170](http://127.0.0.1:4170/). Staff have authored replies. Vercel can generate additional replies when the project has a server-side `OPENAI_API_KEY`.
 
 I designed for a desktop keyboard. The four floors reuse room sets. [Testing results](build-record/testing-and-failure-log.md) · [Asset and music credits](sources/source-index.md)
-
-## Audio in the repository
-
-This source copy includes the game sound effects and timed cinematics. I keep the commercially recorded soundtrack out of the repository. The live game and local walkthrough have the full audio mix. The [sound credits](sources/sound-credits.md) list the music, creators and edits.

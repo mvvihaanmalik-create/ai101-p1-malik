@@ -28,7 +28,7 @@ I chose Hotel California as inspiration for the ending’s sense of being trappe
 
 I also chose the wine-and-1969 exchange as a written reference in the bar.
 
-The family-hotel inheritance, dead relative and hotel-closure task belong to an earlier discarded proposal. Earlier draft (local archive).
+The family-hotel inheritance, dead relative and hotel-closure task belong to an earlier discarded proposal. [Earlier draft](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/sources/archive/documentation-before-voice-edit-2026-11-11/room-zero-story-draft.md).
 
 [Song-inspired anomaly proposals](hotel-california-anomalies.md).
 

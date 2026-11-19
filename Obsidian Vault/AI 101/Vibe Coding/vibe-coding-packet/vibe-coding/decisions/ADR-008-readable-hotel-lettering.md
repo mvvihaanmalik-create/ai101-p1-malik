@@ -5,4 +5,4 @@ November 10, 2026
 
 **My decision:** I asked for heavier lettering. Codex re-rendered the same shots with bold serif text, slightly larger sizes and clearer contrast.
 
-**Tradeoff:** The signs gain weight without extra floating labels. I still need to judge the revision during the formal retest. Repair evidence (local archive).
+**Tradeoff:** The signs gain weight without extra floating labels. I still need to judge the revision during the formal retest. [Repair evidence](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/repairs-14/README.md).

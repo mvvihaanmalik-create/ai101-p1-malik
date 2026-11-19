@@ -19,7 +19,7 @@ I watched and gave feedback while Codex played and recorded. Tests 1–3 used v1
 
 ## Developer verification
 
-- **Opening and graphics.** Checked the full car-to-reception sequence, pause and skip. Fixed arm motion, grip and first-use rendering stalls. v40 check (local archive)
+- **Opening and graphics.** Checked the full car-to-reception sequence, pause and skip. Fixed arm motion, grip and first-use rendering stalls. [v40 check](file:///C:/Users/91982/Videos/Hotel%20of%20Horror%20Archive/build-record/tests/opening-40/README.md)
 - **Exploration.** Walked four storeys and back outside. Confirmed movement returned after a simulated graphics reset. [Route and limits](../hotel-exploration-plan.md)
 - **Final story.** Checked 200 shuffled routes and all twelve inspection views. The full demo reached the suite, reveal and credits. [v43 evidence](tests/visual-43/README.md) · [Recording checkpoints](walkthrough-tv-master/walkthrough-checkpoints.json)
 
